@@ -1,0 +1,8 @@
+[package]
+name = "ascalon-assets"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+memmap2 = "0.9"
+zerocopy = { version = "0.8", features = ["derive"] }

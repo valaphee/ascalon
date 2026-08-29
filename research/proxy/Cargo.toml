@@ -1,0 +1,16 @@
+[package]
+name = "proxy"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bytes = "1"
+futures-util = { version = "0.3", features = ["sink"] }
+tokio = { version = "1", features = [ "full" ] }
+tracy-client = { version = "0.19", default-features = false, features = ["enable", "only-localhost"] }
+uuid = "1"
+
+ascalon-assets = { path = "../../assets" }
+ascalon-network = { path = "../../network" }
+ascalon-protocol = { path = "../../protocol" }
+ascalon-protocol-schema = { path = "../../protocol-schema" }
