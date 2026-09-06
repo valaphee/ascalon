@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 import frida
 
 PROGRAM = r"C:\Program Files\Guild Wars 2\Gw2-64.exe"
-SCRIPT = "index.js"
+SCRIPT = "agent/index.js"
 
 
 def export_protocols(protocols):
