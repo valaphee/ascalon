@@ -196,7 +196,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown1">
+    <Messages Name="Agent">
       <Client>
         <Message Id="3" Name="Unknown3">
           <Word Name="unknown0" />
@@ -1077,7 +1077,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown8">
+    <Messages Name="Char">
       <Client>
         <Message Id="28" Name="Unknown28">
           <Byte Name="unknown0" />
@@ -4686,7 +4686,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown9">
+    <Messages Name="Chat">
       <Client>
         <Message Id="261" Name="Unknown261">
           <Dword Name="unknown0" />
@@ -4741,7 +4741,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown10">
+    <Messages Name="Cinematic">
       <Client>
         <Message Id="264" Name="Unknown264">
           <Byte Name="unknown0" />
@@ -4762,7 +4762,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown11">
+    <Messages Name="Claimable">
       <Client>
         <Message Id="257" Name="Unknown257">
           <Guid Name="unknown0" />
@@ -4914,7 +4914,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown13">
+    <Messages Name="Combat">
       <Client />
       <Server>
         <Message Id="734" Name="Unknown734" Addr="0x1412c19a0">
@@ -4965,7 +4965,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown14">
+    <Messages Name="Command">
       <Client>
         <Message Id="278" Name="Unknown278">
           <Dword Name="unknown0" />
@@ -5008,7 +5008,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown15">
+    <Messages Name="Conversation">
       <Client>
         <Message Id="276" Name="Unknown276">
           <Dword Name="unknown0" />
@@ -5093,7 +5093,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown16">
+    <Messages Name="DebugInfo">
       <Client>
         <Message Id="282" Name="Unknown282">
           <String Name="unknown0" Size="1024" />
@@ -5277,7 +5277,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown17">
+    <Messages Name="Dialog">
       <Client>
         <Message Id="288" Name="Unknown288">
           <Dword Name="unknown0" />
@@ -5332,7 +5332,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown18">
+    <Messages Name="DynamicProp">
       <Client />
       <Server>
         <!--<Message Id="782" Name="Unknown782" Addr="0x141342da0">
@@ -5356,7 +5356,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown19">
+    <Messages Name="Effect">
       <Client />
       <Server>
         <Message Id="786" Name="Unknown786" Addr="0x1413582c0">
@@ -5431,7 +5431,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown21">
+    <Messages Name="Event">
       <Client>
         <Message Id="289" Name="Unknown289" />
       </Client>
@@ -5542,7 +5542,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown22">
+    <Messages Name="Gadget">
       <Client>
         <Message Id="290" Name="Unknown290">
           <Dword Name="unknown0" />
@@ -5786,7 +5786,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown23">
+    <Messages Name="Guild">
       <Client>
         <Message Id="295" Name="Unknown295">
           <Byte Name="unknown0" />
@@ -6192,7 +6192,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown26">
+    <Messages Name="Instance">
       <Client>
         <Message Id="341" Name="Unknown341">
           <Dword Name="unknown0" />
@@ -6403,7 +6403,7 @@
         <Message Id="951" Name="Unknown951" Addr="0x1413ba720" />
       </Server>
     </Messages>
-    <Messages Name="Unknown28">
+    <Messages Name="Item">
       <Client />
       <Server>
         <Message Id="953" Name="Unknown953" Addr="0x1417f3790">
@@ -6641,7 +6641,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown32">
+    <Messages Name="Loot">
       <Client>
         <Message Id="364" Name="Unknown364">
           <Dword Name="unknown0" />
@@ -6722,7 +6722,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown33">
+    <Messages Name="Mail">
       <Client>
         <Message Id="393" Name="Unknown393">
           <Dword Name="unknown0" />
@@ -6866,7 +6866,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown34">
+    <Messages Name="MapLayerContext">
       <Client />
       <Server>
         <Message Id="1016" Name="Unknown1016" Addr="0x1413f3590">
@@ -6880,7 +6880,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown35">
+    <Messages Name="MapLayout">
       <Client>
         <Message Id="406" Name="Unknown406">
           <Dword Name="unknown0" />
@@ -6922,7 +6922,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown36">
+    <Messages Name="Marker">
       <Client />
       <Server>
         <Message Id="1021" Name="Unknown1021" Addr="0x1414082b0">
@@ -6984,7 +6984,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown38">
+    <Messages Name="Missile">
       <Client />
       <Server>
         <Message Id="1029" Name="Unknown1029" Addr="0x141409ba0">
@@ -7029,7 +7029,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown39">
+    <Messages Name="Mission">
       <Client>
         <Message Id="410" Name="Unknown410" />
         <Message Id="411" Name="Unknown411" />
@@ -7318,7 +7318,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown40">
+    <Messages Name="Network">
       <Client>
         <Message Id="1" Name="Unknown1" />
         <Message Id="2" Name="Unknown2">
@@ -7358,7 +7358,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown41">
+    <Messages Name="Objective">
       <Client>
         <Message Id="445" Name="Unknown445">
           <Dword Name="unknown0" />
@@ -7723,7 +7723,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown44">
+    <Messages Name="PointOfInterest">
       <Client />
       <Server>
         <Message Id="1141" Name="Unknown1141" Addr="0x141444800">
@@ -7802,7 +7802,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown47">
+    <Messages Name="QualityAssurance">
       <Client>
         <Message Id="458" Name="Unknown458">
           <Byte Name="unknown0" />
@@ -7902,7 +7902,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown53">
+    <Messages Name="Scene">
       <Client />
       <Server>
         <Message Id="1221" Name="Unknown1221" Addr="0x141477230">
@@ -7954,7 +7954,7 @@
         <Message Id="1228" Name="Unknown1228" Addr="0x141477920" />
       </Server>
     </Messages>
-    <Messages Name="Unknown55">
+    <Messages Name="Sector">
       <Client />
       <Server>
         <Message Id="1229" Name="Unknown1229" Addr="0x14147ac10">
@@ -8090,7 +8090,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown59">
+    <Messages Name="TimeOfDay">
       <Client />
       <Server>
         <Message Id="1245" Name="Unknown1245" Addr="0x14148c210">
@@ -8100,7 +8100,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown60">
+    <Messages Name="Tournament">
       <Client>
         <Message Id="481" Name="Unknown481">
           <Guid Name="unknown0" />
@@ -8232,7 +8232,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown61">
+    <Messages Name="Vendor">
       <Client>
         <Message Id="509" Name="Unknown509">
           <Dword Name="unknown0" />
@@ -8348,7 +8348,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown62">
+    <Messages Name="Vote">
       <Client>
         <Message Id="515" Name="Unknown515">
           <Dword Name="unknown0" />
@@ -8381,7 +8381,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown63">
+    <Messages Name="Web">
       <Client />
       <Server>
         <Message Id="1285" Name="Unknown1285" Addr="0x141548c40">
@@ -8390,7 +8390,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown64">
+    <Messages Name="Wvw">
       <Client>
         <Message Id="517" Name="Unknown517">
           <Dword Name="unknown0" />
@@ -8517,7 +8517,7 @@
     </Messages>
   </Protocol>
   <Protocol Name="Auth">
-    <Messages Name="Unknown40">
+    <Messages Name="Network">
       <Client>
         <Message Id="1" Name="Unknown1">
           <Dword Name="unknown0" />
