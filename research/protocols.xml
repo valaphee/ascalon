@@ -303,9 +303,7 @@
           <Optional Name="unknown8">
             <Dword Name="unknown0" />
             <Dword Name="unknown1" />
-            <Optional Name="unknown2">
-              <Point3 Name="unknown0" />
-            </Optional>
+            <Optional Name="unknown2" TypeName="Point3" />
           </Optional>
         </Message>
         <Message Id="13" Name="Unknown13">
@@ -723,9 +721,7 @@
           <Optional Name="unknown8">
             <Dword Name="unknown0" />
             <Dword Name="unknown1" />
-            <Optional Name="unknown2">
-              <Point3 Name="unknown0" />
-            </Optional>
+            <Optional Name="unknown2" TypeName="Point3" />
           </Optional>
         </Message>
         <Message Id="58" Name="Unknown58" Addr="0x14102f0b0">
@@ -742,9 +738,7 @@
           </Optional>
           <Dword Name="unknown6" />
           <Word Name="unknown7" />
-          <Optional Name="unknown8">
-            <Point3 Name="unknown0" />
-          </Optional>
+          <Optional Name="unknown8" TypeName="Point3" />
         </Message>
         <Message Id="59" Name="Unknown59" Addr="0x14102f150">
           <Word Name="unknown0" />
@@ -758,9 +752,7 @@
             <Byte Name="unknown2" />
             <Byte Name="unknown3" />
           </Optional>
-          <ArrayVarSmall Name="unknown6" Size="64">
-            <Point3 Name="unknown0" />
-          </ArrayVarSmall>
+          <ArrayVarSmall Name="unknown6" Size="64" TypeName="Point3" />
           <ArrayVarSmall Name="unknown7" Size="64" TypeName="Float" />
         </Message>
         <Message Id="60" Name="Unknown60" Addr="0x14102f1f0">
@@ -8034,9 +8026,7 @@
         <Message Id="1244" Name="Unknown1244" Addr="0x141488d10">
           <Dword Name="unknown0" />
           <ArrayFixed Name="unknown1" Size="8" TypeName="Dword" />
-          <ArrayFixed Name="unknown2" Size="8">
-            <Point3 Name="unknown0" />
-          </ArrayFixed>
+          <ArrayFixed Name="unknown2" Size="8" TypeName="Point3" />
         </Message>
       </Server>
     </Messages>

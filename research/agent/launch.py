@@ -67,7 +67,7 @@ def add_message_field(parent, field, index):
         }
         and len(field["elem"]) == 1
         and not field["elem"][0]["elem"]
-        and field["elem"][0]["type"] not in {"String", "CString", "Point3"}
+        and field["elem"][0]["type"] not in {"String", "CString"}
     ):
         elem.set("TypeName", field["elem"][0]["type"])
         return

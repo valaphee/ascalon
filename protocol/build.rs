@@ -15,7 +15,7 @@ fn ty(name: &str) -> Type {
         "Float2" => parse_quote!([f32; 2]),
         "Float3" => parse_quote!([f32; 3]),
         "Float4" => parse_quote!([f32; 4]),
-        "Point3" => parse_quote!(([f32; 3], u32)),
+        "Point3" => parse_quote!(Point3),
         "Guid" => parse_quote!(uuid::Uuid),
         "Address" => parse_quote!(std::net::SocketAddr),
         "String" => parse_quote!(Box<[u16]>),
@@ -70,10 +70,6 @@ fn encode_stmt(field: &MessageField, value: TokenStream) -> TokenStream {
     let size = field.size;
 
     match field.r#type.as_str() {
-        "Point3" => quote! {
-            #value.0.encode(buf)?;
-            #value.1.encode(buf)?;
-        },
         "String" => quote! {
             if #value.len() > #size {
                 return Err(());
@@ -137,7 +133,6 @@ fn decode_expr(parent: &Ident, field: &MessageField) -> TokenStream {
     let size = field.size;
 
     match field.r#type.as_str() {
-        "Point3" => quote!((<[f32; 3]>::decode(buf)?, u32::decode(buf)?)),
         "String" => quote!({
             let mut value = Vec::with_capacity(#size);
 

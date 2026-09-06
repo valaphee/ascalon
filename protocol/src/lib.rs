@@ -101,6 +101,22 @@ impl Decode for f32 {
     }
 }
 
+#[derive(Debug)]
+pub struct Point3([f32; 3], u32);
+
+impl Encode for Point3 {
+    fn encode(&self, buf: &mut BytesMut) -> Result<(), ()> {
+        self.0.encode(buf)?;
+        self.1.encode(buf)
+    }
+}
+
+impl Decode for Point3 {
+    fn decode(buf: &mut &[u8]) -> Result<Self, ()> {
+        Ok(Point3(Decode::decode(buf)?, Decode::decode(buf)?))
+    }
+}
+
 impl Encode for Uuid {
     fn encode(&self, buf: &mut BytesMut) -> Result<(), ()> {
         let (d1, d2, d3, d4) = self.as_fields();
