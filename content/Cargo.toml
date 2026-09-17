@@ -1,0 +1,10 @@
+[package]
+name = "ascalon-content"
+version = "0.1.0"
+edition = "2024"
+description = "Unofficial Guild Wars 2 content tools"
+license = "MIT"
+documentation = "https://docs.rs/ascalon-asset"
+repository = "https://github.com/valaphee/ascalon"
+
+[dependencies]

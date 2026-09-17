@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "asset",
+    "content",
+    "packfile-schema",
+    "network",
+    "protocol",
+    "protocol-schema"
+]
+resolver = "3"
