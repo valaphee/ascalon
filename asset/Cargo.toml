@@ -1,0 +1,19 @@
+[package]
+name = "ascalon-asset"
+version = "0.1.0"
+edition = "2024"
+description = "Unofficial Guild Wars 2 asset tools"
+license = "MIT"
+documentation = "https://docs.rs/ascalon-asset"
+repository = "https://github.com/valaphee/ascalon"
+
+[dependencies]
+bitflags = "2"
+zerocopy = { version = "0.8", features = ["derive"] }
+
+[build-dependencies]
+quote = "1"
+syn = "3"
+proc-macro2 = "1"
+
+ascalon-packfile-schema = { version = "0.1", path = "../packfile-schema" }

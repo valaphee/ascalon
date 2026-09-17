@@ -1,0 +1,207 @@
+interface Protocol {
+  id: number;
+  msgs: Messages[];
+}
+
+interface Messages {
+  id: number;
+  client: Message[];
+  server: Message[];
+}
+
+interface Message {
+  id: number;
+  addr: string | null;
+  fields: MessageField[];
+}
+
+interface MessageField {
+  type: string;
+  size: number;
+  fields: MessageField[];
+}
+
+const protocols: Protocol[] = [];
+
+rpc.exports = {
+  getProtocols: () => protocols,
+};
+
+// 40 53; 55; 56; 48 81 ec b0 00 00;
+Interceptor.attach(Process.mainModule.base.add(0xFEF760), {
+  onEnter(args) {
+    const mc = args[0];
+    const rawData = args[2];
+
+    const protocolId = mc.add(0x10).readU32();
+    const protocol = protocols.find((protocol) => protocol.id == protocolId);
+    if (protocol === undefined) return;
+
+    const messageId = rawData.readU16();
+    for (const msgs of protocol.msgs) {
+      const message = msgs.client.find((message) => message.id === messageId);
+
+      if (message !== undefined) {
+        message.addr = this.returnAddress
+          .sub(Process.mainModule.base)
+          .add(0x140000000)
+          .toString();
+
+        return;
+      }
+    }
+  },
+});
+
+// 48 89 6c 24 08; 48 89 74 24 10; 48 89 7c 24 18;
+let target = Process.mainModule.base.add(0xFF32C0);
+Interceptor.attach(target, {
+  onEnter(args) {
+    registerMessages(
+      args[0].toUInt32(),
+      args[6].toUInt32(),
+      args[2].toUInt32(),
+      args[3],
+      args[4].toUInt32(),
+      args[5],
+    );
+  },
+});
+Interceptor.attach(target = target.add(0xC0), {
+  onEnter(args) {
+    registerMessages(
+      args[0].toUInt32(),
+      args[6].toUInt32(),
+      args[2].toUInt32(),
+      args[3],
+      args[4].toUInt32(),
+      args[5],
+    );
+  },
+});
+Interceptor.attach(target = target.add(0xC0), {
+  onEnter(args) {
+    registerMessages(
+      args[0].toUInt32(),
+      args[4].toUInt32(),
+      0,
+      null,
+      args[2].toUInt32(),
+      args[3],
+    );
+  },
+});
+Interceptor.attach(target = target.add(0x90), {
+  onEnter(args) {
+    registerMessages(
+      args[0].toUInt32(),
+      args[4].toUInt32(),
+      args[2].toUInt32(),
+      args[3],
+      0,
+      null,
+    );
+  },
+});
+
+function registerMessages(
+  protocolId: number,
+  messagesId: number,
+  sendMsgCount: number,
+  sendMsgArray: NativePointer | null,
+  recvMsgCount: number,
+  recvMsgArray: NativePointer | null,
+): void {
+  let protocol = protocols.find((protocol) => protocol.id === protocolId);
+  if (protocol === undefined) {
+    protocol = {
+      id: protocolId,
+      msgs: [],
+    };
+    protocols.push(protocol);
+  }
+
+  let messages = protocol.msgs.find((messages) => messages.id == messagesId);
+  if (messages === undefined) {
+    messages = {
+      id: messagesId,
+      client: [],
+      server: [],
+    };
+    protocol.msgs.push(messages);
+  }
+
+  if (sendMsgArray != null) {
+    for (let i = 0; i < sendMsgCount; i++) {
+      const ptr = sendMsgArray.add(i * Process.pointerSize);
+      const defArray = ptr.readPointer();
+
+      const messageId = defArray.add(0x10).readU16();
+      messages.client.push({
+        id: messageId,
+        addr: null,
+        fields: parseFields(defArray.add(0x28)),
+      });
+    }
+  }
+
+  if (recvMsgArray != null) {
+    for (let i = 0; i < recvMsgCount; i++) {
+      const ptr = recvMsgArray.add(i * Process.pointerSize * 2);
+      const defArray = ptr.readPointer();
+      const dispatch = ptr.add(Process.pointerSize).readPointer();
+
+      const messageId = defArray.add(0x10).readU16();
+      messages.server.push({
+        id: messageId,
+        addr: dispatch.sub(Process.mainModule.base).add(0x140000000).toString(),
+        fields: parseFields(defArray.add(0x28)),
+      });
+    }
+  }
+}
+
+function parseFields(defArray: NativePointer): MessageField[] {
+  const fields: MessageField[] = [];
+
+  for (let def = defArray; def.readU32() != 0x00; def = def.add(0x28)) {
+    fields.push(parseField(def));
+  }
+
+  return fields;
+}
+
+function parseField(def: NativePointer): MessageField {
+  const fieldType = def.readU32();
+  const param = def.add(0x10).readU32();
+  const refTypeDef = def.add(0x18).readPointer();
+
+  const types: Record<number, string> = {
+    0x02: "Byte",
+    0x03: "Word",
+    0x04: "Dword",
+    0x05: "Qword",
+    0x06: "Float",
+    0x07: "Float2",
+    0x08: "Float3",
+    0x09: "Float4",
+    0x0a: "Point3",
+    0x0b: "Guid",
+    0x0c: "Address",
+    0x0d: "String",
+    0x0e: "CString",
+    0x0f: "Optional",
+    0x10: "ArrayFixed",
+    0x11: "ArrayVarSmall",
+    0x12: "ArrayVarLarge",
+    0x13: "BufferFixed",
+    0x14: "BufferVarSmall",
+    0x15: "BufferVarLarge",
+  };
+
+  return {
+    type: types[fieldType] ?? "Unknown",
+    size: param & 0xFFFF,
+    fields: refTypeDef.isNull() ? [] : parseFields(refTypeDef),
+  };
+}

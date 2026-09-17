@@ -1,0 +1,16 @@
+[package]
+name = "ascalon-network"
+version = "0.1.0"
+edition = "2024"
+description = "Unofficial Guild Wars 2 network codec"
+license = "MIT"
+documentation = "https://docs.rs/ascalon-network"
+repository = "https://github.com/valaphee/ascalon"
+
+[dependencies]
+bytes = "1"
+tokio-util = { version = "0.7", features = ["codec"] }
+zerocopy = "0.8"
+
+lz4_flex = "0.14"
+rc4 = "0.2"
