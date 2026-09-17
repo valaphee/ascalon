@@ -1,0 +1,11 @@
+[package]
+name = "ascalon-network"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bytes = "1"
+tokio-util = { version = "0.7", features = ["codec"] }
+
+lz4_flex = "0.14"
+rc4 = "0.2"
