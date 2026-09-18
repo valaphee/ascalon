@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
+<?xml-stylesheet type="text/xsl" href="protocols.xsl"?>
 <Protocols BuildId="207242">
-  <Protocol Name="Unknown0">
+  <Protocol Name="Game">
     <Messages Name="Unknown0">
       <Client>
         <Message Id="377" Name="Unknown377">
@@ -196,15 +197,15 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown1">
+    <Messages Name="Agent">
       <Client>
-        <Message Id="3" Name="Unknown3">
-          <Word Name="unknown0" />
+        <Message Id="3" Name="Abort">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="4" Name="Unknown4">
-          <Word Name="unknown0" />
+        <Message Id="4" Name="Abort">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Optional Name="unknown3">
@@ -221,16 +222,16 @@
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="6" Name="Unknown6">
-          <Word Name="unknown0" />
+        <Message Id="6" Name="Action">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
           <BufferVarSmall Name="unknown4" Size="250" />
           <Word Name="unknown5" />
         </Message>
-        <Message Id="7" Name="Unknown7">
-          <Word Name="unknown0" />
+        <Message Id="7" Name="ActionChar">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -252,8 +253,8 @@
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="9" Name="Unknown9">
-          <Word Name="unknown0" />
+        <Message Id="9" Name="Jump">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -268,7 +269,7 @@
           </Optional>
         </Message>
         <Message Id="10" Name="Unknown10">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -284,8 +285,8 @@
           <Float3 Name="unknown6" />
           <Float Name="unknown7" />
         </Message>
-        <Message Id="11" Name="Unknown11">
-          <Word Name="unknown0" />
+        <Message Id="11" Name="MoveDirection">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -306,8 +307,8 @@
             <Optional Name="unknown2" TypeName="Point3" />
           </Optional>
         </Message>
-        <Message Id="13" Name="Unknown13">
-          <Word Name="unknown0" />
+        <Message Id="13" Name="MoveRotate">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -316,8 +317,8 @@
           <Word Name="unknown6" />
           <Word Name="unknown7" />
         </Message>
-        <Message Id="14" Name="Unknown14">
-          <Word Name="unknown0" />
+        <Message Id="14" Name="MoveRotateToFace">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -326,8 +327,8 @@
           <Word Name="unknown6" />
           <Word Name="unknown7" />
         </Message>
-        <Message Id="15" Name="Unknown15">
-          <Word Name="unknown0" />
+        <Message Id="15" Name="MoveTeleport">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -337,8 +338,8 @@
           <Word Name="unknown7" />
           <Byte Name="unknown8" />
         </Message>
-        <Message Id="16" Name="Unknown16">
-          <Word Name="unknown0" />
+        <Message Id="16" Name="Param">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
@@ -347,7 +348,7 @@
         <Message Id="17" Name="Unknown17">
           <Word Name="unknown0" />
         </Message>
-        <Message Id="18" Name="Unknown18">
+        <Message Id="18" Name="ReportPosition">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <Float3 Name="unknown2" />
@@ -367,7 +368,7 @@
           <Float Name="unknown7" />
         </Message>
         <Message Id="20" Name="Unknown20">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -376,26 +377,26 @@
           <Float Name="unknown6" />
         </Message>
         <Message Id="21" Name="Unknown21">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="22" Name="Unknown22">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="23" Name="Unknown23">
-          <Word Name="unknown0" />
+        <Message Id="23" Name="Signal">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
           <BufferVarSmall Name="unknown4" Size="250" />
         </Message>
         <Message Id="24" Name="Unknown24">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Point3 Name="unknown2" />
           <Float3 Name="unknown3" />
@@ -404,8 +405,8 @@
           <Dword Name="unknown6" />
           <BufferVarSmall Name="unknown7" Size="250" />
         </Message>
-        <Message Id="25" Name="Unknown25">
-          <Word Name="unknown0" />
+        <Message Id="25" Name="SyncPos">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Point3 Name="unknown3" />
@@ -423,13 +424,13 @@
         </Message>
       </Client>
       <Server>
-        <Message Id="31" Name="Unknown31" Addr="0x14102eb00">
-          <Word Name="unknown0" />
+        <Message Id="31" Name="Abort" Addr="0x14102eb00">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="32" Name="Unknown32" Addr="0x14102eba0">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -443,8 +444,8 @@
             <Byte Name="unknown5" />
           </Optional>
         </Message>
-        <Message Id="33" Name="Unknown33" Addr="0x14102ec40">
-          <Word Name="unknown0" />
+        <Message Id="33" Name="Abort" Addr="0x14102ec40">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Optional Name="unknown3">
@@ -456,16 +457,16 @@
             <Byte Name="unknown5" />
           </Optional>
         </Message>
-        <Message Id="34" Name="Unknown34" Addr="0x14102ece0">
-          <Word Name="unknown0" />
+        <Message Id="34" Name="Action" Addr="0x14102ece0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
           <BufferVarSmall Name="unknown4" Size="250" />
           <Word Name="unknown5" />
         </Message>
-        <Message Id="35" Name="Unknown35" Addr="0x14102ed80">
-          <Word Name="unknown0" />
+        <Message Id="35" Name="ActionChar" Addr="0x14102ed80">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -483,12 +484,12 @@
           <Dword Name="unknown8" />
         </Message>
         <Message Id="36" Name="Unknown36" Addr="0x14102ee20">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="37" Name="Unknown37" Addr="0x14102eec0">
-          <Word Name="unknown0" />
+        <Message Id="37" Name="CreateChar" Addr="0x14102eec0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -505,7 +506,7 @@
           <Float Name="unknown14" />
         </Message>
         <Message Id="38" Name="Unknown38" Addr="0x14102ef60">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -516,8 +517,8 @@
           <Float Name="unknown8" />
           <Point3 Name="unknown9" />
         </Message>
-        <Message Id="40" Name="Unknown40" Addr="0x14102f000">
-          <Word Name="unknown0" />
+        <Message Id="40" Name="CreateKeyframed" Addr="0x14102f000">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -548,35 +549,35 @@
           <String Name="unknown17" Size="260" />
           <Optional Name="unknown18" TypeName="Float" />
         </Message>
-        <Message Id="41" Name="Unknown41" Addr="0x14102f0a0">
-          <Word Name="unknown0" />
+        <Message Id="41" Name="Destroy" Addr="0x14102f0a0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="42" Name="Unknown42" Addr="0x14102f1a0">
-          <Word Name="unknown0" />
+        <Message Id="42" Name="Effect" Addr="0x14102f1a0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
           <BufferVarSmall Name="unknown4" Size="250" />
         </Message>
         <Message Id="43" Name="Unknown43" Addr="0x14102f240">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="44" Name="Unknown44" Addr="0x14102f2e0">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="45" Name="Unknown45" Addr="0x14102f380">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="46" Name="Unknown46" Addr="0x14102f420">
-          <Word Name="unknown0" />
+        <Message Id="46" Name="WorldEnterChar" Addr="0x14102f420">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
@@ -586,7 +587,7 @@
           <Word Name="unknown7" />
         </Message>
         <Message Id="47" Name="Unknown47" Addr="0x14102f4c0">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Point3 Name="unknown3" />
@@ -597,27 +598,27 @@
           <Float Name="unknown8" />
           <Byte Name="unknown9" />
         </Message>
-        <Message Id="48" Name="Unknown48" Addr="0x14102f560">
-          <Word Name="unknown0" />
+        <Message Id="48" Name="WorldLeave" Addr="0x14102f560">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="49" Name="Unknown49" Addr="0x14102f600">
-          <Word Name="unknown0" />
+        <Message Id="49" Name="WorldReveal" Addr="0x14102f600">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="50" Name="Unknown50" Addr="0x14102f6a0">
-          <Word Name="unknown0" />
+        <Message Id="50" Name="InitiativeRemove" Addr="0x14102f6a0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="51" Name="Unknown51" Addr="0x14102f740">
-          <Word Name="unknown0" />
+        <Message Id="51" Name="InitiativeRestore" Addr="0x14102f740">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="52" Name="Unknown52" Addr="0x14102f7e0">
-          <Word Name="unknown0" />
+        <Message Id="52" Name="Jump" Addr="0x14102f7e0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -632,7 +633,7 @@
           </Optional>
         </Message>
         <Message Id="53" Name="Unknown53" Addr="0x14102f880">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -649,7 +650,7 @@
           <Byte Name="unknown7" />
         </Message>
         <Message Id="54" Name="Unknown54" Addr="0x14102f920">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -666,7 +667,7 @@
           <Float Name="unknown7" />
         </Message>
         <Message Id="55" Name="Unknown55" Addr="0x14102f9c0">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -686,7 +687,7 @@
           <Byte Name="unknown10" />
         </Message>
         <Message Id="56" Name="Unknown56" Addr="0x14102fa60">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -702,8 +703,8 @@
           <Float3 Name="unknown6" />
           <Float Name="unknown7" />
         </Message>
-        <Message Id="57" Name="Unknown57" Addr="0x14102fb00">
-          <Word Name="unknown0" />
+        <Message Id="57" Name="MoveDirection" Addr="0x14102fb00">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -724,8 +725,8 @@
             <Optional Name="unknown2" TypeName="Point3" />
           </Optional>
         </Message>
-        <Message Id="58" Name="Unknown58" Addr="0x14102fba0">
-          <Word Name="unknown0" />
+        <Message Id="58" Name="MoveOnPath" Addr="0x14102fba0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -740,8 +741,8 @@
           <Word Name="unknown7" />
           <Optional Name="unknown8" TypeName="Point3" />
         </Message>
-        <Message Id="59" Name="Unknown59" Addr="0x14102fc40">
-          <Word Name="unknown0" />
+        <Message Id="59" Name="MoveOnPath" Addr="0x14102fc40">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -752,11 +753,11 @@
             <Byte Name="unknown2" />
             <Byte Name="unknown3" />
           </Optional>
-          <ArrayVarSmall Name="unknown6" Size="64" TypeName="Point3" />
-          <ArrayVarSmall Name="unknown7" Size="64" TypeName="Float" />
+          <ArrayVarSmall Name="fullPath" Size="64" TypeName="Point3" />
+          <ArrayVarSmall Name="fullPathSpeeds" Size="64" TypeName="Float" />
         </Message>
-        <Message Id="60" Name="Unknown60" Addr="0x14102fce0">
-          <Word Name="unknown0" />
+        <Message Id="60" Name="MoveOnRail" Addr="0x14102fce0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -768,8 +769,8 @@
           <Dword Name="unknown9" />
           <Byte Name="unknown10" />
         </Message>
-        <Message Id="61" Name="Unknown61" Addr="0x141030000">
-          <Word Name="unknown0" />
+        <Message Id="61" Name="MoveRailSegment" Addr="0x141030000">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Point3 Name="unknown3" />
@@ -780,8 +781,8 @@
           <Dword Name="unknown8" />
           <Dword Name="unknown9" />
         </Message>
-        <Message Id="62" Name="Unknown62" Addr="0x14102fd80">
-          <Word Name="unknown0" />
+        <Message Id="62" Name="MoveRotate" Addr="0x14102fd80">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -790,8 +791,8 @@
           <Word Name="unknown6" />
           <Word Name="unknown7" />
         </Message>
-        <Message Id="63" Name="Unknown63" Addr="0x14102fe20">
-          <Word Name="unknown0" />
+        <Message Id="63" Name="MoveRotateToFace" Addr="0x14102fe20">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -800,15 +801,15 @@
           <Word Name="unknown6" />
           <Word Name="unknown7" />
         </Message>
-        <Message Id="64" Name="Unknown64" Addr="0x14102fec0">
-          <Word Name="unknown0" />
+        <Message Id="64" Name="MoveSegment" Addr="0x14102fec0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Point3 Name="unknown3" />
           <Byte Name="unknown4" />
         </Message>
         <Message Id="65" Name="Unknown65" Addr="0x14102ff60">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -819,8 +820,8 @@
           <Float Name="unknown8" />
           <Dword Name="unknown9" />
         </Message>
-        <Message Id="66" Name="Unknown66" Addr="0x1410300a0">
-          <Word Name="unknown0" />
+        <Message Id="66" Name="MoveTeleport" Addr="0x1410300a0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -830,8 +831,8 @@
           <Word Name="unknown7" />
           <Byte Name="unknown8" />
         </Message>
-        <Message Id="67" Name="Unknown67" Addr="0x141030140">
-          <Word Name="unknown0" />
+        <Message Id="67" Name="MoveToPoint" Addr="0x141030140">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -851,8 +852,8 @@
           <Word Name="unknown10" />
           <Byte Name="unknown11" />
         </Message>
-        <Message Id="68" Name="Unknown68" Addr="0x1410301e0">
-          <Word Name="unknown0" />
+        <Message Id="68" Name="MoveToPointTimed" Addr="0x1410301e0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -860,8 +861,8 @@
           <Point3 Name="unknown5" />
           <Word Name="unknown6" />
         </Message>
-        <Message Id="69" Name="Unknown69" Addr="0x141030280">
-          <Word Name="unknown0" />
+        <Message Id="69" Name="MoveToPointRotTimed" Addr="0x141030280">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -876,8 +877,8 @@
           <Word Name="unknown0" />
           <Qword Name="unknown1" />
         </Message>
-        <Message Id="71" Name="Unknown71" Addr="0x141030350">
-          <Word Name="unknown0" />
+        <Message Id="71" Name="Param" Addr="0x141030350">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
@@ -887,12 +888,12 @@
           <Word Name="unknown0" />
         </Message>
         <Message Id="76" Name="Unknown76" Addr="0x141030420">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="79" Name="Unknown79" Addr="0x1410304c0">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -901,7 +902,7 @@
           <Float Name="unknown6" />
         </Message>
         <Message Id="80" Name="Unknown80" Addr="0x141030560">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -909,20 +910,20 @@
           <Float4 Name="unknown5" />
         </Message>
         <Message Id="77" Name="Unknown77" Addr="0x141030600">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
           <Byte Name="unknown4" />
         </Message>
         <Message Id="78" Name="Unknown78" Addr="0x1410306a0">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="81" Name="Unknown81" Addr="0x141030740">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -930,7 +931,7 @@
           <Qword Name="unknown5" />
         </Message>
         <Message Id="82" Name="Unknown82" Addr="0x1410307e0">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Float Name="unknown3" />
@@ -938,18 +939,18 @@
           <Byte Name="unknown5" />
         </Message>
         <Message Id="83" Name="Unknown83" Addr="0x141030880">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="84" Name="Unknown84" Addr="0x1410308b0">
-          <Word Name="unknown0" />
+        <Message Id="84" Name="Signal" Addr="0x1410308b0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
           <BufferVarSmall Name="unknown4" Size="250" />
         </Message>
         <Message Id="85" Name="Unknown85" Addr="0x141030950">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Point3 Name="unknown2" />
           <Float3 Name="unknown3" />
@@ -958,14 +959,14 @@
           <Dword Name="unknown6" />
           <BufferVarSmall Name="unknown7" Size="250" />
         </Message>
-        <Message Id="86" Name="Unknown86" Addr="0x1410309f0">
-          <Word Name="unknown0" />
+        <Message Id="86" Name="SyncPos" Addr="0x1410309f0">
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Point3 Name="unknown3" />
         </Message>
         <Message Id="87" Name="Unknown87" Addr="0x141030a90">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Float4 Name="unknown3" />
@@ -976,7 +977,7 @@
           <Byte Name="unknown8" />
         </Message>
         <Message Id="88" Name="Unknown88" Addr="0x141030b30">
-          <Word Name="unknown0" />
+          <Word Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
@@ -1069,7 +1070,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown8">
+    <Messages Name="Char">
       <Client>
         <Message Id="28" Name="Unknown28">
           <Byte Name="unknown0" />
@@ -1861,83 +1862,83 @@
         </Message>
       </Client>
       <Server>
-        <Message Id="92" Name="Unknown92" Addr="0x141246c70">
+        <Message Id="92" Name="Account92" Addr="0x141246c70">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="93" Name="Unknown93" Addr="0x141246dd0">
+        <Message Id="93" Name="Account93" Addr="0x141246dd0">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="94" Name="Unknown94" Addr="0x141246eb0">
+        <Message Id="94" Name="Account94" Addr="0x141246eb0">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="95" Name="Unknown95" Addr="0x141246f10">
-          <Dword Name="unknown0" />
+        <Message Id="95" Name="Account95" Addr="0x141246f10">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="98" Name="Unknown98" Addr="0x141246cd0">
-          <Dword Name="unknown0" />
+        <Message Id="98" Name="Account98" Addr="0x141246cd0">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="255">
             <Dword Name="unknown0" />
             <Float Name="unknown1" />
           </ArrayVarSmall>
         </Message>
-        <Message Id="96" Name="Unknown96" Addr="0x141246d70">
+        <Message Id="96" Name="Account96" Addr="0x141246d70">
           <Word Name="unknown0" />
         </Message>
-        <Message Id="97" Name="Unknown97" Addr="0x141246e40">
+        <Message Id="97" Name="Account97" Addr="0x141246e40">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="99" Name="Unknown99" Addr="0x141246f80">
-          <Dword Name="unknown0" />
+        <Message Id="99" Name="Account99" Addr="0x141246f80">
+          <Dword Name="playerId" />
           <Word Name="unknown1" />
           <Qword Name="unknown2" />
         </Message>
-        <Message Id="100" Name="Unknown100" Addr="0x141246fd0">
+        <Message Id="100" Name="Account100" Addr="0x141246fd0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="101" Name="Unknown101" Addr="0x141247010">
-          <Dword Name="unknown0" />
+        <Message Id="101" Name="Account101" Addr="0x141247010">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="102" Name="Unknown102" Addr="0x141247060">
+        <Message Id="102" Name="Account102" Addr="0x141247060">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="103" Name="Unknown103" Addr="0x1412470c0">
+        <Message Id="103" Name="Account103" Addr="0x1412470c0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="108" Name="Unknown108" Addr="0x141247100">
-          <Byte Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="108" Name="Account108" Addr="0x141247100">
+          <Byte Name="vipAchievementType" />
+          <Byte Name="vipAchievementCount" />
         </Message>
-        <Message Id="109" Name="Unknown109" Addr="0x141247140">
+        <Message Id="109" Name="Account109" Addr="0x141247140">
           <Word Name="unknown0" />
-          <Byte Name="unknown1" />
+          <Byte Name="vipAchievementMessageType" />
         </Message>
-        <Message Id="110" Name="Unknown110" Addr="0x141247180" />
-        <Message Id="106" Name="Unknown106" Addr="0x1412471c0">
+        <Message Id="110" Name="Account110" Addr="0x141247180" />
+        <Message Id="106" Name="Account106" Addr="0x1412471c0">
           <ArrayFixed Name="unknown0" Size="6" TypeName="Dword" />
         </Message>
-        <Message Id="104" Name="Unknown104" Addr="0x141247350">
+        <Message Id="104" Name="Account104" Addr="0x141247350">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="105" Name="Unknown105" Addr="0x141247390">
-          <Word Name="unknown0" />
+        <Message Id="105" Name="Account105" Addr="0x141247390">
+          <Word Name="vipSkill" />
         </Message>
-        <Message Id="107" Name="Unknown107" Addr="0x1412473d0">
+        <Message Id="107" Name="Account107" Addr="0x1412473d0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="112" Name="Unknown112" Addr="0x141247420">
+        <Message Id="112" Name="Account112" Addr="0x141247420">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="113" Name="Unknown113" Addr="0x141247460">
+        <Message Id="113" Name="Account113" Addr="0x141247460">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="111" Name="Unknown111" Addr="0x1412474a0">
+        <Message Id="111" Name="Account111" Addr="0x1412474a0">
           <Byte Name="unknown0" />
         </Message>
         <Message Id="114" Name="Unknown114" Addr="0x1412474e0">
@@ -1946,13 +1947,13 @@
           <Byte Name="unknown2" />
         </Message>
         <Message Id="115" Name="Unknown115" Addr="0x141247550">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <ArrayFixed Name="unknown1" Size="3" TypeName="Dword" />
           <ArrayFixed Name="unknown2" Size="3" TypeName="Byte" />
           <ArrayVarSmall Name="unknown3" Size="255" TypeName="Dword" />
         </Message>
         <Message Id="116" Name="Unknown116" Addr="0x141247630">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -1962,7 +1963,7 @@
           <Dword Name="unknown0" />
         </Message>
         <Message Id="119" Name="Unknown119" Addr="0x141247710">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Word Name="unknown1" />
           <Byte Name="unknown2" />
           <Word Name="unknown3" />
@@ -1986,35 +1987,35 @@
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="24" Name="Unknown24" Addr="0x141247be0" />
-        <Message Id="25" Name="Unknown25" Addr="0x141247c30">
+        <Message Id="24" Name="Adventure24" Addr="0x141247be0" />
+        <Message Id="25" Name="Adventure25" Addr="0x141247c30">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="26" Name="Unknown26" Addr="0x141247c90">
+        <Message Id="26" Name="Adventure26" Addr="0x141247c90">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="27" Name="Unknown27" Addr="0x141247d10" />
-        <Message Id="28" Name="Unknown28" Addr="0x141247d60">
+        <Message Id="27" Name="Adventure27" Addr="0x141247d10" />
+        <Message Id="28" Name="Adventure28" Addr="0x141247d60">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="29" Name="Unknown29" Addr="0x141247e00">
+        <Message Id="29" Name="Adventure29" Addr="0x141247e00">
           <Byte Name="unknown0" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="30" Name="Unknown30" Addr="0x141247e70">
+        <Message Id="30" Name="Adventure30" Addr="0x141247e70">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="149" Name="Unknown149" Addr="0x141247ee0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Qword Name="unknown1" />
         </Message>
         <Message Id="150" Name="Unknown150" Addr="0x141247f40">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Qword Name="unknown1" />
         </Message>
         <Message Id="123" Name="Unknown123" Addr="0x141247fa0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float3 Name="unknown1" />
           <ArrayFixed Name="unknown2" Size="4" TypeName="Float" />
           <ArrayFixed Name="unknown3" Size="4" TypeName="Dword" />
@@ -2022,7 +2023,7 @@
           <Dword Name="unknown5" />
         </Message>
         <Message Id="124" Name="Unknown124" Addr="0x141248030">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Float3 Name="unknown2" />
           <Float3 Name="unknown3" />
@@ -2033,60 +2034,60 @@
           <Byte Name="unknown8" />
         </Message>
         <Message Id="151" Name="Unknown151" Addr="0x1412480e0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="152" Name="Unknown152" Addr="0x141248490">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Qword Name="unknown1" />
           <Qword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="153" Name="Unknown153" Addr="0x1412484e0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Qword Name="unknown1" />
           <Qword Name="unknown2" />
           <Qword Name="unknown3" />
         </Message>
         <Message Id="154" Name="Unknown154" Addr="0x141248530">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Qword Name="unknown1" />
           <Qword Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
         <Message Id="155" Name="Unknown155" Addr="0x141248a40">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Qword Name="unknown1" />
         </Message>
         <Message Id="125" Name="Unknown125" Addr="0x141248580">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="126" Name="Unknown126" Addr="0x1412485c0">
           <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="playerId" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
           <Byte Name="unknown4" />
           <Byte Name="unknown5" />
         </Message>
         <Message Id="127" Name="Unknown127" Addr="0x141248620">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="128" Name="Unknown128" Addr="0x141248680">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="129" Name="Unknown129" Addr="0x1412486c0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="130" Name="Unknown130" Addr="0x141248700">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="131" Name="Unknown131" Addr="0x141248740">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
@@ -2094,53 +2095,53 @@
           <ArrayVarSmall Name="unknown5" Size="5" TypeName="Dword" />
         </Message>
         <Message Id="132" Name="Unknown132" Addr="0x1412488b0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Float Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
         <Message Id="133" Name="Unknown133" Addr="0x141248860">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Float Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="134" Name="Unknown134" Addr="0x141248390">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="135" Name="Unknown135" Addr="0x141248190">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="136" Name="Unknown136" Addr="0x1412483d0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="137" Name="Unknown137" Addr="0x141248410">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="138" Name="Unknown138" Addr="0x141248310">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="139" Name="Unknown139" Addr="0x141248450">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="140" Name="Unknown140" Addr="0x141248150">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="141" Name="Unknown141" Addr="0x141248350">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="142" Name="Unknown142" Addr="0x141248210">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="143" Name="Unknown143" Addr="0x1412481d0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="144" Name="Unknown144" Addr="0x141248250">
           <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="playerId" />
           <Dword Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="8">
             <Dword Name="unknown0" />
@@ -2164,7 +2165,7 @@
           <Qword Name="unknown2" />
         </Message>
         <Message Id="156" Name="Unknown156" Addr="0x141248ab0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="159" Name="Unknown159" Addr="0x140240350">
@@ -2172,17 +2173,17 @@
           <Word Name="unknown1" />
         </Message>
         <Message Id="157" Name="Unknown157" Addr="0x141248b40">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="168" Name="Unknown168" Addr="0x141248bb0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="169" Name="Unknown169" Addr="0x141248c10">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="158" Name="Unknown158" Addr="0x141249200">
@@ -2194,11 +2195,11 @@
           <String Name="unknown2" Size="32" />
         </Message>
         <Message Id="161" Name="Unknown161" Addr="0x141248e10">
-          <Byte Name="unknown0" />
+          <Byte Name="buildTabIndex" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="163" Name="Unknown163" Addr="0x141248e80">
-          <Byte Name="unknown0" />
+          <Byte Name="buildTabIndex" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
           <ArrayFixed Name="unknown3" Size="10" TypeName="Word" />
@@ -2209,11 +2210,11 @@
           <String Name="unknown8" Size="32" />
         </Message>
         <Message Id="165" Name="Unknown165" Addr="0x141249100">
-          <Byte Name="unknown0" />
+          <Byte Name="buildTabIndex" />
           <ArrayFixed Name="unknown1" Size="16" TypeName="Byte" />
         </Message>
         <Message Id="164" Name="Unknown164" Addr="0x141248d40">
-          <Byte Name="unknown0" />
+          <Byte Name="buildTabIndex" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
@@ -2281,7 +2282,7 @@
           <String Name="unknown1" Size="32" />
         </Message>
         <Message Id="316" Name="Unknown316" Addr="0x141249ba0">
-          <Byte Name="unknown0" />
+          <Byte Name="gearTabIndex" />
           <ArrayFixed Name="unknown1" Size="20">
             <Dword Name="unknown0" />
             <Word Name="unknown1" />
@@ -2340,14 +2341,14 @@
           <Byte Name="unknown3" />
         </Message>
         <Message Id="170" Name="Unknown170" Addr="0x141249ad0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="171" Name="Unknown171" Addr="0x14124a670">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="172" Name="Unknown172" Addr="0x14124a6d0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Word Name="unknown3" />
@@ -2355,12 +2356,12 @@
           <Float Name="unknown5" />
         </Message>
         <Message Id="173" Name="Unknown173" Addr="0x14124a730">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="272" Name="Unknown272" Addr="0x14124a5f0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <String Name="unknown1" Size="96" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -2368,7 +2369,7 @@
           <Byte Name="unknown5" />
         </Message>
         <Message Id="273" Name="Unknown273" Addr="0x14124a630">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Dword Name="unknown3" />
@@ -2387,22 +2388,22 @@
             <Byte Name="unknown7" />
           </ArrayVarSmall>
         </Message>
-        <Message Id="174" Name="Unknown174" Addr="0x14124a780">
+        <Message Id="174" Name="Collection174" Addr="0x14124a780">
           <Word Name="unknown0" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
         </Message>
-        <Message Id="175" Name="Unknown175" Addr="0x14124a7c0">
-          <Word Name="unknown0" />
-          <ArrayVarSmall Name="unknown1" Size="32" TypeName="Dword" />
-          <ArrayVarLarge Name="unknown2" Size="512" TypeName="Word" />
+        <Message Id="175" Name="Collection175" Addr="0x14124a7c0">
+          <Word Name="collectionDataId" />
+          <ArrayVarSmall Name="collectibleBitArray" Size="32" TypeName="Dword" />
+          <ArrayVarLarge Name="collectibleArray" Size="512" TypeName="Word" />
         </Message>
         <Message Id="179" Name="Unknown179" Addr="0x14124a810">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="180" Name="Unknown180" Addr="0x14124a870">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="176" Name="Unknown176" Addr="0x14124a8e0">
@@ -2416,14 +2417,14 @@
           <Dword Name="unknown0" />
           <Float Name="unknown1" />
         </Message>
-        <Message Id="182" Name="Unknown182" Addr="0x14124abc0">
-          <Dword Name="unknown0" />
+        <Message Id="182" Name="CoreStats182" Addr="0x14124abc0">
+          <Dword Name="agentId" />
           <ArrayFixed Name="unknown1" Size="45" TypeName="Byte" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
           <Byte Name="unknown4" />
           <Dword Name="unknown5" />
-          <ArrayFixed Name="unknown6" Size="12">
+          <ArrayFixed Name="attributes" Size="12">
             <Word Name="unknown0" />
             <Word Name="unknown1" />
             <Word Name="unknown2" />
@@ -2432,109 +2433,109 @@
           <Float Name="unknown8" />
           <Float Name="unknown9" />
         </Message>
-        <Message Id="183" Name="Unknown183" Addr="0x14124aaf0">
-          <Dword Name="unknown0" />
+        <Message Id="183" Name="CoreStats183" Addr="0x14124aaf0">
+          <Dword Name="agentId" />
           <ArrayFixed Name="unknown1" Size="45" TypeName="Byte" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
           <Byte Name="unknown4" />
         </Message>
-        <Message Id="184" Name="Unknown184" Addr="0x14124aa90">
-          <Dword Name="unknown0" />
+        <Message Id="184" Name="CoreStats184" Addr="0x14124aa90">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="185" Name="Unknown185" Addr="0x14124ad30">
-          <Dword Name="unknown0" />
+        <Message Id="185" Name="CoreStats185" Addr="0x14124ad30">
+          <Dword Name="agentId" />
           <ArrayFixed Name="unknown1" Size="45" TypeName="Byte" />
         </Message>
-        <Message Id="186" Name="Unknown186" Addr="0x14124adc0">
-          <Dword Name="unknown0" />
+        <Message Id="186" Name="CoreStats186" Addr="0x14124adc0">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
         </Message>
-        <Message Id="187" Name="Unknown187" Addr="0x14124ae50">
-          <Dword Name="unknown0" />
+        <Message Id="187" Name="CoreStats187" Addr="0x14124ae50">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Word Name="unknown2" />
         </Message>
-        <Message Id="188" Name="Unknown188" Addr="0x14124aef0">
-          <Dword Name="unknown0" />
+        <Message Id="188" Name="CoreStats188" Addr="0x14124aef0">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="189" Name="Unknown189" Addr="0x14124af80">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="189" Name="CoreStats189" Addr="0x14124af80">
+          <Dword Name="agentId" />
+          <Byte Name="attribute" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
         </Message>
-        <Message Id="190" Name="Unknown190" Addr="0x14124b030">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="190" Name="CoreStats190" Addr="0x14124b030">
+          <Dword Name="agentId" />
+          <Byte Name="level" />
         </Message>
-        <Message Id="191" Name="Unknown191" Addr="0x14124b0c0">
-          <Dword Name="unknown0" />
+        <Message Id="191" Name="CoreStats191" Addr="0x14124b0c0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
-        <Message Id="192" Name="Unknown192" Addr="0x14124b160">
-          <Dword Name="unknown0" />
+        <Message Id="192" Name="CoreStats192" Addr="0x14124b160">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
-        <Message Id="193" Name="Unknown193" Addr="0x14124b200">
-          <Dword Name="unknown0" />
+        <Message Id="193" Name="CoreStats193" Addr="0x14124b200">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="194" Name="Unknown194" Addr="0x14124b290">
-          <Dword Name="unknown0" />
+        <Message Id="194" Name="Crafting194" Addr="0x14124b290">
+          <Dword Name="playerId" />
           <Word Name="unknown1" />
         </Message>
-        <Message Id="195" Name="Unknown195" Addr="0x14124b2d0">
-          <Dword Name="unknown0" />
+        <Message Id="195" Name="Crafting195" Addr="0x14124b2d0">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="196" Name="Unknown196" Addr="0x14124b310">
-          <Dword Name="unknown0" />
+        <Message Id="196" Name="Crafting196" Addr="0x14124b310">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="64" TypeName="Dword" />
         </Message>
-        <Message Id="197" Name="Unknown197" Addr="0x14124b360">
-          <Dword Name="unknown0" />
+        <Message Id="197" Name="Crafting197" Addr="0x14124b360">
+          <Dword Name="playerId" />
           <Word Name="unknown1" />
         </Message>
-        <Message Id="198" Name="Unknown198" Addr="0x14124b3a0">
-          <Dword Name="unknown0" />
+        <Message Id="198" Name="Crafting198" Addr="0x14124b3a0">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="128" TypeName="Dword" />
           <ArrayVarSmall Name="unknown2" Size="4" TypeName="Dword" />
         </Message>
-        <Message Id="199" Name="Unknown199" Addr="0x14124b4d0">
-          <Dword Name="unknown0" />
+        <Message Id="199" Name="Crafting199" Addr="0x14124b4d0">
+          <Dword Name="playerId" />
           <Word Name="unknown1" />
         </Message>
-        <Message Id="200" Name="Unknown200" Addr="0x14124b510">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="200" Name="Crafting200" Addr="0x14124b510">
+          <Dword Name="playerId" />
+          <Byte Name="discipline" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="201" Name="Unknown201" Addr="0x14124b580">
-          <Dword Name="unknown0" />
+        <Message Id="201" Name="Crafting201" Addr="0x14124b580">
+          <Dword Name="playerId" />
         </Message>
         <Message Id="202" Name="Unknown202" Addr="0x14124b5c0">
           <Word Name="unknown0" />
         </Message>
-        <Message Id="203" Name="Unknown203" Addr="0x14124b600">
+        <Message Id="203" Name="Currency203" Addr="0x14124b600">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="204" Name="Unknown204" Addr="0x14124b680">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="205" Name="Unknown205" Addr="0x14124b730">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="206" Name="Unknown206" Addr="0x14124b6d0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="207" Name="Unknown207" Addr="0x14124b7a0">
@@ -2574,42 +2575,42 @@
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="216" Name="Unknown216" Addr="0x14124ba00">
-          <Dword Name="unknown0" />
+        <Message Id="216" Name="Endurance216" Addr="0x14124ba00">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
         </Message>
-        <Message Id="217" Name="Unknown217" Addr="0x14124ba70">
-          <Dword Name="unknown0" />
+        <Message Id="217" Name="Endurance217" Addr="0x14124ba70">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="218" Name="Unknown218" Addr="0x14124bbf0">
-          <Dword Name="unknown0" />
+        <Message Id="218" Name="Endurance218" Addr="0x14124bbf0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="219" Name="Unknown219" Addr="0x14124bb60">
-          <Dword Name="unknown0" />
+        <Message Id="219" Name="Endurance219" Addr="0x14124bb60">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="220" Name="Unknown220" Addr="0x14124bad0">
-          <Dword Name="unknown0" />
+        <Message Id="220" Name="Endurance220" Addr="0x14124bad0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="221" Name="Unknown221" Addr="0x14124bc80">
-          <Dword Name="unknown0" />
+        <Message Id="221" Name="Energy221" Addr="0x14124bc80">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Float Name="unknown2" />
         </Message>
-        <Message Id="222" Name="Unknown222" Addr="0x14124bd20">
-          <Dword Name="unknown0" />
+        <Message Id="222" Name="Energy222" Addr="0x14124bd20">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
-        <Message Id="223" Name="Unknown223" Addr="0x14124bde0">
-          <Dword Name="unknown0" />
+        <Message Id="223" Name="Energy223" Addr="0x14124bde0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
@@ -2657,15 +2658,15 @@
           <Byte Name="unknown1" />
         </Message>
         <Message Id="245" Name="Unknown245" Addr="0x14124c330">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="246" Name="Unknown246" Addr="0x14124c410">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
         </Message>
         <Message Id="247" Name="Unknown247" Addr="0x14124c390">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
@@ -2675,25 +2676,25 @@
           <Word Name="unknown0" />
         </Message>
         <Message Id="249" Name="Unknown249" Addr="0x14124c480">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarLarge Name="unknown1" Size="512" TypeName="Dword" />
         </Message>
         <Message Id="250" Name="Unknown250" Addr="0x14124c5a0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
           <Float Name="unknown2" />
           <Guid Name="unknown3" />
         </Message>
         <Message Id="251" Name="Unknown251" Addr="0x14124c610">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
         </Message>
         <Message Id="253" Name="Unknown253" Addr="0x14124c670">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="254" Name="Unknown254" Addr="0x14124c700">
-          <Dword Name="unknown0" />
+        <Message Id="254" Name="Health254" Addr="0x14124c700">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Word Name="unknown3" />
@@ -2701,8 +2702,8 @@
           <Dword Name="unknown5" />
           <Dword Name="unknown6" />
         </Message>
-        <Message Id="255" Name="Unknown255" Addr="0x14124c800">
-          <Dword Name="unknown0" />
+        <Message Id="255" Name="Health255" Addr="0x14124c800">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
@@ -2711,24 +2712,24 @@
           <Float Name="unknown6" />
           <Float Name="unknown7" />
         </Message>
-        <Message Id="256" Name="Unknown256" Addr="0x14124c8a0">
-          <Dword Name="unknown0" />
+        <Message Id="256" Name="Health256" Addr="0x14124c8a0">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
         </Message>
-        <Message Id="257" Name="Unknown257" Addr="0x14124c920">
-          <Dword Name="unknown0" />
+        <Message Id="257" Name="Health257" Addr="0x14124c920">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="258" Name="Unknown258" Addr="0x14124c980">
-          <Dword Name="unknown0" />
+        <Message Id="258" Name="Health258" Addr="0x14124c980">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
           <Float Name="unknown4" />
           <Float Name="unknown5" />
         </Message>
-        <Message Id="259" Name="Unknown259" Addr="0x14124ca30">
-          <Dword Name="unknown0" />
+        <Message Id="259" Name="Health259" Addr="0x14124ca30">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
         </Message>
         <Message Id="260" Name="Unknown260" Addr="0x14124caa0">
@@ -2767,160 +2768,160 @@
         <Message Id="270" Name="Unknown270" Addr="0x14124cdf0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="275" Name="Unknown275" Addr="0x14124ce50">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="275" Name="Inventory275" Addr="0x14124ce50">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
+          <Byte Name="locationType" />
+          <Dword Name="slotIndex" />
+        </Message>
+        <Message Id="276" Name="Inventory276" Addr="0x14124cf80">
+          <Dword Name="itemId" />
+        </Message>
+        <Message Id="277" Name="Inventory277" Addr="0x14124d040">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
+          <Byte Name="locationType" />
+          <Byte Name="slotIndex" />
+        </Message>
+        <Message Id="278" Name="Inventory278" Addr="0x14124d160">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
           <Byte Name="unknown2" />
-          <Dword Name="unknown3" />
         </Message>
-        <Message Id="276" Name="Unknown276" Addr="0x14124cf80">
-          <Dword Name="unknown0" />
-        </Message>
-        <Message Id="277" Name="Unknown277" Addr="0x14124d040">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
-          <Byte Name="unknown3" />
-        </Message>
-        <Message Id="278" Name="Unknown278" Addr="0x14124d160">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
-        </Message>
-        <Message Id="274" Name="Unknown274" Addr="0x14124d230">
+        <Message Id="274" Name="Inventory274" Addr="0x14124d230">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="281" Name="Unknown281" Addr="0x14124d270">
-          <Dword Name="unknown0" />
+        <Message Id="281" Name="Inventory281" Addr="0x14124d270">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="282" Name="Unknown282" Addr="0x14124d2d0">
-          <Dword Name="unknown0" />
+        <Message Id="282" Name="Inventory282" Addr="0x14124d2d0">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="283" Name="Unknown283" Addr="0x14124d350">
-          <Dword Name="unknown0" />
+        <Message Id="283" Name="Inventory283" Addr="0x14124d350">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="284" Name="Unknown284" Addr="0x14124d3b0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="284" Name="Inventory284" Addr="0x14124d3b0">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
         </Message>
-        <Message Id="285" Name="Unknown285" Addr="0x14124d480">
+        <Message Id="285" Name="Inventory285" Addr="0x14124d480">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
           <ArrayVarSmall Name="unknown2" Size="10" TypeName="Dword" />
         </Message>
-        <Message Id="286" Name="Unknown286" Addr="0x14124d700" />
-        <Message Id="287" Name="Unknown287" Addr="0x14124d740">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+        <Message Id="286" Name="Inventory286" Addr="0x14124d700" />
+        <Message Id="287" Name="Inventory287" Addr="0x14124d740">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
+          <Byte Name="equipSlot" />
         </Message>
-        <Message Id="288" Name="Unknown288" Addr="0x14124d820">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
-          <Dword Name="unknown3" />
+        <Message Id="288" Name="Inventory288" Addr="0x14124d820">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
+          <Byte Name="locationType" />
+          <Dword Name="slotIndex" />
         </Message>
-        <Message Id="292" Name="Unknown292" Addr="0x14124da80">
-          <Dword Name="unknown0" />
+        <Message Id="292" Name="Inventory292" Addr="0x14124da80">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="293" Name="Unknown293" Addr="0x14124db00">
-          <Dword Name="unknown0" />
+        <Message Id="293" Name="Inventory293" Addr="0x14124db00">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="289" Name="Unknown289" Addr="0x14124d900">
-          <Dword Name="unknown0" />
+        <Message Id="289" Name="Inventory289" Addr="0x14124d900">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="290" Name="Unknown290" Addr="0x14124d980">
-          <Dword Name="unknown0" />
+        <Message Id="290" Name="Inventory290" Addr="0x14124d980">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="291" Name="Unknown291" Addr="0x14124da00">
-          <Dword Name="unknown0" />
+        <Message Id="291" Name="Inventory291" Addr="0x14124da00">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Word Name="unknown2" />
         </Message>
-        <Message Id="294" Name="Unknown294" Addr="0x14124db80">
-          <Dword Name="unknown0" />
+        <Message Id="294" Name="Inventory294" Addr="0x14124db80">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
+        </Message>
+        <Message Id="295" Name="Inventory295" Addr="0x14124dc50">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="295" Name="Unknown295" Addr="0x14124dc50">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="296" Name="Inventory296" Addr="0x14124dd50">
+          <Dword Name="agentId" />
+          <Byte Name="outfit" />
         </Message>
-        <Message Id="296" Name="Unknown296" Addr="0x14124dd50">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="297" Name="Inventory297" Addr="0x14124dcc0">
+          <Dword Name="agentId" />
+          <Byte Name="gatherSlot" />
         </Message>
-        <Message Id="297" Name="Unknown297" Addr="0x14124dcc0">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="298" Name="Inventory298" Addr="0x14124dde0">
+          <Dword Name="agentId" />
+          <Byte Name="weaponSet" />
         </Message>
-        <Message Id="298" Name="Unknown298" Addr="0x14124dde0">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
-        </Message>
-        <Message Id="299" Name="Unknown299" Addr="0x14124de70">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="299" Name="Inventory299" Addr="0x14124de70">
+          <Dword Name="agentId" />
+          <Dword Name="bagSlot" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="300" Name="Unknown300" Addr="0x14124df20">
-          <Dword Name="unknown0" />
+        <Message Id="300" Name="Inventory300" Addr="0x14124df20">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="301" Name="Unknown301" Addr="0x14124dfb0">
-          <Dword Name="unknown0" />
+        <Message Id="301" Name="Inventory301" Addr="0x14124dfb0">
+          <Dword Name="agentId" />
           <ArrayVarSmall Name="unknown1" Size="4" TypeName="Dword" />
         </Message>
-        <Message Id="302" Name="Unknown302" Addr="0x14124e050">
-          <Dword Name="unknown0" />
+        <Message Id="302" Name="Inventory302" Addr="0x14124e050">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
-          <Byte Name="unknown2" />
+          <Byte Name="weaponSet" />
         </Message>
-        <Message Id="303" Name="Unknown303" Addr="0x14124e0f0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="303" Name="Inventory303" Addr="0x14124e0f0">
+          <Dword Name="agentId" />
+          <Dword Name="slotIndex" />
         </Message>
-        <Message Id="304" Name="Unknown304" Addr="0x14124e180">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="304" Name="Inventory304" Addr="0x14124e180">
+          <Dword Name="agentId" />
+          <Dword Name="slotIndex" />
         </Message>
-        <Message Id="305" Name="Unknown305" Addr="0x14124e210">
-          <Dword Name="unknown0" />
+        <Message Id="305" Name="Inventory305" Addr="0x14124e210">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="306" Name="Unknown306" Addr="0x14124e2a0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="306" Name="Inventory306" Addr="0x14124e2a0">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
           <ArrayVarSmall Name="unknown2" Size="255" TypeName="Dword" />
         </Message>
-        <Message Id="307" Name="Unknown307" Addr="0x14124e440">
-          <Dword Name="unknown0" />
+        <Message Id="307" Name="Inventory307" Addr="0x14124e440">
+          <Dword Name="agentId" />
+          <Dword Name="bagSlot" />
+          <Dword Name="itemId" />
+        </Message>
+        <Message Id="308" Name="Inventory308" Addr="0x14124e510">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="308" Name="Unknown308" Addr="0x14124e510">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
+        <Message Id="309" Name="Inventory309" Addr="0x14124e620">
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
         </Message>
-        <Message Id="309" Name="Unknown309" Addr="0x14124e620">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-        </Message>
-        <Message Id="310" Name="Unknown310" Addr="0x14124e6f0">
-          <Dword Name="unknown0" />
+        <Message Id="310" Name="Inventory310" Addr="0x14124e6f0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="311" Name="Unknown311" Addr="0x14124e790">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="311" Name="Inventory311" Addr="0x14124e790">
+          <Dword Name="agentId" />
+          <Dword Name="itemDataId" />
         </Message>
         <Message Id="325" Name="Unknown325" Addr="0x14124e880">
           <ArrayFixed Name="unknown0" Size="2" TypeName="Dword" />
@@ -2930,7 +2931,7 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="327" Name="Unknown327" Addr="0x14124e950">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
@@ -2938,75 +2939,75 @@
           <Dword Name="unknown5" />
         </Message>
         <Message Id="328" Name="Unknown328" Addr="0x14124ea30">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="329" Name="Unknown329" Addr="0x14124eb40">
           <Dword Name="unknown0" />
         </Message>
         <Message Id="330" Name="Unknown330" Addr="0x14124eac0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarLarge Name="unknown1" Size="512" TypeName="Dword" />
         </Message>
-        <Message Id="331" Name="Unknown331" Addr="0x14124ebe0">
-          <Dword Name="unknown0" />
+        <Message Id="331" Name="Kennel331" Addr="0x14124ebe0">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="32" TypeName="Dword" />
         </Message>
-        <Message Id="332" Name="Unknown332" Addr="0x14124ecc0">
-          <Dword Name="unknown0" />
+        <Message Id="332" Name="Kennel332" Addr="0x14124ecc0">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="333" Name="Unknown333" Addr="0x14124ed20">
-          <Dword Name="unknown0" />
+        <Message Id="333" Name="Kennel333" Addr="0x14124ed20">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="335" Name="Unknown335" Addr="0x14124ed80" />
-        <Message Id="334" Name="Unknown334" Addr="0x14124ee00">
-          <Dword Name="unknown0" />
+        <Message Id="335" Name="Kennel335" Addr="0x14124ed80" />
+        <Message Id="334" Name="Kennel334" Addr="0x14124ee00">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="341" Name="Unknown341" Addr="0x14124eea0">
-          <Dword Name="unknown0" />
+        <Message Id="341" Name="Kennel341" Addr="0x14124eea0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="336" Name="Unknown336" Addr="0x14124ef10">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
-          <Dword Name="unknown2" />
+        <Message Id="336" Name="Kennel336" Addr="0x14124ef10">
+          <Dword Name="agentId" />
+          <Byte Name="equipSlot" />
+          <Dword Name="petAgentId" />
         </Message>
-        <Message Id="337" Name="Unknown337" Addr="0x14124eff0">
-          <Dword Name="unknown0" />
+        <Message Id="337" Name="Kennel337" Addr="0x14124eff0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="338" Name="Unknown338" Addr="0x14124f0e0">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="338" Name="Kennel338" Addr="0x14124f0e0">
+          <Dword Name="agentId" />
+          <Byte Name="equipSlot" />
           <String Name="unknown2" Size="32" />
-          <Dword Name="unknown3" />
-          <Dword Name="unknown4" />
+          <Dword Name="companionDataId" />
+          <Dword Name="sectorDataId" />
         </Message>
-        <Message Id="339" Name="Unknown339" Addr="0x14124f270">
-          <Dword Name="unknown0" />
+        <Message Id="339" Name="Kennel339" Addr="0x14124f270">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="340" Name="Unknown340" Addr="0x14124f300">
-          <Dword Name="unknown0" />
+        <Message Id="340" Name="Kennel340" Addr="0x14124f300">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="342" Name="Unknown342" Addr="0x14124f390">
-          <Dword Name="unknown0" />
-          <Word Name="unknown1" />
+        <Message Id="342" Name="Kennel342" Addr="0x14124f390">
+          <Dword Name="agentId" />
+          <Word Name="companionDataId" />
         </Message>
-        <Message Id="343" Name="Unknown343" Addr="0x14124f460">
-          <Dword Name="unknown0" />
+        <Message Id="343" Name="Ladder343" Addr="0x14124f460">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="344" Name="Unknown344" Addr="0x14124f500" />
-        <Message Id="345" Name="Unknown345" Addr="0x14124f550">
+        <Message Id="344" Name="LegendaryArmory344" Addr="0x14124f500" />
+        <Message Id="345" Name="LegendaryArmory345" Addr="0x14124f550">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
@@ -3021,29 +3022,29 @@
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="350" Name="Unknown350" Addr="0x14124f780">
+        <Message Id="350" Name="MadLib350" Addr="0x14124f780">
           <ArrayVarSmall Name="unknown0" Size="32" TypeName="Byte" />
         </Message>
         <Message Id="351" Name="Unknown351" Addr="0x14124f820">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
           <Word Name="unknown4" />
         </Message>
         <Message Id="352" Name="Unknown352" Addr="0x14124f8a0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="353" Name="Unknown353" Addr="0x14124f9a0">
           <Dword Name="unknown0" />
         </Message>
         <Message Id="354" Name="Unknown354" Addr="0x14124f930">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarLarge Name="unknown1" Size="32" TypeName="Dword" />
         </Message>
         <Message Id="355" Name="Unknown355" Addr="0x14124fa40">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
         </Message>
         <Message Id="356" Name="Unknown356" Addr="0x14124fab0">
@@ -3085,39 +3086,39 @@
         <Message Id="364" Name="Unknown364" Addr="0x14124fcd0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="366" Name="Unknown366" Addr="0x14124fd30">
+        <Message Id="366" Name="MinipetCollection366" Addr="0x14124fd30">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="367" Name="Unknown367" Addr="0x14124fd90">
-          <Word Name="unknown0" />
+        <Message Id="367" Name="MinipetCollection367" Addr="0x14124fd90">
+          <Word Name="minipetDataId" />
         </Message>
-        <Message Id="368" Name="Unknown368" Addr="0x14124fdf0">
+        <Message Id="368" Name="MinipetCollection368" Addr="0x14124fdf0">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="369" Name="Unknown369" Addr="0x14124fe50">
+        <Message Id="369" Name="MinipetCollection369" Addr="0x14124fe50">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="370" Name="Unknown370" Addr="0x14124feb0">
+        <Message Id="370" Name="MinipetCollection370" Addr="0x14124feb0">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="371" Name="Unknown371" Addr="0x14124ff10">
+        <Message Id="371" Name="MinipetCollection371" Addr="0x14124ff10">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="372" Name="Unknown372" Addr="0x141250020">
-          <Word Name="unknown0" />
+        <Message Id="372" Name="MinipetCollection372" Addr="0x141250020">
+          <Word Name="minipetDataId" />
         </Message>
-        <Message Id="373" Name="Unknown373" Addr="0x14124ffe0">
+        <Message Id="373" Name="MinipetCollection373" Addr="0x14124ffe0">
           <ArrayVarLarge Name="unknown0" Size="256" TypeName="Dword" />
         </Message>
         <Message Id="374" Name="Unknown374" Addr="0x14124ff70">
           <Byte Name="unknown0" />
         </Message>
         <Message Id="375" Name="Unknown375" Addr="0x141250060">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="376" Name="Unknown376" Addr="0x1412500c0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <String Name="unknown1" Size="128" />
           <Word Name="unknown2" />
           <Optional Name="unknown3">
@@ -3135,50 +3136,50 @@
           </Optional>
         </Message>
         <Message Id="377" Name="Unknown377" Addr="0x1412502b0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="378" Name="Unknown378" Addr="0x141250320">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="379" Name="Unknown379" Addr="0x141250380">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="385" Name="Unknown385" Addr="0x1412503f0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="380" Name="Unknown380" Addr="0x141250450">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="381" Name="Unknown381" Addr="0x1412504b0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <String Name="unknown1" Size="128" />
         </Message>
         <Message Id="382" Name="Unknown382" Addr="0x141250510">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="383" Name="Unknown383" Addr="0x141250570">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="384" Name="Unknown384" Addr="0x1412505d0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Guid Name="unknown2" />
         </Message>
         <Message Id="386" Name="Unknown386" Addr="0x141250660">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Qword Name="unknown1" />
         </Message>
         <Message Id="387" Name="Unknown387" Addr="0x1412506c0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <String Name="unknown1" Size="128" />
         </Message>
         <Message Id="388" Name="Unknown388" Addr="0x141250720">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
@@ -3186,54 +3187,54 @@
           <Dword Name="unknown5" />
         </Message>
         <Message Id="389" Name="Unknown389" Addr="0x141250800">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="390" Name="Unknown390" Addr="0x141250890">
-          <Dword Name="unknown0" />
-          <Word Name="unknown1" />
+          <Dword Name="agentId" />
+          <Word Name="mountSkinDataId" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="391" Name="Unknown391" Addr="0x1412509d0">
-          <Word Name="unknown0" />
+          <Word Name="skinDataId" />
         </Message>
         <Message Id="392" Name="Unknown392" Addr="0x141250950">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarLarge Name="unknown1" Size="512" TypeName="Dword" />
         </Message>
-        <Message Id="393" Name="Unknown393" Addr="0x141250ae0">
-          <Dword Name="unknown0" />
+        <Message Id="393" Name="Move393" Addr="0x141250ae0">
+          <Dword Name="agentId" />
           <Float3 Name="unknown1" />
         </Message>
-        <Message Id="394" Name="Unknown394" Addr="0x141250a70">
-          <Dword Name="unknown0" />
+        <Message Id="394" Name="Move394" Addr="0x141250a70">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="395" Name="Unknown395" Addr="0x141250b60">
-          <Dword Name="unknown0" />
+        <Message Id="395" Name="Move395" Addr="0x141250b60">
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
         </Message>
-        <Message Id="396" Name="Unknown396" Addr="0x141250be0">
-          <Dword Name="unknown0" />
+        <Message Id="396" Name="Move396" Addr="0x141250be0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="397" Name="Unknown397" Addr="0x141250ca0">
-          <Dword Name="unknown0" />
+        <Message Id="397" Name="Move397" Addr="0x141250ca0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="398" Name="Unknown398" Addr="0x141250d50">
-          <Dword Name="unknown0" />
+        <Message Id="398" Name="Move398" Addr="0x141250d50">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="399" Name="Unknown399" Addr="0x141250dc0">
-          <Dword Name="unknown0" />
+        <Message Id="399" Name="Move399" Addr="0x141250dc0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="400" Name="Unknown400" Addr="0x141250e70">
-          <Dword Name="unknown0" />
+        <Message Id="400" Name="Move400" Addr="0x141250e70">
+          <Dword Name="agentId" />
         </Message>
-        <Message Id="401" Name="Unknown401" Addr="0x141250ee0">
-          <Dword Name="unknown0" />
+        <Message Id="401" Name="Move401" Addr="0x141250ee0">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
@@ -3248,24 +3249,24 @@
           <Dword Name="unknown12" />
           <Dword Name="unknown13" />
         </Message>
-        <Message Id="402" Name="Unknown402" Addr="0x141251020">
-          <Dword Name="unknown0" />
+        <Message Id="402" Name="Move402" Addr="0x141251020">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="403" Name="Unknown403" Addr="0x1412510d0">
-          <Dword Name="unknown0" />
+        <Message Id="403" Name="Move403" Addr="0x1412510d0">
+          <Dword Name="agentId" />
         </Message>
         <Message Id="404" Name="Unknown404" Addr="0x1412511a0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <String Name="unknown1" Size="32" />
         </Message>
         <Message Id="405" Name="Unknown405" Addr="0x141251140">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <String Name="unknown1" Size="32" />
           <String Name="unknown2" Size="32" />
         </Message>
         <Message Id="406" Name="Unknown406" Addr="0x141251210">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
@@ -3273,29 +3274,29 @@
           <Word Name="unknown5" />
         </Message>
         <Message Id="407" Name="Unknown407" Addr="0x1412512b0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="408" Name="Unknown408" Addr="0x141251320">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
-          <Word Name="unknown2" />
+          <Word Name="outfitDataId" />
         </Message>
         <Message Id="409" Name="Unknown409" Addr="0x1412513f0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="410" Name="Unknown410" Addr="0x141251450">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarSmall Name="unknown1" Size="32" TypeName="Dword" />
         </Message>
         <Message Id="412" Name="Unknown412" Addr="0x141251570">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="411" Name="Unknown411" Addr="0x1412514d0">
-          <Word Name="unknown0" />
+          <Word Name="outfitDataId" />
         </Message>
         <Message Id="413" Name="Unknown413" Addr="0x1412515e0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
@@ -3346,33 +3347,33 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="427" Name="Unknown427" Addr="0x141251c70">
-          <Dword Name="unknown0" />
-          <String Name="unknown1" Size="32" />
-          <Guid Name="unknown2" />
+          <Dword Name="playerId" />
+          <String Name="charName" Size="32" />
+          <Guid Name="userGuid" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="428" Name="Unknown428" Addr="0x141251ce0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="429" Name="Unknown429" Addr="0x141251d50">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="430" Name="Unknown430" Addr="0x141251dc0" />
         <Message Id="431" Name="Unknown431" Addr="0x141251e40">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Point3 Name="unknown1" />
         </Message>
         <Message Id="432" Name="Unknown432" Addr="0x141251de0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="433" Name="Unknown433" Addr="0x141251f20">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="434" Name="Unknown434" Addr="0x141251ec0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
         </Message>
         <Message Id="435" Name="Unknown435" Addr="0x141251f80">
           <Byte Name="unknown0" />
@@ -3387,37 +3388,37 @@
           <String Name="unknown2" Size="128" />
         </Message>
         <Message Id="439" Name="Unknown439" Addr="0x1412522b0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Guid Name="unknown1" />
         </Message>
         <Message Id="440" Name="Unknown440" Addr="0x141252370">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="441" Name="Unknown441" Addr="0x1412523e0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Guid Name="unknown1" />
         </Message>
         <Message Id="442" Name="Unknown442" Addr="0x141252450">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="playerId" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="443" Name="Unknown443" Addr="0x1412524c0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
+          <Dword Name="playerId0" />
+          <Dword Name="playerId1" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="444" Name="Unknown444" Addr="0x141252570">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="445" Name="Unknown445" Addr="0x1412525e0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="playerId" />
+          <Dword Name="gadgetId" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="446" Name="Unknown446" Addr="0x1412526b0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Guid Name="unknown1" />
         </Message>
         <Message Id="447" Name="Unknown447" Addr="0x141252720">
@@ -3430,7 +3431,7 @@
           <Byte Name="unknown0" />
         </Message>
         <Message Id="450" Name="Unknown450" Addr="0x1412527b0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <String Name="unknown1" Size="32" />
         </Message>
         <Message Id="451" Name="Unknown451" Addr="0x141252820">
@@ -3457,15 +3458,15 @@
           <Byte Name="unknown6" />
         </Message>
         <Message Id="456" Name="Unknown456" Addr="0x141252b30">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="457" Name="Unknown457" Addr="0x141252ba0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="458" Name="Unknown458" Addr="0x141252c10">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="460" Name="Unknown460" Addr="0x141252ca0" />
@@ -3483,12 +3484,12 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="464" Name="Unknown464" Addr="0x141252d50">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="465" Name="Unknown465" Addr="0x141252dc0" />
         <Message Id="466" Name="Unknown466" Addr="0x141252df0">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Float2 Name="unknown1" />
         </Message>
         <Message Id="467" Name="Unknown467" Addr="0x141252e60">
@@ -3500,44 +3501,44 @@
           <Byte Name="unknown2" />
         </Message>
         <Message Id="473" Name="Unknown473" Addr="0x141252ed0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="474" Name="Unknown474" Addr="0x141252fb0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="475" Name="Unknown475" Addr="0x141253010">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="476" Name="Unknown476" Addr="0x141253080">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="469" Name="Unknown469" Addr="0x1412530f0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
         <Message Id="470" Name="Unknown470" Addr="0x1412531d0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="471" Name="Unknown471" Addr="0x141253230">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
         <Message Id="472" Name="Unknown472" Addr="0x1412532b0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="477" Name="Unknown477" Addr="0x141253320">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
@@ -3545,10 +3546,10 @@
           <Byte Name="unknown5" />
         </Message>
         <Message Id="478" Name="Unknown478" Addr="0x141253410">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="479" Name="Unknown479" Addr="0x141253470">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
@@ -3556,95 +3557,95 @@
           <Float Name="unknown5" />
         </Message>
         <Message Id="480" Name="Unknown480" Addr="0x1412534f0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="481" Name="Unknown481" Addr="0x141253570">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="482" Name="Unknown482" Addr="0x141253640">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="483" Name="Unknown483" Addr="0x1412536a0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="484" Name="Unknown484" Addr="0x141253720">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Byte Name="unknown3" />
           <Byte Name="unknown4" />
         </Message>
         <Message Id="485" Name="Unknown485" Addr="0x141253800">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="486" Name="Unknown486" Addr="0x141253860">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
         </Message>
         <Message Id="487" Name="Unknown487" Addr="0x1412538e0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="488" Name="Unknown488" Addr="0x141253a00">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
           <Dword Name="unknown4" />
         </Message>
         <Message Id="489" Name="Unknown489" Addr="0x141253b00">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="490" Name="Unknown490" Addr="0x141253960">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
         <Message Id="491" Name="Unknown491" Addr="0x141253b60">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="492" Name="Unknown492" Addr="0x141253bf0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
         <Message Id="493" Name="Unknown493" Addr="0x141253d10">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarSmall Name="unknown1" Size="2" TypeName="Byte" />
           <ArrayVarSmall Name="unknown2" Size="2" TypeName="Byte" />
         </Message>
         <Message Id="494" Name="Unknown494" Addr="0x141253df0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="495" Name="Unknown495" Addr="0x141253c70">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="2" TypeName="Byte" />
         </Message>
         <Message Id="496" Name="Unknown496" Addr="0x141253e50">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
         <Message Id="497" Name="Unknown497" Addr="0x141253ee0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="498" Name="Unknown498" Addr="0x141253f90">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
@@ -3652,21 +3653,21 @@
           <Byte Name="unknown5" />
         </Message>
         <Message Id="499" Name="Unknown499" Addr="0x141254080">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="500" Name="Unknown500" Addr="0x1412540e0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
         </Message>
         <Message Id="501" Name="Unknown501" Addr="0x1412541e0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
         </Message>
         <Message Id="502" Name="Unknown502" Addr="0x141254160">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
@@ -3675,54 +3676,54 @@
           <Byte Name="unknown1" />
         </Message>
         <Message Id="504" Name="Unknown504" Addr="0x141254310">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="505" Name="Unknown505" Addr="0x141254450">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="506" Name="Unknown506" Addr="0x1412543e0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="507" Name="Unknown507" Addr="0x1412544b0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="509" Name="Unknown509" Addr="0x141254520">
-          <Dword Name="unknown0" />
+        <Message Id="509" Name="Progress509" Addr="0x141254520">
+          <Dword Name="progressDataId" />
           <Word Name="unknown1" />
         </Message>
-        <Message Id="510" Name="Unknown510" Addr="0x1412545c0">
-          <Dword Name="unknown0" />
+        <Message Id="510" Name="Progress510" Addr="0x1412545c0">
+          <Dword Name="progressDataId" />
           <ArrayVarSmall Name="unknown1" Size="255" TypeName="Dword" />
         </Message>
-        <Message Id="511" Name="Unknown511" Addr="0x141254660">
-          <Dword Name="unknown0" />
+        <Message Id="511" Name="Progress511" Addr="0x141254660">
+          <Dword Name="progressDataId" />
           <ArrayVarSmall Name="unknown1" Size="4" TypeName="Dword" />
         </Message>
-        <Message Id="512" Name="Unknown512" Addr="0x141254840">
-          <Dword Name="unknown0" />
+        <Message Id="512" Name="Pvp512" Addr="0x141254840">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="513" Name="Unknown513" Addr="0x141255130">
-          <Dword Name="unknown0" />
+        <Message Id="513" Name="Pvp513" Addr="0x141255130">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="514" Name="Unknown514" Addr="0x1412548f0">
-          <Dword Name="unknown0" />
+        <Message Id="514" Name="Pvp514" Addr="0x1412548f0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="515" Name="Unknown515" Addr="0x1412549a0">
-          <Dword Name="unknown0" />
+        <Message Id="515" Name="Pvp515" Addr="0x1412549a0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="516" Name="Unknown516" Addr="0x141254a60">
-          <Dword Name="unknown0" />
+        <Message Id="516" Name="Pvp516" Addr="0x141254a60">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Byte Name="unknown3" />
@@ -3732,138 +3733,138 @@
           <ArrayFixed Name="unknown7" Size="4" TypeName="Dword" />
           <Dword Name="unknown8" />
         </Message>
-        <Message Id="517" Name="Unknown517" Addr="0x141254d60">
-          <Dword Name="unknown0" />
+        <Message Id="517" Name="Pvp517" Addr="0x141254d60">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="519" Name="Unknown519" Addr="0x141254e50">
-          <Dword Name="unknown0" />
+        <Message Id="519" Name="Pvp519" Addr="0x141254e50">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
-        <Message Id="523" Name="Unknown523" Addr="0x141254ef0">
+        <Message Id="523" Name="Pvp523" Addr="0x141254ef0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="524" Name="Unknown524" Addr="0x141254f90">
+        <Message Id="524" Name="Pvp524" Addr="0x141254f90">
           <ArrayVarLarge Name="unknown0" Size="8" TypeName="Dword" />
         </Message>
-        <Message Id="525" Name="Unknown525" Addr="0x141255000">
+        <Message Id="525" Name="Pvp525" Addr="0x141255000">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="520" Name="Unknown520" Addr="0x1412550a0">
-          <Dword Name="unknown0" />
+        <Message Id="520" Name="Pvp520" Addr="0x1412550a0">
+          <Dword Name="playerId" />
           <ArrayFixed Name="unknown1" Size="12" TypeName="Dword" />
         </Message>
-        <Message Id="518" Name="Unknown518" Addr="0x141254dc0">
-          <Dword Name="unknown0" />
+        <Message Id="518" Name="Pvp518" Addr="0x141254dc0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="521" Name="Unknown521" Addr="0x1412551e0" />
-        <Message Id="522" Name="Unknown522" Addr="0x141255240">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="521" Name="Pvp521" Addr="0x1412551e0" />
+        <Message Id="522" Name="Pvp522" Addr="0x141255240">
+          <Dword Name="playerId" />
+          <Byte Name="upgrade" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="548" Name="Unknown548" Addr="0x141255300">
-          <Dword Name="unknown0" />
+        <Message Id="548" Name="Quest548" Addr="0x141255300">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="526" Name="Unknown526" Addr="0x1412553a0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="526" Name="Quest526" Addr="0x1412553a0">
+          <Dword Name="playerId" />
+          <Dword Name="questDataId" />
         </Message>
-        <Message Id="527" Name="Unknown527" Addr="0x141255410">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="527" Name="Quest527" Addr="0x141255410">
+          <Dword Name="playerId" />
+          <Dword Name="questDataId" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="528" Name="Unknown528" Addr="0x141255480">
-          <Dword Name="unknown0" />
+        <Message Id="528" Name="Quest528" Addr="0x141255480">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="529" Name="Unknown529" Addr="0x1412554e0">
-          <Dword Name="unknown0" />
+        <Message Id="529" Name="Quest529" Addr="0x1412554e0">
+          <Dword Name="playerId" />
           <Point3 Name="unknown1" />
           <Point3 Name="unknown2" />
         </Message>
-        <Message Id="530" Name="Unknown530" Addr="0x141255580">
-          <Dword Name="unknown0" />
+        <Message Id="530" Name="Quest530" Addr="0x141255580">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="531" Name="Unknown531" Addr="0x1412556c0">
-          <Dword Name="unknown0" />
+        <Message Id="531" Name="Quest531" Addr="0x1412556c0">
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
-          <Dword Name="unknown2" />
+          <Dword Name="questDataId" />
         </Message>
-        <Message Id="532" Name="Unknown532" Addr="0x1412555f0">
-          <Dword Name="unknown0" />
+        <Message Id="532" Name="Quest532" Addr="0x1412555f0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="533" Name="Unknown533" Addr="0x141255660">
-          <Dword Name="unknown0" />
+        <Message Id="533" Name="Quest533" Addr="0x141255660">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="534" Name="Unknown534" Addr="0x141255780">
-          <Dword Name="unknown0" />
+        <Message Id="534" Name="Quest534" Addr="0x141255780">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="535" Name="Unknown535" Addr="0x141255810">
-          <Dword Name="unknown0" />
+        <Message Id="535" Name="Quest535" Addr="0x141255810">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="64" TypeName="Word" />
         </Message>
-        <Message Id="536" Name="Unknown536" Addr="0x141255920">
-          <Dword Name="unknown0" />
+        <Message Id="536" Name="Quest536" Addr="0x141255920">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="64" TypeName="Word" />
         </Message>
-        <Message Id="537" Name="Unknown537" Addr="0x141255a90">
+        <Message Id="537" Name="Quest537" Addr="0x141255a90">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="538" Name="Unknown538" Addr="0x141255a30">
-          <Dword Name="unknown0" />
+        <Message Id="538" Name="Quest38" Addr="0x141255a30">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="539" Name="Unknown539" Addr="0x141255ac0" />
-        <Message Id="540" Name="Unknown540" Addr="0x141255b10">
+        <Message Id="539" Name="Quest539" Addr="0x141255ac0" />
+        <Message Id="540" Name="Quest540" Addr="0x141255b10">
           <Word Name="unknown0" />
         </Message>
-        <Message Id="541" Name="Unknown541" Addr="0x141255ba0">
-          <Dword Name="unknown0" />
+        <Message Id="541" Name="Quest541" Addr="0x141255ba0">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="542" Name="Unknown542" Addr="0x141255c00">
-          <Dword Name="unknown0" />
+        <Message Id="542" Name="Quest542" Addr="0x141255c00">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="543" Name="Unknown543" Addr="0x141255c70">
-          <Dword Name="unknown0" />
+        <Message Id="543" Name="Quest543" Addr="0x141255c70">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="544" Name="Unknown544" Addr="0x141255ce0">
-          <Dword Name="unknown0" />
+        <Message Id="544" Name="Quest544" Addr="0x141255ce0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="545" Name="Unknown545" Addr="0x141255d50">
-          <Dword Name="unknown0" />
+        <Message Id="545" Name="Quest545" Addr="0x141255d50">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="546" Name="Unknown546" Addr="0x141255dc0">
-          <Dword Name="unknown0" />
+        <Message Id="546" Name="Quest546" Addr="0x141255dc0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="547" Name="Unknown547" Addr="0x141255e30">
-          <Dword Name="unknown0" />
+        <Message Id="547" Name="Quest547" Addr="0x141255e30">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="549" Name="Unknown549" Addr="0x141255ea0">
-          <Dword Name="unknown0" />
+        <Message Id="549" Name="Quest549" Addr="0x141255ea0">
+          <Dword Name="storylineDataId" />
         </Message>
-        <Message Id="550" Name="Unknown550" Addr="0x141255f30">
-          <Dword Name="unknown0" />
+        <Message Id="550" Name="Quest550" Addr="0x141255f30">
+          <Dword Name="storylineDataId" />
         </Message>
         <Message Id="551" Name="Unknown551" Addr="0x141255fc0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="agentId" />
+          <Dword Name="itemId" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
@@ -3871,18 +3872,18 @@
           <Byte Name="unknown0" />
         </Message>
         <Message Id="553" Name="Unknown553" Addr="0x1412560b0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="554" Name="Unknown554" Addr="0x141256120">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="555" Name="Unknown555" Addr="0x141256190">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="556" Name="Unknown556" Addr="0x141256200">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
+        <Message Id="556" Name="Reward556" Addr="0x141256200">
+          <Dword Name="rewardId" />
+          <Byte Name="rewardType" />
           <Dword Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="255">
             <Dword Name="unknown0" />
@@ -3899,18 +3900,18 @@
           <Optional Name="unknown6" TypeName="Dword" />
           <Optional Name="unknown7" TypeName="Dword" />
           <Optional Name="unknown8" TypeName="Byte" />
-          <Optional Name="unknown9" TypeName="Dword" />
+          <Optional Name="typeGenericDataId" TypeName="Dword" />
           <Optional Name="unknown10" TypeName="Byte" />
           <Optional Name="unknown11" TypeName="Guid" />
-          <Optional Name="unknown12">
+          <Optional Name="typeLadder">
             <Dword Name="unknown0" />
             <Dword Name="unknown1" />
             <Dword Name="unknown2" />
           </Optional>
-          <Optional Name="unknown13" TypeName="Guid" />
-          <Optional Name="unknown14" TypeName="Byte" />
-          <Optional Name="unknown15" TypeName="Dword" />
-          <Optional Name="unknown16" TypeName="Byte" />
+          <Optional Name="typeLeaderboard" TypeName="Guid" />
+          <Optional Name="typeLevelUp" TypeName="Byte" />
+          <Optional Name="typeMap" TypeName="Dword" />
+          <Optional Name="typeMonthly" TypeName="Byte" />
           <Optional Name="unknown17">
             <Dword Name="unknown0" />
             <Dword Name="unknown1" />
@@ -3922,13 +3923,13 @@
             <Float Name="unknown2" />
             <Byte Name="unknown3" />
           </Optional>
-          <Optional Name="unknown20">
+          <Optional Name="typePvpTrackTier">
             <Dword Name="unknown0" />
             <Byte Name="unknown1" />
           </Optional>
-          <Optional Name="unknown21" TypeName="Dword" />
-          <Optional Name="unknown22" TypeName="Dword" />
-          <Optional Name="unknown23">
+          <Optional Name="typeTaskSubRegion" TypeName="Dword" />
+          <Optional Name="typeTrait" TypeName="Dword" />
+          <Optional Name="typeDefault">
             <Dword Name="unknown0" />
             <Byte Name="unknown1" />
             <Byte Name="unknown2" />
@@ -3939,16 +3940,16 @@
             </ArrayVarSmall>
           </Optional>
           <Optional Name="unknown24" TypeName="Byte" />
-          <Optional Name="unknown25">
+          <Optional Name="typeWvwRankUp">
             <Dword Name="unknown0" />
             <Byte Name="unknown1" />
           </Optional>
         </Message>
-        <Message Id="557" Name="Unknown557" Addr="0x141256260">
+        <Message Id="557" Name="Reward557" Addr="0x141256260">
           <Byte Name="unknown0" />
           <Float Name="unknown1" />
         </Message>
-        <Message Id="279" Name="Unknown279" Addr="0x141256310">
+        <Message Id="279" Name="Reward279" Addr="0x141256310">
           <ArrayVarSmall Name="unknown0" Size="10">
             <Dword Name="unknown0" />
             <Byte Name="unknown1" />
@@ -3956,7 +3957,7 @@
           <Byte Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="280" Name="Unknown280" Addr="0x141256500">
+        <Message Id="280" Name="Reward280" Addr="0x141256500">
           <Dword Name="unknown0" />
           <ArrayVarLarge Name="unknown1" Size="1000">
             <Dword Name="unknown0" />
@@ -3964,10 +3965,10 @@
           </ArrayVarLarge>
           <ArrayVarSmall Name="unknown2" Size="10" TypeName="Word" />
         </Message>
-        <Message Id="558" Name="Unknown558" Addr="0x1412568b0">
+        <Message Id="558" Name="Reward558" Addr="0x1412568b0">
           <ArrayVarLarge Name="unknown0" Size="1122" TypeName="Dword" />
         </Message>
-        <Message Id="559" Name="Unknown559" Addr="0x141256910">
+        <Message Id="559" Name="Reward559" Addr="0x141256910">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
           <ArrayVarSmall Name="unknown2" Size="4">
@@ -3976,46 +3977,46 @@
             <Dword Name="unknown2" />
           </ArrayVarSmall>
         </Message>
-        <Message Id="560" Name="Unknown560" Addr="0x141256970">
+        <Message Id="560" Name="Reward560" Addr="0x141256970">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="562" Name="Unknown562" Addr="0x1412569d0">
+        <Message Id="562" Name="Reward562" Addr="0x1412569d0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="563" Name="Unknown563" Addr="0x141256e10">
+        <Message Id="563" Name="Reward563" Addr="0x141256e10">
           <Float Name="unknown0" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="564" Name="Unknown564" Addr="0x141256a10">
-          <Byte Name="unknown0" />
+        <Message Id="564" Name="RewardTrack564" Addr="0x141256a10">
+          <Byte Name="slot" />
           <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+          <Byte Name="reason" />
         </Message>
-        <Message Id="565" Name="Unknown565" Addr="0x141256b00">
-          <Dword Name="unknown0" />
+        <Message Id="565" Name="RewardTrack565" Addr="0x141256b00">
+          <Dword Name="playerId" />
           <ArrayFixed Name="unknown1" Size="4" TypeName="Dword" />
           <ArrayFixed Name="unknown2" Size="4" TypeName="Byte" />
         </Message>
-        <Message Id="566" Name="Unknown566" Addr="0x141256c40">
-          <Dword Name="unknown0" />
+        <Message Id="566" Name="RewardTrack566" Addr="0x141256c40">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+          <Byte Name="trackIndex" />
         </Message>
-        <Message Id="567" Name="Unknown567" Addr="0x141256d70">
-          <Dword Name="unknown0" />
+        <Message Id="567" Name="RewardTrack567" Addr="0x141256d70">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="568" Name="Unknown568" Addr="0x141256ba0">
-          <Dword Name="unknown0" />
+        <Message Id="568" Name="RewardTrack568" Addr="0x141256ba0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="569" Name="Unknown569" Addr="0x141256cd0">
-          <Dword Name="unknown0" />
+        <Message Id="569" Name="RewardTrack569" Addr="0x141256cd0">
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
@@ -4035,96 +4036,96 @@
           <Byte Name="unknown0" />
         </Message>
         <Message Id="120" Name="Unknown120" Addr="0x141247820">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="584" Name="Unknown584" Addr="0x141257850">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="575" Name="Unknown575" Addr="0x141257480">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float3 Name="unknown1" />
           <Float3 Name="unknown2" />
           <Float3 Name="unknown3" />
           <Float Name="unknown4" />
         </Message>
         <Message Id="576" Name="Unknown576" Addr="0x141257510">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="577" Name="Unknown577" Addr="0x141257570">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
           <Dword Name="unknown2" />
           <Float Name="unknown3" />
           <Dword Name="unknown4" />
         </Message>
         <Message Id="579" Name="Unknown579" Addr="0x141257650">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="580" Name="Unknown580" Addr="0x1412576c0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="581" Name="Unknown581" Addr="0x141257730">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Guid Name="unknown1" />
         </Message>
         <Message Id="582" Name="Unknown582" Addr="0x141257790">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Word Name="unknown1" />
         </Message>
         <Message Id="583" Name="Unknown583" Addr="0x1412577f0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="585" Name="Unknown585" Addr="0x1412578d0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="587" Name="Unknown587" Addr="0x141257940">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="588" Name="Unknown588" Addr="0x1412579b0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Point3 Name="unknown1" />
         </Message>
         <Message Id="589" Name="Unknown589" Addr="0x141257a30">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Qword Name="unknown2" />
         </Message>
         <Message Id="590" Name="Unknown590" Addr="0x141257ab0">
           <Guid Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="agentId" />
           <Dword Name="unknown2" />
           <Byte Name="unknown3" />
           <Byte Name="unknown4" />
         </Message>
         <Message Id="591" Name="Unknown591" Addr="0x141257b20">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="592" Name="Unknown592" Addr="0x141257b80">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="593" Name="Unknown593" Addr="0x141257be0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="578" Name="Unknown578" Addr="0x1412575e0">
           <Byte Name="unknown0" />
         </Message>
         <Message Id="594" Name="Unknown594" Addr="0x141257c70">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
         </Message>
         <Message Id="595" Name="Unknown595" Addr="0x141257cd0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
           <Float Name="unknown2" />
           <Float Name="unknown3" />
@@ -4149,42 +4150,103 @@
           <Dword Name="unknown0" />
         </Message>
         <Message Id="602" Name="Unknown602" Addr="0x141257f90" />
-        <Message Id="603" Name="Unknown603" Addr="0x141258020">
+        <Message Id="603" Name="Skill603" Addr="0x141258020">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="604" Name="Unknown604" Addr="0x141258090">
+        <Message Id="604" Name="Skill604" Addr="0x141258090">
           <Guid Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="605" Name="Unknown605" Addr="0x141258100">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="605" Name="Skill605" Addr="0x141258100">
+          <Dword Name="skillDataId" />
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="606" Name="Unknown606" Addr="0x1412581c0">
-          <Dword Name="unknown0" />
+        <Message Id="606" Name="Skill606" Addr="0x1412581c0">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="607" Name="Unknown607" Addr="0x141258220">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="607" Name="Skill607" Addr="0x141258220">
+          <Dword Name="skillDataId" />
+          <Dword Name="playerId" />
           <Word Name="unknown2" />
         </Message>
-        <Message Id="608" Name="Unknown608" Addr="0x1412582e0">
-          <Dword Name="unknown0" />
+        <Message Id="608" Name="Skill608" Addr="0x1412582e0">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="64" TypeName="Dword" />
         </Message>
-        <Message Id="609" Name="Unknown609" Addr="0x141258350">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="609" Name="Skill609" Addr="0x141258350">
+          <Dword Name="skillDataId" />
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="610" Name="Unknown610" Addr="0x141258410">
+        <Message Id="610" Name="Skill610" Addr="0x141258410">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="611" Name="Unknown611" Addr="0x141258590">
+        <Message Id="611" Name="Skill611" Addr="0x141258590">
           <Dword Name="unknown0" />
+          <Dword Name="unknown1" />
+          <Dword Name="playerId" />
+        </Message>
+        <Message Id="612" Name="Skill612" Addr="0x141257a20">
+          <Dword Name="unknown0" />
+          <Byte Name="slot" />
+          <Byte Name="unknown2" />
+          <Dword Name="playerId" />
+        </Message>
+        <Message Id="613" Name="Skill613" Addr="0x141257ac0">
+          <Dword Name="skillDataId" />
+          <Byte Name="unknown1" />
+          <Dword Name="playerId" />
+        </Message>
+        <Message Id="614" Name="Skillbar14" Addr="0x141257b90">
+          <Dword Name="agentId" />
+        </Message>
+        <Message Id="615" Name="Skillbar615" Addr="0x141257c20">
+          <Dword Name="agentId" />
+        </Message>
+        <Message Id="616" Name="Skillbar616" Addr="0x141257cc0">
+          <Dword Name="agentId" />
+          <Dword Name="unknown1" />
+          <Byte Name="unknown2" />
+        </Message>
+        <Message Id="617" Name="Skillbar617" Addr="0x141257d90">
+          <Dword Name="agentId" />
+          <Byte Name="unknown1" />
+          <Byte Name="unknown2" />
+        </Message>
+        <Message Id="618" Name="Skillbar618" Addr="0x141257e30">
+          <Dword Name="agentId" />
+        </Message>
+        <Message Id="619" Name="Skillbar619" Addr="0x141257e90">
+          <Dword Name="agentId" />
+        </Message>
+        <Message Id="620" Name="Skillbar620" Addr="0x141257f90">
+          <Dword Name="agentId" />
+        </Message>
+        <Message Id="621" Name="Skillbar621" Addr="0x141257ef0">
+          <Dword Name="agentId" />
+          <Byte Name="unknown1" />
+        </Message>
+        <Message Id="622" Name="Skillbar622" Addr="0x141257ff0">
+          <Dword Name="agentId" />
+          <Byte Name="unknown1" />
+        </Message>
+        <Message Id="623" Name="Skillbar623" Addr="0x141258090">
+          <Dword Name="agentId" />
+          <Dword Name="unknown1" />
+        </Message>
+        <Message Id="624" Name="Skillbar624" Addr="0x141258120">
+          <Dword Name="agentId" />
+          <Dword Name="unknown1" />
+        </Message>
+        <Message Id="625" Name="Skillbar625" Addr="0x1412581e0">
+          <Dword Name="agentId" />
+          <Dword Name="unknown1" />
+        </Message>
+        <Message Id="626" Name="Skillbar626" Addr="0x1412582a0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
@@ -4249,75 +4311,75 @@
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="627" Name="Unknown627" Addr="0x141258fa0">
-          <Dword Name="unknown0" />
+        <Message Id="627" Name="Skillbar627" Addr="0x141258fa0">
+          <Dword Name="agentId" />
           <Float Name="unknown1" />
         </Message>
-        <Message Id="628" Name="Unknown628" Addr="0x141259030">
-          <Dword Name="unknown0" />
+        <Message Id="628" Name="Skillbar628" Addr="0x141259030">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="630" Name="Unknown630" Addr="0x1412590f0">
-          <Dword Name="unknown0" />
+        <Message Id="630" Name="Skillbar630" Addr="0x1412590f0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
           <Word Name="unknown5" />
         </Message>
-        <Message Id="631" Name="Unknown631" Addr="0x1412591e0">
-          <Dword Name="unknown0" />
+        <Message Id="631" Name="Skillbar631" Addr="0x1412591e0">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
-        <Message Id="632" Name="Unknown632" Addr="0x1412592b0">
-          <Dword Name="unknown0" />
+        <Message Id="632" Name="Skillbar632" Addr="0x1412592b0">
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
         </Message>
-        <Message Id="633" Name="Unknown633" Addr="0x141259350">
-          <Dword Name="unknown0" />
+        <Message Id="633" Name="Skillbar633" Addr="0x141259350">
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="634" Name="Unknown634" Addr="0x141259460">
           <Word Name="unknown0" />
         </Message>
         <Message Id="635" Name="Unknown635" Addr="0x1412593e0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarLarge Name="unknown1" Size="512" TypeName="Dword" />
         </Message>
-        <Message Id="1286" Name="Unknown1286" Addr="0x141256f40">
+        <Message Id="1286" Name="SeasonalObjectivesShop1286" Addr="0x141256f40">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="1287" Name="Unknown1287" Addr="0x141256fd0">
+        <Message Id="1287" Name="SeasonalObjectivesShop1287" Addr="0x141256fd0">
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="1288" Name="Unknown1288" Addr="0x141256f80">
+        <Message Id="1288" Name="SeasonalObjectivesShop1288" Addr="0x141256f80">
           <Dword Name="unknown0" />
           <ArrayVarSmall Name="unknown1" Size="40" TypeName="Dword" />
         </Message>
-        <Message Id="1289" Name="Unknown1289" Addr="0x141257010">
+        <Message Id="1289" Name="SeasonalObjectivesShop1289" Addr="0x141257010">
           <Guid Name="unknown0" />
         </Message>
-        <Message Id="1290" Name="Unknown1290" Addr="0x141257280">
+        <Message Id="1290" Name="SeasonalObjectivesShop1290" Addr="0x141257280">
           <Guid Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="1291" Name="Unknown1291" Addr="0x141257050" />
-        <Message Id="1292" Name="Unknown1292" Addr="0x1412572c0">
+        <Message Id="1291" Name="SeasonalObjectivesShop1291" Addr="0x141257050" />
+        <Message Id="1292" Name="SeasonalObjectivesShop1292" Addr="0x1412572c0">
           <Dword Name="unknown0" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
           <Word Name="unknown4" />
         </Message>
-        <Message Id="1293" Name="Unknown1293" Addr="0x141257090">
+        <Message Id="1293" Name="SeasonalObjectivesShop1293" Addr="0x141257090">
           <Dword Name="unknown0" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
@@ -4326,16 +4388,16 @@
           <Dword Name="unknown5" />
           <Byte Name="unknown6" />
         </Message>
-        <Message Id="1294" Name="Unknown1294" Addr="0x141257100">
+        <Message Id="1294" Name="SeasonalObjectivesShop1294" Addr="0x141257100">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="1295" Name="Unknown1295" Addr="0x141257240" />
-        <Message Id="1296" Name="Unknown1296" Addr="0x141257200" />
-        <Message Id="1297" Name="Unknown1297" Addr="0x1412571c0">
+        <Message Id="1295" Name="SeasonalObjectivesShop1295" Addr="0x141257240" />
+        <Message Id="1296" Name="SeasonalObjectivesShop1296" Addr="0x141257200" />
+        <Message Id="1297" Name="SeasonalObjectivesShop1297" Addr="0x1412571c0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="1298" Name="Unknown1298" Addr="0x141257140">
+        <Message Id="1298" Name="SeasonalObjectivesShop1298" Addr="0x141257140">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
@@ -4357,87 +4419,87 @@
         <Message Id="639" Name="Unknown639" Addr="0x141259640">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="640" Name="Unknown640" Addr="0x1412596b0">
-          <Dword Name="unknown0" />
+        <Message Id="640" Name="Specialization640" Addr="0x1412596b0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="641" Name="Unknown641" Addr="0x141259720">
-          <Dword Name="unknown0" />
+        <Message Id="641" Name="Specialization641" Addr="0x141259720">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
-        <Message Id="642" Name="Unknown642" Addr="0x141259790">
-          <Dword Name="unknown0" />
+        <Message Id="642" Name="Specialization642" Addr="0x141259790">
+          <Dword Name="playerId" />
           <ArrayFixed Name="unknown1" Size="3" TypeName="Dword" />
           <ArrayFixed Name="unknown2" Size="9" TypeName="Dword" />
           <Byte Name="unknown3" />
         </Message>
-        <Message Id="643" Name="Unknown643" Addr="0x141259800">
-          <Dword Name="unknown0" />
-          <Byte Name="unknown1" />
-          <Byte Name="unknown2" />
+        <Message Id="643" Name="Specialization643" Addr="0x141259800">
+          <Dword Name="playerId" />
+          <Byte Name="specSlotOne" />
+          <Byte Name="specSlotTwo" />
         </Message>
         <Message Id="644" Name="Unknown644" Addr="0x141259870">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="645" Name="Unknown645" Addr="0x1412598e0">
+        <Message Id="645" Name="Survey645" Addr="0x1412598e0">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <String Name="unknown2" Size="128" />
         </Message>
-        <Message Id="647" Name="Unknown647" Addr="0x141259980">
-          <Dword Name="unknown0" />
+        <Message Id="647" Name="Task647" Addr="0x141259980">
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
           <Byte Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="255" TypeName="Dword" />
         </Message>
-        <Message Id="646" Name="Unknown646" Addr="0x141259a00">
-          <Dword Name="unknown0" />
+        <Message Id="646" Name="Task646" Addr="0x141259a00">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Word Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
-        <Message Id="650" Name="Unknown650" Addr="0x141259ad0">
-          <Dword Name="unknown0" />
+        <Message Id="650" Name="Task650" Addr="0x141259ad0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="651" Name="Unknown651" Addr="0x141259b40">
-          <Dword Name="unknown0" />
+        <Message Id="651" Name="Task651" Addr="0x141259b40">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="652" Name="Unknown652" Addr="0x141259bb0">
-          <Dword Name="unknown0" />
+        <Message Id="652" Name="Task652" Addr="0x141259bb0">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="653" Name="Unknown653" Addr="0x141259e00">
-          <Dword Name="unknown0" />
+        <Message Id="653" Name="Task653" Addr="0x141259e00">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="648" Name="Unknown648" Addr="0x141259e60">
-          <Dword Name="unknown0" />
+        <Message Id="648" Name="Task648" Addr="0x141259e60">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="255" TypeName="Dword" />
         </Message>
-        <Message Id="649" Name="Unknown649" Addr="0x141259a70">
-          <Dword Name="unknown0" />
+        <Message Id="649" Name="Task649" Addr="0x141259a70">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="654" Name="Unknown654" Addr="0x141259c10">
-          <Dword Name="unknown0" />
+        <Message Id="654" Name="Task654" Addr="0x141259c10">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Word Name="unknown3" />
         </Message>
-        <Message Id="655" Name="Unknown655" Addr="0x141259c80">
-          <Dword Name="unknown0" />
+        <Message Id="655" Name="Task655" Addr="0x141259c80">
+          <Dword Name="playerId" />
           <Word Name="unknown1" />
         </Message>
-        <Message Id="656" Name="Unknown656" Addr="0x141259cf0">
-          <Dword Name="unknown0" />
+        <Message Id="656" Name="Task656" Addr="0x141259cf0">
+          <Dword Name="playerId" />
           <Word Name="unknown1" />
         </Message>
-        <Message Id="657" Name="Unknown657" Addr="0x141259d60">
-          <Dword Name="unknown0" />
+        <Message Id="657" Name="Task657" Addr="0x141259d60">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="32" TypeName="Dword" />
@@ -4446,7 +4508,7 @@
           <Word Name="unknown6" />
         </Message>
         <Message Id="658" Name="Unknown658" Addr="0x141259ed0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
@@ -4462,22 +4524,22 @@
           <ArrayVarSmall Name="unknown0" Size="255" TypeName="Dword" />
         </Message>
         <Message Id="663" Name="Unknown663" Addr="0x14125a250">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayFixed Name="unknown1" Size="5" TypeName="Dword" />
         </Message>
         <Message Id="664" Name="Unknown664" Addr="0x14125a2c0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="665" Name="Unknown665" Addr="0x14125a0c0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="666" Name="Unknown666" Addr="0x14125a1b0">
           <Word Name="unknown0" />
         </Message>
         <Message Id="667" Name="Unknown667" Addr="0x14125a130">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <ArrayVarLarge Name="unknown1" Size="512" TypeName="Dword" />
         </Message>
         <Message Id="668" Name="Unknown668" Addr="0x14125a330">
@@ -4492,23 +4554,23 @@
           <Dword Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="671" Name="Unknown671" Addr="0x14125a420">
+        <Message Id="671" Name="Training671" Addr="0x14125a420">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="672" Name="Unknown672" Addr="0x14125a530">
+        <Message Id="672" Name="Training672" Addr="0x14125a530">
           <Dword Name="unknown0" />
           <Word Name="unknown1" />
         </Message>
-        <Message Id="673" Name="Unknown673" Addr="0x14125a5c0">
-          <Dword Name="unknown0" />
+        <Message Id="673" Name="Training673" Addr="0x14125a5c0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="674" Name="Unknown674" Addr="0x14125a4b0">
+        <Message Id="674" Name="Training674" Addr="0x14125a4b0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="675" Name="Unknown675" Addr="0x14125a600">
+        <Message Id="675" Name="Training675" Addr="0x14125a600">
           <Dword Name="unknown0" />
           <ArrayVarSmall Name="unknown1" Size="255">
             <Dword Name="unknown0" />
@@ -4525,61 +4587,61 @@
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
         </Message>
-        <Message Id="676" Name="Unknown676" Addr="0x14124bec0">
+        <Message Id="676" Name="Training676" Addr="0x14124bec0">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="677" Name="Unknown677" Addr="0x14125a660">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="677" Name="Trait677" Addr="0x14125a660">
+          <Dword Name="playerId" />
+          <Dword Name="traitDataId" />
         </Message>
-        <Message Id="678" Name="Unknown678" Addr="0x14125a700">
-          <Dword Name="unknown0" />
+        <Message Id="678" Name="Trait678" Addr="0x14125a700">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="256" TypeName="Dword" />
           <ArrayVarSmall Name="unknown2" Size="100" TypeName="Dword" />
           <ArrayVarSmall Name="unknown3" Size="5" TypeName="Byte" />
         </Message>
-        <Message Id="679" Name="Unknown679" Addr="0x14125a770">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="679" Name="Trait679" Addr="0x14125a770">
+          <Dword Name="playerId" />
+          <Dword Name="traitDataId" />
         </Message>
-        <Message Id="680" Name="Unknown680" Addr="0x14125a800">
-          <Dword Name="unknown0" />
+        <Message Id="680" Name="Trait680" Addr="0x14125a800">
+          <Dword Name="playerId" />
         </Message>
-        <Message Id="681" Name="Unknown681" Addr="0x14125a840">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="681" Name="Trait681" Addr="0x14125a840">
+          <Dword Name="playerId" />
+          <Dword Name="traitDataId" />
         </Message>
-        <Message Id="682" Name="Unknown682" Addr="0x14125a990">
-          <Dword Name="unknown0" />
+        <Message Id="682" Name="Trait682" Addr="0x14125a990">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="8" TypeName="Dword" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="683" Name="Unknown683" Addr="0x14125a9e0">
+        <Message Id="683" Name="Trait683" Addr="0x14125a9e0">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="684" Name="Unknown684" Addr="0x14125aa90">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="684" Name="Trait684" Addr="0x14125aa90">
+          <Dword Name="playerId" />
+          <Dword Name="traitDataId" />
         </Message>
-        <Message Id="685" Name="Unknown685" Addr="0x14125ab40">
-          <Dword Name="unknown0" />
+        <Message Id="685" Name="Trait685" Addr="0x14125ab40">
+          <Dword Name="playerId" />
           <ArrayVarSmall Name="unknown1" Size="255" TypeName="Dword" />
         </Message>
         <Message Id="686" Name="Unknown686" Addr="0x14125abb0">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="687" Name="Unknown687" Addr="0x14125ac50">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="255" TypeName="Dword" />
         </Message>
         <Message Id="688" Name="Unknown688" Addr="0x14125ad00">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="689" Name="Unknown689" Addr="0x14125ad90" />
@@ -4637,22 +4699,22 @@
           <Guid Name="unknown0" />
           <Byte Name="unknown1" />
         </Message>
-        <Message Id="709" Name="Unknown709" Addr="0x14125b2d0">
-          <Dword Name="unknown0" />
+        <Message Id="709" Name="WvwAbility709" Addr="0x14125b2d0">
+          <Dword Name="playerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Word Name="unknown3" />
         </Message>
-        <Message Id="710" Name="Unknown710" Addr="0x14125b320">
+        <Message Id="710" Name="WvwAbility710" Addr="0x14125b320">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <Word Name="unknown2" />
           <Word Name="unknown3" />
           <Word Name="unknown4" />
         </Message>
-        <Message Id="711" Name="Unknown711" Addr="0x14125b250">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="711" Name="WvwAbility711" Addr="0x14125b250">
+          <Dword Name="playerId" />
+          <Dword Name="wvwAbilityProgressDataId" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="713" Name="Unknown713" Addr="0x14125b450">
@@ -4661,7 +4723,7 @@
           <ArrayVarSmall Name="unknown2" Size="255" TypeName="Dword" />
         </Message>
         <Message Id="712" Name="Unknown712" Addr="0x14125b390">
-          <Dword Name="unknown0" />
+          <Dword Name="playerId" />
           <Byte Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -4678,7 +4740,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown9">
+    <Messages Name="Chat">
       <Client>
         <Message Id="261" Name="Unknown261">
           <Dword Name="unknown0" />
@@ -4686,7 +4748,7 @@
         </Message>
         <Message Id="262" Name="Unknown262">
           <String Name="unknown0" Size="200" />
-          <Byte Name="unknown1" />
+          <Byte Name="channel" />
           <Dword Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
@@ -4696,7 +4758,7 @@
           <Dword Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
-        <Message Id="263" Name="Unknown263">
+        <Message Id="263" Name="Whisper">
           <String Name="unknown0" Size="200" />
           <Guid Name="unknown1" />
           <Dword Name="unknown2" />
@@ -4707,11 +4769,11 @@
           <Dword Name="unknown0" />
         </Message>
         <Message Id="716" Name="Unknown716" Addr="0x1412ac860">
-          <String Name="unknown0" Size="256" />
+          <String Name="codedText" Size="256" />
         </Message>
         <Message Id="717" Name="Unknown717" Addr="0x1412ac890">
-          <Byte Name="unknown0" />
-          <Byte Name="unknown1" />
+          <Byte Name="channel" />
+          <Byte Name="displayType" />
           <String Name="unknown2" Size="72" />
           <Guid Name="unknown3" />
           <Dword Name="unknown4" />
@@ -4721,7 +4783,7 @@
         <Message Id="719" Name="Unknown719" Addr="0x1412ac930">
           <Guid Name="unknown0" />
         </Message>
-        <Message Id="718" Name="Unknown718" Addr="0x1412ac800">
+        <Message Id="718" Name="Whisper" Addr="0x1412ac800">
           <Dword Name="unknown0" />
           <Qword Name="unknown1" />
           <Guid Name="unknown2" />
@@ -4733,7 +4795,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown10">
+    <Messages Name="Cinematic">
       <Client>
         <Message Id="264" Name="Unknown264">
           <Byte Name="unknown0" />
@@ -4754,7 +4816,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown11">
+    <Messages Name="Claimable">
       <Client>
         <Message Id="257" Name="Unknown257">
           <Guid Name="unknown0" />
@@ -4906,7 +4968,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown13">
+    <Messages Name="Combat">
       <Client />
       <Server>
         <Message Id="734" Name="Unknown734" Addr="0x1412c25d0">
@@ -4934,7 +4996,7 @@
           <Dword Name="unknown2" />
         </Message>
         <Message Id="738" Name="Unknown738" Addr="0x1412c2830">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
@@ -4957,7 +5019,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown14">
+    <Messages Name="Comm">
       <Client>
         <Message Id="278" Name="Unknown278">
           <Dword Name="unknown0" />
@@ -5000,7 +5062,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown15">
+    <Messages Name="Conversation">
       <Client>
         <Message Id="276" Name="Unknown276">
           <Dword Name="unknown0" />
@@ -5085,7 +5147,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown16">
+    <Messages Name="DebugInfo">
       <Client>
         <Message Id="282" Name="Unknown282">
           <String Name="unknown0" Size="1024" />
@@ -5348,7 +5410,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown19">
+    <Messages Name="Effect">
       <Client />
       <Server>
         <Message Id="786" Name="Unknown786" Addr="0x141358f90">
@@ -5384,7 +5446,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown20">
+    <Messages Name="Environment">
       <Client />
       <Server>
         <Message Id="791" Name="Unknown791" Addr="0x14135c1f0">
@@ -5423,7 +5485,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown21">
+    <Messages Name="Event">
       <Client>
         <Message Id="289" Name="Unknown289" />
       </Client>
@@ -5534,7 +5596,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown22">
+    <Messages Name="Gadget">
       <Client>
         <Message Id="290" Name="Unknown290">
           <Dword Name="unknown0" />
@@ -5741,7 +5803,7 @@
           <Byte Name="unknown1" />
         </Message>
         <Message Id="858" Name="Unknown858" Addr="0x14136e800">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
           <Byte Name="unknown1" />
           <String Name="unknown2" Size="128" />
           <Float3 Name="unknown3" />
@@ -5778,7 +5840,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown23">
+    <Messages Name="Guild">
       <Client>
         <Message Id="295" Name="Unknown295">
           <Byte Name="unknown0" />
@@ -6012,14 +6074,14 @@
           <Qword Name="unknown1" />
         </Message>
         <Message Id="876" Name="Unknown876" Addr="0x141393ee0">
-          <Guid Name="unknown0" />
+          <Guid Name="guildGuid" />
           <Word Name="unknown1" />
           <Word Name="unknown2" />
           <ArrayFixed Name="unknown3" Size="3" TypeName="Word" />
           <Byte Name="unknown4" />
         </Message>
         <Message Id="874" Name="Unknown874" Addr="0x141393f60">
-          <Guid Name="unknown0" />
+          <Guid Name="guildGuid" />
           <String Name="unknown1" Size="120" />
           <String Name="unknown2" Size="16" />
         </Message>
@@ -6086,7 +6148,7 @@
           <Byte Name="unknown1" />
         </Message>
         <Message Id="893" Name="Unknown893" Addr="0x141394670">
-          <Guid Name="unknown0" />
+          <Guid Name="guildGuid" />
           <Dword Name="unknown1" />
           <String Name="unknown2" Size="120" />
         </Message>
@@ -6184,7 +6246,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown26">
+    <Messages Name="Instance">
       <Client>
         <Message Id="341" Name="Unknown341">
           <Dword Name="unknown0" />
@@ -6395,7 +6457,7 @@
         <Message Id="951" Name="Unknown951" Addr="0x1413bb580" />
       </Server>
     </Messages>
-    <Messages Name="Unknown28">
+    <Messages Name="Item">
       <Client />
       <Server>
         <Message Id="953" Name="Unknown953" Addr="0x1417f44e0">
@@ -6424,73 +6486,73 @@
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
         </Message>
-        <Message Id="959" Name="Unknown959" Addr="0x1417f4630">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
-          <Optional Name="unknown3" TypeName="Guid" />
+        <Message Id="959" Name="Create" Addr="0x1417f4630">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
-        <Message Id="960" Name="Unknown960" Addr="0x1417f4660">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+        <Message Id="960" Name="CreateArmor" Addr="0x1417f4660">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
-          <ArrayFixed Name="unknown5" Size="4" TypeName="Word" />
+          <ArrayFixed Name="colorSlot" Size="4" TypeName="Word" />
           <ArrayFixed Name="unknown6" Size="4" TypeName="Word" />
           <Dword Name="unknown7" />
           <Dword Name="unknown8" />
           <Dword Name="unknown9" />
-          <ArrayVarSmall Name="unknown10" Size="4" TypeName="Dword" />
-          <Optional Name="unknown11" TypeName="Guid" />
+          <ArrayVarSmall Name="infusionArray" Size="4" TypeName="Dword" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
-        <Message Id="961" Name="Unknown961" Addr="0x1417f4690">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+        <Message Id="961" Name="CreateBack" Addr="0x1417f4690">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
-          <ArrayFixed Name="unknown5" Size="4" TypeName="Word" />
+          <ArrayFixed Name="colorSlot" Size="4" TypeName="Word" />
           <ArrayFixed Name="unknown6" Size="4" TypeName="Word" />
           <Dword Name="unknown7" />
           <Dword Name="unknown8" />
           <Dword Name="unknown9" />
-          <ArrayVarSmall Name="unknown10" Size="4" TypeName="Dword" />
-          <Optional Name="unknown11" TypeName="Guid" />
+          <ArrayVarSmall Name="infusionArray" Size="4" TypeName="Dword" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
-        <Message Id="962" Name="Unknown962" Addr="0x1417f46c0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
-          <Optional Name="unknown3" TypeName="Guid" />
+        <Message Id="962" Name="CreateBag" Addr="0x1417f46c0">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
-        <Message Id="963" Name="Unknown963" Addr="0x1417f46f0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+        <Message Id="963" Name="CreateGathering" Addr="0x1417f46f0">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
           <Byte Name="unknown5" />
           <Byte Name="unknown6" />
           <Byte Name="unknown7" />
-          <Optional Name="unknown8" TypeName="Guid" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
-        <Message Id="968" Name="Unknown968" Addr="0x1417f4720">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
-          <Dword Name="unknown3" />
-          <Optional Name="unknown4" TypeName="Guid" />
+        <Message Id="968" Name="CreateStackable" Addr="0x1417f4720">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
+          <Dword Name="quantity" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
-        <Message Id="969" Name="Unknown969" Addr="0x1417f4750">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+        <Message Id="969" Name="CreateUpgradable" Addr="0x1417f4750">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
-          <ArrayVarSmall Name="unknown6" Size="4" TypeName="Dword" />
-          <Optional Name="unknown7" TypeName="Guid" />
+          <ArrayVarSmall Name="infusionArray" Size="4" TypeName="Dword" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
         <Message Id="970" Name="Unknown970" Addr="0x1417f4780">
           <Dword Name="unknown0" />
@@ -6499,10 +6561,10 @@
           <Byte Name="unknown3" />
           <Optional Name="unknown4" TypeName="Guid" />
         </Message>
-        <Message Id="971" Name="Unknown971" Addr="0x1417f47b0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Byte Name="unknown2" />
+        <Message Id="971" Name="CreateWeapon" Addr="0x1417f47b0">
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
+          <Byte Name="flags" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
@@ -6512,8 +6574,8 @@
           <Dword Name="unknown9" />
           <Byte Name="unknown10" />
           <Qword Name="unknown11" />
-          <ArrayVarSmall Name="unknown12" Size="4" TypeName="Dword" />
-          <Optional Name="unknown13" TypeName="Guid" />
+          <ArrayVarSmall Name="infusionArray" Size="4" TypeName="Dword" />
+          <Optional Name="soulboundChar" TypeName="Guid" />
         </Message>
         <Message Id="972" Name="Unknown972" Addr="0x1417f45d0">
           <Dword Name="unknown0" />
@@ -6538,8 +6600,8 @@
           <Dword Name="unknown3" />
           <ArrayVarSmall Name="unknown4" Size="4" TypeName="Dword" />
         </Message>
-        <Message Id="977" Name="Unknown977" Addr="0x1417f4870">
-          <Dword Name="unknown0" />
+        <Message Id="977" Name="Destroy" Addr="0x1417f4870">
+          <Dword Name="itemId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="978" Name="Unknown978" Addr="0x1417f48d0">
@@ -6633,7 +6695,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown32">
+    <Messages Name="Loot">
       <Client>
         <Message Id="364" Name="Unknown364">
           <Dword Name="unknown0" />
@@ -6714,7 +6776,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown33">
+    <Messages Name="Mail">
       <Client>
         <Message Id="393" Name="Unknown393">
           <Dword Name="unknown0" />
@@ -6724,7 +6786,7 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="395" Name="Unknown395">
-          <Dword Name="unknown0" />
+          <Dword Name="parcelId" />
         </Message>
         <Message Id="396" Name="Unknown396">
           <Dword Name="unknown0" />
@@ -6785,14 +6847,14 @@
       </Client>
       <Server>
         <Message Id="997" Name="Unknown997" Addr="0x1413eabb0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
+          <Dword Name="parcelId" />
+          <Dword Name="itemId" />
+          <Dword Name="itemDataId" />
           <Dword Name="unknown3" />
-          <Word Name="unknown4" />
+          <Word Name="quantity" />
         </Message>
         <Message Id="998" Name="Unknown998" Addr="0x1413eac20">
-          <Dword Name="unknown0" />
+          <Dword Name="parcelId" />
           <String Name="unknown1" Size="576" />
         </Message>
         <Message Id="999" Name="Unknown999" Addr="0x1413eac50">
@@ -6801,7 +6863,7 @@
           <Guid Name="unknown2" />
         </Message>
         <Message Id="1000" Name="Unknown1000" Addr="0x1413eab60">
-          <Dword Name="unknown0" />
+          <Dword Name="parcelId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -6812,8 +6874,8 @@
           <Dword Name="unknown0" />
         </Message>
         <Message Id="1002" Name="Unknown1002" Addr="0x1413eacb0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="parcelId" />
+          <Dword Name="mailDataId" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
@@ -6858,7 +6920,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown34">
+    <Messages Name="MapLayerContext">
       <Client />
       <Server>
         <Message Id="1016" Name="Unknown1016" Addr="0x1413f43f0">
@@ -6872,7 +6934,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown35">
+    <Messages Name="MapLayout">
       <Client>
         <Message Id="406" Name="Unknown406">
           <Dword Name="unknown0" />
@@ -6914,13 +6976,13 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown36">
+    <Messages Name="Marker">
       <Client />
       <Server>
         <Message Id="1021" Name="Unknown1021" Addr="0x141409110">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
+          <Dword Name="markerDataId" />
           <Byte Name="unknown3" />
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
@@ -6976,7 +7038,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown38">
+    <Messages Name="Missile">
       <Client />
       <Server>
         <Message Id="1029" Name="Unknown1029" Addr="0x14140aa00">
@@ -7021,12 +7083,12 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown39">
+    <Messages Name="Mission">
       <Client>
         <Message Id="410" Name="Unknown410" />
         <Message Id="411" Name="Unknown411" />
         <Message Id="412" Name="Unknown412" />
-        <Message Id="413" Name="Unknown413" />
+        <Message Id="413" Name="AgentsLoaded" />
         <Message Id="416" Name="Unknown416">
           <String Name="unknown0" Size="20" />
           <ArrayFixed Name="unknown1" Size="48" TypeName="Byte" />
@@ -7047,12 +7109,12 @@
           <ArrayFixed Name="unknown7" Size="24" TypeName="Dword" />
         </Message>
         <Message Id="418" Name="Unknown418" />
-        <Message Id="419" Name="Unknown419" />
+        <Message Id="419" Name="FailedToLoad" />
         <Message Id="420" Name="Unknown420">
           <String Name="unknown0" Size="128" />
           <String Name="unknown1" Size="128" />
         </Message>
-        <Message Id="421" Name="Unknown421" />
+        <Message Id="421" Name="MapLoaded" />
         <Message Id="422" Name="Unknown422">
           <String Name="unknown0" Size="20" />
           <ArrayFixed Name="unknown1" Size="48" TypeName="Byte" />
@@ -7127,7 +7189,7 @@
         <Message Id="1036" Name="Unknown1036" Addr="0x141411480">
           <ArrayVarSmall Name="unknown0" Size="3" TypeName="Dword" />
         </Message>
-        <Message Id="1037" Name="Unknown1037" Addr="0x141411610" />
+        <Message Id="1037" Name="BeginPlaying" Addr="0x141411610" />
         <Message Id="1038" Name="Unknown1038" Addr="0x141411650" />
         <Message Id="1039" Name="Unknown1039" Addr="0x141411690">
           <Byte Name="unknown0" />
@@ -7212,18 +7274,18 @@
         <Message Id="1060" Name="Unknown1060" Addr="0x140240350">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="1062" Name="Unknown1062" Addr="0x1414123e0" />
-        <Message Id="1061" Name="Unknown1061" Addr="0x141412420">
+        <Message Id="1062" Name="LoadAgents" Addr="0x1414123e0" />
+        <Message Id="1061" Name="LoadMap" Addr="0x141412420">
           <Float3 Name="unknown0" />
           <Float2 Name="unknown1" />
           <Float2 Name="unknown2" />
-          <Word Name="unknown3" />
+          <Word Name="mapId" />
           <Byte Name="unknown4" />
           <Qword Name="unknown5" />
           <Dword Name="unknown6" />
         </Message>
         <Message Id="1063" Name="Unknown1063" Addr="0x1414124c0" />
-        <Message Id="1064" Name="Unknown1064" Addr="0x1414124e0">
+        <Message Id="1064" Name="MapData" Addr="0x1414124e0">
           <Dword Name="unknown0" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
@@ -7236,10 +7298,10 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="1066" Name="Unknown1066" Addr="0x141412620">
-          <Address Name="unknown0" />
+          <Address Name="address" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
-          <Word Name="unknown3" />
+          <Word Name="mapId" />
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
         </Message>
@@ -7310,7 +7372,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown40">
+    <Messages Name="Net">
       <Client>
         <Message Id="1" Name="Unknown1" />
         <Message Id="2" Name="Unknown2">
@@ -7350,7 +7412,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown41">
+    <Messages Name="Objective">
       <Client>
         <Message Id="445" Name="Unknown445">
           <Dword Name="unknown0" />
@@ -7715,17 +7777,17 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown44">
+    <Messages Name="PointOfInterest">
       <Client />
       <Server>
         <Message Id="1141" Name="Unknown1141" Addr="0x1414456c0">
-          <Dword Name="unknown0" />
+          <Dword Name="pointsOfInterestDataId" />
           <Point3 Name="unknown1" />
           <Dword Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
         <Message Id="1142" Name="Unknown1142" Addr="0x141445770">
-          <ArrayVarLarge Name="unknown0" Size="256" TypeName="Dword" />
+          <ArrayVarLarge Name="pointsOfInterest" Size="256" TypeName="Dword" />
         </Message>
         <Message Id="1143" Name="Unknown1143" Addr="0x1414457d0">
           <Dword Name="unknown0" />
@@ -7794,7 +7856,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown47">
+    <Messages Name="QualityAssurance">
       <Client>
         <Message Id="458" Name="Unknown458">
           <Byte Name="unknown0" />
@@ -7849,7 +7911,7 @@
           <Dword Name="unknown8" />
         </Message>
         <Message Id="1213" Name="Unknown1213" Addr="0x14146f760">
-          <Dword Name="unknown0" />
+          <Dword Name="agentId" />
         </Message>
         <Message Id="1214" Name="Unknown1214" Addr="0x14146f790">
           <Dword Name="unknown0" />
@@ -7894,7 +7956,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown53">
+    <Messages Name="Scene">
       <Client />
       <Server>
         <Message Id="1221" Name="Unknown1221" Addr="0x141478120">
@@ -7915,46 +7977,46 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown54">
+    <Messages Name="Script">
       <Client />
       <Server>
         <Message Id="1222" Name="Unknown1222" Addr="0x141478510">
-          <Dword Name="unknown0" />
+          <Dword Name="scriptId" />
           <String Name="unknown1" Size="244" />
         </Message>
         <Message Id="1223" Name="Unknown1223" Addr="0x1414785a0">
-          <Dword Name="unknown0" />
+          <Dword Name="scriptId" />
           <String Name="unknown1" Size="244" />
           <Byte Name="unknown2" />
         </Message>
         <Message Id="1224" Name="Unknown1224" Addr="0x141478650">
-          <Dword Name="unknown0" />
+          <Dword Name="scriptId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="1225" Name="Unknown1225" Addr="0x1414786f0">
-          <Dword Name="unknown0" />
+          <Dword Name="scriptId" />
           <String Name="unknown1" Size="244" />
           <String Name="unknown2" Size="244" />
         </Message>
         <Message Id="1226" Name="Unknown1226" Addr="0x140240350">
-          <Dword Name="unknown0" />
+          <Dword Name="sciprtId" />
         </Message>
         <Message Id="1227" Name="Unknown1227" Addr="0x141478780">
-          <Dword Name="unknown0" />
+          <Dword Name="scriptId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="1228" Name="Unknown1228" Addr="0x141478810" />
       </Server>
     </Messages>
-    <Messages Name="Unknown55">
+    <Messages Name="Sector">
       <Client />
       <Server>
         <Message Id="1229" Name="Unknown1229" Addr="0x14147bb00">
           <Dword Name="unknown0" />
         </Message>
         <Message Id="1230" Name="Unknown1230" Addr="0x14147bb60">
-          <ArrayVarLarge Name="unknown0" Size="125" TypeName="Dword" />
-          <ArrayVarLarge Name="unknown1" Size="512" TypeName="Byte" />
+          <ArrayVarLarge Name="sectors" Size="125" TypeName="Dword" />
+          <ArrayVarLarge Name="sectorOutlines" Size="512" TypeName="Byte" />
         </Message>
         <Message Id="1231" Name="Unknown1231" Addr="0x14147bbf0">
           <Byte Name="unknown0" />
@@ -8080,7 +8142,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown59">
+    <Messages Name="TimeOfDay">
       <Client />
       <Server>
         <Message Id="1245" Name="Unknown1245" Addr="0x14148d100">
@@ -8222,7 +8284,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown61">
+    <Messages Name="Vendor">
       <Client>
         <Message Id="509" Name="Unknown509">
           <Dword Name="unknown0" />
@@ -8233,12 +8295,12 @@
           <Dword Name="unknown5" />
         </Message>
         <Message Id="510" Name="Unknown510">
-          <Dword Name="unknown0" />
+          <Dword Name="instanceId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="511" Name="Unknown511">
-          <Dword Name="unknown0" />
+          <Dword Name="instanceId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -8249,22 +8311,22 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="513" Name="Unknown513">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="instanceId" />
+          <Dword Name="serviceType" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="514" Name="Unknown514">
-          <Dword Name="unknown0" />
+          <Dword Name="instanceId" />
         </Message>
       </Client>
       <Server>
         <Message Id="1269" Name="Unknown1269" Addr="0x14094b7c0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="instanceId" />
+          <Dword Name="serviceType" />
         </Message>
         <Message Id="1270" Name="Unknown1270" Addr="0x14094b830">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="instanceId" />
+          <Dword Name="serviceType" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
@@ -8275,8 +8337,8 @@
           <String Name="unknown9" Size="128" />
         </Message>
         <Message Id="1271" Name="Unknown1271" Addr="0x14094ba20">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="instanceId" />
+          <Dword Name="itemDataId" />
           <Dword Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="5">
             <Dword Name="unknown0" />
@@ -8295,8 +8357,8 @@
           <Byte Name="unknown13" />
         </Message>
         <Message Id="1272" Name="Unknown1272" Addr="0x14094bcd0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="instanceId" />
+          <Dword Name="itemId" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
           <Dword Name="unknown4" />
@@ -8306,39 +8368,39 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="1274" Name="Unknown1274" Addr="0x14094bf00">
-          <Dword Name="unknown0" />
+          <Dword Name="instanceId" />
         </Message>
         <Message Id="1275" Name="Unknown1275" Addr="0x140240350">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="instanceId" />
+          <Dword Name="serviceType" />
         </Message>
         <Message Id="1276" Name="Unknown1276" Addr="0x14094bf70">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
+          <Dword Name="instanceId" />
+          <Dword Name="serviceType" />
+          <Dword Name="tabIndex" />
         </Message>
         <Message Id="1277" Name="Unknown1277" Addr="0x14094c040">
-          <Dword Name="unknown0" />
+          <Dword Name="instanceId" />
           <String Name="unknown1" Size="32" />
           <String Name="unknown2" Size="128" />
         </Message>
         <Message Id="1278" Name="Unknown1278" Addr="0x14094c0a0">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="instanceId" />
+          <Dword Name="serviceType" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="1279" Name="Unknown1279" Addr="0x14094c110">
           <Dword Name="unknown0" />
         </Message>
         <Message Id="1280" Name="Unknown1280" Addr="0x14094c160">
-          <Dword Name="unknown0" />
+          <Dword Name="instanceId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown62">
+    <Messages Name="Vote">
       <Client>
         <Message Id="515" Name="Unknown515">
           <Dword Name="unknown0" />
@@ -8371,7 +8433,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown63">
+    <Messages Name="Web">
       <Client />
       <Server>
         <Message Id="1285" Name="Unknown1285" Addr="0x141549b30">
@@ -8380,7 +8442,7 @@
         </Message>
       </Server>
     </Messages>
-    <Messages Name="Unknown64">
+    <Messages Name="Wvw">
       <Client>
         <Message Id="517" Name="Unknown517">
           <Dword Name="unknown0" />
@@ -8506,102 +8568,102 @@
       </Server>
     </Messages>
   </Protocol>
-  <Protocol Name="Unknown3">
-    <Messages Name="Unknown40">
+  <Protocol Name="Auth">
+    <Messages Name="Net">
       <Client>
-        <Message Id="1" Name="Unknown1">
+        <Message Id="1" Name="PingRequest">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="2" Name="Unknown2">
+        <Message Id="2" Name="UserIdentity">
           <String Name="unknown0" Size="32" />
           <String Name="unknown1" Size="32" />
         </Message>
-        <Message Id="3" Name="Unknown3">
-          <Dword Name="unknown0" />
+        <Message Id="3" Name="RegisterRequest">
+          <Dword Name="buildId" />
           <BufferFixed Name="unknown1" Size="16" />
         </Message>
-        <Message Id="4" Name="Unknown4">
-          <BufferVarSmall Name="unknown0" Size="96" />
+        <Message Id="4" Name="SystemInfo">
+          <BufferVarSmall Name="sysInfo" Size="96" />
           <Guid Name="unknown1" />
         </Message>
-        <Message Id="5" Name="Unknown5">
+        <Message Id="5" Name="SetUserLanguage">
           <Dword Name="unknown0" />
         </Message>
         <Message Id="6" Name="Unknown6">
           <Byte Name="unknown0" />
         </Message>
-        <Message Id="10" Name="Unknown10">
-          <Dword Name="unknown0" />
-          <Guid Name="unknown1" />
+        <Message Id="10" Name="AccoutLoginRequest">
+          <Dword Name="requestId" />
+          <Guid Name="userGuid" />
           <Guid Name="unknown2" />
           <String Name="unknown3" Size="64" />
           <String Name="unknown4" Size="28" />
         </Message>
-        <Message Id="11" Name="Unknown11">
+        <Message Id="11" Name="AccountLogoutRequest">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="12" Name="Unknown12">
-          <Dword Name="unknown0" />
-          <BufferVarLarge Name="unknown1" Size="4096" />
+        <Message Id="12" Name="AccountSetConfigData">
+          <Dword Name="requestId" />
+          <BufferVarLarge Name="configData" Size="4096" />
         </Message>
-        <Message Id="14" Name="Unknown14">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="14" Name="AccountSetShard">
+          <Dword Name="requestId" />
+          <Dword Name="shardId" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="15" Name="Unknown15">
-          <Byte Name="unknown0" />
+        <Message Id="15" Name="AccountSetEulaVersion">
+          <Byte Name="eulaVersion" />
         </Message>
-        <Message Id="34" Name="Unknown34">
+        <Message Id="34" Name="AccountSendPlatform">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="16" Name="Unknown16">
-          <Dword Name="unknown0" />
+        <Message Id="16" Name="AccountTransferShard">
+          <Dword Name="requestId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
-        <Message Id="20" Name="Unknown20">
-          <Dword Name="unknown0" />
-          <String Name="unknown1" Size="20" />
+        <Message Id="20" Name="CharacterDeleteRequest">
+          <Dword Name="requestId" />
+          <String Name="charName" Size="20" />
         </Message>
-        <Message Id="21" Name="Unknown21">
-          <Dword Name="unknown0" />
+        <Message Id="21" Name="CharacterUndeleteRequest">
+          <Dword Name="requestId" />
           <Guid Name="unknown1" />
-          <String Name="unknown2" Size="20" />
+          <String Name="charName" Size="20" />
         </Message>
-        <Message Id="22" Name="Unknown22">
-          <Dword Name="unknown0" />
-          <String Name="unknown1" Size="20" />
+        <Message Id="22" Name="CharacterSelectRequest">
+          <Dword Name="requestId" />
+          <String Name="charName" Size="20" />
         </Message>
-        <Message Id="23" Name="Unknown23">
-          <Dword Name="unknown0" />
-          <String Name="unknown1" Size="20" />
-          <BufferVarSmall Name="unknown2" Size="512" />
+        <Message Id="23" Name="CharacterSetDataRequest">
+          <Dword Name="requestId" />
+          <String Name="charName" Size="20" />
+          <BufferVarSmall Name="charSummary" Size="512" />
         </Message>
-        <Message Id="24" Name="Unknown24">
-          <Dword Name="unknown0" />
-          <String Name="unknown1" Size="20" />
-          <String Name="unknown2" Size="20" />
+        <Message Id="24" Name="CharacterRenameRequest">
+          <Dword Name="requestId" />
+          <String Name="oldCharName" Size="20" />
+          <String Name="newCharName" Size="20" />
         </Message>
-        <Message Id="25" Name="Unknown25">
-          <Dword Name="unknown0" />
+        <Message Id="25" Name="CharacterListRequest">
+          <Dword Name="requestId" />
         </Message>
-        <Message Id="26" Name="Unknown26">
-          <Dword Name="unknown0" />
+        <Message Id="26" Name="CharacterDeletedListRequest">
+          <Dword Name="requestId" />
         </Message>
-        <Message Id="29" Name="Unknown29">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="29" Name="RedirectClientRequest">
+          <Dword Name="requestId" />
+          <Dword Name="gameType" />
           <Dword Name="unknown2" />
-          <Dword Name="unknown3" />
+          <Dword Name="mapId" />
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
           <Guid Name="unknown6" />
         </Message>
         <Message Id="30" Name="Unknown30" />
-        <Message Id="35" Name="Unknown35" />
-        <Message Id="36" Name="Unknown36">
-          <Dword Name="unknown0" />
+        <Message Id="35" Name="RequestShardCensusUpdate" />
+        <Message Id="36" Name="NameAvailableRequest">
+          <Dword Name="requestId" />
           <Dword Name="unknown1" />
           <String Name="unknown2" Size="32" />
         </Message>
@@ -8613,12 +8675,12 @@
           <String Name="unknown4" Size="32" />
         </Message>
         <Message Id="38" Name="Unknown38">
-          <Dword Name="unknown0" />
+          <Dword Name="requestId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="39" Name="Unknown39">
-          <Dword Name="unknown0" />
+          <Dword Name="requestId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -8652,10 +8714,10 @@
         </Message>
       </Client>
       <Server>
-        <Message Id="1" Name="Unknown1" Addr="0x140240350">
+        <Message Id="1" Name="PingResponse" Addr="0x140240350">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="2" Name="Unknown2" Addr="0x140240360">
+        <Message Id="2" Name="RegisterResponse" Addr="0x140240360">
           <Dword Name="unknown0" />
         </Message>
         <Message Id="3" Name="Unknown3" Addr="0x1402403b0">
@@ -8676,32 +8738,32 @@
           <Dword Name="unknown5" />
           <Dword Name="unknown6" />
         </Message>
-        <Message Id="4" Name="Unknown4" Addr="0x140240450">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
-          <Dword Name="unknown3" />
-          <Dword Name="unknown4" />
+        <Message Id="4" Name="Response" Addr="0x140240450">
+          <Dword Name="requestId" />
+          <Dword Name="error" />
+          <Dword Name="product" />
+          <Dword Name="module" />
+          <Dword Name="line" />
         </Message>
-        <Message Id="10" Name="Unknown10" Addr="0x1402405f0">
-          <Dword Name="unknown0" />
-          <BufferVarLarge Name="unknown1" Size="4096" />
+        <Message Id="10" Name="AccountConfigData" Addr="0x1402405f0">
+          <Dword Name="requestId" />
+          <BufferVarLarge Name="configData" Size="4096" />
         </Message>
-        <Message Id="8" Name="Unknown8" Addr="0x1402404b0">
-          <Dword Name="unknown0" />
-          <Guid Name="unknown1" />
-          <Guid Name="unknown2" />
+        <Message Id="8" Name="AccountData" Addr="0x1402404b0">
+          <Dword Name="requestId" />
+          <Guid Name="acctGuid" />
+          <Guid Name="charGuid" />
           <Dword Name="unknown3" />
-          <Dword Name="unknown4" />
+          <Dword Name="eulaVersion" />
           <Dword Name="unknown5" />
-          <Dword Name="unknown6" />
-          <Dword Name="unknown7" />
+          <Dword Name="shardId6" />
+          <Dword Name="shardId7" />
           <Dword Name="unknown8" />
           <Dword Name="unknown9" />
           <Byte Name="unknown10" />
           <BufferFixed Name="unknown11" Size="32" />
-          <ArrayVarSmall Name="unknown12" Size="50">
-            <Word Name="unknown0" />
+          <ArrayVarSmall Name="features" Size="50">
+            <Word Name="featureId" />
             <Word Name="unknown1" />
             <Dword Name="unknown2" />
             <Dword Name="unknown3" />
@@ -8709,55 +8771,55 @@
           </ArrayVarSmall>
           <BufferFixed Name="unknown13" Size="32" />
         </Message>
-        <Message Id="13" Name="Unknown13" Addr="0x140240620">
-          <ArrayVarSmall Name="unknown0" Size="50">
-            <Word Name="unknown0" />
+        <Message Id="13" Name="AccountFeatures" Addr="0x140240620">
+          <ArrayVarSmall Name="features" Size="50">
+            <Word Name="featureId" />
             <Word Name="unknown1" />
             <Dword Name="unknown2" />
             <Dword Name="unknown3" />
             <Dword Name="unknown4" />
           </ArrayVarSmall>
         </Message>
-        <Message Id="16" Name="Unknown16" Addr="0x140240640">
-          <Dword Name="unknown0" />
-          <Guid Name="unknown1" />
+        <Message Id="16" Name="AccountTransfer" Addr="0x140240640">
+          <Dword Name="requestId" />
+          <Guid Name="acctGuid" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
-          <Dword Name="unknown4" />
+          <Dword Name="transferRateHours" />
           <Dword Name="unknown5" />
           <Dword Name="unknown6" />
         </Message>
-        <Message Id="18" Name="Unknown18" Addr="0x1402406b0">
-          <Dword Name="unknown0" />
-          <Guid Name="unknown1" />
+        <Message Id="18" Name="CharacterDeletedList" Addr="0x1402406b0">
+          <Dword Name="requestId" />
+          <Guid Name="charGuid" />
           <Dword Name="unknown2" />
           <Qword Name="unknown3" />
           <Qword Name="unknown4" />
-          <String Name="unknown5" Size="20" />
-          <BufferVarLarge Name="unknown6" Size="512" />
+          <String Name="charName" Size="20" />
+          <BufferVarLarge Name="charSummary" Size="512" />
         </Message>
-        <Message Id="17" Name="Unknown17" Addr="0x140240660">
-          <Dword Name="unknown0" />
-          <Guid Name="unknown1" />
+        <Message Id="17" Name="CharacterList" Addr="0x140240660">
+          <Dword Name="requestId" />
+          <Guid Name="charGuid" />
           <Dword Name="unknown2" />
           <Qword Name="unknown3" />
           <Qword Name="unknown4" />
-          <String Name="unknown5" Size="20" />
-          <BufferVarLarge Name="unknown6" Size="512" />
+          <String Name="charName" Size="20" />
+          <BufferVarLarge Name="charSummary" Size="512" />
         </Message>
         <Message Id="27" Name="Unknown27" Addr="0x140240700">
-          <Dword Name="unknown0" />
+          <Dword Name="requestId" />
           <ArrayVarSmall Name="unknown1" Size="100">
             <Dword Name="unknown0" />
             <Dword Name="unknown1" />
           </ArrayVarSmall>
         </Message>
-        <Message Id="20" Name="Unknown20" Addr="0x140240720">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+        <Message Id="20" Name="RedirectClientResponse" Addr="0x140240720">
+          <Dword Name="requestId" />
+          <Dword Name="gameType" />
           <Dword Name="unknown2" />
-          <Dword Name="unknown3" />
-          <Address Name="unknown4" />
+          <Dword Name="mapId" />
+          <Address Name="address" />
           <Dword Name="unknown5" />
         </Message>
         <Message Id="28" Name="Unknown28" Addr="0x140240760">
@@ -8774,24 +8836,24 @@
           <Byte Name="unknown3" />
           <BufferFixed Name="unknown4" Size="3" />
         </Message>
-        <Message Id="23" Name="Unknown23" Addr="0x1402407c0" />
-        <Message Id="25" Name="Unknown25" Addr="0x140240800">
-          <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
-          <Dword Name="unknown3" />
+        <Message Id="23" Name="ShardCensusBegin" Addr="0x1402407c0" />
+        <Message Id="25" Name="ShardCensusData" Addr="0x140240800">
+          <Dword Name="shardId" />
+          <Dword Name="population" />
+          <Dword Name="transferCost" />
+          <Dword Name="transferRateHours" />
         </Message>
-        <Message Id="24" Name="Unknown24" Addr="0x1402408f0" />
+        <Message Id="24" Name="ShardCensusEnd" Addr="0x1402408f0" />
         <Message Id="26" Name="Unknown26" Addr="0x140240950">
-          <Dword Name="unknown0" />
+          <Dword Name="error" />
         </Message>
         <Message Id="29" Name="Unknown29" Addr="0x140240a60">
           <Dword Name="unknown0" />
         </Message>
-        <Message Id="30" Name="Unknown30" Addr="0x140240a80">
+        <Message Id="30" Name="TimedFeatures" Addr="0x140240a80">
           <Byte Name="unknown0" />
-          <ArrayVarSmall Name="unknown1" Size="25">
-            <Word Name="unknown0" />
+          <ArrayVarSmall Name="features" Size="25">
+            <Word Name="featureId" />
             <Qword Name="unknown1" />
             <Qword Name="unknown2" />
           </ArrayVarSmall>
