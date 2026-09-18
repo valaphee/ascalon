@@ -197,7 +197,7 @@ where
                     state.game_servers.write().unwrap().insert(
                         *message["unknown2"].as_u32(),
                         mem::replace(
-                            message["unknown0"].as_address_mut(),
+                            message["address"].as_address_mut(),
                             "127.0.0.1:0".parse().unwrap(),
                         ),
                     );
