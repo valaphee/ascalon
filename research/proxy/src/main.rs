@@ -100,7 +100,7 @@ async fn proxy(state: Arc<State>, mut client: TcpStream) -> Result<()> {
 async fn proxy_auth(state: Arc<State>, client: TcpStream, packet: [u8; 16]) -> Result<()> {
     let mut server = TcpStream::connect("3.66.254.251:6112").await?;
     server.write_all(&packet).await?;
-    proxy_connection(state, client, server, "Auth").await
+    proxy_connection(state, client, server, "3").await
 }
 
 async fn proxy_game(state: Arc<State>, mut client: TcpStream, packet: [u8; 16]) -> Result<()> {
@@ -124,7 +124,7 @@ async fn proxy_game(state: Arc<State>, mut client: TcpStream, packet: [u8; 16]) 
     let mut server = TcpStream::connect(address).await?;
     server.write_all(&packet).await?;
 
-    proxy_connection(state, client, server, "Game").await
+    proxy_connection(state, client, server, "0").await
 }
 
 async fn proxy_connection(
@@ -141,8 +141,8 @@ async fn proxy_connection(
     let server = Framed::new(server, ClientCodec::from_key(&server_key));
     let (mut server_sink, server_stream) = server.split();
 
-    let (to_client, mut client_rx) = mpsc::channel(32);
-    let (to_server, mut server_rx) = mpsc::channel(32);
+    let (to_client, mut client_rx) = mpsc::channel(1);
+    let (to_server, mut server_rx) = mpsc::channel(1);
 
     tokio::select! {
         result = proxy_stream(
@@ -217,29 +217,29 @@ where
             }
 
             match (protocol, server, message.id) {
-                ("Auth", true, 20) => {
+                ("3", true, 20) => {
                     state.game_servers.write().unwrap().insert(
-                        *message["unknown2"].as_u32(),
+                        *message["2"].as_u32(),
                         mem::replace(
-                            message["address"].as_address_mut(),
+                            message["4"].as_address_mut(),
                             "127.0.0.1:0".parse().unwrap(),
                         ),
                     );
                 }
-                ("Game", true, 1066) => {
+                ("0", true, 1066) => {
                     state.game_servers.write().unwrap().insert(
-                        *message["unknown2"].as_u32(),
+                        *message["2"].as_u32(),
                         mem::replace(
-                            message["address"].as_address_mut(),
+                            message["0"].as_address_mut(),
                             "127.0.0.1:0".parse().unwrap(),
                         ),
                     );
                 }
-                ("Game", true, 748) => {
+                ("0", true, 748) => {
                     let mut strings = STRINGS.write().unwrap();
-                    for v in message["unknown0"].as_slice() {
-                        let string = strings.get_mut(*v["unknown0"].as_u32() as usize).unwrap();
-                        let _ = string.decrypt(*v["unknown1"].as_u64());
+                    for v in message["0"].as_slice() {
+                        let string = strings.get_mut(*v["0"].as_u32() as usize).unwrap();
+                        let _ = string.decrypt(*v["1"].as_u64());
                     }
                 }
                 _ => {}

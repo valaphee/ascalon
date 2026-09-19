@@ -9,12 +9,12 @@ def export_protocols(protocols):
     protocols.sort(key=lambda protocol: protocol["id"])
     for protocol in protocols:
         protocol_elem = ET.SubElement(root, "Protocol")
-        protocol_elem.set("Name", f"Unknown{protocol['id']}")
+        protocol_elem.set("Name", f"{protocol['id']}")
 
         protocol["msgs"].sort(key=lambda messages: messages["id"])
         for messages in protocol["msgs"]:
             messages_elem = ET.SubElement(protocol_elem, "Messages")
-            messages_elem.set("Name", f"Unknown{messages['id']}")
+            messages_elem.set("Name", f"{messages['id']}")
 
             client_elem = ET.SubElement(messages_elem, "Client")
             server_elem = ET.SubElement(messages_elem, "Server")
@@ -38,7 +38,7 @@ def add_message(parent, message):
     elem = ET.SubElement(parent, "Message")
 
     elem.set("Id", str(message["id"]))
-    elem.set("Name", f"Unknown{message['id']}")
+    elem.set("Name", f"{message['id']}")
 
     if message["addr"] is not None:
         elem.set("Addr", message["addr"])
@@ -49,7 +49,7 @@ def add_message(parent, message):
 
 def add_field(parent, field, index):
     elem = ET.SubElement(parent, field["type"])
-    elem.set("Name", f"unknown{index}")
+    elem.set("Name", f"{index}")
 
     if field["size"] != 0:
         elem.set("Size", str(field["size"]))

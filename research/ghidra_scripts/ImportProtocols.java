@@ -75,6 +75,10 @@ public class ImportProtocols extends GhidraScript {
                 }
 
                 for (Element message : server.getChildren("Message")) {
+                    String messageName = message.getAttributeValue("Name");
+
+                    Structure struct = createStruct("MsgSrv" + messagesName + messageName, message, true);
+
                     String address = message.getAttributeValue("Addr");
                     if (address == null) {
                         continue;
@@ -84,10 +88,6 @@ public class ImportProtocols extends GhidraScript {
                     if (function == null) {
                         continue;
                     }
-
-                    String messageName = message.getAttributeValue("Name");
-
-                    Structure struct = createStruct("MsgSrv" + messagesName + messageName, message, true);
 
                     function.setParentNamespace(namespace);
                     function.setName("Recv" + messageName, SourceType.USER_DEFINED);

@@ -459,7 +459,7 @@ fn decode_coded(words: &mut &[u16]) -> io::Result<String> {
             .get_mut(decode_coded_numeric(words)? as usize)
             .ok_or(io::ErrorKind::InvalidData)?;
         if words[0] & 0x8000 != 0 {
-            string.decrypt(decode_coded_numeric(words).unwrap_or_default())?;
+            string.decrypt(decode_coded_numeric(words)?)?;
         }
         string.text()?
     };
