@@ -39,23 +39,22 @@ static SERVER_DH_PARAMS: &[u8] = include_bytes!("../../dh_params.bin");
 async fn main() -> Result<()> {
     let _tracy = tracy_client::Client::start();
 
-    let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat")?;
-    let manifest = archive.read(3796944)?;
-    let language = &packfile::txtm::TextPackManifest::ref_from_prefix(
-        Packfile::from_bytes(&manifest)?
-            .chunks()
-            .next()
-            .unwrap()
-            .data(),
-    )
-    .unwrap()
-    .0
-    .languages
-    .as_slice()[0];
-
     {
+        let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat")?;
+
+        let manifest = archive.read(3796944)?;
+        let manifest = &packfile::txtm::TextPackManifest::ref_from_prefix(
+            Packfile::from_bytes(&manifest)?
+                .chunks()
+                .next()
+                .unwrap()
+                .data(),
+        )
+        .unwrap()
+        .0;
+
         let mut all_strings = STRINGS.write().unwrap();
-        for filename in language.filenames.as_slice() {
+        for filename in manifest.languages.as_slice()[0].filenames.as_slice() {
             let strings = archive.read(filename.file_id())?;
             let strings = strings::parse(&strings)?;
             for string in strings {

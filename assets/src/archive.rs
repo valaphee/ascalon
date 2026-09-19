@@ -81,7 +81,7 @@ impl Archive {
     }
 }
 
-#[derive(Clone, Copy, Debug, FromBytes, KnownLayout, Immutable)]
+#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct AnHeader {
     version: u8,
@@ -96,7 +96,7 @@ struct AnHeader {
     _9: U32,
 }
 
-#[derive(Clone, Copy, Debug, FromBytes, KnownLayout, Immutable)]
+#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct MftHeader {
     magic: [u8; 4],
@@ -107,7 +107,7 @@ struct MftHeader {
     _5: U32,
 }
 
-#[derive(Clone, Copy, Debug, FromBytes, KnownLayout, Immutable)]
+#[derive(Clone, Copy, FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct MftEntry {
     offset: U64,
@@ -119,7 +119,7 @@ struct MftEntry {
     _6: U32,
 }
 
-#[derive(Clone, Copy, Debug, FromBytes, KnownLayout, Immutable)]
+#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct IndexEntry {
     file_id: U32,

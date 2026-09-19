@@ -57,8 +57,7 @@ impl<'a> PackfileChunk<'a> {
     }
 
     pub fn data(&self) -> &'a [u8] {
-        &self.0[self.header().header_size.get() as usize..]
-            [..self.header().relocation_offset.get() as usize]
+        &self.0[self.header().header_size.get() as usize..][..self.header()._4.get() as usize]
     }
 }
 
@@ -69,17 +68,17 @@ struct PackfileHeader {
     _1: U16,
     _2: U16,
     header_size: U16,
-    file_type: [u8; 4],
+    _4: [u8; 4],
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct PackfileChunkHeader {
-    r#type: [u8; 4],
+    _0: [u8; 4],
     next_chunk_offset: U32,
-    version: U16,
+    _2: U16,
     header_size: U16,
-    relocation_offset: U32,
+    _4: U32,
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]
