@@ -11,6 +11,8 @@ use bytes::{BufMut as _, BytesMut};
 use indexmap::IndexMap;
 use uuid::Uuid;
 
+use crate::STRINGS;
+
 pub struct Message {
     pub id: u16,
     pub name: String,
@@ -65,7 +67,9 @@ impl fmt::Debug for Value {
             Value::Point3(v) => v.fmt(f),
             Value::Guid(v) => v.fmt(f),
             Value::Address(v) => v.fmt(f),
-            Value::String(v) => String::from_utf16_lossy(v).fmt(f),
+            Value::String(v) => decode_coded(&mut &v[..])
+                .unwrap_or_else(|_| String::from_utf16_lossy(&v[..v.len() - 1]))
+                .fmt(f),
             Value::CString(v) => v.fmt(f),
             Value::Optional(v) => v.fmt(f),
             Value::ArrayFixed(v) | Value::ArrayVarSmall(v) | Value::ArrayVarLarge(v) => v.fmt(f),
@@ -95,14 +99,14 @@ macro_rules! impl_accessors {
             $(
                 pub fn $get(&self) -> &$ty {
                     match self {
-                        Self::$variant(value) => value,
+                        Self::$variant(v) => v,
                         _ => panic!(),
                     }
                 }
 
                 pub fn $get_mut(&mut self) -> &mut $ty {
                     match self {
-                        Self::$variant(value) => value,
+                        Self::$variant(v) => v,
                         _ => panic!(),
                     }
                 }
@@ -125,6 +129,26 @@ impl_accessors! {
     Address => SocketAddr, as_address, as_address_mut;
     String  => Vec<u16>,   as_string,  as_string_mut;
     CString => String,     as_cstring, as_cstring_mut;
+}
+
+impl Value {
+    pub fn as_slice(&self) -> &[Value] {
+        match self {
+            Self::ArrayFixed(v) => v.as_slice(),
+            Self::ArrayVarSmall(v) => v.as_slice(),
+            Self::ArrayVarLarge(v) => v.as_slice(),
+            _ => panic!(),
+        }
+    }
+
+    pub fn as_mut_slice(&mut self) -> &mut [Value] {
+        match self {
+            Self::ArrayFixed(v) => v.as_mut_slice(),
+            Self::ArrayVarSmall(v) => v.as_mut_slice(),
+            Self::ArrayVarLarge(v) => v.as_mut_slice(),
+            _ => panic!(),
+        }
+    }
 }
 
 impl Index<&str> for Message {
@@ -182,10 +206,7 @@ impl Encode for Value {
             Value::Guid(v) => v.encode(buf),
             Value::Point3(v) => v.encode(buf),
             Value::Address(v) => v.encode(buf),
-            Value::String(v) => {
-                v.iter().try_for_each(|&v| v.encode(buf))?;
-                0u16.encode(buf)
-            }
+            Value::String(v) => v.iter().try_for_each(|&v| v.encode(buf)),
             Value::CString(v) => {
                 buf.put_slice(v.as_bytes());
                 0u8.encode(buf)
@@ -206,7 +227,6 @@ impl Encode for Value {
                 (v.len() as u16).encode(buf)?;
                 v.iter().try_for_each(|v| v.encode(buf))
             }
-
             Value::BufferFixed(v) => {
                 buf.put_slice(v);
                 Ok(())
@@ -286,14 +306,14 @@ fn decode_value(r#type: &str, field: Option<&Field>, buf: &mut &[u8]) -> io::Res
         "String" => {
             let field = field.unwrap();
 
-            let mut value = Vec::with_capacity(field.size);
+            let mut value = Vec::new();
             for _ in 0..field.size {
                 let word = u16::decode(buf)?;
+                value.push(word);
+
                 if word == 0 {
                     return Ok(Value::String(value));
                 }
-
-                value.push(word);
             }
 
             return Err(io::Error::from(io::ErrorKind::InvalidData));
@@ -301,14 +321,16 @@ fn decode_value(r#type: &str, field: Option<&Field>, buf: &mut &[u8]) -> io::Res
         "CString" => {
             let field = field.unwrap();
 
-            let mut value = Vec::with_capacity(field.size);
+            let mut value = Vec::new();
             for _ in 0..field.size {
                 let byte = u8::decode(buf)?;
+
                 if byte == 0 {
                     return Ok(Value::CString(unsafe {
                         String::from_utf8_unchecked(value)
                     }));
                 }
+
                 if !byte.is_ascii() {
                     return Err(io::Error::from(io::ErrorKind::InvalidData));
                 }
@@ -428,4 +450,90 @@ fn decode_value_inner(field: &Field, buf: &mut &[u8]) -> io::Result<Value> {
         None,
         buf,
     )
+}
+
+fn decode_coded(words: &mut &[u16]) -> io::Result<String> {
+    let mut output = {
+        let mut strings = STRINGS.write().unwrap();
+        let string = strings
+            .get_mut(decode_coded_numeric(words)? as usize)
+            .ok_or(io::ErrorKind::InvalidData)?;
+        if words[0] & 0x8000 != 0 {
+            string.decrypt(decode_coded_numeric(words).unwrap_or_default())?;
+        }
+        string.text()?
+    };
+
+    loop {
+        let (word, _words) = words.split_first().ok_or(io::ErrorKind::UnexpectedEof)?;
+        *words = _words;
+
+        match word {
+            0x0000 | 0x0001 => return Ok(output),
+            0x0002 => {
+                output.push_str(&decode_coded(words)?);
+                return Ok(output);
+            }
+            0x0003 => {
+                output.push_str(&decode_coded_literal(words)?);
+                return Ok(output);
+            }
+            0x0101..=0x0106 => {
+                output = output.replace(
+                    &format!("%num{}%", (word - 0x0101) + 1),
+                    &decode_coded_numeric(words)?.to_string(),
+                );
+            }
+            0x0107..=0x010c => {
+                output = output.replace(
+                    &format!("%str{}%", (word - 0x0107) + 1),
+                    &decode_coded_literal(words)?,
+                );
+            }
+            0x010d..=0x0112 => {
+                output = output.replace(
+                    &format!("%str{}%", (word - 0x010d) + 1),
+                    &decode_coded(words)?,
+                )
+            }
+            _ => {}
+        }
+    }
+}
+
+fn decode_coded_numeric(words: &mut &[u16]) -> io::Result<u64> {
+    let mut value = 0u64;
+
+    loop {
+        let (word, _words) = words.split_first().ok_or(io::ErrorKind::UnexpectedEof)?;
+        *words = _words;
+
+        let part = word & 0x7fff;
+        if part < 0x0100 {
+            return Err(io::ErrorKind::InvalidData.into());
+        }
+
+        value += (part - 0x0100) as u64;
+
+        if word & 0x8000 == 0 {
+            return Ok(value);
+        }
+
+        value *= 0x7f00;
+    }
+}
+
+fn decode_coded_literal(words: &mut &[u16]) -> io::Result<String> {
+    let mut value = Vec::new();
+
+    loop {
+        let (word, _words) = words.split_first().ok_or(io::ErrorKind::UnexpectedEof)?;
+        *words = _words;
+
+        if *word == 0x0001 {
+            return String::from_utf16(&value).map_err(|_| io::ErrorKind::InvalidData.into());
+        }
+
+        value.push(*word);
+    }
 }

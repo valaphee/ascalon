@@ -1,12 +1,17 @@
 use std::{
     collections::HashMap,
     fs,
-    io::{self, Error, ErrorKind, Result},
+    io::{Error, ErrorKind, Result},
     mem,
     net::SocketAddr,
     sync::{Arc, RwLock},
 };
 
+use ascalon_assets::{
+    archive::Archive,
+    packfile::{self, Packfile},
+    strings,
+};
 use ascalon_network::{ClientCodec, Framed, ServerCodec};
 use ascalon_protocol::Encode;
 use ascalon_protocol_schema::Protocol;
@@ -21,15 +26,43 @@ use tokio::{
     net::{TcpListener, TcpStream},
     sync::mpsc,
 };
+use zerocopy::FromBytes;
 
 mod message;
+
+pub static STRINGS: RwLock<Vec<strings::Entry>> = RwLock::new(Vec::new());
 
 static CLIENT_DH_PARAMS: &[u8] = include_bytes!("../dh_params.bin");
 static SERVER_DH_PARAMS: &[u8] = include_bytes!("../../dh_params.bin");
 
 #[tokio::main]
-async fn main() -> io::Result<()> {
+async fn main() -> Result<()> {
     let _tracy = tracy_client::Client::start();
+
+    let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat")?;
+    let manifest = archive.read(3796944)?;
+    let language = &packfile::txtm::TextPackManifest::ref_from_prefix(
+        Packfile::from_bytes(&manifest)?
+            .chunks()
+            .next()
+            .unwrap()
+            .data(),
+    )
+    .unwrap()
+    .0
+    .languages
+    .as_slice()[0];
+
+    {
+        let mut all_strings = STRINGS.write().unwrap();
+        for filename in language.filenames.as_slice() {
+            let strings = archive.read(filename.file_id())?;
+            let strings = strings::parse(&strings)?;
+            for string in strings {
+                all_strings.push(string);
+            }
+        }
+    }
 
     let state = Arc::new(State {
         game_servers: RwLock::default(),
@@ -53,7 +86,7 @@ struct State {
     protocols: Vec<Protocol>,
 }
 
-async fn proxy(state: Arc<State>, mut client: TcpStream) -> io::Result<()> {
+async fn proxy(state: Arc<State>, mut client: TcpStream) -> Result<()> {
     let mut packet = [0; 16];
     client.read_exact(&mut packet).await?;
 
@@ -64,13 +97,13 @@ async fn proxy(state: Arc<State>, mut client: TcpStream) -> io::Result<()> {
     }
 }
 
-async fn proxy_auth(state: Arc<State>, client: TcpStream, packet: [u8; 16]) -> io::Result<()> {
+async fn proxy_auth(state: Arc<State>, client: TcpStream, packet: [u8; 16]) -> Result<()> {
     let mut server = TcpStream::connect("3.66.254.251:6112").await?;
     server.write_all(&packet).await?;
     proxy_connection(state, client, server, "Auth").await
 }
 
-async fn proxy_game(state: Arc<State>, mut client: TcpStream, packet: [u8; 16]) -> io::Result<()> {
+async fn proxy_game(state: Arc<State>, mut client: TcpStream, packet: [u8; 16]) -> Result<()> {
     let mut packet = packet.to_vec();
     packet.resize(16 - 4 + 72, 0);
     client.read_exact(&mut packet[16..]).await?;
@@ -99,7 +132,7 @@ async fn proxy_connection(
     mut client: TcpStream,
     mut server: TcpStream,
     protocol: &'static str,
-) -> io::Result<()> {
+) -> Result<()> {
     let client_key = server_dh_key_exchange(&mut client, &CLIENT_DH_PARAMS.try_into()?).await?;
     let client = Framed::new(client, ServerCodec::from_key(&client_key));
     let (mut client_sink, client_stream) = client.split();
@@ -155,9 +188,9 @@ async fn proxy_stream<S>(
     dst: mpsc::Sender<Bytes>,
     protocol: &'static str,
     server: bool,
-) -> io::Result<()>
+) -> Result<()>
 where
-    S: Stream<Item = io::Result<Bytes>> + Unpin,
+    S: Stream<Item = Result<Bytes>> + Unpin,
 {
     let mut recv_buf = BytesMut::new();
     let mut send_buf = BytesMut::new();
@@ -169,7 +202,7 @@ where
             let mut tmp = &recv_buf[..];
             let mut message = match message::decode(&state.protocols, protocol, server, &mut tmp) {
                 Ok(m) => m,
-                Err(e) if e.kind() == io::ErrorKind::UnexpectedEof => break,
+                Err(e) if e.kind() == ErrorKind::UnexpectedEof => break,
                 Err(e) => return Err(e),
             };
 
@@ -202,6 +235,13 @@ where
                         ),
                     );
                 }
+                ("Game", true, 748) => {
+                    let mut strings = STRINGS.write().unwrap();
+                    for v in message["unknown0"].as_slice() {
+                        let string = strings.get_mut(*v["unknown0"].as_u32() as usize).unwrap();
+                        let _ = string.decrypt(*v["unknown1"].as_u64());
+                    }
+                }
                 _ => {}
             }
 
@@ -210,7 +250,7 @@ where
 
         dst.send(send_buf.split().freeze())
             .await
-            .map_err(|_| io::ErrorKind::BrokenPipe)?;
+            .map_err(|_| ErrorKind::BrokenPipe)?;
     }
 
     Ok(())

@@ -14,6 +14,10 @@ dependencies = [
 [[package]]
 name = "ascalon-assets"
 version = "0.1.0"
+dependencies = [
+ "rc4",
+ "zerocopy",
+]
 
 [[package]]
 name = "ascalon-network"
@@ -430,6 +434,7 @@ dependencies = [
  "tokio",
  "tracy-client",
  "uuid",
+ "zerocopy",
 ]
 
 [[package]]
@@ -872,3 +877,23 @@ name = "windows_x86_64_msvc"
 version = "0.53.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d6bbff5f0aada427a1e5a6da5f1f98158182f26556f345ac9e04d36d0ebed650"
+
+[[package]]
+name = "zerocopy"
+version = "0.8.57"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d35102a9f36d089ccae9e4c6802bc118be4487b80aaffc0ab4e0cf5ce92d2873"
+dependencies = [
+ "zerocopy-derive",
+]
+
+[[package]]
+name = "zerocopy-derive"
+version = "0.8.57"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "146c01f5ab44258da43cf276c74a2763db2ff3969c9c652c3f2de07041d0b2bc"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
+]

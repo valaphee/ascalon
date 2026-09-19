@@ -63,7 +63,9 @@ impl Decode for u32 {
         let mut value = 0u32;
         for shift in (0..35).step_by(7) {
             let byte = u8::decode(buf)?;
+
             value |= ((byte & 0x7f) as u32) << shift;
+
             if byte & 0x80 == 0 {
                 return Ok(value);
             }
