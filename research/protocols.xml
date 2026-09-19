@@ -6698,10 +6698,10 @@
     <Messages Name="Loot">
       <Client>
         <Message Id="364" Name="Unknown364">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
         </Message>
         <Message Id="368" Name="Unknown368">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="369" Name="Unknown369">
@@ -6723,54 +6723,54 @@
         </Message>
       </Client>
       <Server>
-        <Message Id="985" Name="Unknown985" Addr="0x1413e87d0">
-          <Dword Name="unknown0" />
+        <Message Id="985" Name="Create" Addr="0x1413e87d0">
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
-        <Message Id="986" Name="Unknown986" Addr="0x1413e8810">
-          <Dword Name="unknown0" />
+        <Message Id="986" Name="Destroy" Addr="0x1413e8810">
+          <Dword Name="lootId" />
         </Message>
         <Message Id="987" Name="Unknown987" Addr="0x1413e8840" />
         <Message Id="988" Name="Unknown988" Addr="0x1413e8860">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="989" Name="Unknown989" Addr="0x1413e88f0">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="990" Name="Unknown990" Addr="0x1413e89b0">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="991" Name="Unknown991" Addr="0x1413e8a40">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
         </Message>
         <Message Id="992" Name="Unknown992" Addr="0x1413e8ac0">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Byte Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="993" Name="Unknown993" Addr="0x1413e8b50">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="994" Name="Unknown994" Addr="0x1413e8be0">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="995" Name="Unknown995" Addr="0x1413e8c70">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
         </Message>
         <Message Id="996" Name="Unknown996" Addr="0x1413e8d30">
-          <Dword Name="unknown0" />
+          <Dword Name="lootId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
         </Message>
@@ -6979,29 +6979,29 @@
     <Messages Name="Marker">
       <Client />
       <Server>
-        <Message Id="1021" Name="Unknown1021" Addr="0x141409110">
+        <Message Id="1021" Name="Create" Addr="0x141409110">
           <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="markerId" />
           <Dword Name="markerDataId" />
           <Byte Name="unknown3" />
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
           <Dword Name="unknown6" />
-          <String Name="unknown7" Size="128" />
+          <String Name="overrideText" Size="128" />
           <Dword Name="unknown8" />
           <Point3 Name="unknown9" />
           <Float Name="unknown10" />
           <Dword Name="unknown11" />
         </Message>
-        <Message Id="1022" Name="Unknown1022" Addr="0x141409200">
+        <Message Id="1022" Name="Create" Addr="0x141409200">
           <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
-          <Dword Name="unknown2" />
+          <Dword Name="markerId" />
+          <Dword Name="markerDataId" />
           <Byte Name="unknown3" />
           <Dword Name="unknown4" />
           <Dword Name="unknown5" />
           <Dword Name="unknown6" />
-          <String Name="unknown7" Size="128" />
+          <String Name="overrideText" Size="128" />
           <Dword Name="unknown8" />
           <Point3 Name="unknown9" />
           <Byte Name="unknown10" />
@@ -7011,26 +7011,26 @@
         </Message>
         <Message Id="1023" Name="Unknown1023" Addr="0x141409300">
           <Dword Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="markerId" />
         </Message>
         <Message Id="1024" Name="Unknown1024" Addr="0x141409340">
-          <Dword Name="unknown0" />
+          <Dword Name="markerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="1025" Name="Unknown1025" Addr="0x141409370">
-          <Dword Name="unknown0" />
+          <Dword Name="markerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="1026" Name="Unknown1026" Addr="0x1414093a0">
-          <Dword Name="unknown0" />
+          <Dword Name="markerId" />
           <Dword Name="unknown1" />
         </Message>
         <Message Id="1027" Name="Unknown1027" Addr="0x1414093d0">
-          <Dword Name="unknown0" />
-          <String Name="unknown1" Size="128" />
+          <Dword Name="markerId" />
+          <String Name="overrideText" Size="128" />
         </Message>
         <Message Id="1028" Name="Unknown1028" Addr="0x141409400">
-          <Dword Name="unknown0" />
+          <Dword Name="markerId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Point3 Name="unknown3" />
@@ -7790,15 +7790,15 @@
           <ArrayVarLarge Name="pointsOfInterest" Size="256" TypeName="Dword" />
         </Message>
         <Message Id="1143" Name="Unknown1143" Addr="0x1414457d0">
-          <Dword Name="unknown0" />
+          <Dword Name="pointsOfInterestDataId" />
           <Byte Name="unknown1" />
         </Message>
         <Message Id="1144" Name="Unknown1144" Addr="0x141445850">
           <Byte Name="unknown0" />
-          <Dword Name="unknown1" />
+          <Dword Name="pointsOfInterestDataId" />
         </Message>
         <Message Id="1145" Name="Unknown1145" Addr="0x1414458d0">
-          <Dword Name="unknown0" />
+          <Dword Name="pointsOfInterestDataId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
@@ -8295,12 +8295,12 @@
           <Dword Name="unknown5" />
         </Message>
         <Message Id="510" Name="Unknown510">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="511" Name="Unknown511">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="unknown1" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -8311,21 +8311,21 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="513" Name="Unknown513">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="serviceType" />
           <Dword Name="unknown2" />
         </Message>
         <Message Id="514" Name="Unknown514">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
         </Message>
       </Client>
       <Server>
         <Message Id="1269" Name="Unknown1269" Addr="0x14094b7c0">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="serviceType" />
         </Message>
         <Message Id="1270" Name="Unknown1270" Addr="0x14094b830">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="serviceType" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -8337,7 +8337,7 @@
           <String Name="unknown9" Size="128" />
         </Message>
         <Message Id="1271" Name="Unknown1271" Addr="0x14094ba20">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="itemDataId" />
           <Dword Name="unknown2" />
           <ArrayVarSmall Name="unknown3" Size="5">
@@ -8357,7 +8357,7 @@
           <Byte Name="unknown13" />
         </Message>
         <Message Id="1272" Name="Unknown1272" Addr="0x14094bcd0">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="itemId" />
           <Dword Name="unknown2" />
           <Dword Name="unknown3" />
@@ -8368,24 +8368,24 @@
           <Dword Name="unknown1" />
         </Message>
         <Message Id="1274" Name="Unknown1274" Addr="0x14094bf00">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
         </Message>
         <Message Id="1275" Name="Unknown1275" Addr="0x140240350">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="serviceType" />
         </Message>
         <Message Id="1276" Name="Unknown1276" Addr="0x14094bf70">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="serviceType" />
           <Dword Name="tabIndex" />
         </Message>
         <Message Id="1277" Name="Unknown1277" Addr="0x14094c040">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <String Name="unknown1" Size="32" />
           <String Name="unknown2" Size="128" />
         </Message>
         <Message Id="1278" Name="Unknown1278" Addr="0x14094c0a0">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="serviceType" />
           <Dword Name="unknown2" />
         </Message>
@@ -8393,7 +8393,7 @@
           <Dword Name="unknown0" />
         </Message>
         <Message Id="1280" Name="Unknown1280" Addr="0x14094c160">
-          <Dword Name="instanceId" />
+          <Dword Name="vendorId" />
           <Dword Name="unknown1" />
           <Byte Name="unknown2" />
           <Byte Name="unknown3" />
