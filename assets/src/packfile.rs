@@ -9,6 +9,7 @@ use zerocopy::{
     little_endian::{U16, U32, U64},
 };
 
+pub mod cntc;
 pub mod txtm;
 
 pub struct Packfile<'a>(&'a [u8]);
@@ -56,7 +57,7 @@ impl<'a> PackfileChunk<'a> {
         PackfileChunkHeader::ref_from_prefix(self.0).unwrap().0
     }
 
-    pub fn data(&self) -> &'a [u8] {
+    pub fn bytes(&self) -> &'a [u8] {
         &self.0[self.header().header_size.get() as usize..][..self.header()._4.get() as usize]
     }
 }
@@ -143,11 +144,6 @@ impl WcharPtr {
 
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self.as_slice())
-    }
-
-    pub fn file_id(&self) -> u32 {
-        let value = self.as_slice();
-        return (value[0] as u32 - 0xff) + (value[1] as u32 - 0x100) * 0xff00;
     }
 }
 

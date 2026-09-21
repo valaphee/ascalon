@@ -11,17 +11,15 @@ pub fn parse(mut data: &[u8]) -> Result<Vec<Entry>> {
     data = &data[4..];
 
     let mut entries = Vec::new();
-
     while data.len() >= 6 {
         let size = u16::from_le_bytes(data[..2].try_into().unwrap());
         let _data = data.split_at(size as usize);
         data = _data.1;
 
         let entry = EntryRepr::ref_from_bytes(_data.0).unwrap();
-
         entries.push(Entry {
-            decryption_offset: entry.decryption_offset.get(),
-            bits_per_symbol: entry.bits_per_symbol.get(),
+            offset: entry.offset.get(),
+            bits: entry.bits.get(),
             data: entry.data.to_vec().into_boxed_slice(),
         });
     }
@@ -33,20 +31,20 @@ pub fn parse(mut data: &[u8]) -> Result<Vec<Entry>> {
 #[repr(C)]
 struct EntryRepr {
     size: U16,
-    decryption_offset: U16,
-    bits_per_symbol: U16,
+    offset: U16,
+    bits: U16,
     data: [u8],
 }
 
 pub struct Entry {
-    decryption_offset: u16,
-    bits_per_symbol: u16,
+    offset: u16,
+    bits: u16,
     data: Box<[u8]>,
 }
 
 impl Entry {
     pub fn encrypted(&self) -> bool {
-        return self.decryption_offset != 0;
+        return self.offset != 0;
     }
 
     pub fn decrypt(&mut self, password: u64) -> Result<()> {
@@ -63,22 +61,22 @@ impl Entry {
             .map_err(|_| ErrorKind::InvalidData)?
             .apply_keystream(&mut self.data);
 
-        let bits_per_symbol = self.bits_per_symbol as u32;
-        let mask = u32::MAX >> (32 - bits_per_symbol);
+        let bits = self.bits as u32;
+        let mask = (1u32 << bits) - 1;
 
-        let mut output = Vec::with_capacity(self.data.len() * 2);
-        let mut buffer = 0u64;
+        let mut buffer = 0u32;
         let mut buffered_bits = 0u32;
+        let mut output = Vec::new();
 
         'outer: for &byte in &self.data {
-            buffer |= (byte as u64) << buffered_bits;
+            buffer |= (byte as u32) << buffered_bits;
             buffered_bits += 8;
 
-            while buffered_bits >= bits_per_symbol {
-                let symbol = buffer as u32 & mask;
+            while buffered_bits >= bits {
+                let symbol = (buffer & mask) as u16;
 
-                buffer >>= bits_per_symbol;
-                buffered_bits -= bits_per_symbol;
+                buffer >>= bits;
+                buffered_bits -= bits;
 
                 if symbol == 0 {
                     break 'outer;
@@ -86,27 +84,23 @@ impl Entry {
 
                 let ch = if symbol < 0x20 {
                     REPLACEMENT
-                        .get(symbol.wrapping_sub(1) as usize)
+                        .get(symbol as usize - 1)
                         .copied()
                         .ok_or(ErrorKind::InvalidData)?
                 } else {
-                    let codepoint = symbol
-                        .checked_add(u32::from(self.decryption_offset))
-                        .and_then(|v| v.checked_sub(0x20))
-                        .ok_or(ErrorKind::InvalidData)?;
-
-                    char::from_u32(codepoint).ok_or(ErrorKind::InvalidData)?
+                    char::from_u32(symbol as u32 + self.offset as u32 - 0x20)
+                        .ok_or(ErrorKind::InvalidData)?
                 };
 
-                let mut utf16 = [0u16; 2];
-                for unit in ch.encode_utf16(&mut utf16) {
-                    output.extend_from_slice(&unit.to_le_bytes());
+                let mut words = [0; 2];
+                for w in ch.encode_utf16(&mut words) {
+                    output.extend_from_slice(&w.to_le_bytes());
                 }
             }
         }
 
-        self.decryption_offset = 0;
-        self.bits_per_symbol = 16;
+        self.offset = 0;
+        self.bits = 16;
         self.data = output.into_boxed_slice();
 
         Ok(())

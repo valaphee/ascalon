@@ -1,10 +1,10 @@
-#![feature(array_try_from_fn)]
+#![feature(array_try_from_fn, read_array, read_le)]
 
 use std::fmt::Debug;
-use std::io::{Error, ErrorKind, Result};
+use std::io::{Error, ErrorKind, Read as _, Result};
 use std::net::{Ipv4Addr, Ipv6Addr, SocketAddr, SocketAddrV4, SocketAddrV6};
 
-use bytes::{Buf as _, BufMut as _, BytesMut};
+use bytes::{BufMut as _, BytesMut};
 use uuid::Uuid;
 
 pub trait Encode {
@@ -25,8 +25,7 @@ impl Encode for u8 {
 
 impl Decode for u8 {
     fn decode(buf: &mut &[u8]) -> Result<Self> {
-        buf.try_get_u8()
-            .map_err(|_| Error::from(ErrorKind::UnexpectedEof))
+        buf.read_le()
     }
 }
 
@@ -40,8 +39,7 @@ impl Encode for u16 {
 
 impl Decode for u16 {
     fn decode(buf: &mut &[u8]) -> Result<Self> {
-        buf.try_get_u16_le()
-            .map_err(|_| Error::from(ErrorKind::UnexpectedEof))
+        buf.read_le()
     }
 }
 
@@ -85,8 +83,7 @@ impl Encode for u64 {
 
 impl Decode for u64 {
     fn decode(buf: &mut &[u8]) -> Result<Self> {
-        buf.try_get_u64_le()
-            .map_err(|_| Error::from(ErrorKind::UnexpectedEof))
+        buf.read_le()
     }
 }
 
@@ -100,8 +97,7 @@ impl Encode for f32 {
 
 impl Decode for f32 {
     fn decode(buf: &mut &[u8]) -> Result<Self> {
-        buf.try_get_f32_le()
-            .map_err(|_| Error::from(ErrorKind::UnexpectedEof))
+        buf.read_le()
     }
 }
 
@@ -135,16 +131,7 @@ impl Encode for Uuid {
 
 impl Decode for Uuid {
     fn decode(buf: &mut &[u8]) -> Result<Self> {
-        if buf.len() < 16 {
-            return Err(Error::from(ErrorKind::UnexpectedEof));
-        }
-
-        Ok(Uuid::from_fields(
-            buf.get_u32_le(),
-            buf.get_u16_le(),
-            buf.get_u16_le(),
-            &buf.get_u64().to_be_bytes(),
-        ))
+        Ok(Uuid::from_bytes_le(buf.read_array()?))
     }
 }
 
@@ -172,24 +159,20 @@ impl Encode for SocketAddr {
 
 impl Decode for SocketAddr {
     fn decode(buf: &mut &[u8]) -> Result<Self> {
-        if buf.len() < 28 {
-            return Err(Error::from(ErrorKind::UnexpectedEof));
-        }
-
-        match buf.get_u16_le() {
+        match buf.read_le::<u16>()? {
             2 => {
-                let port = buf.get_u16_le();
-                let ip = Ipv4Addr::from(buf.get_u32().to_be_bytes());
+                let port = buf.read_le()?;
+                let ip = Ipv4Addr::from(buf.read_array()?);
 
-                buf.advance(20);
+                buf.read_array::<20>()?;
 
                 Ok(SocketAddr::V4(SocketAddrV4::new(ip, port)))
             }
             23 => {
-                let port = buf.get_u16_le();
-                let flowinfo = buf.get_u32_le();
-                let ip = Ipv6Addr::from(buf.get_u128().to_be_bytes());
-                let scope_id = buf.get_u32_le();
+                let port = buf.read_le()?;
+                let flowinfo = buf.read_le()?;
+                let ip = Ipv6Addr::from(buf.read_array()?);
+                let scope_id = buf.read_le()?;
 
                 Ok(SocketAddr::V6(SocketAddrV6::new(
                     ip, port, flowinfo, scope_id,

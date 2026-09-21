@@ -54,11 +54,11 @@ impl ServerCodec {
 impl Encoder<Bytes> for ClientCodec {
     type Error = Error;
 
-    fn encode(&mut self, data: Bytes, dst: &mut BytesMut) -> Result<()> {
+    fn encode(&mut self, src: Bytes, dst: &mut BytesMut) -> Result<()> {
         let start = dst.len();
 
-        dst.resize(start + data.len(), 0);
-        self.encryptor.apply_keystream_b2b(&data, &mut dst[start..]);
+        dst.resize(start + src.len(), 0);
+        self.encryptor.apply_keystream_b2b(&src, &mut dst[start..]);
 
         Ok(())
     }
@@ -82,17 +82,17 @@ impl Decoder for ServerCodec {
 impl Encoder<Bytes> for ServerCodec {
     type Error = Error;
 
-    fn encode(&mut self, data: Bytes, dst: &mut BytesMut) -> Result<()> {
+    fn encode(&mut self, src: Bytes, dst: &mut BytesMut) -> Result<()> {
         let start = dst.len();
 
-        dst.resize(start + 4 + get_maximum_output_size(data.len()), 0);
+        dst.resize(start + 4 + get_maximum_output_size(src.len()), 0);
         let compressed_len =
-            compress_into_with_table(&data, &mut dst[start + 4..], &mut self.compress_table)
+            compress_into_with_table(&src, &mut dst[start + 4..], &mut self.compress_table)
                 .map_err(|_| Error::from(ErrorKind::InvalidData))?;
         dst.truncate(start + 4 + compressed_len);
 
         dst[start..start + 2].copy_from_slice(&(compressed_len as u16).to_le_bytes());
-        dst[start + 2..start + 4].copy_from_slice(&(data.len() as u16).to_le_bytes());
+        dst[start + 2..start + 4].copy_from_slice(&(src.len() as u16).to_le_bytes());
 
         self.encryptor.apply_keystream(&mut dst[start..]);
 

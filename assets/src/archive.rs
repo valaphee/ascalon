@@ -1,8 +1,7 @@
 use std::{
     collections::HashMap,
     fs::File,
-    io::{ErrorKind, Result},
-    os::windows::fs::FileExt,
+    io::{ErrorKind, Read, Result, Seek},
     path::Path,
 };
 
@@ -20,10 +19,10 @@ pub struct Archive {
 
 impl Archive {
     pub fn open(path: impl AsRef<Path>) -> Result<Self> {
-        let file = File::open(path)?;
+        let mut file = File::open(path)?;
 
         let mut an_header = vec![0; size_of::<AnHeader>()];
-        file.seek_read(&mut an_header, 0)?;
+        file.read_exact(&mut an_header)?;
 
         let an_header = AnHeader::ref_from_bytes(&an_header).map_err(|_| ErrorKind::InvalidData)?;
         if an_header.magic != *b"AN\x1A" {
@@ -31,7 +30,8 @@ impl Archive {
         }
 
         let mut mft = vec![0; an_header.mft_size.get() as usize];
-        file.seek_read(&mut mft, an_header.mft_offset.get())?;
+        file.seek(std::io::SeekFrom::Start(an_header.mft_offset.get()))?;
+        file.read_exact(&mut mft)?;
 
         let (mft_header, mft_entries) =
             MftHeader::ref_from_prefix(&mft).map_err(|_| ErrorKind::InvalidData)?;
@@ -48,7 +48,8 @@ impl Archive {
         let mft_index_entry = &mft_entries[1];
 
         let mut index = vec![0; mft_index_entry.size.get() as usize];
-        file.seek_read(&mut index, mft_index_entry.offset.get())?;
+        file.seek(std::io::SeekFrom::Start(mft_index_entry.offset.get()))?;
+        file.read_exact(&mut index)?;
 
         let index = <[IndexEntry]>::ref_from_bytes(&index).map_err(|_| ErrorKind::InvalidData)?;
 
@@ -70,12 +71,16 @@ impl Archive {
     pub fn read(&self, file_id: u32) -> Result<Vec<u8>> {
         let mft_entry = self.index.get(&file_id).ok_or(ErrorKind::InvalidInput)?;
 
-        let mut data = vec![0; mft_entry.size.get() as usize];
-        self.file.seek_read(&mut data, mft_entry.offset.get())?;
+        let mut bytes = vec![0; mft_entry.size.get() as usize];
+        {
+            let mut file = self.file.try_clone()?;
+            file.seek(std::io::SeekFrom::Start(mft_entry.offset.get()))?;
+            file.read_exact(&mut bytes)?;
+        }
 
         match mft_entry._2.get() {
-            0 => Ok(data),
-            8 => inflate(&data),
+            0 => Ok(bytes),
+            8 => inflate(&bytes),
             _ => Err(ErrorKind::InvalidData.into()),
         }
     }

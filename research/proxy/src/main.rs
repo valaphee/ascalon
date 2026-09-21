@@ -9,6 +9,7 @@ use std::{
 
 use ascalon_assets::{
     archive::Archive,
+    file_name_to_id,
     packfile::{self, Packfile},
     strings,
 };
@@ -42,20 +43,20 @@ async fn main() -> Result<()> {
     {
         let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat")?;
 
-        let manifest = archive.read(3796944)?;
-        let manifest = &packfile::txtm::TextPackManifest::ref_from_prefix(
+        let manifest = archive.read(file_name_to_id(&[0xB310, 0x0101]))?;
+        let manifest = packfile::txtm::TextPackManifest::ref_from_prefix(
             Packfile::from_bytes(&manifest)?
                 .chunks()
                 .next()
                 .unwrap()
-                .data(),
+                .bytes(),
         )
         .unwrap()
         .0;
 
         let mut all_strings = STRINGS.write().unwrap();
         for filename in manifest.languages.as_slice()[0].filenames.as_slice() {
-            let strings = archive.read(filename.file_id())?;
+            let strings = archive.read(file_name_to_id(filename.as_slice()))?;
             let strings = strings::parse(&strings)?;
             for string in strings {
                 all_strings.push(string);
@@ -107,12 +108,11 @@ async fn proxy_game(state: Arc<State>, mut client: TcpStream, packet: [u8; 16]) 
     packet.resize(16 - 4 + 72, 0);
     client.read_exact(&mut packet[16..]).await?;
 
-    let unknown = u32::from_le_bytes(packet[0x10..0x14].try_into().unwrap());
     let mut address = state
         .game_servers
         .read()
         .unwrap()
-        .get(&unknown)
+        .get(&u32::from_le_bytes(packet[28..32].try_into().unwrap()))
         .copied()
         .ok_or(ErrorKind::NotFound)?;
 
@@ -218,7 +218,7 @@ where
             match (protocol, server, message.id) {
                 ("3", true, 20) => {
                     state.game_servers.write().unwrap().insert(
-                        *message["2"].as_u32(),
+                        *message["5"].as_u32(),
                         mem::replace(
                             message["4"].as_address_mut(),
                             "127.0.0.1:0".parse().unwrap(),
@@ -227,7 +227,7 @@ where
                 }
                 ("0", true, 1066) => {
                     state.game_servers.write().unwrap().insert(
-                        *message["2"].as_u32(),
+                        *message["4"].as_u32(),
                         mem::replace(
                             message["0"].as_address_mut(),
                             "127.0.0.1:0".parse().unwrap(),
