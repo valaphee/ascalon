@@ -15,7 +15,7 @@ zerocopy = "0.8"
 indexmap = "2"
 uuid = "1"
 
-ascalon-assets = { path = "../../assets" }
+ascalon-asset = { path = "../../asset" }
 ascalon-network = { path = "../../network" }
 ascalon-protocol = { path = "../../protocol" }
 ascalon-protocol-schema = { path = "../../protocol-schema" }

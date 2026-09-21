@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ascalon-assets"
+name = "ascalon-asset"
 version = "0.1.0"
 dependencies = [
  "rc4",
@@ -423,7 +423,7 @@ dependencies = [
 name = "proxy"
 version = "0.1.0"
 dependencies = [
- "ascalon-assets",
+ "ascalon-asset",
  "ascalon-network",
  "ascalon-protocol",
  "ascalon-protocol-schema",

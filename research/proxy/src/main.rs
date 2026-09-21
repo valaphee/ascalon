@@ -7,7 +7,7 @@ use std::{
     sync::{Arc, RwLock},
 };
 
-use ascalon_assets::{
+use ascalon_asset::{
     archive::Archive,
     file_name_to_id,
     packfile::{self, Packfile},
@@ -43,7 +43,7 @@ async fn main() -> Result<()> {
     {
         let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat")?;
 
-        let manifest = archive.read(file_name_to_id(&[0xB310, 0x0101]))?;
+        let manifest = archive.read(file_name_to_id(&[0xB310, 0x0101]).unwrap())?;
         let manifest = packfile::txtm::TextPackManifest::ref_from_prefix(
             Packfile::from_bytes(&manifest)?
                 .chunks()
@@ -56,7 +56,7 @@ async fn main() -> Result<()> {
 
         let mut all_strings = STRINGS.write().unwrap();
         for filename in manifest.languages.as_slice()[0].filenames.as_slice() {
-            let strings = archive.read(file_name_to_id(filename.as_slice()))?;
+            let strings = archive.read(file_name_to_id(filename.as_slice()).unwrap())?;
             let strings = strings::parse(&strings)?;
             for string in strings {
                 all_strings.push(string);
