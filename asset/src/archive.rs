@@ -80,7 +80,18 @@ impl Archive {
 
         match mft_entry._2.get() {
             0 => Ok(bytes),
-            8 => inflate(&bytes),
+            8 => {
+                let output_size = u32::from_le_bytes(bytes[4..8].try_into().unwrap()) as usize;
+
+                let mut output = Vec::<u8>::with_capacity(output_size);
+                unsafe {
+                    output.set_len(output_size);
+                }
+
+                inflate(&bytes[..], &mut output)?;
+
+                Ok(output)
+            }
             _ => Err(ErrorKind::InvalidData.into()),
         }
     }
