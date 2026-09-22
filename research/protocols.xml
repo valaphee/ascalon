@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?xml-stylesheet type="text/xsl" href="protocols.xsl"?>
 <Protocols BuildId="207318">
   <Protocol Name="0">
     <Messages Name="0">

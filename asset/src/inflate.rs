@@ -96,11 +96,6 @@ impl<'a> BitReader<'a> {
 
     fn fill(&mut self) {
         while self.bit_index <= 32 {
-            let word_index = self.byte_index >> 2;
-            if (word_index + 1) % 16_384 == 0 {
-                self.byte_index += 4;
-            }
-
             let Some(bytes) = self.data.get(self.byte_index..self.byte_index + 4) else {
                 break;
             };
@@ -148,13 +143,11 @@ impl<'a> BitReader<'a> {
 
     #[inline(always)]
     fn pos(&self) -> Result<usize> {
-        if self.bit_index >= 32 {
-            self.byte_index
-                .checked_sub(4)
-                .ok_or(ErrorKind::InvalidData.into())
-        } else {
-            Ok(self.byte_index)
-        }
+        let buffered_bytes = (self.bit_index / 8) as usize;
+
+        self.byte_index
+            .checked_sub(buffered_bytes)
+            .ok_or(ErrorKind::InvalidData.into())
     }
 }
 

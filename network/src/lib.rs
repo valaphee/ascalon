@@ -134,7 +134,7 @@ impl Decoder for ClientCodec {
     }
 }
 
-pub fn rc4_hash(input: &[u8]) -> [u8; 20] {
+fn rc4_hash(input: &[u8]) -> [u8; 20] {
     assert!(!input.is_empty());
 
     let mut bytes = [0u8; 20];

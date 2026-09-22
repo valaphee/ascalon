@@ -1,7 +1,7 @@
 use std::{
     collections::HashMap,
     fs::File,
-    io::{ErrorKind, Read, Result, Seek},
+    io::{ErrorKind, Read, Result, Seek, SeekFrom},
     path::Path,
 };
 
@@ -30,7 +30,7 @@ impl Archive {
         }
 
         let mut mft = vec![0; an_header.mft_size.get() as usize];
-        file.seek(std::io::SeekFrom::Start(an_header.mft_offset.get()))?;
+        file.seek(SeekFrom::Start(an_header.mft_offset.get()))?;
         file.read_exact(&mut mft)?;
 
         let (mft_header, mft_entries) =
@@ -48,7 +48,7 @@ impl Archive {
         let mft_index_entry = &mft_entries[1];
 
         let mut index = vec![0; mft_index_entry.size.get() as usize];
-        file.seek(std::io::SeekFrom::Start(mft_index_entry.offset.get()))?;
+        file.seek(SeekFrom::Start(mft_index_entry.offset.get()))?;
         file.read_exact(&mut index)?;
 
         let index = <[IndexEntry]>::ref_from_bytes(&index).map_err(|_| ErrorKind::InvalidData)?;
@@ -71,11 +71,29 @@ impl Archive {
     pub fn read(&self, file_id: u32) -> Result<Vec<u8>> {
         let mft_entry = self.index.get(&file_id).ok_or(ErrorKind::InvalidInput)?;
 
-        let mut bytes = vec![0; mft_entry.size.get() as usize];
-        {
-            let mut file = self.file.try_clone()?;
-            file.seek(std::io::SeekFrom::Start(mft_entry.offset.get()))?;
-            file.read_exact(&mut bytes)?;
+        let mut file = self.file.try_clone()?;
+        file.seek(SeekFrom::Start(mft_entry.offset.get()))?;
+
+        let mut left = mft_entry.size.get() as usize;
+        let mut bytes = Vec::new();
+
+        while left > 65_532 {
+            let start = bytes.len();
+            file.by_ref().take(65_532).read_to_end(&mut bytes)?;
+
+            if bytes.len() - start != 65_532 {
+                return Err(ErrorKind::UnexpectedEof.into());
+            }
+
+            file.seek(SeekFrom::Current(4))?;
+            left -= 65_536;
+        }
+
+        let start = bytes.len();
+        file.take(left as u64).read_to_end(&mut bytes)?;
+
+        if bytes.len() - start != left {
+            return Err(ErrorKind::UnexpectedEof.into());
         }
 
         match mft_entry._2.get() {
@@ -84,6 +102,7 @@ impl Archive {
                 let output_size = u32::from_le_bytes(bytes[4..8].try_into().unwrap()) as usize;
 
                 let mut output = Vec::<u8>::with_capacity(output_size);
+
                 unsafe {
                     output.set_len(output_size);
                 }
