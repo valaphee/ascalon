@@ -1,7 +1,5 @@
 use std::{
-    fmt::Debug,
-    io::{Error, ErrorKind, Result},
-    marker::PhantomData,
+    fmt::Debug, io::{Error, ErrorKind, Result}, marker::PhantomData, ptr
 };
 
 use zerocopy::{
@@ -124,6 +122,29 @@ struct PackfileChunkHeader {
 
 #[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
+pub struct Ptr<T> {
+    offset: U64,
+    _marker: PhantomData<T>,
+}
+
+impl<T> Ptr<T> {
+    pub fn as_ptr(&self) -> *const T {
+        self.offset.get() as usize as *const T
+    }
+
+    pub fn as_ref(&self) -> &T {
+        unsafe { &*self.as_ptr() }
+    }
+}
+
+impl<T: Debug> Debug for Ptr<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.as_ref().fmt(f)
+    }
+}
+
+#[derive(FromBytes, KnownLayout, Immutable)]
+#[repr(C)]
 pub struct ArrayPtr<T> {
     length: U32,
     offset: U64,
@@ -150,7 +171,6 @@ impl<T: Debug> Debug for ArrayPtr<T> {
 #[repr(C)]
 pub struct WcharPtr {
     offset: U64,
-    _marker: PhantomData<*const u16>,
 }
 
 impl WcharPtr {
@@ -160,6 +180,9 @@ impl WcharPtr {
 
     pub fn len(&self) -> usize {
         let mut ptr = self.as_ptr();
+        if ptr == ptr::null() {
+            return 0;
+        }
 
         unsafe {
             while ptr.read_unaligned() != 0 {
@@ -171,7 +194,12 @@ impl WcharPtr {
     }
 
     pub fn as_slice(&self) -> &[u16] {
-        unsafe { std::slice::from_raw_parts(self.as_ptr(), self.len()) }
+        let mut ptr = self.as_ptr();
+        if ptr == ptr::null() {
+            return &[];
+        }
+
+        unsafe { std::slice::from_raw_parts(ptr, self.len()) }
     }
 
     pub fn to_string_lossy(&self) -> String {
