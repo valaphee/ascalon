@@ -12,25 +12,62 @@ use zerocopy::{
 pub mod cntc;
 pub mod txtm;
 
-pub struct Packfile<'a>(&'a [u8]);
+pub struct Packfile(Vec<u8>);
 
-impl<'a> Packfile<'a> {
-    pub fn from_bytes(bytes: &'a [u8]) -> Result<Self> {
-        if Self(bytes).header().magic != *b"PF" {
+impl Packfile {
+    pub fn new(mut bytes: Vec<u8>) -> Result<Self> {
+        let header = PackfileHeader::ref_from_prefix(&bytes).unwrap().0;
+        if header.magic != *b"PF" {
             return Err(Error::new(
                 ErrorKind::InvalidData,
                 "packfile: invalid magic",
             ));
         }
 
+        let mut offset = header.header_size.get() as usize;
+
+        while offset < bytes.len() {
+            let (length, header_size, data_end) = {
+                let header = PackfileChunkHeader::ref_from_prefix(&bytes[offset..])
+                    .unwrap()
+                    .0;
+
+                (
+                    header.next_chunk_offset.get() as usize + 8,
+                    header.header_size.get() as usize,
+                    header._4.get() as usize,
+                )
+            };
+
+            unsafe {
+                let data = bytes.as_mut_ptr().add(offset + header_size);
+
+                let mut fixup = data.add(data_end + 4).cast::<u32>();
+                loop {
+                    let reloc_offset = u32::from_le(fixup.read_unaligned()) as usize;
+                    if reloc_offset == 0 {
+                        break;
+                    }
+
+                    let value = data.add(reloc_offset).cast::<u64>();
+                    let offset = u64::from_le(value.read_unaligned());
+                    value.write_unaligned(value as u64 + offset);
+
+                    fixup = fixup.add(1);
+                }
+            }
+
+            offset += length;
+        }
+
         Ok(Self(bytes))
     }
 
-    fn header(&self) -> &'a PackfileHeader {
-        PackfileHeader::ref_from_prefix(self.0).unwrap().0
+    fn header(&self) -> &PackfileHeader {
+        PackfileHeader::ref_from_prefix(&self.0).unwrap().0
     }
 
-    pub fn chunks(&self) -> PackfileChunks<'a> {
+    pub fn chunks(&self) -> PackfileChunks<'_> {
         PackfileChunks(&self.0[self.header().header_size.get() as usize..])
     }
 }
@@ -45,7 +82,7 @@ impl<'a> Iterator for PackfileChunks<'a> {
             return None;
         }
 
-        let (header, _) = PackfileChunkHeader::ref_from_prefix(self.0).unwrap();
+        let header = PackfileChunkHeader::ref_from_prefix(self.0).unwrap().0;
         let bytes = self.0.split_at(header.next_chunk_offset.get() as usize + 8);
         self.0 = bytes.1;
 
@@ -95,11 +132,7 @@ pub struct ArrayPtr<T> {
 
 impl<T> ArrayPtr<T> {
     pub fn as_ptr(&self) -> *const T {
-        unsafe {
-            (std::ptr::addr_of!(self.offset) as *const u8)
-                .add(self.offset.get() as usize)
-                .cast()
-        }
+        self.offset.get() as usize as *const T
     }
 
     pub fn as_slice(&self) -> &[T] {
@@ -122,11 +155,7 @@ pub struct WcharPtr {
 
 impl WcharPtr {
     pub fn as_ptr(&self) -> *const u16 {
-        unsafe {
-            (std::ptr::addr_of!(self.offset) as *const u8)
-                .add(self.offset.get() as usize)
-                .cast()
-        }
+        self.offset.get() as usize as *const u16
     }
 
     pub fn len(&self) -> usize {

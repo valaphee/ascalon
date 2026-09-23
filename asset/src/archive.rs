@@ -49,7 +49,7 @@ impl Archive {
         if mft_entry_count < 2 {
             return Err(Error::new(
                 ErrorKind::InvalidData,
-                "MFT: invalid entry count",
+                "archive: invalid MFT entry count",
             ));
         }
 

@@ -43,13 +43,9 @@ async fn main() -> Result<()> {
     {
         let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat")?;
 
-        let manifest = archive.read(file_name_to_id(&[0xB310, 0x0101]).unwrap())?;
+        let manifest = Packfile::new(archive.read(file_name_to_id(&[0xB310, 0x0101]).unwrap())?)?;
         let manifest = packfile::txtm::TextPackManifest::ref_from_prefix(
-            Packfile::from_bytes(&manifest)?
-                .chunks()
-                .next()
-                .unwrap()
-                .bytes(),
+            manifest.chunks().nth(0).unwrap().bytes(),
         )
         .unwrap()
         .0;

@@ -5,7 +5,7 @@ use zerocopy::{FromBytes, Immutable, KnownLayout, little_endian::U16};
 
 pub fn parse(mut data: &[u8]) -> Result<Vec<Entry>> {
     if data[..4] != *b"strs" {
-        return Err(Error::new(ErrorKind::InvalidData, "strs: invalid magic"));
+        return Err(Error::new(ErrorKind::InvalidData, "strings: invalid magic"));
     }
 
     data = &data[4..];
