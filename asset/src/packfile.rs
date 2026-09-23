@@ -17,7 +17,10 @@ pub struct Packfile<'a>(&'a [u8]);
 impl<'a> Packfile<'a> {
     pub fn from_bytes(bytes: &'a [u8]) -> Result<Self> {
         if Self(bytes).header().magic != *b"PF" {
-            return Err(Error::from(ErrorKind::InvalidData));
+            return Err(Error::new(
+                ErrorKind::InvalidData,
+                "packfile: invalid magic",
+            ));
         }
 
         Ok(Self(bytes))
@@ -43,10 +46,10 @@ impl<'a> Iterator for PackfileChunks<'a> {
         }
 
         let (header, _) = PackfileChunkHeader::ref_from_prefix(self.0).unwrap();
-        let (bytes, remaining) = self.0.split_at(header.next_chunk_offset.get() as usize + 8);
-        self.0 = remaining;
+        let bytes = self.0.split_at(header.next_chunk_offset.get() as usize + 8);
+        self.0 = bytes.1;
 
-        Some(PackfileChunk(bytes))
+        Some(PackfileChunk(bytes.0))
     }
 }
 

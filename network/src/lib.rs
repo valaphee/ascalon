@@ -205,7 +205,7 @@ fn rc4_hash(input: &[u8]) -> [u8; 20] {
     words[3] = words[3].wrapping_add(d);
     words[4] = words[4].wrapping_add(e);
 
-    for (dst, src) in bytes.chunks_exact_mut(4).zip(words) {
+    for (dst, src) in bytes.as_chunks_mut::<4>().0.iter_mut().zip(words) {
         dst.copy_from_slice(&src.to_le_bytes());
     }
 

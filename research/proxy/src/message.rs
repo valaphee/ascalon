@@ -2,7 +2,6 @@ use std::{
     fmt, io,
     net::SocketAddr,
     ops::{Index, IndexMut},
-    str,
 };
 
 use ascalon_protocol::{Decode, Encode, Point3};
@@ -250,7 +249,7 @@ pub fn decode(
     protocols: &[ascalon_protocol_schema::Protocol],
     protocol: &str,
     server: bool,
-    mut buf: &mut &[u8],
+    buf: &mut &[u8],
 ) -> io::Result<Message> {
     let id = u16::decode(buf)?;
 
@@ -268,7 +267,7 @@ pub fn decode(
                 .map(|m| (&msgs.name, m))
         })
         .ok_or(io::Error::from(io::ErrorKind::InvalidData))?;
-    let fields = decode_fields(&message.fields, &mut buf)?;
+    let fields = decode_fields(&message.fields, buf)?;
 
     Ok(Message {
         id,
@@ -461,7 +460,7 @@ fn decode_coded(words: &mut &[u16]) -> io::Result<String> {
         if words[0] & 0x8000 != 0 {
             string.decrypt(decode_coded_numeric(words)?)?;
         }
-        string.text()?
+        string.to_string()?
     };
 
     loop {

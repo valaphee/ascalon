@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use zerocopy::{FromBytes, Immutable, KnownLayout, little_endian::U32};
 
 use crate::packfile::{ArrayPtr, WcharPtr};

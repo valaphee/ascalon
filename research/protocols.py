@@ -74,10 +74,12 @@ def add_field(parent, field, index):
 
 
 pid = frida.spawn([r"C:\Program Files\Guild Wars 2\Gw2-64.exe"])
+
 session = frida.attach(pid)
 
 with open("agent/index.js", "r", encoding="utf-8") as f:
     source = f.read()
+
 script = session.create_script(source)
 script.load()
 
@@ -85,6 +87,7 @@ frida.resume(pid)
 
 input()
 
-export_protocols(script.exports_sync.get_protocols())
+protocols = script.exports_sync.get_protocols()
+export_protocols(protocols)
 
 session.detach()

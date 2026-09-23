@@ -1,8 +1,9 @@
 use std::{
     collections::HashMap,
     fs::File,
-    io::{ErrorKind, Read, Result, Seek, SeekFrom},
+    io::{Error, ErrorKind, Read, Result, Seek, SeekFrom},
     path::Path,
+    sync::Mutex,
 };
 
 use zerocopy::{
@@ -13,7 +14,7 @@ use zerocopy::{
 use crate::inflate::inflate;
 
 pub struct Archive {
-    file: File,
+    file: Mutex<File>,
     index: HashMap<u32, MftEntry>,
 }
 
@@ -24,26 +25,36 @@ impl Archive {
         let mut an_header = vec![0; size_of::<AnHeader>()];
         file.read_exact(&mut an_header)?;
 
-        let an_header = AnHeader::ref_from_bytes(&an_header).map_err(|_| ErrorKind::InvalidData)?;
+        let an_header = AnHeader::ref_from_bytes(&an_header).unwrap();
         if an_header.magic != *b"AN\x1A" {
-            return Err(ErrorKind::InvalidData.into());
+            return Err(Error::new(
+                ErrorKind::InvalidData,
+                "archive: invalid AN magic",
+            ));
         }
 
         let mut mft = vec![0; an_header.mft_size.get() as usize];
         file.seek(SeekFrom::Start(an_header.mft_offset.get()))?;
         file.read_exact(&mut mft)?;
 
-        let (mft_header, mft_entries) =
-            MftHeader::ref_from_prefix(&mft).map_err(|_| ErrorKind::InvalidData)?;
+        let (mft_header, mft_entries) = MftHeader::ref_from_prefix(&mft).unwrap();
         if mft_header.magic != *b"Mft\x1A" {
-            return Err(ErrorKind::InvalidData.into());
+            return Err(Error::new(
+                ErrorKind::InvalidData,
+                "archive: invalid MFT magic",
+            ));
         }
 
-        let mft_entries = <[MftEntry]>::ref_from_bytes_with_elems(
-            mft_entries,
-            mft_header.entry_count.get() as usize - 1,
-        )
-        .map_err(|_| ErrorKind::InvalidData)?;
+        let mft_entry_count = mft_header.entry_count.get() as usize;
+        if mft_entry_count < 2 {
+            return Err(Error::new(
+                ErrorKind::InvalidData,
+                "MFT: invalid entry count",
+            ));
+        }
+
+        let mft_entries = <[MftEntry]>::ref_from_bytes_with_elems(mft_entries, mft_entry_count - 1)
+            .map_err(|_| Error::new(ErrorKind::InvalidData, "archive: invalid MFT entry count"))?;
 
         let mft_index_entry = &mft_entries[1];
 
@@ -51,10 +62,10 @@ impl Archive {
         file.seek(SeekFrom::Start(mft_index_entry.offset.get()))?;
         file.read_exact(&mut index)?;
 
-        let index = <[IndexEntry]>::ref_from_bytes(&index).map_err(|_| ErrorKind::InvalidData)?;
+        let index = <[IndexEntry]>::ref_from_bytes(&index).unwrap();
 
         Ok(Self {
-            file,
+            file: Mutex::new(file),
             index: index
                 .iter()
                 .filter(|entry| entry.file_id != 0 && entry.mft_index != 0)
@@ -69,46 +80,36 @@ impl Archive {
     }
 
     pub fn read(&self, file_id: u32) -> Result<Vec<u8>> {
-        let mft_entry = self.index.get(&file_id).ok_or(ErrorKind::InvalidInput)?;
+        let mft_entry = self.index.get(&file_id).ok_or(ErrorKind::NotFound)?;
 
-        let mut file = self.file.try_clone()?;
-        file.seek(SeekFrom::Start(mft_entry.offset.get()))?;
-
-        let mut left = mft_entry.size.get() as usize;
         let mut bytes = Vec::new();
 
-        while left > 65_532 {
-            let start = bytes.len();
-            file.by_ref().take(65_532).read_to_end(&mut bytes)?;
+        {
+            const BLOCK_SIZE: usize = 0x10000;
 
-            if bytes.len() - start != 65_532 {
-                return Err(ErrorKind::UnexpectedEof.into());
+            let mut file = self.file.lock().unwrap();
+            file.seek(SeekFrom::Start(mft_entry.offset.get()))?;
+
+            let mut remaining = mft_entry.size.get() as usize;
+            let mut block = [0; BLOCK_SIZE];
+
+            while remaining > BLOCK_SIZE - 4 {
+                file.read_exact(&mut block)?;
+                bytes.extend_from_slice(&block[..BLOCK_SIZE - 4]);
+                remaining -= BLOCK_SIZE;
             }
 
-            file.seek(SeekFrom::Current(4))?;
-            left -= 65_536;
-        }
-
-        let start = bytes.len();
-        file.take(left as u64).read_to_end(&mut bytes)?;
-
-        if bytes.len() - start != left {
-            return Err(ErrorKind::UnexpectedEof.into());
+            let len = bytes.len();
+            bytes.resize(len + remaining, 0);
+            file.read_exact(&mut bytes[len..])?;
         }
 
         match mft_entry._2.get() {
             0 => Ok(bytes),
             8 => {
-                let output_size = u32::from_le_bytes(bytes[4..8].try_into().unwrap()) as usize;
-
-                let mut output = Vec::<u8>::with_capacity(output_size);
-
-                unsafe {
-                    output.set_len(output_size);
-                }
-
-                inflate(&bytes[..], &mut output)?;
-
+                let mut output =
+                    vec![0; u32::from_le_bytes(bytes[4..8].try_into().unwrap()) as usize];
+                inflate(&bytes[8..], &mut output)?;
                 Ok(output)
             }
             _ => Err(ErrorKind::InvalidData.into()),

@@ -1,11 +1,11 @@
-use std::io::{ErrorKind, Result};
+use std::io::{Error, ErrorKind, Result};
 
 use rc4::{KeyInit, Rc4, StreamCipher};
 use zerocopy::{FromBytes, Immutable, KnownLayout, little_endian::U16};
 
 pub fn parse(mut data: &[u8]) -> Result<Vec<Entry>> {
     if data[..4] != *b"strs" {
-        return Err(ErrorKind::InvalidData.into());
+        return Err(Error::new(ErrorKind::InvalidData, "strs: invalid magic"));
     }
 
     data = &data[4..];
@@ -44,10 +44,10 @@ pub struct Entry {
 
 impl Entry {
     pub fn encrypted(&self) -> bool {
-        return self.offset != 0;
+        self.offset != 0
     }
 
-    pub fn decrypt(&mut self, password: u64) -> Result<()> {
+    pub fn decrypt(&mut self, key: u64) -> Result<()> {
         if !self.encrypted() {
             return Ok(());
         }
@@ -57,7 +57,7 @@ impl Entry {
             '<', '>', '%', '#', '/', ':', '-', '\'', '"', ' ', ',', '.', '!', '\n',
         ];
 
-        Rc4::new_from_slice(&rc4_hash(&password.to_le_bytes()))
+        Rc4::new_from_slice(&rc4_hash(&key.to_le_bytes()))
             .map_err(|_| ErrorKind::InvalidData)?
             .apply_keystream(&mut self.data);
 
@@ -106,12 +106,13 @@ impl Entry {
         Ok(())
     }
 
-    pub fn text(&self) -> Result<String> {
+    pub fn to_string(&self) -> Result<String> {
         if self.encrypted() {
-            return Err(ErrorKind::InvalidData.into());
+            return Err(Error::new(ErrorKind::InvalidData, "encrypted"));
         }
 
-        return String::from_utf16le(&self.data).map_err(|_| ErrorKind::InvalidData.into());
+        String::from_utf16le(&self.data)
+            .map_err(|_| Error::new(ErrorKind::InvalidData, "invalid UTF-16"))
     }
 }
 
@@ -186,7 +187,7 @@ fn rc4_hash(input: &[u8]) -> [u8; 20] {
     words[3] = words[3].wrapping_add(d);
     words[4] = words[4].wrapping_add(e);
 
-    for (dst, src) in bytes.chunks_exact_mut(4).zip(words) {
+    for (dst, src) in bytes.as_chunks_mut::<4>().0.iter_mut().zip(words) {
         dst.copy_from_slice(&src.to_le_bytes());
     }
 
