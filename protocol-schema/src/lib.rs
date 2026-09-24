@@ -49,12 +49,7 @@ pub fn parse(xml: &str) -> Vec<Protocol> {
 
 fn parse_protocol(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Protocol {
     let mut protocol = Protocol {
-        name: e
-            .try_get_attribute("Name")
-            .unwrap()
-            .unwrap()
-            .value
-            .into_owned(),
+        name: attr(e, "Name").unwrap(),
         msgs: Vec::new(),
     };
 
@@ -74,12 +69,7 @@ fn parse_protocol(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Protocol {
 
 fn parse_messages(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Messages {
     let mut messages = Messages {
-        name: e
-            .try_get_attribute("Name")
-            .unwrap()
-            .unwrap()
-            .value
-            .into_owned(),
+        name: attr(e, "Name").unwrap(),
         client: Vec::new(),
         server: Vec::new(),
     };
@@ -108,31 +98,15 @@ fn parse_direction(xml: &mut Reader<&[u8]>, end: &str) -> Vec<Message> {
         match xml.read_event().unwrap() {
             Event::Start(e) if e.name().as_ref() == "Message" => {
                 messages.push(Message {
-                    id: e
-                        .try_get_attribute("Id")
-                        .unwrap()
-                        .map_or_default(|a| a.value.into_owned().parse().unwrap()),
-                    name: e
-                        .try_get_attribute("Name")
-                        .unwrap()
-                        .unwrap()
-                        .value
-                        .into_owned(),
+                    id: attr(&e, "Id").map_or(0, |v| v.parse().unwrap()),
+                    name: attr(&e, "Name").unwrap(),
                     fields: parse_fields(xml, "Message"),
                 });
             }
             Event::Empty(e) if e.name().as_ref() == "Message" => {
                 messages.push(Message {
-                    id: e
-                        .try_get_attribute("Id")
-                        .unwrap()
-                        .map_or_default(|a| a.value.into_owned().parse().unwrap()),
-                    name: e
-                        .try_get_attribute("Name")
-                        .unwrap()
-                        .unwrap()
-                        .value
-                        .into_owned(),
+                    id: attr(&e, "Id").map_or(0, |v| v.parse().unwrap()),
+                    name: attr(&e, "Name").unwrap(),
                     fields: Vec::new(),
                 });
             }
@@ -163,21 +137,16 @@ fn parse_fields(xml: &mut Reader<&[u8]>, end: &str) -> Vec<Field> {
 
 fn parse_field(e: &BytesStart<'_>, fields: Vec<Field>) -> Field {
     Field {
-        name: e
-            .try_get_attribute("Name")
-            .unwrap()
-            .unwrap()
-            .value
-            .into_owned(),
+        name: attr(e, "Name").unwrap(),
         r#type: e.name().as_ref().to_owned(),
-        size: e
-            .try_get_attribute("Size")
-            .unwrap()
-            .map_or_default(|a| a.value.into_owned().parse().unwrap()),
-        type_name: e
-            .try_get_attribute("TypeName")
-            .unwrap()
-            .map(|a| a.value.into_owned()),
+        size: attr(e, "Size").map_or(0, |v| v.parse().unwrap()),
+        type_name: attr(e, "TypeName"),
         fields,
     }
+}
+
+fn attr(e: &BytesStart<'_>, name: &str) -> Option<String> {
+    e.try_get_attribute(name)
+        .unwrap()
+        .map(|a| a.value.into_owned())
 }
