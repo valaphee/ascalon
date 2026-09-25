@@ -99,12 +99,12 @@ impl Packfile {
             let dst_length = dst_header.next_chunk_offset.get() as usize + 8;
 
             let bytes = &bytes[pos + header_size..pos + length];
-            let (data, mut fixups0) = bytes.split_at(header.fixups_offset.get() as usize);
+            let (data, mut _fixups) = bytes.split_at(header.fixups_offset.get() as usize);
 
-            let fixup_count = fixups0.read_le::<u32>()? as usize;
+            let fixup_count = _fixups.read_le::<u32>()? as usize;
             let mut fixups = Vec::with_capacity(fixup_count);
             for _ in 0..fixup_count {
-                fixups.push(fixups0.read_le::<u32>()? as usize);
+                fixups.push(_fixups.read_le::<u32>()? as usize);
             }
 
             let dst_data = dst_pos + header_size;
@@ -117,7 +117,6 @@ impl Packfile {
                 };
 
                 let target = fixup as isize + offset;
-
                 let dst_offset = if offset > 0 {
                     let end = fixups.partition_point(|&f| (f as isize) < target);
                     offset + (end - i) as isize * ptr_width_delta
@@ -127,7 +126,6 @@ impl Packfile {
                 } else {
                     0
                 };
-
                 let dst_fixup = dst_data + (fixup as isize + i as isize * ptr_width_delta) as usize;
 
                 let ptr = if offset == 0 {
@@ -202,7 +200,7 @@ impl<'a> PackfileChunk<'a> {
     }
 }
 
-#[derive(Debug, FromBytes, KnownLayout, Immutable)]
+#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct PackfileHeader {
     magic: [u8; 2],
@@ -212,7 +210,7 @@ struct PackfileHeader {
     r#type: [u8; 4],
 }
 
-#[derive(Debug, FromBytes, IntoBytes, KnownLayout, Immutable)]
+#[derive(FromBytes, IntoBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct PackfileChunkHeader {
     name: [u8; 4],

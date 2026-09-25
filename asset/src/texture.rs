@@ -2,16 +2,16 @@ use std::io::{ErrorKind, Result};
 
 use crate::BitReader;
 
-pub const FF_COLOR: u32 = 0x10;
-pub const FF_ALPHA: u32 = 0x20;
-pub const FF_DEDUCED_ALPHA: u32 = 0x40;
-pub const FF_PLAIN: u32 = 0x80;
-pub const FF_BICOLOR: u32 = 0x200;
+pub const FMT_COLOR: u32 = 0x10;
+pub const FMT_ALPHA: u32 = 0x20;
+pub const FMT_DEDUCED_ALPHA: u32 = 0x40;
+pub const FMT_PLAIN: u32 = 0x80;
+pub const FMT_BICOLOR: u32 = 0x200;
 
-pub const CF_WHITE: u32 = 0x01;
-pub const CF_ALPHA4: u32 = 0x02;
-pub const CF_ALPHA8: u32 = 0x04;
-pub const CF_COLOR: u32 = 0x08;
+pub const CMP_WHITE: u32 = 0x01;
+pub const CMP_ALPHA4: u32 = 0x02;
+pub const CMP_ALPHA8: u32 = 0x04;
+pub const CMP_COLOR: u32 = 0x08;
 
 pub fn inflate(
     block_size: usize,
@@ -24,9 +24,9 @@ pub fn inflate(
         return Err(ErrorKind::InvalidData.into());
     }
 
-    let has_two_components = format & (FF_PLAIN | FF_COLOR | FF_ALPHA)
-        == FF_PLAIN | FF_COLOR | FF_ALPHA
-        || format & FF_BICOLOR != 0;
+    let has_two_components = format & (FMT_PLAIN | FMT_COLOR | FMT_ALPHA)
+        == FMT_PLAIN | FMT_COLOR | FMT_ALPHA
+        || format & FMT_BICOLOR != 0;
 
     let mut bits = BitReader::new(input);
 
@@ -41,11 +41,11 @@ pub fn inflate(
     let mut alpha = vec![false; blocks];
     let mut color = vec![false; blocks];
 
-    if compression & CF_WHITE != 0 {
+    if compression & CMP_WHITE != 0 {
         decode_white(&mut bits, block_size, output, &mut alpha, &mut color)?;
     }
 
-    if compression & CF_ALPHA4 != 0 {
+    if compression & CMP_ALPHA4 != 0 {
         let a = bits.read(4)? as u8;
         let a = a | a << 4;
 
@@ -59,7 +59,7 @@ pub fn inflate(
         )?;
     }
 
-    if compression & CF_ALPHA8 != 0 {
+    if compression & CMP_ALPHA8 != 0 {
         let a = bits.read(8)? as u8;
 
         decode_alpha(
@@ -72,7 +72,7 @@ pub fn inflate(
         )?;
     }
 
-    if compression & CF_COLOR != 0 {
+    if compression & CMP_COLOR != 0 {
         let b = bits.read(8)?;
         let g = bits.read(8)?;
         let r = bits.read(8)?;
@@ -84,13 +84,13 @@ pub fn inflate(
             color_offset,
             output,
             &mut color,
-            encode_color(r, g, b, format & FF_DEDUCED_ALPHA != 0),
+            encode_color(r, g, b, format & FMT_DEDUCED_ALPHA != 0),
         )?;
     }
 
     let mut input_pos = bits.position().div_ceil(32) * 4;
 
-    if (format & FF_ALPHA != 0 && format & FF_DEDUCED_ALPHA == 0) || format & FF_BICOLOR != 0 {
+    if (format & FMT_ALPHA != 0 && format & FMT_DEDUCED_ALPHA == 0) || format & FMT_BICOLOR != 0 {
         for block in 0..blocks {
             if alpha[block] {
                 continue;
@@ -104,7 +104,7 @@ pub fn inflate(
         }
     }
 
-    if format & (FF_COLOR | FF_BICOLOR) != 0 {
+    if format & (FMT_COLOR | FMT_BICOLOR) != 0 {
         for offset in (0..component_size).step_by(4) {
             for block in 0..blocks {
                 if color[block] {

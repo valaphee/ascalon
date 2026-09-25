@@ -3,7 +3,6 @@
 pub mod archive;
 pub mod inflate;
 pub mod packfile;
-pub mod strings;
 pub mod texture;
 
 pub fn file_name_to_id(name: &[u16]) -> Option<u32> {
