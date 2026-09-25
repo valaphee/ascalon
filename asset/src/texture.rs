@@ -130,7 +130,7 @@ fn decode_white(
     alpha: &mut [bool],
     color: &mut [bool],
 ) -> Result<()> {
-    const WHITE: [u8; 8] = 0xffff_ffff_ffff_fffeu64.to_le_bytes();
+    const WHITE: [u8; 8] = 0xFFFF_FFFF_FFFF_FFFEu64.to_le_bytes();
 
     let mut block = 0;
 
@@ -306,7 +306,7 @@ fn encode_color(r: u32, g: u32, b: u32, deduced_alpha: bool) -> u64 {
     let special = deduced_alpha && (weight == 5 || weight == 6 || count != 0);
 
     if count != 0 && !special {
-        if color2 == 0xffff {
+        if color2 == 0xFFFF {
             weight = 12;
             color1 -= 1;
         } else {

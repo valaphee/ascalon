@@ -47,7 +47,7 @@ impl Encode for u32 {
     fn encode(&self, buf: &mut BytesMut) -> Result<()> {
         let mut value = *self;
         while value >= 0x80 {
-            buf.put_u8((value as u8 & 0x7f) | 0x80);
+            buf.put_u8((value as u8 & 0x7F) | 0x80);
             value >>= 7;
         }
         buf.put_u8(value as u8);
@@ -62,7 +62,7 @@ impl Decode for u32 {
         for shift in (0..35).step_by(7) {
             let byte = u8::decode(buf)?;
 
-            value |= ((byte & 0x7f) as u32) << shift;
+            value |= ((byte & 0x7F) as u32) << shift;
 
             if byte & 0x80 == 0 {
                 return Ok(value);

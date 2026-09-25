@@ -104,7 +104,7 @@ impl Archive {
             file.read_exact(&mut bytes[len..])?;
         }
 
-        match mft_entry._2.get() {
+        match mft_entry._0c.get() {
             0 => Ok(bytes),
             8 => {
                 let mut output =
@@ -122,25 +122,25 @@ impl Archive {
 struct AnHeader {
     version: u8,
     magic: [u8; 3],
-    _2: U32,
-    _3: U32,
-    _4: U32,
-    _5: U32,
-    _6: U32,
+    _04: U32,
+    _08: U32,
+    _0c: U32,
+    _10: U32,
+    _14: U32,
     mft_offset: U64,
     mft_size: U32,
-    _9: U32,
+    _24: U32,
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct MftHeader {
     magic: [u8; 4],
-    _1: U32,
-    _2: U32,
+    _04: U32,
+    _08: U32,
     entry_count: U32,
-    _4: U32,
-    _5: U32,
+    _10: U32,
+    _14: U32,
 }
 
 #[derive(Clone, Copy, FromBytes, KnownLayout, Immutable)]
@@ -148,11 +148,11 @@ struct MftHeader {
 struct MftEntry {
     offset: U64,
     size: U32,
-    _2: U16,
-    _3: u8,
-    _4: u8,
-    _5: U32,
-    _6: U32,
+    _0c: U16,
+    _0e: u8,
+    _0f: u8,
+    _10: U32,
+    _14: U32,
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]

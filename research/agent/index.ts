@@ -27,7 +27,7 @@ rpc.exports = {
   getProtocols: () => protocols,
 };
 
-Interceptor.attach(Process.mainModule.base.add(0xfeac00), {
+Interceptor.attach(Process.mainModule.base.add(0xFEAC00), {
   onEnter(args) {
     const mc = args[0];
     const rawData = args[2];
@@ -51,7 +51,7 @@ Interceptor.attach(Process.mainModule.base.add(0xfeac00), {
   },
 });
 
-Interceptor.attach(Process.mainModule.base.add(0xfee160), {
+Interceptor.attach(Process.mainModule.base.add(0xFEE160), {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),
@@ -64,7 +64,7 @@ Interceptor.attach(Process.mainModule.base.add(0xfee160), {
   },
 });
 
-Interceptor.attach(Process.mainModule.base.add(0xfee220), {
+Interceptor.attach(Process.mainModule.base.add(0xFEE220), {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),
@@ -77,7 +77,7 @@ Interceptor.attach(Process.mainModule.base.add(0xfee220), {
   },
 });
 
-Interceptor.attach(Process.mainModule.base.add(0xfee2e0), {
+Interceptor.attach(Process.mainModule.base.add(0xFEE2E0), {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),
@@ -90,7 +90,7 @@ Interceptor.attach(Process.mainModule.base.add(0xfee2e0), {
   },
 });
 
-Interceptor.attach(Process.mainModule.base.add(0xfee370), {
+Interceptor.attach(Process.mainModule.base.add(0xFEE370), {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),
@@ -200,7 +200,7 @@ function parseField(def: NativePointer): MessageField {
 
   return {
     type: types[fieldType] ?? "Unknown",
-    size: param & 0xffff,
+    size: param & 0xFFFF,
     fields: refTypeDef.isNull() ? [] : parseFields(refTypeDef),
   };
 }

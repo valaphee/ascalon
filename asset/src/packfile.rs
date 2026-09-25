@@ -205,7 +205,7 @@ impl<'a> PackfileChunk<'a> {
 struct PackfileHeader {
     magic: [u8; 2],
     flags: Word,
-    _2: Word,
+    _04: Word,
     header_size: Word,
     r#type: [u8; 4],
 }

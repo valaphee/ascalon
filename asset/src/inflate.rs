@@ -33,7 +33,7 @@ pub fn inflate(input: &[u8], output: &mut [u8]) -> Result<()> {
             let mut length = match group {
                 0 => symbol as u32,
                 1..=6 => (1 << (group - 1)) * (4 + (symbol % 4) as u32),
-                _ if symbol == 28 => 0xff,
+                _ if symbol == 28 => 0xFF,
                 _ => return Err(ErrorKind::InvalidData.into()),
             };
             if group > 1 && symbol != 28 {
@@ -229,7 +229,7 @@ fn read_tree(bits: &mut BitReader<'_>) -> Result<HuffmanTree> {
     while remaining >= 0 {
         let code = DICTIONARY.read(bits)?;
 
-        let width = (code & 0x1f) as u8;
+        let width = (code & 0x1F) as u8;
         let mut count = ((code >> 5) + 1) as i32;
 
         if width == 0 {
