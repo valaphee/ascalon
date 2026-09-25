@@ -3,7 +3,7 @@
   <Packfile Name="MODL">
     <Chunk Name="MODL">
       <Version Id="0" TypeName="ModelFileDataV0">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV0">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV0">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -18,18 +18,18 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV0">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV0">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV0">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV0">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV0">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV0">
@@ -69,7 +69,7 @@
         </Ptr>
       </Version>
       <Version Id="1" TypeName="ModelFileDataV1">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV1">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV1">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -84,18 +84,18 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV1">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV1">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV1">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV1">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV1">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV1">
@@ -151,7 +151,7 @@
         </Ptr>
       </Version>
       <Version Id="2" TypeName="ModelFileDataV2">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV2">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV2">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -166,18 +166,18 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV2">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV2">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV2">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV2">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV2">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV2">
@@ -285,7 +285,7 @@
         </Ptr>
       </Version>
       <Version Id="3" TypeName="ModelFileDataV3">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV3">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV3">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -300,18 +300,18 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV3">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV3">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV3">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV3">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
           </Struct>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV3">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV3">
@@ -428,7 +428,7 @@
         </Ptr>
       </Version>
       <Version Id="4" TypeName="ModelFileDataV4">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV4">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV4">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -443,14 +443,14 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV4">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV4">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <ArrayPtr Name="visTokens" TypeName="Qword" />
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV4">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV4">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -460,7 +460,7 @@
             <Qword Name="token" />
             <ArrayPtr Name="keys" TypeName="Float" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV4">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV4">
@@ -577,7 +577,7 @@
         </Ptr>
       </Version>
       <Version Id="5" TypeName="ModelFileDataV5">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV5">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV5">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -592,15 +592,15 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV5">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV5">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visTokens" TypeName="Qword" />
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV5">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV5">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -610,7 +610,7 @@
             <Qword Name="token" />
             <ArrayPtr Name="keys" TypeName="Float" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV5">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV5">
@@ -728,7 +728,7 @@
         </Ptr>
       </Version>
       <Version Id="6" TypeName="ModelFileDataV6">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV6">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV6">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -743,15 +743,15 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV6">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV6">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV6">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV6">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -761,7 +761,7 @@
             <Dword Name="boneIndex" />
             <ArrayPtr Name="keys" TypeName="Float" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="animationFallbacks" TypeName="Qword" />
         <ArrayPtr Name="animationImports" TypeName="ModelAnimationImportDataV6">
           <WcharPtr Name="filename" />
@@ -886,7 +886,7 @@
         </Ptr>
       </Version>
       <Version Id="7" TypeName="ModelFileDataV7">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV7">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV7">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -901,15 +901,15 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV7">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV7">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
-        </ArrayPtr>
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV7">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV7">
           <Qword Name="token" />
           <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -919,7 +919,7 @@
             <Dword Name="boneIndex" />
             <ArrayPtr Name="keys" TypeName="Float" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="animationFallbacks" TypeName="Qword" />
         <ArrayPtr Name="animationImports" TypeName="ModelAnimationImportDataV7">
           <WcharPtr Name="filename" />
@@ -1045,7 +1045,7 @@
         </Ptr>
       </Version>
       <Version Id="8" TypeName="ModelFileDataV8">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV8">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV8">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -1062,14 +1062,14 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV8">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV8">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV8">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV8">
@@ -1165,7 +1165,7 @@
         </Ptr>
       </Version>
       <Version Id="9" TypeName="ModelFileDataV9">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV9">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV9">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -1183,14 +1183,14 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV9">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV9">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV9">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV9">
@@ -1286,7 +1286,7 @@
         </Ptr>
       </Version>
       <Version Id="10" TypeName="ModelFileDataV10">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV10">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV10">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -1304,14 +1304,14 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV10">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV10">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV10">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV10">
@@ -1425,7 +1425,7 @@
         </Ptr>
       </Version>
       <Version Id="11" TypeName="ModelFileDataV11">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV11">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV11">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -1443,14 +1443,14 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV11">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV11">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV11">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV11">
@@ -1578,7 +1578,7 @@
         </Ptr>
       </Version>
       <Version Id="12" TypeName="ModelFileDataV12">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV12">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV12">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -1596,15 +1596,15 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV12">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV12">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV12">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV12">
@@ -1732,7 +1732,7 @@
         </Ptr>
       </Version>
       <Version Id="13" TypeName="ModelFileDataV13">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV13">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV13">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -1750,15 +1750,15 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV13">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV13">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV13">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV13">
@@ -1886,7 +1886,7 @@
         </Ptr>
       </Version>
       <Version Id="14" TypeName="ModelFileDataV14">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV14">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV14">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -1904,8 +1904,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV14">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV14">
           <Struct Name="mesh" TypeName="PackGrannyMeshType">
             <ArrayPtr Name="mesh" TypeName="Byte" />
           </Struct>
@@ -1914,7 +1914,7 @@
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
           <ArrayPtr Name="actionOffsetNames" TypeName="Qword" />
           <ArrayPtr Name="actionOffsets" TypeName="Float3" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV14">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV14">
@@ -2042,7 +2042,7 @@
         </Ptr>
       </Version>
       <Version Id="15" TypeName="ModelFileDataV15">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV15">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV15">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -2060,8 +2060,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV15">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV15">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV15">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -2071,7 +2071,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV15">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV15">
@@ -2208,7 +2208,7 @@
         <ArrayPtr Name="actionOffsets" TypeName="Float3" />
       </Version>
       <Version Id="16" TypeName="ModelFileDataV16">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV16">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV16">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -2226,8 +2226,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV16">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV16">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV16">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -2237,7 +2237,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV16">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV16">
@@ -2375,7 +2375,7 @@
         <Array Name="lodOverride" Size="2" TypeName="Float" />
       </Version>
       <Version Id="17" TypeName="ModelFileDataV17">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV17">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV17">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -2393,8 +2393,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV17">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV17">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV17">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -2410,7 +2410,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV17">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV17">
@@ -2549,7 +2549,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="18" TypeName="ModelFileDataV18">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV18">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV18">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -2567,8 +2567,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV18">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV18">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV18">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -2585,7 +2585,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV18">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV18">
@@ -2734,7 +2734,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="19" TypeName="ModelFileDataV19">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV19">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV19">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -2752,8 +2752,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV19">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV19">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV19">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -2770,7 +2770,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV19">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV19">
@@ -2954,7 +2954,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="20" TypeName="ModelFileDataV20">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV20">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV20">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -2972,8 +2972,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV20">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV20">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV20">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -2990,7 +2990,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV20">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV20">
@@ -3174,7 +3174,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="21" TypeName="ModelFileDataV21">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV21">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV21">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -3192,8 +3192,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV21">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV21">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV21">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -3210,7 +3210,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV21">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV21">
@@ -3401,7 +3401,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="22" TypeName="ModelFileDataV22">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV22">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV22">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -3419,8 +3419,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV22">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV22">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV22">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -3437,7 +3437,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV22">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV22">
@@ -3628,7 +3628,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="23" TypeName="ModelFileDataV23">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV23">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV23">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -3646,8 +3646,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV23">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV23">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV23">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -3664,7 +3664,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV23">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV23">
@@ -3855,7 +3855,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="24" TypeName="ModelFileDataV24">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV24">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV24">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -3873,8 +3873,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV24">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV24">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV24">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -3891,7 +3891,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV24">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV24">
@@ -4083,7 +4083,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="25" TypeName="ModelFileDataV25">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV25">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV25">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -4101,8 +4101,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV25">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV25">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV25">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -4119,7 +4119,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV25">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV25">
@@ -4312,7 +4312,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="26" TypeName="ModelFileDataV26">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV26">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV26">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -4330,8 +4330,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV26">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV26">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV26">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -4348,7 +4348,7 @@
           <Dword Name="flags" />
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV26">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV26">
@@ -4541,7 +4541,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="27" TypeName="ModelFileDataV27">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV27">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV27">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -4559,8 +4559,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV27">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV27">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV27">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -4578,7 +4578,7 @@
           <ArrayPtr Name="visBoneIndices" TypeName="Dword" />
           <ArrayPtr Name="seamVertIndices" TypeName="Dword" />
           <Qword Name="meshName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV27">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV27">
@@ -4771,7 +4771,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="28" TypeName="ModelFileDataV28">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV28">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV28">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -4789,8 +4789,8 @@
             <Float4 Name="value" />
             <Dword Name="constantFlags" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV28">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV28">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV28">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -4810,7 +4810,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV28">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV28">
@@ -5005,7 +5005,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="29" TypeName="ModelFileDataV29">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV29">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV29">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -5032,8 +5032,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV29">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV29">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV29">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -5053,7 +5053,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV29">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV29">
@@ -5252,7 +5252,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="30" TypeName="ModelFileDataV30">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV30">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV30">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -5279,8 +5279,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV30">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV30">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV30">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -5300,7 +5300,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV30">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV30">
@@ -5500,7 +5500,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="31" TypeName="ModelFileDataV31">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV31">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV31">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -5527,8 +5527,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV31">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV31">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV31">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -5548,7 +5548,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV31">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV31">
@@ -5749,7 +5749,7 @@
         <WcharPtr Name="soundScript" />
       </Version>
       <Version Id="32" TypeName="ModelFileDataV32">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV32">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV32">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -5776,8 +5776,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV32">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV32">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV32">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -5797,7 +5797,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV32">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV32">
@@ -6037,7 +6037,7 @@
         </Ptr>
       </Version>
       <Version Id="33" TypeName="ModelFileDataV33">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV33">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV33">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -6064,8 +6064,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV33">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV33">
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV33">
             <ArrayPtr Name="indices" TypeName="Word" />
           </ArrayPtr>
@@ -6085,7 +6085,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV33">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV33">
@@ -6348,7 +6348,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="34" TypeName="ModelFileDataV34">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV34">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV34">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -6375,8 +6375,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV34">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV34">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV34">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -6396,7 +6396,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV34">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV34">
@@ -6655,7 +6655,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="35" TypeName="ModelFileDataV35">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV35">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV35">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -6682,8 +6682,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV35">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV35">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV35">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -6703,7 +6703,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV35">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV35">
@@ -6965,7 +6965,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="36" TypeName="ModelFileDataV36">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV36">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV36">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -6992,8 +6992,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV36">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV36">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV36">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -7013,7 +7013,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV36">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV36">
@@ -7281,7 +7281,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="37" TypeName="ModelFileDataV37">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV37">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV37">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -7308,8 +7308,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV37">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV37">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV37">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -7329,7 +7329,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV37">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV37">
@@ -7596,7 +7596,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="38" TypeName="ModelFileDataV38">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV38">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV38">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -7623,8 +7623,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV38">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV38">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV38">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -7644,7 +7644,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV38">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV38">
@@ -7911,7 +7911,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="39" TypeName="ModelFileDataV39">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV39">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV39">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -7938,8 +7938,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV39">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV39">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV39">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -7959,7 +7959,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV39">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV39">
@@ -8227,7 +8227,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="40" TypeName="ModelFileDataV40">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV40">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV40">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -8254,8 +8254,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV40">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV40">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV40">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -8275,7 +8275,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV40">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV40">
@@ -8546,7 +8546,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="41" TypeName="ModelFileDataV41">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV41">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV41">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -8573,8 +8573,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV41">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV41">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV41">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -8594,7 +8594,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV41">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV41">
@@ -8873,7 +8873,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="42" TypeName="ModelFileDataV42">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV42">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV42">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -8900,8 +8900,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV42">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV42">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV42">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -8921,7 +8921,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV42">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV42">
@@ -9201,7 +9201,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="43" TypeName="ModelFileDataV43">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV43">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV43">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -9228,8 +9228,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV43">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV43">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV43">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -9249,7 +9249,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV43">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV43">
@@ -9533,7 +9533,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="44" TypeName="ModelFileDataV44">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV44">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV44">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -9560,8 +9560,8 @@
             <Dword Name="uvAnimId" />
             <Byte Name="type" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV44">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV44">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV44">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -9581,7 +9581,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV44">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV44">
@@ -9865,7 +9865,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="45" TypeName="ModelFileDataV45">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV45">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV45">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -9901,8 +9901,8 @@
             <Float Name="fps" />
             <Float2 Name="scroll" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV45">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV45">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV45">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -9922,7 +9922,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV45">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV45">
@@ -10206,7 +10206,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="46" TypeName="ModelFileDataV46">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV46">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV46">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -10242,8 +10242,8 @@
             <Float Name="fps" />
             <Float2 Name="scroll" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV46">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV46">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV46">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -10263,7 +10263,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV46">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV46">
@@ -10547,7 +10547,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="47" TypeName="ModelFileDataV47">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV47">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV47">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -10583,8 +10583,8 @@
             <Float Name="fps" />
             <Float2 Name="scroll" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV47">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV47">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV47">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -10608,7 +10608,7 @@
           <Qword Name="meshName" />
           <Float3 Name="minBound" />
           <Float3 Name="maxBound" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV47">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV47">
@@ -10892,7 +10892,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="48" TypeName="ModelFileDataV48">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV48">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV48">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -10928,8 +10928,8 @@
             <Float Name="fps" />
             <Float2 Name="scroll" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV48">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV48">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV48">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -10958,7 +10958,7 @@
             <Float3 Name="boxExtent" />
             <Float Name="sphereRadius" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV48">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV48">
@@ -11242,7 +11242,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="49" TypeName="ModelFileDataV49">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV49">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV49">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -11278,8 +11278,8 @@
             <Float Name="fps" />
             <Float2 Name="scroll" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV49">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV49">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV49">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -11308,7 +11308,7 @@
             <Float3 Name="boxExtent" />
             <Float Name="sphereRadius" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV49">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV49">
@@ -11596,7 +11596,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="50" TypeName="ModelFileDataV50">
-        <ArrayPtr Name="materials" TypeName="ModelMaterialDataV50">
+        <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV50">
           <WcharPtr Name="filename" />
           <Dword Name="materialFlags" />
           <Dword Name="sortOrder" />
@@ -11632,8 +11632,8 @@
             <Float Name="fps" />
             <Float2 Name="scroll" />
           </ArrayPtr>
-        </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV50">
+        </PtrArrayPtr>
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV50">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV50">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -11662,7 +11662,7 @@
             <Float3 Name="boxExtent" />
             <Float Name="sphereRadius" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV50">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV50">
@@ -11953,7 +11953,7 @@
       <Version Id="51" TypeName="ModelFileDataV51">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV51">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV51">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV51">
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
             <Dword Name="materialFlags" />
@@ -11990,9 +11990,9 @@
               <Float Name="fps" />
               <Float2 Name="scroll" />
             </ArrayPtr>
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV51">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV51">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV51">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -12023,7 +12023,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV51">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV51">
@@ -12318,7 +12318,7 @@
       <Version Id="52" TypeName="ModelFileDataV52">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV52">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV52">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV52">
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
             <Dword Name="materialFlags" />
@@ -12355,9 +12355,9 @@
               <Float Name="fps" />
               <Float2 Name="scroll" />
             </ArrayPtr>
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV52">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV52">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV52">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -12388,7 +12388,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV52">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV52">
@@ -12691,7 +12691,7 @@
       <Version Id="53" TypeName="ModelFileDataV53">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV53">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV53">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV53">
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
             <Dword Name="materialFlags" />
@@ -12728,9 +12728,9 @@
               <Float Name="fps" />
               <Float2 Name="scroll" />
             </ArrayPtr>
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV53">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV53">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV53">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -12761,7 +12761,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV53">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV53">
@@ -13066,7 +13066,7 @@
       <Version Id="54" TypeName="ModelFileDataV54">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV54">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV54">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV54">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -13104,9 +13104,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV54">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV54">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV54">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -13137,7 +13137,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV54">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV54">
@@ -13452,7 +13452,7 @@
       <Version Id="55" TypeName="ModelFileDataV55">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV55">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV55">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV55">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -13490,9 +13490,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV55">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV55">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV55">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -13523,7 +13523,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV55">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV55">
@@ -13839,7 +13839,7 @@
       <Version Id="56" TypeName="ModelFileDataV56">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV56">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV56">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV56">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -13877,9 +13877,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV56">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV56">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV56">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -13910,7 +13910,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV56">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV56">
@@ -14227,7 +14227,7 @@
       <Version Id="57" TypeName="ModelFileDataV57">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV57">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV57">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV57">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -14265,9 +14265,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV57">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV57">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV57">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -14298,7 +14298,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV57">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV57">
@@ -14620,7 +14620,7 @@
       <Version Id="58" TypeName="ModelFileDataV58">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV58">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV58">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV58">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -14658,9 +14658,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV58">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV58">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV58">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -14691,7 +14691,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV58">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV58">
@@ -15025,7 +15025,7 @@
       <Version Id="59" TypeName="ModelFileDataV59">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV59">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV59">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV59">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -15063,9 +15063,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV59">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV59">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV59">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -15096,7 +15096,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV59">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV59">
@@ -15431,7 +15431,7 @@
       <Version Id="60" TypeName="ModelFileDataV60">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV60">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV60">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV60">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -15469,9 +15469,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV60">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV60">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV60">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -15502,7 +15502,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV60">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV60">
@@ -15843,7 +15843,7 @@
       <Version Id="61" TypeName="ModelFileDataV61">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV61">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV61">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV61">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -15881,9 +15881,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV61">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV61">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV61">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -15914,7 +15914,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="model" TypeName="ModelModelDataV61">
           <CharPtr Name="Name" />
           <Ptr Name="Skeleton" TypeName="ModelSkeletonDataV61">
@@ -16265,7 +16265,7 @@
       <Version Id="62" TypeName="ModelFileDataV62">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV62">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV62">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV62">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -16303,9 +16303,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV62">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV62">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV62">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -16336,7 +16336,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV62">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV62">
             <Float3 Name="acceleration" />
@@ -16601,7 +16601,7 @@
       <Version Id="63" TypeName="ModelFileDataV63">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV63">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV63">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV63">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -16639,9 +16639,9 @@
               <Float2 Name="scroll" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV63">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV63">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV63">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -16672,7 +16672,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV63">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV63">
             <Float3 Name="acceleration" />
@@ -16937,7 +16937,7 @@
       <Version Id="64" TypeName="ModelFileDataV64">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV64">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV64">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV64">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -16980,9 +16980,9 @@
               <Float Name="rotateFreq" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV64">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV64">
           <Qword Name="visBone" />
           <ArrayPtr Name="lods" TypeName="ModelMeshLodDataV64">
             <ArrayPtr Name="indices" TypeName="Word" />
@@ -17013,7 +17013,7 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <CharPtr Name="materialName" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV64">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV64">
             <Float3 Name="acceleration" />
@@ -17279,7 +17279,7 @@
       <Version Id="65" TypeName="ModelFileDataV65">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV65">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV65">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV65">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -17322,7 +17322,7 @@
               <Float Name="rotateFreq" />
             </ArrayPtr>
             <Byte Name="texCoordCount" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV65">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV65">
@@ -17589,7 +17589,7 @@
       <Version Id="66" TypeName="ModelFileDataV66">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV66">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -17633,7 +17633,7 @@
             </ArrayPtr>
             <Byte Name="texCoordCount" />
             <Dword Name="sortLayer" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV66">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV66">
@@ -17900,7 +17900,7 @@
       <Version Id="67" TypeName="ModelFileDataV67">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV66">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -17944,7 +17944,7 @@
             </ArrayPtr>
             <Byte Name="texCoordCount" />
             <Dword Name="sortLayer" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV67">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV66">
@@ -18228,7 +18228,7 @@
       <Version Id="68" TypeName="ModelFileDataV68">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV66">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -18272,7 +18272,7 @@
             </ArrayPtr>
             <Byte Name="texCoordCount" />
             <Dword Name="sortLayer" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV68">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV66">
@@ -18554,7 +18554,7 @@
       <Version Id="69" TypeName="ModelFileDataV69">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV66">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -18598,7 +18598,7 @@
             </ArrayPtr>
             <Byte Name="texCoordCount" />
             <Dword Name="sortLayer" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV69">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV66">
@@ -18878,7 +18878,7 @@
       <Version Id="70" TypeName="ModelFileDataV70">
         <ArrayPtr Name="permutations" TypeName="ModelPermutationDataV66">
           <Qword Name="token" />
-          <ArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
+          <PtrArrayPtr Name="materials" TypeName="ModelMaterialDataV66">
             <Qword Name="token" />
             <Dword Name="materialId" />
             <WcharPtr Name="filename" />
@@ -18922,7 +18922,7 @@
             </ArrayPtr>
             <Byte Name="texCoordCount" />
             <Dword Name="sortLayer" />
-          </ArrayPtr>
+          </PtrArrayPtr>
         </ArrayPtr>
         <Ptr Name="cloudData" TypeName="ModelCloudDataV70">
           <ArrayPtr Name="clouds" TypeName="ModelParticleCloudV66">
@@ -19203,7 +19203,7 @@
     </Chunk>
     <Chunk Name="ANIM">
       <Version Id="0" TypeName="ModelFileAnimationV0">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV8">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV8">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19218,7 +19218,7 @@
               <Dword Name="vectorTrackIndex" />
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV0">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19232,7 +19232,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="1" TypeName="ModelFileAnimationV1">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV9">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV9">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19249,7 +19249,7 @@
           </ArrayPtr>
           <ArrayPtr Name="triggerTimes" TypeName="Float" />
           <ArrayPtr Name="triggerTokens" TypeName="Qword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV1">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19263,7 +19263,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="2" TypeName="ModelFileAnimationBankV2">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV10">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV10">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19281,7 +19281,7 @@
           <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
           <ArrayPtr Name="triggerTimes" TypeName="Float" />
           <ArrayPtr Name="triggerTokens" TypeName="Qword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV2">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19295,7 +19295,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="3" TypeName="ModelFileAnimationBankV3">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV11">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV11">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19320,7 +19320,7 @@
               <Dword Name="vectorTrackIndex" />
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV3">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19334,7 +19334,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="4" TypeName="ModelFileAnimationBankV4">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV12">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV12">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19360,7 +19360,7 @@
             </ArrayPtr>
           </ArrayPtr>
           <Dword Name="isAdditive" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV4">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19374,7 +19374,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="5" TypeName="ModelFileAnimationBankV5">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV13">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV13">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19400,7 +19400,7 @@
             </ArrayPtr>
           </ArrayPtr>
           <Dword Name="isAdditive" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV5">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19414,7 +19414,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="6" TypeName="ModelFileAnimationBankV6">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV14">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV14">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19452,7 +19452,7 @@
             </ArrayPtr>
           </ArrayPtr>
           <Dword Name="isAdditive" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV6">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19466,7 +19466,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="7" TypeName="ModelFileAnimationBankV7">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV15">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV15">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19508,7 +19508,7 @@
             </ArrayPtr>
           </ArrayPtr>
           <Dword Name="isAdditive" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV7">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19522,7 +19522,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="8" TypeName="ModelFileAnimationBankV8">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV16">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV16">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19566,7 +19566,7 @@
           <Dword Name="isAdditive" />
           <Dword Name="variantCount" />
           <Array Name="variantIndices" Size="3" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV8">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19580,7 +19580,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="9" TypeName="ModelFileAnimationBankV9">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV17">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV17">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19628,7 +19628,7 @@
           <Dword Name="isAdditive" />
           <Dword Name="variantCount" />
           <Array Name="variantIndices" Size="3" TypeName="Dword" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV9">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19642,7 +19642,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="10" TypeName="ModelFileAnimationBankV10">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV18">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV18">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19696,7 +19696,7 @@
             <Qword Name="val" />
             <WcharPtr Name="strVal" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV10">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19710,7 +19710,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="11" TypeName="ModelFileAnimationBankV11">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV19">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV19">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19766,7 +19766,7 @@
           </ArrayPtr>
           <Float3 Name="center" TypeName="Float3" />
           <Float Name="radius" />
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV11">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19780,7 +19780,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="12" TypeName="ModelFileAnimationBankV12">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV20">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV20">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19842,7 +19842,7 @@
             <Dword Name="vectorTrackIndex" />
             <Float4 Name="initialValue" TypeName="Float4" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV12">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19856,7 +19856,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="13" TypeName="ModelFileAnimationBankV13">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV21">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV21">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19919,7 +19919,7 @@
             <Dword Name="vectorTrackIndex" />
             <Float4 Name="initialValue" TypeName="Float4" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV13">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -19933,7 +19933,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="14" TypeName="ModelFileAnimationBankV14">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV22">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV22">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -19996,7 +19996,7 @@
             <Dword Name="vectorTrackIndex" />
             <Float4 Name="initialValue" TypeName="Float4" />
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV14">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20010,7 +20010,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="15" TypeName="ModelFileAnimationBankV15">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV23">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV23">
           <Qword Name="token" />
           <ArrayPtr Name="data" TypeName="Byte" />
           <Float Name="moveSpeed" TypeName="Float" />
@@ -20082,7 +20082,7 @@
               <Float4 Name="initialValue" TypeName="Float4" />
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV15">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20096,7 +20096,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="16" TypeName="ModelFileAnimationBankV16">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV24">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV24">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20182,7 +20182,7 @@
               </ArrayPtr>
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV16">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20196,7 +20196,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="17" TypeName="ModelFileAnimationBankV17">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV25">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV25">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20282,7 +20282,7 @@
               </ArrayPtr>
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV17">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20299,7 +20299,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="18" TypeName="ModelFileAnimationBankV18">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV26">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV26">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20385,7 +20385,7 @@
               </ArrayPtr>
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV18">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20402,7 +20402,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="19" TypeName="ModelFileAnimationBankV19">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV27">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV27">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20488,7 +20488,7 @@
               </ArrayPtr>
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV19">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20506,7 +20506,7 @@
         <WcharPtr Name="modelReference" />
       </Version>
       <Version Id="20" TypeName="ModelFileAnimationBankV20">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV28">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV28">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20601,7 +20601,7 @@
               <Float4 Name="initialValue" TypeName="Float4" />
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV20">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20619,7 +20619,7 @@
         <WcharPtr Name="modelReference" />
       </Version>
       <Version Id="21" TypeName="ModelFileAnimationBankV21">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV29">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV29">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20723,7 +20723,7 @@
               <Float4 Name="initialValue" TypeName="Float4" />
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV21">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20741,7 +20741,7 @@
         <WcharPtr Name="modelReference" />
       </Version>
       <Version Id="22" TypeName="ModelFileAnimationBankV22">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV30">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV30">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20845,7 +20845,7 @@
               <Float4 Name="initialValue" TypeName="Float4" />
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV22">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20862,7 +20862,7 @@
         </ArrayPtr>
       </Version>
       <Version Id="23" TypeName="ModelFileAnimationBankV23">
-        <ArrayPtr Name="animations" TypeName="ModelAnimationDataV31">
+        <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV31">
           <Qword Name="token" />
           <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
             <ArrayPtr Name="animation" TypeName="Byte" />
@@ -20966,7 +20966,7 @@
               <Float4 Name="initialValue" TypeName="Float4" />
             </ArrayPtr>
           </ArrayPtr>
-        </ArrayPtr>
+        </PtrArrayPtr>
         <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV23">
           <Qword Name="token" />
           <Qword Name="start" />
@@ -20984,7 +20984,7 @@
       </Version>
       <Version Id="24" TypeName="ModelFileAnimationV24">
         <Ptr Name="bank" TypeName="ModelFileAnimationBankV24">
-          <ArrayPtr Name="animations" TypeName="ModelAnimationDataV32">
+          <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV32">
             <Qword Name="token" />
             <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
               <ArrayPtr Name="animation" TypeName="Byte" />
@@ -21094,7 +21094,7 @@
                 <Float4 Name="initialValue" TypeName="Float4" />
               </ArrayPtr>
             </ArrayPtr>
-          </ArrayPtr>
+          </PtrArrayPtr>
           <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV24">
             <Qword Name="token" />
             <Qword Name="start" />
@@ -21116,7 +21116,7 @@
       </Version>
       <Version Id="25" TypeName="ModelFileAnimationV25">
         <Ptr Name="bank" TypeName="ModelFileAnimationBankV25">
-          <ArrayPtr Name="animations" TypeName="ModelAnimationDataV33">
+          <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV33">
             <Qword Name="token" />
             <Struct Name="data" TypeName="PackGrannyAnimationTypeV1">
               <ArrayPtr Name="animation" TypeName="Byte" />
@@ -21228,7 +21228,7 @@
                 <Float4 Name="initialValue" TypeName="Float4" />
               </ArrayPtr>
             </ArrayPtr>
-          </ArrayPtr>
+          </PtrArrayPtr>
           <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV25">
             <Qword Name="token" />
             <Qword Name="start" />
@@ -22093,7 +22093,7 @@
     </Chunk>
     <Chunk Name="GEOM">
       <Version Id="0" TypeName="ModelFileGeometryV0">
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV65">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV65">
           <Qword Name="visBone" />
           <ArrayPtr Name="morphTargets" TypeName="ModelMeshMorphTargetV65">
             <ArrayPtr Name="positions" TypeName="ModelMeshMorphVertV65">
@@ -22134,10 +22134,10 @@
               <ArrayPtr Name="indices" TypeName="Word" />
             </ArrayPtr>
           </Ptr>
-        </ArrayPtr>
+        </PtrArrayPtr>
       </Version>
       <Version Id="1" TypeName="ModelFileGeometryV1">
-        <ArrayPtr Name="meshes" TypeName="ModelMeshDataV66">
+        <PtrArrayPtr Name="meshes" TypeName="ModelMeshDataV66">
           <Qword Name="visBone" />
           <ArrayPtr Name="morphTargets" TypeName="ModelMeshMorphTargetV66">
             <ArrayPtr Name="positions" TypeName="ModelMeshMorphVertV66">
@@ -22179,7 +22179,7 @@
             </ArrayPtr>
             <ArrayPtr Name="transforms" TypeName="Dword" />
           </Ptr>
-        </ArrayPtr>
+        </PtrArrayPtr>
       </Version>
     </Chunk>
     <Chunk Name="EXPA">

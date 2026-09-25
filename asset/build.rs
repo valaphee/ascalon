@@ -39,6 +39,10 @@ fn field_type(field: &Field) -> Option<Type> {
             let ty = ident(field.type_name.as_deref()?);
             syn::parse_quote!(ArrayPtr<#ty>)
         }
+        "PtrArrayPtr" => {
+            let ty = ident(field.type_name.as_deref()?);
+            syn::parse_quote!(ArrayPtr<Ptr<#ty>>)
+        }
         ty => {
             let ty = ident(ty);
             syn::parse_quote!(#ty)

@@ -1,3 +1,5 @@
+#![feature(read_le)]
+
 pub mod archive;
 pub mod inflate;
 pub mod packfile;

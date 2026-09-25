@@ -8,7 +8,7 @@ import pefile
 TYPES = {
     1: "Array",
     2: "ArrayPtr",
-    3: "ArrayPtr",
+    3: "PtrArrayPtr",
     5: "Byte",
     6: "Byte4",
     10: "Dword",
