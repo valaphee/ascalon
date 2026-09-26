@@ -2,10 +2,14 @@
 name = "ascalon-protocol"
 version = "0.1.0"
 edition = "2024"
+description = "Unofficial Guild Wars 2 protocol encoding primitives"
+license = "MIT"
+documentation = "https://docs.rs/ascalon-protocol"
+repository = "https://github.com/valaphee/ascalon"
 
 [dependencies]
 bytes = "1"
 uuid = "1"
 
 [build-dependencies]
-ascalon-protocol-schema = { path = "../protocol-schema" }
+ascalon-protocol-schema = { version = "0.1.0", path = "../protocol-schema" }

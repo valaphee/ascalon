@@ -5,23 +5,23 @@ use std::{
 };
 
 use zerocopy::{
-    F32, FromBytes, Immutable, IntoBytes, KnownLayout, LittleEndian, NativeEndian, U16, U32, U64,
-    Usize,
+    FromBytes, Immutable, IntoBytes, KnownLayout, NativeEndian, Usize,
+    little_endian::{F32, U16, U32, U64},
 };
 
 type Byte = u8;
 type Byte3 = [u8; 3];
 type Byte4 = [u8; 4];
-type Word = U16<LittleEndian>;
-type Word3 = [U16<LittleEndian>; 3];
-type Dword = U32<LittleEndian>;
-type Dword2 = [U32<LittleEndian>; 2];
-type Dword4 = [U32<LittleEndian>; 4];
-type Qword = U64<LittleEndian>;
-type Float = F32<LittleEndian>;
-type Float2 = [F32<LittleEndian>; 2];
-type Float3 = [F32<LittleEndian>; 3];
-type Float4 = [F32<LittleEndian>; 4];
+type Word = U16;
+type Word3 = [U16; 3];
+type Dword = U32;
+type Dword2 = [U32; 2];
+type Dword4 = [U32; 4];
+type Qword = U64;
+type Float = F32;
+type Float2 = [F32; 2];
+type Float3 = [F32; 3];
+type Float4 = [F32; 4];
 
 pub struct Packfile(Vec<u8>);
 
@@ -29,17 +29,14 @@ impl Packfile {
     pub fn new(bytes: Vec<u8>) -> Result<Self> {
         let header = PackfileHeader::ref_from_prefix(&bytes).unwrap().0;
         if header.magic != *b"PF" {
-            return Err(Error::new(
-                ErrorKind::InvalidData,
-                "packfile: invalid magic",
-            ));
+            return Err(Error::new(ErrorKind::InvalidData, "invalid magic"));
         }
-
-        let header_size = header.header_size.get() as usize;
 
         let src_ptr_width = if header.flags.get() & 4 != 0 { 8 } else { 4 };
         let dst_ptr_width = size_of::<usize>();
         let ptr_width_delta = dst_ptr_width as isize - src_ptr_width as isize;
+
+        let header_size = header.header_size.get() as usize;
 
         let mut dst = bytes[..header_size].to_vec();
 

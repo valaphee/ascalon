@@ -6,6 +6,7 @@ use lz4_flex::block::{
 };
 use rc4::{KeyInit, Rc4, StreamCipher};
 use tokio_util::codec::{Decoder, Encoder};
+use zerocopy::{FromBytes as _, little_endian::U32};
 
 pub use tokio_util::codec::Framed;
 
@@ -150,13 +151,7 @@ fn rc4_hash(input: &[u8]) -> [u8; 20] {
         bytes[i % 20] ^= input[i];
     }
 
-    let mut words = [
-        u32::from_le_bytes(bytes[0..4].try_into().unwrap()),
-        u32::from_le_bytes(bytes[4..8].try_into().unwrap()),
-        u32::from_le_bytes(bytes[8..12].try_into().unwrap()),
-        u32::from_le_bytes(bytes[12..16].try_into().unwrap()),
-        u32::from_le_bytes(bytes[16..20].try_into().unwrap()),
-    ];
+    let words = <[U32; 5]>::mut_from_bytes(&mut bytes).unwrap();
 
     let mut a = 0x6745_2301u32;
     let mut b = 0xEFCD_AB89u32;
@@ -165,49 +160,45 @@ fn rc4_hash(input: &[u8]) -> [u8; 20] {
     let mut e = 0xC3D2_E1F0u32;
 
     e = e
-        .wrapping_add(words[0])
+        .wrapping_add(words[0].get())
         .wrapping_add(d ^ (b & (c ^ d)))
         .wrapping_add(a.rotate_left(5))
         .wrapping_add(0x5A82_7999);
     b = b.rotate_left(30);
 
     d = d
-        .wrapping_add(words[1])
+        .wrapping_add(words[1].get())
         .wrapping_add(c ^ (a & (b ^ c)))
         .wrapping_add(e.rotate_left(5))
         .wrapping_add(0x5A82_7999);
     a = a.rotate_left(30);
 
     c = c
-        .wrapping_add(words[2])
+        .wrapping_add(words[2].get())
         .wrapping_add(b ^ (e & (a ^ b)))
         .wrapping_add(d.rotate_left(5))
         .wrapping_add(0x5A82_7999);
     e = e.rotate_left(30);
 
     b = b
-        .wrapping_add(words[3])
+        .wrapping_add(words[3].get())
         .wrapping_add(a ^ (d & (e ^ a)))
         .wrapping_add(c.rotate_left(5))
         .wrapping_add(0x5A82_7999);
     d = d.rotate_left(30);
 
     a = a
-        .wrapping_add(words[4])
+        .wrapping_add(words[4].get())
         .wrapping_add(e ^ (c & (d ^ e)))
         .wrapping_add(b.rotate_left(5))
         .wrapping_add(0x5A82_7999);
     c = c.rotate_left(30);
 
-    words[0] = words[0].wrapping_add(a);
-    words[1] = words[1].wrapping_add(b);
-    words[2] = words[2].wrapping_add(c);
-    words[3] = words[3].wrapping_add(d);
-    words[4] = words[4].wrapping_add(e);
-
-    for (dst, src) in bytes.as_chunks_mut::<4>().0.iter_mut().zip(words) {
-        dst.copy_from_slice(&src.to_le_bytes());
-    }
+    words[0].set(words[0].get().wrapping_add(a));
+    words[1].set(words[1].get().wrapping_add(b));
+    words[2].set(words[2].get().wrapping_add(c));
+    words[3].set(words[3].get().wrapping_add(d));
+    words[4].set(words[4].get().wrapping_add(e));
 
     bytes
 }

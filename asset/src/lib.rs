@@ -5,10 +5,11 @@ pub mod inflate;
 pub mod packfile;
 pub mod texture;
 
-pub fn file_name_to_id(name: &[u16]) -> Option<u32> {
+pub fn file_id_from_name(name: &[u16]) -> Option<u32> {
     let [a, b, ..] = name else {
         return None;
     };
+
     if *a <= 0xFF || *b <= 0xFF {
         return None;
     }

@@ -2,21 +2,29 @@ use std::io::{ErrorKind, Result};
 
 use crate::BitReader;
 
-pub const FMT_COLOR: u32 = 0x10;
-pub const FMT_ALPHA: u32 = 0x20;
-pub const FMT_DEDUCED_ALPHA: u32 = 0x40;
-pub const FMT_PLAIN: u32 = 0x80;
-pub const FMT_BICOLOR: u32 = 0x200;
+bitflags::bitflags! {
+    #[derive(Clone, Copy)]
+    pub struct Fmt: u32 {
+        const COLOR = 1 << 4;
+        const ALPHA = 1 << 5;
+        const ALPHA_DEDUCED = 1 << 6;
+        const PLAIN = 1 << 7;
+        const BICOLOR = 1 << 9;
+    }
 
-pub const CMP_WHITE: u32 = 0x01;
-pub const CMP_ALPHA4: u32 = 0x02;
-pub const CMP_ALPHA8: u32 = 0x04;
-pub const CMP_COLOR: u32 = 0x08;
+    #[derive(Clone, Copy)]
+    pub struct Cmp: u32 {
+        const WHITE = 1 << 0;
+        const ALPHA4 = 1 << 1;
+        const ALPHA8 = 1 << 2;
+        const COLOR = 1 << 3;
+    }
+}
 
 pub fn inflate(
     block_size: usize,
-    format: u32,
-    compression: u32,
+    format: Fmt,
+    compression: Cmp,
     input: &[u8],
     output: &mut [u8],
 ) -> Result<()> {
@@ -24,12 +32,10 @@ pub fn inflate(
         return Err(ErrorKind::InvalidData.into());
     }
 
-    let has_two_components = format & (FMT_PLAIN | FMT_COLOR | FMT_ALPHA)
-        == FMT_PLAIN | FMT_COLOR | FMT_ALPHA
-        || format & FMT_BICOLOR != 0;
-
     let mut bits = BitReader::new(input);
 
+    let has_two_components =
+        format.contains(Fmt::COLOR | Fmt::ALPHA | Fmt::PLAIN) || format.contains(Fmt::BICOLOR);
     let component_size = block_size / if has_two_components { 2 } else { 1 };
     let color_offset = if has_two_components {
         component_size
@@ -41,11 +47,11 @@ pub fn inflate(
     let mut alpha = vec![false; blocks];
     let mut color = vec![false; blocks];
 
-    if compression & CMP_WHITE != 0 {
+    if compression.contains(Cmp::WHITE) {
         decode_white(&mut bits, block_size, output, &mut alpha, &mut color)?;
     }
 
-    if compression & CMP_ALPHA4 != 0 {
+    if compression.contains(Cmp::ALPHA4) {
         let a = bits.read(4)? as u8;
         let a = a | a << 4;
 
@@ -59,7 +65,7 @@ pub fn inflate(
         )?;
     }
 
-    if compression & CMP_ALPHA8 != 0 {
+    if compression.contains(Cmp::ALPHA8) {
         let a = bits.read(8)? as u8;
 
         decode_alpha(
@@ -72,7 +78,7 @@ pub fn inflate(
         )?;
     }
 
-    if compression & CMP_COLOR != 0 {
+    if compression.contains(Cmp::COLOR) {
         let b = bits.read(8)?;
         let g = bits.read(8)?;
         let r = bits.read(8)?;
@@ -84,13 +90,15 @@ pub fn inflate(
             color_offset,
             output,
             &mut color,
-            encode_color(r, g, b, format & FMT_DEDUCED_ALPHA != 0),
+            encode_color(r, g, b, format.contains(Fmt::ALPHA_DEDUCED)),
         )?;
     }
 
     let mut input_pos = bits.position().div_ceil(32) * 4;
 
-    if (format & FMT_ALPHA != 0 && format & FMT_DEDUCED_ALPHA == 0) || format & FMT_BICOLOR != 0 {
+    if (format.contains(Fmt::ALPHA) && !format.contains(Fmt::ALPHA_DEDUCED))
+        || format.contains(Fmt::BICOLOR)
+    {
         for block in 0..blocks {
             if alpha[block] {
                 continue;
@@ -104,7 +112,7 @@ pub fn inflate(
         }
     }
 
-    if format & (FMT_COLOR | FMT_BICOLOR) != 0 {
+    if format.intersects(Fmt::COLOR | Fmt::BICOLOR) {
         for offset in (0..component_size).step_by(4) {
             for block in 0..blocks {
                 if color[block] {
@@ -133,7 +141,6 @@ fn decode_white(
     const WHITE: [u8; 8] = 0xFFFF_FFFF_FFFF_FFFEu64.to_le_bytes();
 
     let mut block = 0;
-
     while let Some(offset) = color[block..].iter().position(|x| !*x) {
         block += offset;
 
@@ -174,7 +181,6 @@ fn decode_alpha(
     value: [u8; 8],
 ) -> Result<()> {
     let mut block = 0;
-
     while let Some(offset) = alpha[block..].iter().position(|x| !*x) {
         block += offset;
 
@@ -225,8 +231,8 @@ fn decode_color(
     value: u64,
 ) -> Result<()> {
     let value = value.to_le_bytes();
-    let mut block = 0;
 
+    let mut block = 0;
     while let Some(offset) = color[block..].iter().position(|x| !*x) {
         block += offset;
 
@@ -271,7 +277,7 @@ fn read_run(bits: &mut BitReader<'_>) -> Result<usize> {
 }
 
 #[inline]
-fn encode_color(r: u32, g: u32, b: u32, deduced_alpha: bool) -> u64 {
+fn encode_color(r: u32, g: u32, b: u32, alpha_deduced: bool) -> u64 {
     let (r, re) = quantize5(r);
     let (g, ge) = quantize6(g);
     let (b, be) = quantize5(b);
@@ -303,7 +309,7 @@ fn encode_color(r: u32, g: u32, b: u32, deduced_alpha: bool) -> u64 {
 
     weight = (weight + count / 2).checked_div(count).unwrap_or(weight);
 
-    let special = deduced_alpha && (weight == 5 || weight == 6 || count != 0);
+    let special = alpha_deduced && (weight == 5 || weight == 6 || count != 0);
 
     if count != 0 && !special {
         if color2 == 0xFFFF {

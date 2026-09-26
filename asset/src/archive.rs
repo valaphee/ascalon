@@ -26,11 +26,8 @@ impl Archive {
         file.read_exact(&mut an_header)?;
 
         let an_header = AnHeader::ref_from_bytes(&an_header).unwrap();
-        if an_header.magic != *b"AN\x1A" {
-            return Err(Error::new(
-                ErrorKind::InvalidData,
-                "archive: invalid AN magic",
-            ));
+        if an_header.version != 151 || an_header.magic != *b"AN\x1A" {
+            return Err(Error::new(ErrorKind::InvalidData, "invalid AN magic"));
         }
 
         let mut mft = vec![0; an_header.mft_size.get() as usize];
@@ -39,24 +36,20 @@ impl Archive {
 
         let (mft_header, mft_entries) = MftHeader::ref_from_prefix(&mft).unwrap();
         if mft_header.magic != *b"Mft\x1A" {
-            return Err(Error::new(
-                ErrorKind::InvalidData,
-                "archive: invalid MFT magic",
-            ));
+            return Err(Error::new(ErrorKind::InvalidData, "invalid MFT magic"));
         }
 
-        let mft_entry_count = mft_header.entry_count.get() as usize;
-        if mft_entry_count < 2 {
+        let mft_entries = <[MftEntry]>::ref_from_bytes_with_elems(
+            mft_entries,
+            mft_header.entry_count.get() as usize - 1,
+        )
+        .map_err(|_| Error::new(ErrorKind::InvalidData, "invalid MFT entry count"))?;
+        let [_, mft_index_entry, _, ..] = mft_entries else {
             return Err(Error::new(
                 ErrorKind::InvalidData,
-                "archive: invalid MFT entry count",
+                "invalid MFT entry count",
             ));
-        }
-
-        let mft_entries = <[MftEntry]>::ref_from_bytes_with_elems(mft_entries, mft_entry_count - 1)
-            .map_err(|_| Error::new(ErrorKind::InvalidData, "archive: invalid MFT entry count"))?;
-
-        let mft_index_entry = &mft_entries[1];
+        };
 
         let mut index = vec![0; mft_index_entry.size.get() as usize];
         file.seek(SeekFrom::Start(mft_index_entry.offset.get()))?;
@@ -85,18 +78,16 @@ impl Archive {
         let mut bytes = Vec::new();
 
         {
-            const BLOCK_SIZE: usize = 0x10000;
-
             let mut file = self.file.lock().unwrap();
             file.seek(SeekFrom::Start(mft_entry.offset.get()))?;
 
-            let mut remaining = mft_entry.size.get() as usize;
-            let mut block = [0; BLOCK_SIZE];
+            let mut block = [0; 0x10000];
 
-            while remaining > BLOCK_SIZE - 4 {
+            let mut remaining = mft_entry.size.get() as usize;
+            while remaining > block.len() - 4 {
                 file.read_exact(&mut block)?;
-                bytes.extend_from_slice(&block[..BLOCK_SIZE - 4]);
-                remaining -= BLOCK_SIZE;
+                bytes.extend_from_slice(&block[..block.len() - 4]);
+                remaining -= block.len();
             }
 
             let len = bytes.len();
