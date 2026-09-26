@@ -110,6 +110,8 @@ impl Packfile {
             let dst_data = dst_pos + header_size;
 
             for (i, &fixup) in fixups.iter().enumerate() {
+                let dst_fixup = dst_data + (fixup as isize + i as isize * ptr_width_delta) as usize;
+
                 let offset = match src_ptr_width {
                     4 => (&data[fixup..]).read_le::<i32>()? as isize,
                     8 => (&data[fixup..]).read_le::<i64>()? as isize,
@@ -126,7 +128,6 @@ impl Packfile {
                 } else {
                     0
                 };
-                let dst_fixup = dst_data + (fixup as isize + i as isize * ptr_width_delta) as usize;
 
                 let ptr = if offset == 0 {
                     0
@@ -232,8 +233,8 @@ impl<T> Ptr<T> {
         self.ptr.get() as *const T
     }
 
-    pub unsafe fn as_ref(&self) -> &T {
-        unsafe { &*self.as_ptr() }
+    pub unsafe fn as_ref(&self) -> Option<&T> {
+        unsafe { self.as_ptr().as_ref() }
     }
 }
 
@@ -347,15 +348,11 @@ impl WcharPtr {
 
         unsafe { std::slice::from_raw_parts(ptr, self.len()) }
     }
-
-    pub unsafe fn to_string_lossy(&self) -> String {
-        String::from_utf16_lossy(unsafe { self.as_slice() })
-    }
 }
 
 impl Debug for WcharPtr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        unsafe { self.to_string_lossy() }.fmt(f)
+        String::from_utf16_lossy(unsafe { self.as_slice() }).fmt(f)
     }
 }
 
