@@ -1,4 +1,4 @@
-use std::fmt::Debug;
+use std::fmt::{self, Debug};
 use std::io::{Error, ErrorKind, Read, Result};
 use std::marker::PhantomData;
 
@@ -48,11 +48,20 @@ impl Packfile {
             dst.extend_from_slice(&bytes.0[..header_size]);
 
             let bytes = &bytes.0[header_size..];
-            let (data, mut fixups) = bytes.split_at(header.fixups_offset.get() as usize);
+            let fixups_offset = header.fixups_offset.get() as usize;
+            let (data, mut fixups) = if fixups_offset == 0 {
+                (bytes, &[][..])
+            } else {
+                bytes.split_at(fixups_offset)
+            };
 
             let mut pos = 0;
 
-            let fixup_count = fixups.read_le::<u32>()? as usize;
+            let fixup_count = if fixups_offset == 0 {
+                0
+            } else {
+                fixups.read_le::<u32>()? as usize
+            };
             for _ in 0..fixup_count {
                 let fixup = fixups.read_le::<u32>()? as usize;
 
@@ -92,9 +101,18 @@ impl Packfile {
             let dst_length = dst_header.next_chunk_offset.get() as usize + 8;
 
             let bytes = &bytes[pos + header_size..pos + length];
-            let (data, mut _fixups) = bytes.split_at(header.fixups_offset.get() as usize);
+            let fixups_offset = header.fixups_offset.get() as usize;
+            let (data, mut _fixups) = if fixups_offset == 0 {
+                (bytes, &[][..])
+            } else {
+                bytes.split_at(fixups_offset)
+            };
 
-            let fixup_count = _fixups.read_le::<u32>()? as usize;
+            let fixup_count = if fixups_offset == 0 {
+                0
+            } else {
+                _fixups.read_le::<u32>()? as usize
+            };
             let mut fixups = Vec::with_capacity(fixup_count);
             for _ in 0..fixup_count {
                 fixups.push(_fixups.read_le::<u32>()? as usize);
@@ -204,7 +222,7 @@ struct PackfileHeader {
     r#type: [u8; 4],
 }
 
-#[derive(FromBytes, IntoBytes, KnownLayout, Immutable)]
+#[derive(IntoBytes, FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct PackfileChunkHeader {
     name: [u8; 4],
@@ -212,6 +230,36 @@ struct PackfileChunkHeader {
     version: Word,
     header_size: Word,
     fixups_offset: Dword,
+}
+
+#[derive(FromBytes, KnownLayout, Immutable)]
+#[repr(C)]
+pub struct Guid(Dword, Word, Word, [u8; 8]);
+
+impl fmt::Display for Guid {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
+            "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+            self.0,
+            self.1,
+            self.2,
+            self.3[0],
+            self.3[1],
+            self.3[2],
+            self.3[3],
+            self.3[4],
+            self.3[5],
+            self.3[6],
+            self.3[7],
+        )
+    }
+}
+
+impl fmt::Debug for Guid {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Display::fmt(self, f)
+    }
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]
