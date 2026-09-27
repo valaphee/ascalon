@@ -2,7 +2,7 @@
 name = "ascalon-packfile-schema"
 version = "0.1.0"
 edition = "2024"
-description = "Unofficial Guild Wars 2 packfile schema parser"
+description = "Unofficial Guild Wars 2 packfile schema"
 license = "MIT"
 documentation = "https://docs.rs/ascalon-packfile-schema"
 repository = "https://github.com/valaphee/ascalon"

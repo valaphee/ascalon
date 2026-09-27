@@ -2,7 +2,7 @@
 name = "ascalon-protocol"
 version = "0.1.0"
 edition = "2024"
-description = "Unofficial Guild Wars 2 protocol encoding primitives"
+description = "Unofficial Guild Wars 2 messages"
 license = "MIT"
 documentation = "https://docs.rs/ascalon-protocol"
 repository = "https://github.com/valaphee/ascalon"
