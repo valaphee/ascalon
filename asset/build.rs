@@ -1,4 +1,6 @@
-use std::{collections::HashSet, env, fs, path::PathBuf};
+use std::collections::HashSet;
+use std::path::PathBuf;
+use std::{env, fs};
 
 use ascalon_packfile_schema::{Field, Packfile};
 use proc_macro2::{Ident, Span, TokenStream};
@@ -102,7 +104,7 @@ fn emit_packfile(packfile: &Packfile) -> TokenStream {
     let mut structs = TokenStream::new();
 
     for chunk in &packfile.chunks {
-        for version in &chunk.versions {
+        for version in &chunk.versions.last() {
             structs.extend(emit_struct(&version.type_name, &version.fields, &mut seen));
             structs.extend(emit_nested(&version.fields, &mut seen));
         }

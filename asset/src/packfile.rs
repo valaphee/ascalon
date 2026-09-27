@@ -1,13 +1,9 @@
-use std::{
-    fmt::Debug,
-    io::{Error, ErrorKind, Read, Result},
-    marker::PhantomData,
-};
+use std::fmt::Debug;
+use std::io::{Error, ErrorKind, Read, Result};
+use std::marker::PhantomData;
 
-use zerocopy::{
-    FromBytes, Immutable, IntoBytes, KnownLayout, NativeEndian, Usize,
-    little_endian::{F32, U16, U32, U64},
-};
+use zerocopy::little_endian::{F32, U16, U32, U64};
+use zerocopy::{FromBytes, Immutable, IntoBytes, KnownLayout, NativeEndian, Usize};
 
 type Byte = u8;
 type Byte3 = [u8; 3];

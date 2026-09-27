@@ -1,7 +1,5 @@
-use std::{
-    io::{ErrorKind, Result},
-    sync::LazyLock,
-};
+use std::io::{ErrorKind, Result};
+use std::sync::LazyLock;
 
 use crate::BitReader;
 

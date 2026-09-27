@@ -1,15 +1,11 @@
-use std::{
-    collections::HashMap,
-    fs::File,
-    io::{Error, ErrorKind, Read, Result, Seek, SeekFrom},
-    path::Path,
-    sync::Mutex,
-};
+use std::collections::HashMap;
+use std::fs::File;
+use std::io::{Error, ErrorKind, Read, Result, Seek, SeekFrom};
+use std::path::Path;
+use std::sync::Mutex;
 
-use zerocopy::{
-    FromBytes, Immutable, KnownLayout,
-    little_endian::{U16, U32, U64},
-};
+use zerocopy::little_endian::{U16, U32, U64};
+use zerocopy::{FromBytes, Immutable, KnownLayout};
 
 use crate::inflate::inflate;
 

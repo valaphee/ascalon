@@ -2,7 +2,7 @@
 name = "ascalon-protocol-schema"
 version = "0.1.0"
 edition = "2024"
-description = "Unofficial Guild Wars 2 message schema"
+description = "Unofficial Guild Wars 2 network message schema"
 license = "MIT"
 documentation = "https://docs.rs/ascalon-protocol-schema"
 repository = "https://github.com/valaphee/ascalon"

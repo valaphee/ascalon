@@ -1,7 +1,5 @@
-use quick_xml::{
-    Reader,
-    events::{BytesStart, Event},
-};
+use quick_xml::Reader;
+use quick_xml::events::{BytesStart, Event};
 
 pub struct Protocol {
     pub name: String,

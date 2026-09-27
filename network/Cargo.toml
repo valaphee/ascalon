@@ -2,7 +2,7 @@
 name = "ascalon-network"
 version = "0.1.0"
 edition = "2024"
-description = "Unofficial Guild Wars 2 network stream codecs"
+description = "Unofficial Guild Wars 2 network codecs"
 license = "MIT"
 documentation = "https://docs.rs/ascalon-network"
 repository = "https://github.com/valaphee/ascalon"
