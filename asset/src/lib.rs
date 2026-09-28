@@ -5,18 +5,6 @@ pub mod inflate;
 pub mod packfile;
 pub mod texture;
 
-pub fn file_id_from_name(name: &[u16]) -> Option<u32> {
-    let [a, b, ..] = name else {
-        return None;
-    };
-
-    if *a <= 0xFF || *b <= 0xFF {
-        return None;
-    }
-
-    Some((u32::from(*a) - 0xFF) + (u32::from(*b) - 0x100) * 0xFF00)
-}
-
 struct BitReader<'a> {
     input: &'a [u8],
     word: u64,

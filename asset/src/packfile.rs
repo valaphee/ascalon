@@ -362,8 +362,8 @@ impl Debug for CharPtr {
 pub struct WcharPtr(zerocopy::Usize<NativeEndian>);
 
 impl WcharPtr {
-    pub fn as_ptr(&self) -> *const u16 {
-        self.0.get() as *const u16
+    pub fn as_ptr(&self) -> *const U16 {
+        self.0.get() as *const U16
     }
 
     pub unsafe fn len(&self) -> usize {
@@ -381,19 +381,36 @@ impl WcharPtr {
         }
     }
 
-    pub unsafe fn as_slice(&self) -> &[u16] {
+    pub unsafe fn as_bytes(&self) -> &[u8] {
         let ptr = self.as_ptr();
         if ptr.is_null() {
             return &[];
         }
 
-        unsafe { std::slice::from_raw_parts(ptr, self.len()) }
+        unsafe { std::slice::from_raw_parts(ptr as *const u8, self.len() * 2) }
+    }
+}
+
+impl WcharPtr {
+    pub unsafe fn file_id(&self) -> Option<u32> {
+        let bytes = unsafe { self.as_bytes() };
+        let [a0, a1, b0, b1, ..] = bytes else {
+            return None;
+        };
+
+        let a = u16::from_le_bytes([*a0, *a1]);
+        let b = u16::from_le_bytes([*b0, *b1]);
+        if a <= 0xFF || b <= 0xFF {
+            return None;
+        }
+
+        Some((u32::from(a) - 0xFF) + (u32::from(b) - 0x100) * 0xFF00)
     }
 }
 
 impl Debug for WcharPtr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        String::from_utf16_lossy(unsafe { self.as_slice() }).fmt(f)
+        String::from_utf16le_lossy(unsafe { self.as_bytes() }).fmt(f)
     }
 }
 
