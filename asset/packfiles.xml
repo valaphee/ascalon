@@ -26601,7 +26601,7 @@
             <Dword Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
-            <Dword2 Name="flags" />
+            <Dword2 Name="flags2" />
             <Dword Name="layer" />
           </ArrayPtr>
           <ArrayPtr Name="materials" TypeName="PackMapTerrrainChunkMaterialV10">
@@ -26648,7 +26648,7 @@
             <Dword Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
-            <Dword2 Name="flags" />
+            <Dword2 Name="flags2" />
             <Dword Name="layer" />
           </ArrayPtr>
           <ArrayPtr Name="materials" TypeName="PackMapTerrrainChunkMaterialV11">
@@ -26695,7 +26695,7 @@
             <Dword Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
-            <Dword2 Name="flags" />
+            <Dword2 Name="flags2" />
             <Dword Name="layer" />
           </ArrayPtr>
           <ArrayPtr Name="materials" TypeName="PackMapTerrrainChunkMaterialV12">
@@ -26742,7 +26742,7 @@
             <Dword Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
-            <Dword2 Name="flags" />
+            <Dword2 Name="flags2" />
             <Dword Name="layer" />
           </ArrayPtr>
           <ArrayPtr Name="materials" TypeName="PackMapTerrrainChunkMaterialV13">

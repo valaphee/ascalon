@@ -27,7 +27,8 @@ rpc.exports = {
   getProtocols: () => protocols,
 };
 
-Interceptor.attach(Process.mainModule.base.add(0xFEAC00), {
+// 40 53; 55; 56; 48 81 ec b0 00 00;
+Interceptor.attach(Process.mainModule.base.add(0xFEF760), {
   onEnter(args) {
     const mc = args[0];
     const rawData = args[2];
@@ -45,13 +46,16 @@ Interceptor.attach(Process.mainModule.base.add(0xFEAC00), {
           .sub(Process.mainModule.base)
           .add(0x140000000)
           .toString();
+
         return;
       }
     }
   },
 });
 
-Interceptor.attach(Process.mainModule.base.add(0xFEE160), {
+// 48 89 6c 24 08; 48 89 74 24 10; 48 89 7c 24 18;
+let target = Process.mainModule.base.add(0xFF32C0);
+Interceptor.attach(target, {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),
@@ -63,8 +67,7 @@ Interceptor.attach(Process.mainModule.base.add(0xFEE160), {
     );
   },
 });
-
-Interceptor.attach(Process.mainModule.base.add(0xFEE220), {
+Interceptor.attach(target = target.add(0xC0), {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),
@@ -76,8 +79,7 @@ Interceptor.attach(Process.mainModule.base.add(0xFEE220), {
     );
   },
 });
-
-Interceptor.attach(Process.mainModule.base.add(0xFEE2E0), {
+Interceptor.attach(target = target.add(0xC0), {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),
@@ -89,8 +91,7 @@ Interceptor.attach(Process.mainModule.base.add(0xFEE2E0), {
     );
   },
 });
-
-Interceptor.attach(Process.mainModule.base.add(0xFEE370), {
+Interceptor.attach(target = target.add(0x90), {
   onEnter(args) {
     registerMessages(
       args[0].toUInt32(),

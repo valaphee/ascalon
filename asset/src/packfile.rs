@@ -232,7 +232,6 @@ struct PackfileChunkHeader {
     fixups_offset: Dword,
 }
 
-#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 pub struct Guid(Dword, Word, Word, [u8; 8]);
 
@@ -262,7 +261,6 @@ impl fmt::Debug for Guid {
     }
 }
 
-#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 pub struct Ptr<T> {
     ptr: zerocopy::Usize<NativeEndian>,
@@ -285,7 +283,6 @@ impl<T: Debug> Debug for Ptr<T> {
     }
 }
 
-#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 pub struct ArrayPtr<T> {
     length: Dword,
@@ -313,7 +310,6 @@ impl<T: Debug> Debug for ArrayPtr<T> {
     }
 }
 
-#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 pub struct CharPtr(zerocopy::Usize<NativeEndian>);
 
@@ -357,7 +353,6 @@ impl Debug for CharPtr {
     }
 }
 
-#[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 pub struct WcharPtr(zerocopy::Usize<NativeEndian>);
 
