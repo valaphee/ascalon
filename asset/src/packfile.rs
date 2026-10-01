@@ -1,4 +1,3 @@
-use std::fmt::{self, Debug};
 use std::io::{Error, ErrorKind, Read, Result};
 use std::marker::PhantomData;
 
@@ -18,6 +17,7 @@ type Float = F32;
 type Float2 = [F32; 2];
 type Float3 = [F32; 3];
 type Float4 = [F32; 4];
+type Guid = [u8; 16];
 
 pub struct Packfile(Vec<u8>);
 
@@ -233,38 +233,9 @@ struct PackfileChunkHeader {
 }
 
 #[repr(C)]
-pub struct Guid(Dword, Word, Word, [u8; 8]);
-
-impl fmt::Display for Guid {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(
-            f,
-            "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
-            self.0,
-            self.1,
-            self.2,
-            self.3[0],
-            self.3[1],
-            self.3[2],
-            self.3[3],
-            self.3[4],
-            self.3[5],
-            self.3[6],
-            self.3[7],
-        )
-    }
-}
-
-impl fmt::Debug for Guid {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        fmt::Display::fmt(self, f)
-    }
-}
-
-#[repr(C)]
 pub struct Ptr<T> {
     ptr: zerocopy::Usize<NativeEndian>,
-    _marker: PhantomData<T>,
+    _phantom: PhantomData<T>,
 }
 
 impl<T> Ptr<T> {
@@ -274,12 +245,6 @@ impl<T> Ptr<T> {
 
     pub unsafe fn as_ref(&self) -> Option<&T> {
         unsafe { self.as_ptr().as_ref() }
-    }
-}
-
-impl<T: Debug> Debug for Ptr<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        unsafe { self.as_ref() }.fmt(f)
     }
 }
 
@@ -304,13 +269,7 @@ impl<T> ArrayPtr<T> {
     }
 }
 
-impl<T: Debug> Debug for ArrayPtr<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        unsafe { self.as_slice() }.fmt(f)
-    }
-}
-
-#[repr(C)]
+#[repr(transparent)]
 pub struct CharPtr(zerocopy::Usize<NativeEndian>);
 
 impl CharPtr {
@@ -341,19 +300,9 @@ impl CharPtr {
 
         unsafe { std::slice::from_raw_parts(ptr, self.len()) }
     }
-
-    pub unsafe fn to_string_lossy(&self) -> String {
-        String::from_utf8_lossy(unsafe { self.as_slice() }).to_string()
-    }
 }
 
-impl Debug for CharPtr {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        unsafe { self.to_string_lossy() }.fmt(f)
-    }
-}
-
-#[repr(C)]
+#[repr(transparent)]
 pub struct WcharPtr(zerocopy::Usize<NativeEndian>);
 
 impl WcharPtr {
@@ -400,12 +349,6 @@ impl WcharPtr {
         }
 
         Some((u32::from(a) - 0xFF) + (u32::from(b) - 0x100) * 0xFF00)
-    }
-}
-
-impl Debug for WcharPtr {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        String::from_utf16le_lossy(unsafe { self.as_bytes() }).fmt(f)
     }
 }
 
