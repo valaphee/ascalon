@@ -18,7 +18,7 @@ DH_PARAMS_SIZE = 136
 v = 1
 g = 4
 
-dh_params = next(
+pos = next(
     pos
     for pos in range(
         rdata.PointerToRawData,
@@ -28,4 +28,4 @@ dh_params = next(
     and data[pos + 8 : pos + DH_PARAMS_SIZE].count(0) <= 3
 )
 
-Path("dh_params.bin").write_bytes(data[dh_params : dh_params + DH_PARAMS_SIZE])
+Path("dh_params.bin").write_bytes(data[pos : pos + DH_PARAMS_SIZE])
