@@ -7,23 +7,23 @@ pub struct Protocol {
 }
 
 pub struct Messages {
-    pub name: String,
+    pub name:   String,
     pub client: Vec<Message>,
     pub server: Vec<Message>,
 }
 
 pub struct Message {
-    pub id: u16,
-    pub name: String,
+    pub id:     u16,
+    pub name:   String,
     pub fields: Vec<Field>,
 }
 
 pub struct Field {
-    pub name: String,
-    pub r#type: String,
-    pub size: usize,
+    pub name:      String,
+    pub r#type:    String,
+    pub size:      usize,
     pub type_name: Option<String>,
-    pub fields: Vec<Field>,
+    pub fields:    Vec<Field>,
 }
 
 pub fn parse(xml: &str) -> Vec<Protocol> {
@@ -67,7 +67,7 @@ fn parse_protocol(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Protocol {
 
 fn parse_messages(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Messages {
     let mut messages = Messages {
-        name: attr(e, "Name").unwrap(),
+        name:   attr(e, "Name").unwrap(),
         client: Vec::new(),
         server: Vec::new(),
     };
@@ -96,15 +96,15 @@ fn parse_direction(xml: &mut Reader<&[u8]>, end: &str) -> Vec<Message> {
         match xml.read_event().unwrap() {
             Event::Start(e) if e.name().as_ref() == "Message" => {
                 messages.push(Message {
-                    id: attr(&e, "Id").map_or(0, |v| v.parse().unwrap()),
-                    name: attr(&e, "Name").unwrap(),
+                    id:     attr(&e, "Id").map_or(0, |v| v.parse().unwrap()),
+                    name:   attr(&e, "Name").unwrap(),
                     fields: parse_fields(xml, "Message"),
                 });
             }
             Event::Empty(e) if e.name().as_ref() == "Message" => {
                 messages.push(Message {
-                    id: attr(&e, "Id").map_or(0, |v| v.parse().unwrap()),
-                    name: attr(&e, "Name").unwrap(),
+                    id:     attr(&e, "Id").map_or(0, |v| v.parse().unwrap()),
+                    name:   attr(&e, "Name").unwrap(),
                     fields: Vec::new(),
                 });
             }

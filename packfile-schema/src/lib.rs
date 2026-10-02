@@ -2,27 +2,27 @@ use quick_xml::Reader;
 use quick_xml::events::{BytesStart, Event};
 
 pub struct Packfile {
-    pub name: String,
+    pub name:   String,
     pub chunks: Vec<Chunk>,
 }
 
 pub struct Chunk {
-    pub name: String,
+    pub name:     String,
     pub versions: Vec<Version>,
 }
 
 pub struct Version {
-    pub id: u32,
+    pub id:        u32,
     pub type_name: String,
-    pub fields: Vec<Field>,
+    pub fields:    Vec<Field>,
 }
 
 pub struct Field {
-    pub name: String,
-    pub r#type: String,
-    pub size: usize,
+    pub name:      String,
+    pub r#type:    String,
+    pub size:      usize,
     pub type_name: Option<String>,
-    pub fields: Vec<Field>,
+    pub fields:    Vec<Field>,
 }
 
 pub fn parse(xml: &str) -> Vec<Packfile> {
@@ -46,7 +46,7 @@ pub fn parse(xml: &str) -> Vec<Packfile> {
 
 fn parse_packfile(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Packfile {
     let mut packfile = Packfile {
-        name: attr(e, "Name").unwrap(),
+        name:   attr(e, "Name").unwrap(),
         chunks: Vec::new(),
     };
 
@@ -66,7 +66,7 @@ fn parse_packfile(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Packfile {
 
 fn parse_chunk(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Chunk {
     let mut chunk = Chunk {
-        name: attr(e, "Name").unwrap(),
+        name:     attr(e, "Name").unwrap(),
         versions: Vec::new(),
     };
 
@@ -74,9 +74,9 @@ fn parse_chunk(xml: &mut Reader<&[u8]>, e: &BytesStart<'_>) -> Chunk {
         match xml.read_event().unwrap() {
             Event::Start(e) if e.name().as_ref() == "Version" => {
                 chunk.versions.push(Version {
-                    id: attr(&e, "Id").unwrap().parse().unwrap(),
+                    id:        attr(&e, "Id").unwrap().parse().unwrap(),
                     type_name: attr(&e, "TypeName").unwrap(),
-                    fields: parse_fields(xml, "Version"),
+                    fields:    parse_fields(xml, "Version"),
                 });
             }
             Event::End(e) if e.name().as_ref() == "Chunk" => break,

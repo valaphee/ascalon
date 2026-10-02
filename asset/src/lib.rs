@@ -6,9 +6,9 @@ pub mod packfile;
 pub mod texture;
 
 struct BitReader<'a> {
-    input: &'a [u8],
-    word: u64,
-    bits: u32,
+    input:    &'a [u8],
+    word:     u64,
+    bits:     u32,
     position: usize,
 }
 

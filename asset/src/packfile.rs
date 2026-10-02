@@ -215,26 +215,26 @@ impl<'a> PackfileChunk<'a> {
 #[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct PackfileHeader {
-    magic: [u8; 2],
-    flags: Word,
-    _04: Word,
+    magic:       [u8; 2],
+    flags:       Word,
+    _04:         Word,
     header_size: Word,
-    r#type: [u8; 4],
+    r#type:      [u8; 4],
 }
 
 #[derive(IntoBytes, FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct PackfileChunkHeader {
-    name: [u8; 4],
+    name:              [u8; 4],
     next_chunk_offset: Dword,
-    version: Word,
-    header_size: Word,
-    fixups_offset: Dword,
+    version:           Word,
+    header_size:       Word,
+    fixups_offset:     Dword,
 }
 
 #[repr(C)]
 pub struct Ptr<T> {
-    ptr: zerocopy::Usize<NativeEndian>,
+    ptr:      zerocopy::Usize<NativeEndian>,
     _phantom: PhantomData<T>,
 }
 
@@ -250,8 +250,8 @@ impl<T> Ptr<T> {
 
 #[repr(C)]
 pub struct ArrayPtr<T> {
-    length: Dword,
-    ptr: Usize<NativeEndian>,
+    length:   Dword,
+    ptr:      Usize<NativeEndian>,
     _phantom: PhantomData<T>,
 }
 

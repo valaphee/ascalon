@@ -10,7 +10,7 @@ use zerocopy::{FromBytes, Immutable, KnownLayout};
 use crate::inflate::inflate;
 
 pub struct Archive {
-    file: Mutex<File>,
+    file:  Mutex<File>,
     index: HashMap<u32, MftEntry>,
 }
 
@@ -54,7 +54,7 @@ impl Archive {
         let index = <[IndexEntry]>::ref_from_bytes(&index).unwrap();
 
         Ok(Self {
-            file: Mutex::new(file),
+            file:  Mutex::new(file),
             index: index
                 .iter()
                 .filter(|entry| entry.file_id != 0 && entry.mft_index != 0)
@@ -107,44 +107,44 @@ impl Archive {
 #[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct AnHeader {
-    version: u8,
-    magic: [u8; 3],
-    _04: U32,
-    _08: U32,
-    _0c: U32,
-    _10: U32,
-    _14: U32,
+    version:    u8,
+    magic:      [u8; 3],
+    _04:        U32,
+    _08:        U32,
+    _0c:        U32,
+    _10:        U32,
+    _14:        U32,
     mft_offset: U64,
-    mft_size: U32,
-    _24: U32,
+    mft_size:   U32,
+    _24:        U32,
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct MftHeader {
-    magic: [u8; 4],
-    _04: U32,
-    _08: U32,
+    magic:       [u8; 4],
+    _04:         U32,
+    _08:         U32,
     entry_count: U32,
-    _10: U32,
-    _14: U32,
+    _10:         U32,
+    _14:         U32,
 }
 
 #[derive(Clone, Copy, FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct MftEntry {
     offset: U64,
-    size: U32,
-    _0c: U16,
-    _0e: u8,
-    _0f: u8,
-    _10: U32,
-    _14: U32,
+    size:   U32,
+    _0c:    U16,
+    _0e:    u8,
+    _0f:    u8,
+    _10:    U32,
+    _14:    U32,
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct IndexEntry {
-    file_id: U32,
+    file_id:   U32,
     mft_index: U32,
 }

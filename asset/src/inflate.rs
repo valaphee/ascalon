@@ -161,8 +161,8 @@ impl HuffmanTreeBuilder {
 
                     long[long_len] = LongEntry {
                         comparison: code.wrapping_add(1).wrapping_shl(32 - width as u32),
-                        bits: width as u8,
-                        end: (symbol_len - 1) as u16,
+                        bits:       width as u8,
+                        end:        (symbol_len - 1) as u16,
                     };
                     long_len += 1;
                 }
@@ -248,17 +248,17 @@ fn read_tree(bits: &mut BitReader<'_>) -> Result<HuffmanTree> {
 #[derive(Clone, Copy, Default)]
 struct LongEntry {
     comparison: u32,
-    bits: u8,
-    end: u16,
+    bits:       u8,
+    end:        u16,
 }
 
 enum HuffmanTree {
     Single(u16),
     Multi {
-        hash_bits: [u8; HASH_SIZE],
+        hash_bits:   [u8; HASH_SIZE],
         hash_symbol: [u16; HASH_SIZE],
 
-        long: [LongEntry; MAX_CODE_BITS - HASH_BITS],
+        long:     [LongEntry; MAX_CODE_BITS - HASH_BITS],
         long_len: usize,
 
         symbols: [u16; MAX_SYMBOLS],
