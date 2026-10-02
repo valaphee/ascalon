@@ -5,19 +5,19 @@ use crate::BitReader;
 bitflags::bitflags! {
     #[derive(Clone, Copy)]
     pub struct Fmt: u32 {
-        const COLOR = 1 << 4;
-        const ALPHA = 1 << 5;
+        const COLOR         = 1 << 4;
+        const ALPHA         = 1 << 5;
         const ALPHA_DEDUCED = 1 << 6;
-        const PLAIN = 1 << 7;
-        const BICOLOR = 1 << 9;
+        const PLAIN         = 1 << 7;
+        const BICOLOR       = 1 << 9;
     }
 
     #[derive(Clone, Copy)]
     pub struct Cmp: u32 {
-        const WHITE = 1 << 0;
+        const WHITE  = 1 << 0;
         const ALPHA4 = 1 << 1;
         const ALPHA8 = 1 << 2;
-        const COLOR = 1 << 3;
+        const COLOR  = 1 << 3;
     }
 }
 

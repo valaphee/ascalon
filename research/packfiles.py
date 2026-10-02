@@ -18,7 +18,7 @@ TYPES = {
     14: "Float3",
     15: "Float4",
     16: "Ptr",
-    17: "Qword",
+    17: "Qword", # token / qword
     18: "WcharPtr",
     19: "CharPtr",
     20: "Struct",
@@ -31,8 +31,8 @@ TYPES = {
     27: "WcharPtr",
     28: "Union",
     29: "Struct",
-    36: "Dword",
-    37: "Qword",
+    36: "Dword", # token32
+    37: "Qword", # token64
 }
 
 
@@ -90,38 +90,40 @@ def add_struct(parent, address):
             parent,
             type_name,
             Name=_name,
-            **({"Size": str(array_count)} if array_count else {}),
         )
 
-        if reference_type:
-            if type == 28:
-                if (array_pos := offset(reference_type)) is None:
-                    return False
+        if type == 1:
+            elem.set("Size", str(array_count))
 
-                array_end = array_pos + array_count * 8
-                if array_end > size:
-                    return False
+        if type in (1, 2, 3, 16, 20, 29):
+            if not add_struct(elem, reference_type):
+                return False
 
-                for (variant,) in struct.iter_unpack(
-                    "<Q",
-                    data[array_pos:array_end],
+            if (
+                len(elem) == 1
+                and (item := elem[0]).get("Name") == ""
+                and not len(item)
+            ):
+                elem.set("TypeName", item.tag)
+                elem.remove(item)
+
+        elif type == 28:
+            if (array_pos := offset(reference_type)) is None:
+                return False
+
+            array_end = array_pos + array_count * 8
+            if array_end > size:
+                return False
+
+            for (variant,) in struct.iter_unpack(
+                "<Q",
+                data[array_pos:array_end],
+            ):
+                if variant and not add_struct(
+                    ET.SubElement(elem, "Struct"),
+                    variant,
                 ):
-                    if variant and not add_struct(
-                        ET.SubElement(elem, "Struct"),
-                        variant,
-                    ):
-                        return False
-            else:
-                if not add_struct(elem, reference_type):
                     return False
-
-                if (
-                    len(elem) == 1
-                    and (item := elem[0]).get("Name") == ""
-                    and not len(item)
-                ):
-                    elem.set("TypeName", item.tag)
-                    elem.remove(item)
 
         pos += 32
 

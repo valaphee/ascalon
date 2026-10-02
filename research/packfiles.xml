@@ -26872,7 +26872,7 @@
         <CharPtr Name="name" />
         <ArrayPtr Name="passes" TypeName="AmatDx9PassV9">
           <PtrArrayPtr Name="effects" TypeName="AmatDx9EffectV9">
-            <Qword Name="token" TypeName="Qword" />
+            <Qword Name="token" />
             <ArrayPtr Name="renderStates" TypeName="Dword" />
             <ArrayPtr Name="samplerIndex" TypeName="Dword" />
             <Dword Name="pixelShader" />
@@ -26896,13 +26896,13 @@
         <ArrayPtr Name="shader" TypeName="Dword" />
         <ArrayPtr Name="constRegisters" TypeName="Dword" />
         <ArrayPtr Name="constTokens" TypeName="Dword" />
-        <Word Name="instructionCount" TypeName="Word" />
+        <Word Name="instructionCount" />
       </ArrayPtr>
       <ArrayPtr Name="techniques" TypeName="AmatDx9TechniqueV10">
         <CharPtr Name="name" />
         <ArrayPtr Name="passes" TypeName="AmatDx9PassV10">
           <PtrArrayPtr Name="effects" TypeName="AmatDx9EffectV10">
-            <Qword Name="token" TypeName="Qword" />
+            <Qword Name="token" />
             <ArrayPtr Name="renderStates" TypeName="Dword" />
             <ArrayPtr Name="samplerIndex" TypeName="Dword" />
             <Dword Name="pixelShader" />
@@ -26921,13 +26921,13 @@
       <ArrayPtr Name="samplers" TypeName="AmatDx9SamplerV11">
         <Dword Name="textureIndex" />
         <ArrayPtr Name="state" TypeName="Dword" />
-        <Dword Name="usesBindTexture" TypeName="Dword" />
+        <Dword Name="usesBindTexture" />
       </ArrayPtr>
       <ArrayPtr Name="shaders" TypeName="AmatDx9ShaderV11">
         <ArrayPtr Name="shader" TypeName="Dword" />
         <ArrayPtr Name="constRegisters" TypeName="Dword" />
         <ArrayPtr Name="constTokens" TypeName="Dword" />
-        <Word Name="instructionCount" TypeName="Word" />
+        <Word Name="instructionCount" />
       </ArrayPtr>
       <ArrayPtr Name="techniques" TypeName="AmatDx9TechniqueV11">
         <CharPtr Name="name" />
@@ -26946,7 +26946,7 @@
         <Word Name="maxPsVersion" />
         <Word Name="maxVsVersion" />
       </ArrayPtr>
-      <Dword Name="useLegacyBindTextures" TypeName="Dword" />
+      <Dword Name="useLegacyBindTextures" />
     </Version>
   </Chunk>
   <Chunk Name="TOOL">
@@ -27042,46 +27042,46 @@
   <Chunk Name="BGFX">
     <Version Id="0" TypeName="AmatMaterialV0">
       <ArrayPtr Name="shaders" TypeName="AmatShaderV0">
-        <Dword Name="isPixelShader" TypeName="Dword" />
+        <Dword Name="isPixelShader" />
         <Struct Name="dx11Shader" TypeName="AmatShaderBinaryV0">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV0">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV0">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
         </Struct>
         <Struct Name="osxShader" TypeName="AmatShaderBinaryV0">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV0">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV0">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
         </Struct>
       </ArrayPtr>
       <ArrayPtr Name="samplers" TypeName="AmatSamplerStateV0">
-        <Dword Name="state" TypeName="Dword" />
+        <Dword Name="state" />
       </ArrayPtr>
       <ArrayPtr Name="techniques" TypeName="AmatTechniqueV0">
-        <Dword Name="quality" TypeName="Dword" />
+        <Dword Name="quality" />
         <ArrayPtr Name="passes" TypeName="AmatPassV0">
           <ArrayPtr Name="effects" TypeName="AmatEffectV0">
-            <Qword Name="token" TypeName="Qword" />
-            <Qword Name="renderState" TypeName="Qword" />
-            <Dword Name="shaderPassFlags" TypeName="Dword" />
-            <Dword Name="pixelShaderIndex" TypeName="Dword" />
+            <Qword Name="token" />
+            <Qword Name="renderState" />
+            <Dword Name="shaderPassFlags" />
+            <Dword Name="pixelShaderIndex" />
             <ArrayPtr Name="vertexShaderVariants" TypeName="AmatVertexShaderVariantV0">
-              <Dword Name="variant" TypeName="Dword" />
-              <Dword Name="vertexShaderIndex" TypeName="Dword" />
+              <Dword Name="variant" />
+              <Dword Name="vertexShaderIndex" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -27089,46 +27089,46 @@
     </Version>
     <Version Id="1" TypeName="AmatMaterialV1">
       <ArrayPtr Name="shaders" TypeName="AmatShaderV1">
-        <Dword Name="isPixelShader" TypeName="Dword" />
+        <Dword Name="isPixelShader" />
         <Struct Name="dx11Shader" TypeName="AmatShaderBinaryV1">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV1">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV1">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
         </Struct>
         <Struct Name="osxShader" TypeName="AmatShaderBinaryV1">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV1">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV1">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
         </Struct>
       </ArrayPtr>
       <ArrayPtr Name="samplers" TypeName="AmatSamplerStateV1">
-        <Dword Name="state" TypeName="Dword" />
+        <Dword Name="state" />
       </ArrayPtr>
       <ArrayPtr Name="techniques" TypeName="AmatTechniqueV1">
-        <Dword Name="quality" TypeName="Dword" />
+        <Dword Name="quality" />
         <ArrayPtr Name="passes" TypeName="AmatPassV1">
           <ArrayPtr Name="effects" TypeName="AmatEffectV1">
-            <Qword Name="token" TypeName="Qword" />
-            <Qword Name="renderState" TypeName="Qword" />
-            <Dword Name="shaderPassFlags" TypeName="Dword" />
-            <Dword Name="pixelShaderIndex" TypeName="Dword" />
+            <Qword Name="token" />
+            <Qword Name="renderState" />
+            <Dword Name="shaderPassFlags" />
+            <Dword Name="pixelShaderIndex" />
             <ArrayPtr Name="vertexShaderVariants" TypeName="AmatVertexShaderVariantV1">
-              <Dword Name="variant" TypeName="Dword" />
-              <Dword Name="vertexShaderIndex" TypeName="Dword" />
+              <Dword Name="variant" />
+              <Dword Name="vertexShaderIndex" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -27136,46 +27136,46 @@
     </Version>
     <Version Id="2" TypeName="AmatMaterialV2">
       <ArrayPtr Name="shaders" TypeName="AmatShaderV2">
-        <Dword Name="isPixelShader" TypeName="Dword" />
+        <Dword Name="isPixelShader" />
         <Struct Name="dx11Shader" TypeName="AmatShaderBinaryV2">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV2">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV2">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
         </Struct>
         <Struct Name="pbrShader" TypeName="AmatShaderBinaryV2">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV2">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV2">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
         </Struct>
       </ArrayPtr>
       <ArrayPtr Name="samplers" TypeName="AmatSamplerStateV2">
-        <Dword Name="state" TypeName="Dword" />
+        <Dword Name="state" />
       </ArrayPtr>
       <ArrayPtr Name="techniques" TypeName="AmatTechniqueV2">
-        <Dword Name="quality" TypeName="Dword" />
+        <Dword Name="quality" />
         <ArrayPtr Name="passes" TypeName="AmatPassV2">
           <ArrayPtr Name="effects" TypeName="AmatEffectV2">
-            <Qword Name="token" TypeName="Qword" />
-            <Qword Name="renderState" TypeName="Qword" />
-            <Dword Name="shaderPassFlags" TypeName="Dword" />
-            <Dword Name="pixelShaderIndex" TypeName="Dword" />
+            <Qword Name="token" />
+            <Qword Name="renderState" />
+            <Dword Name="shaderPassFlags" />
+            <Dword Name="pixelShaderIndex" />
             <ArrayPtr Name="vertexShaderVariants" TypeName="AmatVertexShaderVariantV2">
-              <Dword Name="variant" TypeName="Dword" />
-              <Dword Name="vertexShaderIndex" TypeName="Dword" />
+              <Dword Name="variant" />
+              <Dword Name="vertexShaderIndex" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -27183,58 +27183,58 @@
     </Version>
     <Version Id="3" TypeName="AmatMaterialV3">
       <ArrayPtr Name="shaders" TypeName="AmatShaderV3">
-        <Dword Name="isPixelShader" TypeName="Dword" />
+        <Dword Name="isPixelShader" />
         <Struct Name="dx11Shader" TypeName="AmatShaderBinaryV3">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV2">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV2">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
           <ArrayPtr Name="bindings" TypeName="AmatShaderBindingV3">
-            <Qword Name="token" TypeName="Qword" />
+            <Qword Name="token" />
             <Byte Name="type" />
             <Byte Name="access" />
-            <Byte Name="byte" TypeName="Byte" />
+            <Byte Name="byte" />
           </ArrayPtr>
         </Struct>
         <Struct Name="pbrShader" TypeName="AmatShaderBinaryV3">
           <ArrayPtr Name="data" TypeName="Byte" />
           <ArrayPtr Name="constants" TypeName="AmatShaderConstantV2">
-            <Dword Name="token" TypeName="Dword" />
+            <Dword Name="token" />
           </ArrayPtr>
           <ArrayPtr Name="samplers" TypeName="AmatSamplerConstantV2">
-            <Qword Name="token" TypeName="Qword" />
-            <Dword Name="stateIndex" TypeName="Dword" />
-            <Dword Name="textureIndex" TypeName="Dword" />
-            <Dword Name="textureSlot" TypeName="Dword" />
+            <Qword Name="token" />
+            <Dword Name="stateIndex" />
+            <Dword Name="textureIndex" />
+            <Dword Name="textureSlot" />
           </ArrayPtr>
           <ArrayPtr Name="bindings" TypeName="AmatShaderBindingV3">
-            <Qword Name="token" TypeName="Qword" />
+            <Qword Name="token" />
             <Byte Name="type" />
             <Byte Name="access" />
-            <Byte Name="byte" TypeName="Byte" />
+            <Byte Name="byte" />
           </ArrayPtr>
         </Struct>
       </ArrayPtr>
       <ArrayPtr Name="samplers" TypeName="AmatSamplerStateV2">
-        <Dword Name="state" TypeName="Dword" />
+        <Dword Name="state" />
       </ArrayPtr>
       <ArrayPtr Name="techniques" TypeName="AmatTechniqueV2">
-        <Dword Name="quality" TypeName="Dword" />
+        <Dword Name="quality" />
         <ArrayPtr Name="passes" TypeName="AmatPassV2">
           <ArrayPtr Name="effects" TypeName="AmatEffectV2">
-            <Qword Name="token" TypeName="Qword" />
-            <Qword Name="renderState" TypeName="Qword" />
-            <Dword Name="shaderPassFlags" TypeName="Dword" />
-            <Dword Name="pixelShaderIndex" TypeName="Dword" />
+            <Qword Name="token" />
+            <Qword Name="renderState" />
+            <Dword Name="shaderPassFlags" />
+            <Dword Name="pixelShaderIndex" />
             <ArrayPtr Name="vertexShaderVariants" TypeName="AmatVertexShaderVariantV2">
-              <Dword Name="variant" TypeName="Dword" />
-              <Dword Name="vertexShaderIndex" TypeName="Dword" />
+              <Dword Name="variant" />
+              <Dword Name="vertexShaderIndex" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -27880,7 +27880,7 @@
         <WcharPtr Name="filenameMusic" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -27899,7 +27899,7 @@
         <WcharPtr Name="filenameMusic" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -27925,7 +27925,7 @@
         <WcharPtr Name="filenameMusicNight" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -27951,7 +27951,7 @@
         <WcharPtr Name="filenameMusicNight" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -27972,7 +27972,7 @@
         <WcharPtr Name="filenameAmbientNight" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -27997,7 +27997,7 @@
         <Dword Name="priority" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -28022,7 +28022,7 @@
         <Dword Name="priority" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -28050,7 +28050,7 @@
         <Dword Name="priority" />
         <ArrayPtr Name="points" TypeName="Float3" />
         <Float3 Name="position" />
-        <Float3 Name="orientation" TypeName="Float3" />
+        <Float3 Name="orientation" />
         <Float Name="fadeBand" />
         <Float Name="height" />
         <Float Name="radius" />
@@ -34546,7 +34546,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -34729,7 +34729,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV48">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -34914,7 +34914,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -35099,7 +35099,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV49">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -35285,7 +35285,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -35471,7 +35471,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV50">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -35659,7 +35659,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -35847,7 +35847,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV51">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -36038,7 +36038,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -36229,7 +36229,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV52">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -36421,7 +36421,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -36613,7 +36613,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV53">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -36805,7 +36805,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -36997,7 +36997,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV54">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -37203,7 +37203,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -37409,7 +37409,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV55">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -37619,7 +37619,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -37829,7 +37829,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV56">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -38040,7 +38040,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -38251,7 +38251,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV57">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -38463,7 +38463,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -38675,7 +38675,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV58">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -38887,7 +38887,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -39099,7 +39099,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV59">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -39312,7 +39312,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -39525,7 +39525,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV60">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -39739,7 +39739,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -39953,7 +39953,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV61">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -40168,7 +40168,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -40383,7 +40383,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV62">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -40603,7 +40603,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -40823,7 +40823,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV63">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -41045,7 +41045,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -41267,7 +41267,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV64">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -41490,7 +41490,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Float3 Name="center" />
         <Float2 Name="zRange" />
         <Float Name="fadeHorizInner" />
@@ -41713,7 +41713,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV65">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -41936,7 +41936,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV37">
@@ -42162,7 +42162,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV66">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -42386,7 +42386,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV38">
@@ -42613,7 +42613,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV67">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -42842,7 +42842,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV39">
@@ -43074,7 +43074,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV68">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -43298,7 +43298,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV40">
@@ -43525,7 +43525,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV69">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -43749,7 +43749,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV41">
@@ -43976,7 +43976,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV70">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -44202,7 +44202,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV42">
@@ -44431,7 +44431,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV71">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -44657,8 +44657,8 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
-        <Qword Name="audioToken" TypeName="Qword" />
+        <Qword Name="bindTarget" />
+        <Qword Name="audioToken" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV43">
@@ -44887,8 +44887,8 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
-        <Qword Name="audioToken" TypeName="Qword" />
+        <Qword Name="bindTarget" />
+        <Qword Name="audioToken" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV72">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -45117,7 +45117,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Byte Name="type" />
         <Qword Name="guid" />
         <ArrayPtr Name="shapeArray" TypeName="PackMapEnvDataShapeV44">
@@ -45349,7 +45349,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV73">
           <WcharPtr Name="texPathNE" />
           <WcharPtr Name="texPathSW" />
@@ -45581,7 +45581,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <WcharPtr Name="reserved" />
         <Byte Name="type" />
         <Qword Name="guid" />
@@ -45817,7 +45817,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <WcharPtr Name="reserved" />
         <ArrayPtr Name="skyModeTex" TypeName="PackMapEnvDataSkyModeTexV74">
           <WcharPtr Name="texPathNE" />
@@ -46145,7 +46145,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV46">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V46">
@@ -46492,7 +46492,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV46">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V46">
@@ -46836,7 +46836,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -47183,7 +47183,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -47535,7 +47535,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -47882,7 +47882,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -48232,7 +48232,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -48588,7 +48588,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -48937,7 +48937,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -49289,7 +49289,7 @@
         </PtrArrayPtr>
         <WcharPtr Name="name" />
         <ArrayPtr Name="nightMods" TypeName="Byte" />
-        <Qword Name="bindTarget" TypeName="Qword" />
+        <Qword Name="bindTarget" />
         <Dword Name="flags" />
         <Ptr Name="ext" TypeName="PackMapEnvDataBaseExV47">
           <Ptr Name="ext2" TypeName="PackMapEnvDataBaseEx2V47">
@@ -54127,7 +54127,7 @@
         <Float2 Name="midFade" />
         <Float2 Name="farFade" />
       </Ptr>
-      <Dword Name="verticesPerChunkSide" TypeName="Dword" />
+      <Dword Name="verticesPerChunkSide" />
     </Version>
   </Chunk>
   <Chunk Name="trni">
@@ -55371,9 +55371,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV2">
@@ -55514,9 +55514,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV3">
@@ -55579,7 +55579,7 @@
         <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV4">
           <Qword Name="token" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -55663,9 +55663,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV4">
@@ -55729,7 +55729,7 @@
         <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV5">
           <Qword Name="token" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -55814,9 +55814,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV5">
@@ -55880,7 +55880,7 @@
         <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV6">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -55970,9 +55970,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV6">
@@ -56038,7 +56038,7 @@
         <Struct Name="animation" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV7">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -56129,9 +56129,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV7">
@@ -56249,9 +56249,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV8">
@@ -56370,9 +56370,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV9">
@@ -56491,9 +56491,9 @@
           </ArrayPtr>
           <Dword Name="materialIndex" />
           <ArrayPtr Name="obstacleIndices" TypeName="Dword" />
-          <Byte Name="opacityCurveType" TypeName="Byte" />
+          <Byte Name="opacityCurveType" />
           <ArrayPtr Name="opacityKeys" TypeName="Float2" />
-          <Byte Name="scaleCurveType" TypeName="Byte" />
+          <Byte Name="scaleCurveType" />
           <ArrayPtr Name="scaleKeys" TypeName="Float2" />
         </ArrayPtr>
         <ArrayPtr Name="emitters" TypeName="ModelParticleEmitterV10">
@@ -58045,7 +58045,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -58265,7 +58265,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -58492,7 +58492,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -58719,7 +58719,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -58946,7 +58946,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -59174,7 +59174,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -59403,7 +59403,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -59632,7 +59632,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -59862,7 +59862,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -59973,7 +59973,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV28">
@@ -60096,7 +60096,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -60216,7 +60216,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV29">
@@ -60339,7 +60339,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -60463,7 +60463,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV30">
@@ -60587,7 +60587,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -60711,7 +60711,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV31">
@@ -60836,7 +60836,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -60960,7 +60960,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV32">
@@ -61085,7 +61085,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -61248,7 +61248,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV33">
@@ -61373,7 +61373,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -61559,7 +61559,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV34">
@@ -61681,7 +61681,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -61866,7 +61866,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV35">
@@ -61988,7 +61988,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -62176,7 +62176,7 @@
           <Qword Name="token" />
         </ArrayPtr>
         <ArrayPtr Name="skeletonHash" TypeName="Byte" />
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV36">
@@ -62298,7 +62298,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -62491,7 +62491,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV37">
@@ -62613,7 +62613,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -62806,7 +62806,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV38">
@@ -62928,7 +62928,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -63121,7 +63121,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV39">
@@ -63244,7 +63244,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -63437,7 +63437,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV40">
@@ -63563,7 +63563,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -63756,7 +63756,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV41">
@@ -63882,7 +63882,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -64083,7 +64083,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV42">
@@ -64209,7 +64209,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -64415,7 +64415,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV43">
@@ -64541,7 +64541,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -64747,7 +64747,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV44">
@@ -64873,7 +64873,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -65088,7 +65088,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV45">
@@ -65214,7 +65214,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -65429,7 +65429,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV46">
@@ -65555,7 +65555,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -65774,7 +65774,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV47">
@@ -65900,7 +65900,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -66124,7 +66124,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV48">
@@ -66250,7 +66250,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -66474,7 +66474,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV49">
@@ -66600,7 +66600,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -66828,7 +66828,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV50">
@@ -66954,7 +66954,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -67189,7 +67189,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV51">
@@ -67315,7 +67315,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -67554,7 +67554,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV52">
@@ -67683,7 +67683,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -67927,7 +67927,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV53">
@@ -68064,7 +68064,7 @@
         <Float Name="wind" />
         <Byte Name="rigidness" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -68284,8 +68284,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV54">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV54">
@@ -68307,7 +68307,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV54">
@@ -68448,7 +68448,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -68670,8 +68670,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV55">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV55">
@@ -68693,7 +68693,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV55">
@@ -68834,7 +68834,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -69057,8 +69057,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV56">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV56">
@@ -69080,7 +69080,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV56">
@@ -69221,7 +69221,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -69445,8 +69445,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV57">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV57">
@@ -69468,7 +69468,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV57">
@@ -69609,7 +69609,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -69838,8 +69838,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV58">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV58">
@@ -69861,7 +69861,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV58">
@@ -70002,7 +70002,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -70243,8 +70243,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV59">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV59">
@@ -70266,7 +70266,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV59">
@@ -70407,7 +70407,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -70649,8 +70649,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV60">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV60">
@@ -70672,7 +70672,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV60">
@@ -70813,7 +70813,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -71061,8 +71061,8 @@
           <Ptr Name="ExtendedData.Type" TypeName="Byte" />
           <Ptr Name="ExtendedData.Object" TypeName="Byte" />
           <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV61">
-            <Qword Name="boneLeft" TypeName="Qword" />
-            <Qword Name="boneRight" TypeName="Qword" />
+            <Qword Name="boneLeft" />
+            <Qword Name="boneRight" />
           </ArrayPtr>
         </Ptr>
         <Struct Name="InitialPlacement" TypeName="ModelTransformDataV61">
@@ -71084,7 +71084,7 @@
           </Struct>
           <Qword Name="token" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
       <ArrayPtr Name="properties" TypeName="ModelPropertyDataV61">
@@ -71227,7 +71227,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -71593,7 +71593,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -71718,7 +71718,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV62">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -71929,7 +71929,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -72054,7 +72054,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV63">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -72270,7 +72270,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -72396,7 +72396,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV64">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -72580,7 +72580,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -72706,7 +72706,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV65">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -72891,7 +72891,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -73017,7 +73017,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV66">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -73219,7 +73219,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -73345,7 +73345,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV66">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -73545,7 +73545,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -73671,7 +73671,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV66">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -73869,7 +73869,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -73995,7 +73995,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV66">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -74194,7 +74194,7 @@
         <Float Name="weight" />
         <Float Name="wind" />
         <Struct Name="mesh" TypeName="PackVertexType">
-          <Dword Name="fvf" TypeName="Dword" />
+          <Dword Name="fvf" />
           <ArrayPtr Name="vertices" TypeName="Byte" />
         </Struct>
         <ArrayPtr Name="indices" TypeName="Word" />
@@ -74320,7 +74320,7 @@
         <Array Name="boneInverseOffset" Size="3" TypeName="Float4" />
       </ArrayPtr>
       <Ptr Name="boundingSphere" TypeName="ModelBoundingSphereV66">
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </Ptr>
     </Version>
@@ -74330,7 +74330,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV8">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV8">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74359,7 +74359,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV9">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV9">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74390,7 +74390,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV10">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV10">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74422,7 +74422,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV11">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV11">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74461,7 +74461,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV12">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV12">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74501,7 +74501,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV13">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV13">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74541,7 +74541,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV14">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV14">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74593,7 +74593,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV15">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV15">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74649,7 +74649,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV16">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV16">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74707,7 +74707,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV17">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV17">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74718,7 +74718,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV9">
@@ -74727,7 +74727,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV9">
@@ -74735,7 +74735,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -74746,7 +74746,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -74769,7 +74769,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV18">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV18">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74780,7 +74780,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV10">
@@ -74789,7 +74789,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV10">
@@ -74797,7 +74797,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -74808,7 +74808,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -74837,7 +74837,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV19">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV19">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74848,7 +74848,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV11">
@@ -74857,7 +74857,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV11">
@@ -74865,7 +74865,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -74876,7 +74876,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -74888,7 +74888,7 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
       </PtrArrayPtr>
       <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV11">
@@ -74907,7 +74907,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV20">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV20">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74918,7 +74918,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV12">
@@ -74927,7 +74927,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV12">
@@ -74935,7 +74935,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -74946,7 +74946,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -74958,13 +74958,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV12">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
       </PtrArrayPtr>
       <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV12">
@@ -74983,7 +74983,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV21">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV21">
           <Dword Name="boneIndex" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -74994,7 +74994,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV13">
@@ -75003,7 +75003,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV13">
@@ -75011,7 +75011,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75022,7 +75022,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75035,13 +75035,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV13">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
       </PtrArrayPtr>
       <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV13">
@@ -75060,7 +75060,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV22">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV22">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75071,7 +75071,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV14">
@@ -75080,7 +75080,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV14">
@@ -75088,7 +75088,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75099,7 +75099,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75112,13 +75112,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV14">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
       </PtrArrayPtr>
       <ArrayPtr Name="compoundAnimations" TypeName="ModelCompoundAnimationDataV14">
@@ -75137,7 +75137,7 @@
       <PtrArrayPtr Name="animations" TypeName="ModelAnimationDataV23">
         <Qword Name="token" />
         <ArrayPtr Name="data" TypeName="Byte" />
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV23">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75148,7 +75148,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV15">
@@ -75157,7 +75157,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV15">
@@ -75165,7 +75165,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75176,7 +75176,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75189,13 +75189,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV15">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV15">
           <Qword Name="bone" />
@@ -75203,7 +75203,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
       </PtrArrayPtr>
@@ -75225,7 +75225,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV24">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75236,7 +75236,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV16">
@@ -75245,7 +75245,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV16">
@@ -75253,7 +75253,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75264,7 +75264,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75277,13 +75277,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV16">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV16">
           <Qword Name="bone" />
@@ -75291,7 +75291,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV16">
@@ -75302,7 +75302,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -75325,7 +75325,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV25">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75336,7 +75336,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV17">
@@ -75345,7 +75345,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV17">
@@ -75353,7 +75353,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75364,7 +75364,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75377,13 +75377,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV17">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV17">
           <Qword Name="bone" />
@@ -75391,7 +75391,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV17">
@@ -75402,7 +75402,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -75417,8 +75417,8 @@
       <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV25">
         <WcharPtr Name="filename" />
         <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV17">
-          <Qword Name="name" TypeName="Qword" />
-          <Float Name="duration" TypeName="Float" />
+          <Qword Name="name" />
+          <Float Name="duration" />
         </ArrayPtr>
       </ArrayPtr>
     </Version>
@@ -75428,7 +75428,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV26">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75439,7 +75439,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV18">
@@ -75448,7 +75448,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV18">
@@ -75456,7 +75456,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75467,7 +75467,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75480,13 +75480,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV18">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV18">
           <Qword Name="bone" />
@@ -75494,7 +75494,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV18">
@@ -75505,7 +75505,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -75520,8 +75520,8 @@
       <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV26">
         <WcharPtr Name="filename" />
         <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV18">
-          <Qword Name="name" TypeName="Qword" />
-          <Float Name="duration" TypeName="Float" />
+          <Qword Name="name" />
+          <Float Name="duration" />
         </ArrayPtr>
       </ArrayPtr>
     </Version>
@@ -75531,7 +75531,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV27">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75542,7 +75542,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV19">
@@ -75551,7 +75551,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV19">
@@ -75559,7 +75559,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75570,7 +75570,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75583,13 +75583,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV19">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV19">
           <Qword Name="bone" />
@@ -75597,7 +75597,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV19">
@@ -75608,7 +75608,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -75623,8 +75623,8 @@
       <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV27">
         <WcharPtr Name="filename" />
         <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV19">
-          <Qword Name="name" TypeName="Qword" />
-          <Float Name="duration" TypeName="Float" />
+          <Qword Name="name" />
+          <Float Name="duration" />
         </ArrayPtr>
       </ArrayPtr>
       <WcharPtr Name="modelReference" />
@@ -75635,7 +75635,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV28">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75646,7 +75646,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV20">
@@ -75655,7 +75655,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV20">
@@ -75663,7 +75663,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75674,7 +75674,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75687,13 +75687,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV20">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV20">
           <Qword Name="bone" />
@@ -75701,7 +75701,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV20">
@@ -75712,7 +75712,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -75722,7 +75722,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
       </PtrArrayPtr>
@@ -75736,8 +75736,8 @@
       <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV28">
         <WcharPtr Name="filename" />
         <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV20">
-          <Qword Name="name" TypeName="Qword" />
-          <Float Name="duration" TypeName="Float" />
+          <Qword Name="name" />
+          <Float Name="duration" />
         </ArrayPtr>
       </ArrayPtr>
       <WcharPtr Name="modelReference" />
@@ -75748,7 +75748,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV29">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75759,7 +75759,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV21">
@@ -75768,7 +75768,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV21">
@@ -75776,7 +75776,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75787,7 +75787,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75800,13 +75800,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV21">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV21">
           <Qword Name="bone" />
@@ -75814,7 +75814,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV21">
@@ -75825,7 +75825,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -75835,7 +75835,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="windAnimData" TypeName="ModelWindAnimationV21">
@@ -75844,7 +75844,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
       </PtrArrayPtr>
@@ -75858,8 +75858,8 @@
       <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV29">
         <WcharPtr Name="filename" />
         <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV21">
-          <Qword Name="name" TypeName="Qword" />
-          <Float Name="duration" TypeName="Float" />
+          <Qword Name="name" />
+          <Float Name="duration" />
         </ArrayPtr>
       </ArrayPtr>
       <WcharPtr Name="modelReference" />
@@ -75870,7 +75870,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV30">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -75881,7 +75881,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV22">
@@ -75890,7 +75890,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV22">
@@ -75898,7 +75898,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -75909,7 +75909,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -75922,13 +75922,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV22">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV22">
           <Qword Name="bone" />
@@ -75936,7 +75936,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV22">
@@ -75947,7 +75947,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -75957,7 +75957,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="windAnimData" TypeName="ModelWindAnimationV22">
@@ -75966,7 +75966,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
       </PtrArrayPtr>
@@ -75980,8 +75980,8 @@
       <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV30">
         <WcharPtr Name="filename" />
         <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV22">
-          <Qword Name="name" TypeName="Qword" />
-          <Float Name="duration" TypeName="Float" />
+          <Qword Name="name" />
+          <Float Name="duration" />
         </ArrayPtr>
       </ArrayPtr>
     </Version>
@@ -75991,7 +75991,7 @@
         <Struct Name="data" TypeName="PackGrannyAnimationTypeV0">
           <ArrayPtr Name="animation" TypeName="Byte" />
         </Struct>
-        <Float Name="moveSpeed" TypeName="Float" />
+        <Float Name="moveSpeed" />
         <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV31">
           <Qword Name="boneToken" />
           <ArrayPtr Name="keys" TypeName="Float" />
@@ -76002,7 +76002,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV23">
@@ -76011,7 +76011,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV23">
@@ -76019,7 +76019,7 @@
           <Dword Name="constToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
         <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -76030,7 +76030,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <Dword Name="isAdditive" />
@@ -76043,13 +76043,13 @@
           <Qword Name="val" />
           <WcharPtr Name="strVal" />
         </ArrayPtr>
-        <Float3 Name="center" TypeName="Float3" />
+        <Float3 Name="center" />
         <Float Name="radius" />
         <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV23">
           <Qword Name="linkToken" />
           <Dword Name="trackGroupIndex" />
           <Dword Name="vectorTrackIndex" />
-          <Float4 Name="initialValue" TypeName="Float4" />
+          <Float4 Name="initialValue" />
         </ArrayPtr>
         <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV23">
           <Qword Name="bone" />
@@ -76057,7 +76057,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV23">
@@ -76068,7 +76068,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </ArrayPtr>
@@ -76078,7 +76078,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
         <ArrayPtr Name="windAnimData" TypeName="ModelWindAnimationV23">
@@ -76087,7 +76087,7 @@
             <Byte Name="type" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
         </ArrayPtr>
       </PtrArrayPtr>
@@ -76101,8 +76101,8 @@
       <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV31">
         <WcharPtr Name="filename" />
         <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV23">
-          <Qword Name="name" TypeName="Qword" />
-          <Float Name="duration" TypeName="Float" />
+          <Qword Name="name" />
+          <Float Name="duration" />
         </ArrayPtr>
       </ArrayPtr>
     </Version>
@@ -76119,7 +76119,7 @@
             </Struct>
             <WcharPtr Name="fileFull" />
           </Ptr>
-          <Float Name="moveSpeed" TypeName="Float" />
+          <Float Name="moveSpeed" />
           <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV32">
             <Qword Name="boneToken" />
             <ArrayPtr Name="keys" TypeName="Float" />
@@ -76130,7 +76130,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV24">
@@ -76139,7 +76139,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV24">
@@ -76147,7 +76147,7 @@
             <Dword Name="constToken" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
           <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
           <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -76158,7 +76158,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <Dword Name="isAdditive" />
@@ -76171,13 +76171,13 @@
             <Qword Name="val" />
             <WcharPtr Name="strVal" />
           </ArrayPtr>
-          <Float3 Name="center" TypeName="Float3" />
+          <Float3 Name="center" />
           <Float Name="radius" />
           <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV24">
             <Qword Name="linkToken" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
           <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV24">
             <Qword Name="bone" />
@@ -76185,7 +76185,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV24">
@@ -76196,7 +76196,7 @@
                 <Byte Name="type" />
                 <Dword Name="trackGroupIndex" />
                 <Dword Name="vectorTrackIndex" />
-                <Float4 Name="initialValue" TypeName="Float4" />
+                <Float4 Name="initialValue" />
               </ArrayPtr>
             </ArrayPtr>
           </ArrayPtr>
@@ -76206,7 +76206,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="windAnimData" TypeName="ModelWindAnimationV24">
@@ -76215,7 +76215,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </PtrArrayPtr>
@@ -76229,8 +76229,8 @@
         <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV32">
           <WcharPtr Name="filename" />
           <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV24">
-            <Qword Name="name" TypeName="Qword" />
-            <Float Name="duration" TypeName="Float" />
+            <Qword Name="name" />
+            <Float Name="duration" />
           </ArrayPtr>
         </ArrayPtr>
       </Ptr>
@@ -76253,7 +76253,7 @@
             </Struct>
             <WcharPtr Name="fileFull" />
           </Ptr>
-          <Float Name="moveSpeed" TypeName="Float" />
+          <Float Name="moveSpeed" />
           <ArrayPtr Name="visTrackData" TypeName="ModelVisTrackDataV33">
             <Qword Name="boneToken" />
             <ArrayPtr Name="keys" TypeName="Float" />
@@ -76264,7 +76264,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="cloudAnim" TypeName="ModelCloudAnimV25">
@@ -76273,7 +76273,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="matConstAnim" TypeName="ModelMatConstAnimV25">
@@ -76281,7 +76281,7 @@
             <Dword Name="constToken" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
           <ArrayPtr Name="morphTrackGroups" TypeName="Word" />
           <ArrayPtr Name="triggerTimes" TypeName="Float" />
@@ -76292,7 +76292,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <Dword Name="isAdditive" />
@@ -76305,13 +76305,13 @@
             <Qword Name="val" />
             <WcharPtr Name="strVal" />
           </ArrayPtr>
-          <Float3 Name="center" TypeName="Float3" />
+          <Float3 Name="center" />
           <Float Name="radius" />
           <ArrayPtr Name="tokenMapAnims" TypeName="ModelTokenMapAnimV25">
             <Qword Name="linkToken" />
             <Dword Name="trackGroupIndex" />
             <Dword Name="vectorTrackIndex" />
-            <Float4 Name="initialValue" TypeName="Float4" />
+            <Float4 Name="initialValue" />
           </ArrayPtr>
           <ArrayPtr Name="bcAnim" TypeName="ModelBoneConstraintAnimV25">
             <Qword Name="bone" />
@@ -76319,7 +76319,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="streakAnim" TypeName="ModelStreakAnimV25">
@@ -76330,7 +76330,7 @@
                 <Byte Name="type" />
                 <Dword Name="trackGroupIndex" />
                 <Dword Name="vectorTrackIndex" />
-                <Float4 Name="initialValue" TypeName="Float4" />
+                <Float4 Name="initialValue" />
               </ArrayPtr>
             </ArrayPtr>
           </ArrayPtr>
@@ -76340,7 +76340,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
           <ArrayPtr Name="windAnimData" TypeName="ModelWindAnimationV25">
@@ -76349,7 +76349,7 @@
               <Byte Name="type" />
               <Dword Name="trackGroupIndex" />
               <Dword Name="vectorTrackIndex" />
-              <Float4 Name="initialValue" TypeName="Float4" />
+              <Float4 Name="initialValue" />
             </ArrayPtr>
           </ArrayPtr>
         </PtrArrayPtr>
@@ -76363,8 +76363,8 @@
         <ArrayPtr Name="imports" TypeName="ModelAnimationImportDataV33">
           <WcharPtr Name="filename" />
           <ArrayPtr Name="sequences" TypeName="ModelAnimationImportSequenceV25">
-            <Qword Name="name" TypeName="Qword" />
-            <Float Name="duration" TypeName="Float" />
+            <Qword Name="name" />
+            <Float Name="duration" />
           </ArrayPtr>
         </ArrayPtr>
       </Ptr>
@@ -76939,7 +76939,7 @@
         <WcharPtr Name="cmpGroup" />
         <WcharPtr Name="cmpType" />
       </ArrayPtr>
-      <CharPtr Name="region" TypeName="CharPtr" />
+      <CharPtr Name="region" />
     </Version>
     <Version Id="16" TypeName="ModelFileToolV16">
       <Qword Name="modelType" />
@@ -76976,7 +76976,7 @@
         <WcharPtr Name="cmpGroup" />
         <WcharPtr Name="cmpType" />
       </ArrayPtr>
-      <CharPtr Name="region" TypeName="CharPtr" />
+      <CharPtr Name="region" />
     </Version>
   </Chunk>
   <Chunk Name="ROOT">
@@ -77074,8 +77074,8 @@
         </ArrayPtr>
         <ArrayPtr Name="boneFlags" TypeName="Dword" />
         <ArrayPtr Name="boneSymmetries" TypeName="ModelBoneSymmetryV62">
-          <Qword Name="boneLeft" TypeName="Qword" />
-          <Qword Name="boneRight" TypeName="Qword" />
+          <Qword Name="boneLeft" />
+          <Qword Name="boneRight" />
         </ArrayPtr>
         <ArrayPtr Name="emitterBones" TypeName="Dword" />
         <ArrayPtr Name="trackMasks" TypeName="ModelTrackMaskV62">
@@ -77247,7 +77247,7 @@
           <Struct Name="verts" TypeName="ModelMeshVertexDataV0">
             <Dword Name="vertexCount" />
             <Struct Name="mesh" TypeName="PackVertexType">
-              <Dword Name="fvf" TypeName="Dword" />
+              <Dword Name="fvf" />
               <ArrayPtr Name="vertices" TypeName="Byte" />
             </Struct>
           </Struct>
@@ -77291,7 +77291,7 @@
           <Struct Name="verts" TypeName="ModelMeshVertexDataV1">
             <Dword Name="vertexCount" />
             <Struct Name="mesh" TypeName="PackVertexType">
-              <Dword Name="fvf" TypeName="Dword" />
+              <Dword Name="fvf" />
               <ArrayPtr Name="vertices" TypeName="Byte" />
             </Struct>
           </Struct>
@@ -78423,7 +78423,7 @@
           <WcharPtr Name="name" />
           <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
             <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-              <Union Name="actionData" Size="5">
+              <Union Name="actionData">
                 <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                   <Qword Name="sequence" />
                   <Float Name="blendInTime" />
@@ -78454,7 +78454,7 @@
               <Qword Name="token" />
               <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
                 <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-                  <Union Name="actionData" Size="5">
+                  <Union Name="actionData">
                     <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                       <Qword Name="sequence" />
                       <Float Name="blendInTime" />
@@ -78487,7 +78487,7 @@
             <WcharPtr Name="targetStateName" />
             <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
               <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-                <Union Name="actionData" Size="5">
+                <Union Name="actionData">
                   <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                     <Qword Name="sequence" />
                     <Float Name="blendInTime" />
@@ -78517,7 +78517,7 @@
               <Qword Name="token" />
               <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
                 <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-                  <Union Name="actionData" Size="5">
+                  <Union Name="actionData">
                     <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                       <Qword Name="sequence" />
                       <Float Name="blendInTime" />
@@ -78549,7 +78549,7 @@
             <Qword Name="token" />
             <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
               <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-                <Union Name="actionData" Size="5">
+                <Union Name="actionData">
                   <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                     <Qword Name="sequence" />
                     <Float Name="blendInTime" />
@@ -78580,7 +78580,7 @@
                 <Qword Name="token" />
                 <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
                   <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-                    <Union Name="actionData" Size="5">
+                    <Union Name="actionData">
                       <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                         <Qword Name="sequence" />
                         <Float Name="blendInTime" />
@@ -78613,7 +78613,7 @@
               <WcharPtr Name="targetStateName" />
               <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
                 <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-                  <Union Name="actionData" Size="5">
+                  <Union Name="actionData">
                     <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                       <Qword Name="sequence" />
                       <Float Name="blendInTime" />
@@ -78643,7 +78643,7 @@
                 <Qword Name="token" />
                 <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV0">
                   <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV0">
-                    <Union Name="actionData" Size="5">
+                    <Union Name="actionData">
                       <Struct TypeName="PackAnimMachineActionPlayAnimationV0">
                         <Qword Name="sequence" />
                         <Float Name="blendInTime" />
@@ -78686,7 +78686,7 @@
           <WcharPtr Name="name" />
           <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
             <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-              <Union Name="actionData" Size="5">
+              <Union Name="actionData">
                 <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                   <Qword Name="sequence" />
                   <Float Name="blendInTime" />
@@ -78717,7 +78717,7 @@
               <Qword Name="token" />
               <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
                 <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-                  <Union Name="actionData" Size="5">
+                  <Union Name="actionData">
                     <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                       <Qword Name="sequence" />
                       <Float Name="blendInTime" />
@@ -78750,7 +78750,7 @@
             <WcharPtr Name="targetStateName" />
             <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
               <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-                <Union Name="actionData" Size="5">
+                <Union Name="actionData">
                   <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                     <Qword Name="sequence" />
                     <Float Name="blendInTime" />
@@ -78780,7 +78780,7 @@
               <Qword Name="token" />
               <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
                 <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-                  <Union Name="actionData" Size="5">
+                  <Union Name="actionData">
                     <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                       <Qword Name="sequence" />
                       <Float Name="blendInTime" />
@@ -78812,7 +78812,7 @@
             <Qword Name="token" />
             <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
               <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-                <Union Name="actionData" Size="5">
+                <Union Name="actionData">
                   <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                     <Qword Name="sequence" />
                     <Float Name="blendInTime" />
@@ -78843,7 +78843,7 @@
                 <Qword Name="token" />
                 <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
                   <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-                    <Union Name="actionData" Size="5">
+                    <Union Name="actionData">
                       <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                         <Qword Name="sequence" />
                         <Float Name="blendInTime" />
@@ -78876,7 +78876,7 @@
               <WcharPtr Name="targetStateName" />
               <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
                 <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-                  <Union Name="actionData" Size="5">
+                  <Union Name="actionData">
                     <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                       <Qword Name="sequence" />
                       <Float Name="blendInTime" />
@@ -78906,7 +78906,7 @@
                 <Qword Name="token" />
                 <Ptr Name="actionBlock" TypeName="PackAnimMachineActionBlockV1">
                   <ArrayPtr Name="actions" TypeName="PackAnimMachineActionV1">
-                    <Union Name="actionData" Size="5">
+                    <Union Name="actionData">
                       <Struct TypeName="PackAnimMachineActionPlayAnimationV1">
                         <Qword Name="sequence" />
                         <Float Name="blendInTime" />
