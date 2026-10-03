@@ -234,7 +234,7 @@ struct PackfileChunkHeader {
 
 #[repr(C)]
 pub struct Ptr<T> {
-    ptr:      zerocopy::Usize<NativeEndian>,
+    ptr:      Usize<NativeEndian>,
     _phantom: PhantomData<T>,
 }
 
@@ -245,6 +245,12 @@ impl<T> Ptr<T> {
 
     pub unsafe fn as_ref(&self) -> Option<&T> {
         unsafe { self.as_ptr().as_ref() }
+    }
+}
+
+impl<T: std::fmt::Debug> std::fmt::Debug for Ptr<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        unsafe { self.as_ref() }.fmt(f)
     }
 }
 
@@ -269,8 +275,14 @@ impl<T> ArrayPtr<T> {
     }
 }
 
+impl<T: std::fmt::Debug> std::fmt::Debug for ArrayPtr<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        unsafe { self.as_slice() }.fmt(f)
+    }
+}
+
 #[repr(transparent)]
-pub struct CharPtr(zerocopy::Usize<NativeEndian>);
+pub struct CharPtr(Usize<NativeEndian>);
 
 impl CharPtr {
     pub fn as_ptr(&self) -> *const u8 {
@@ -302,8 +314,14 @@ impl CharPtr {
     }
 }
 
+impl std::fmt::Debug for CharPtr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        String::from_utf8_lossy(unsafe { self.as_slice() }).fmt(f)
+    }
+}
+
 #[repr(transparent)]
-pub struct WcharPtr(zerocopy::Usize<NativeEndian>);
+pub struct WcharPtr(Usize<NativeEndian>);
 
 impl WcharPtr {
     pub fn as_ptr(&self) -> *const U16 {
@@ -332,6 +350,12 @@ impl WcharPtr {
         }
 
         unsafe { std::slice::from_raw_parts(ptr as *const u8, self.len() * 2) }
+    }
+}
+
+impl std::fmt::Debug for WcharPtr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        String::from_utf16le_lossy(unsafe { self.as_bytes() }).fmt(f)
     }
 }
 

@@ -70,6 +70,7 @@ fn emit_struct(name: &str, fields: &[Field], seen: &mut HashSet<String>) -> Toke
     });
 
     quote! {
+        #[derive(Debug)]
         #[repr(C)]
         pub struct #name {
             #(#fields)*
