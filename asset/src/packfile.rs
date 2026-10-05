@@ -12,7 +12,7 @@ type Word3 = [U16; 3];
 type Dword = U32;
 type Dword2 = [U32; 2];
 type Dword4 = [U32; 4];
-type Qword = U64;
+type Token = Token64;
 type Float = F32;
 type Float2 = [F32; 2];
 type Float3 = [F32; 3];
@@ -256,7 +256,7 @@ impl<T: std::fmt::Debug> std::fmt::Debug for Ptr<T> {
 
 #[repr(C)]
 pub struct ArrayPtr<T> {
-    length:   Dword,
+    len:      Dword,
     ptr:      Usize<NativeEndian>,
     _phantom: PhantomData<T>,
 }
@@ -271,7 +271,7 @@ impl<T> ArrayPtr<T> {
             return &[];
         }
 
-        unsafe { std::slice::from_raw_parts(self.as_ptr(), self.length.get() as usize) }
+        unsafe { std::slice::from_raw_parts(self.as_ptr(), self.len.get() as usize) }
     }
 }
 
@@ -373,6 +373,49 @@ impl WcharPtr {
         }
 
         Some((u32::from(a) - 0xFF) + (u32::from(b) - 0x100) * 0xFF00)
+    }
+}
+
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[repr(transparent)]
+pub struct Token32(U32);
+
+impl std::fmt::Debug for Token32 {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let mut out = String::new();
+
+        let mut value = self.0.get().wrapping_sub(0x3000_0000);
+        while value != 0 {
+            out.push(b"abcdefghiklmnopvrstuwxy"[(value % 23) as usize] as char);
+            value /= 23;
+        }
+
+        out.fmt(f)
+    }
+}
+
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[repr(transparent)]
+pub struct Token64(U64);
+
+impl std::fmt::Debug for Token64 {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let mut out = String::new();
+
+        let mut value = self.0.get() & 0x0FFF_FFFF_FFFF_FFFF;
+        while value != 0 {
+            let v = (value & 0x1F) as u8;
+            out.push(if v == 0 { ' ' } else { (v + b'`') as char });
+            value >>= 5;
+        }
+
+        let suffix = (self.0.get() >> 60) as u8;
+        if suffix != 0 {
+            out.push((b'0' + suffix / 10) as char);
+            out.push((b'0' + suffix % 10) as char);
+        }
+
+        out.fmt(f)
     }
 }
 

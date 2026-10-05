@@ -12,13 +12,13 @@ TYPES = {
     5: "Byte",
     6: "Byte4",
     10: "Dword",
-    11: "WcharPtr",
+    11: "WcharPtr", # filename
     12: "Float",
     13: "Float2",
     14: "Float3",
     15: "Float4",
     16: "Ptr",
-    17: "Qword", # token / qword
+    17: "Token",
     18: "WcharPtr",
     19: "CharPtr",
     20: "Struct",
@@ -28,11 +28,11 @@ TYPES = {
     24: "Dword2",
     25: "Dword4",
     26: "Word3",
-    27: "WcharPtr",
+    27: "WcharPtr", # fileref
     28: "Union",
     29: "Struct",
-    36: "Dword", # token32
-    37: "Qword", # token64
+    36: "Token32",
+    37: "Token64",
 }
 
 
