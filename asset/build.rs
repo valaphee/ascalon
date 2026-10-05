@@ -1,6 +1,5 @@
 use std::collections::HashSet;
 use std::path::PathBuf;
-use std::{env, fs};
 
 use ascalon_packfile_schema::{Field, Packfile};
 use proc_macro2::{Ident, Span, TokenStream};
@@ -123,13 +122,13 @@ fn emit_packfile(packfile: &Packfile) -> TokenStream {
 fn main() {
     println!("cargo:rerun-if-changed=packfiles.xml");
 
-    let xml = fs::read_to_string("packfiles.xml").unwrap();
+    let xml = std::fs::read_to_string("packfiles.xml").unwrap();
     let packfiles = ascalon_packfile_schema::parse(&xml);
 
     let modules = packfiles.iter().map(emit_packfile);
 
-    fs::write(
-        PathBuf::from(env::var_os("OUT_DIR").unwrap()).join("packfiles.rs"),
+    std::fs::write(
+        PathBuf::from(std::env::var_os("OUT_DIR").unwrap()).join("packfiles.rs"),
         quote!(#(#modules)*).to_string(),
     )
     .unwrap();

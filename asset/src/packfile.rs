@@ -1,4 +1,4 @@
-use std::io::{Error, ErrorKind, Read, Result};
+use std::io::{Error, ErrorKind, Read as _, Result};
 use std::marker::PhantomData;
 
 use zerocopy::little_endian::{F32, U16, U32, U64};

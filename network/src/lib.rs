@@ -6,8 +6,6 @@ use lz4_flex::block::{
 };
 use rc4::{KeyInit, Rc4, StreamCipher};
 use tokio_util::codec::{Decoder, Encoder};
-use zerocopy::FromBytes as _;
-use zerocopy::little_endian::U32;
 
 pub use tokio_util::codec::Framed;
 
@@ -137,6 +135,9 @@ impl Decoder for ClientCodec {
 }
 
 fn rc4_hash(input: &[u8]) -> [u8; 20] {
+    use zerocopy::FromBytes as _;
+    use zerocopy::little_endian::U32;
+
     assert!(!input.is_empty());
 
     let mut bytes = [0u8; 20];

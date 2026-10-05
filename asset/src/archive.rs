@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use std::fs::File;
-use std::io::{Error, ErrorKind, Read, Result, Seek, SeekFrom};
+use std::io::{Error, ErrorKind, Read as _, Result, Seek as _, SeekFrom};
 use std::path::Path;
 use std::sync::Mutex;
 
