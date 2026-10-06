@@ -91,16 +91,21 @@ impl Archive {
             file.read_exact(&mut bytes[len..])?;
         }
 
-        match mft_entry._0c.get() {
-            0 => Ok(bytes),
+        Ok(match mft_entry.extra_bytes.get() {
+            0 => bytes,
             8 => {
-                let mut output =
-                    vec![0; u32::from_le_bytes(bytes[4..8].try_into().unwrap()) as usize];
+                let output_len = match bytes[0..4] {
+                    [0x08, 0x00, 0x01, 0x80] => u32::from_le_bytes(bytes[4..8].try_into().unwrap()),
+                    [0x80, 0x01, 0x00, 0x08] => u32::from_be_bytes(bytes[4..8].try_into().unwrap()),
+                    _ => return Err(ErrorKind::InvalidData.into()),
+                };
+
+                let mut output = vec![0; output_len as usize];
                 inflate(&bytes[8..], &mut output)?;
-                Ok(output)
+                output
             }
-            _ => Err(ErrorKind::InvalidData.into()),
-        }
+            _ => return Err(ErrorKind::InvalidData.into()),
+        })
     }
 }
 
@@ -133,13 +138,21 @@ struct MftHeader {
 #[derive(Clone, Copy, FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct MftEntry {
-    offset: U64,
-    size:   U32,
-    _0c:    U16,
-    _0e:    u8,
-    _0f:    u8,
-    _10:    U32,
-    _14:    U32,
+    offset:      U64,
+    size:        U32,
+    extra_bytes: U16,
+    flags:       u8,
+    stream:      u8,
+    next_stream: U32,
+    crc:         U32,
+}
+
+bitflags::bitflags! {
+    #[repr(transparent)]
+    pub struct MftEntryFlags: u8 {
+        const ENTRY_USED   = 1 << 0;
+        const FIRST_STREAM = 1 << 1;
+    }
 }
 
 #[derive(FromBytes, KnownLayout, Immutable)]

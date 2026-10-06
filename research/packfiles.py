@@ -30,7 +30,7 @@ TYPES = {
     26: "Word3",
     27: "WcharPtr", # fileref
     28: "Union",
-    29: "Struct",
+    29: "Struct", # type
     36: "Token32",
     37: "Token64",
 }
