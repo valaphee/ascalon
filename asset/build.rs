@@ -63,9 +63,7 @@ fn emit_struct(name: &str, fields: &[Field], seen: &mut HashSet<String>) -> Toke
         let name = ident(&field.name);
         let ty = field_type(field)?;
 
-        Some(quote! {
-            pub #name: #ty,
-        })
+        Some(quote!(pub #name: #ty,))
     });
 
     quote! {
