@@ -4,9 +4,9 @@ from pathlib import Path
 import pefile
 
 path = Path(r"C:\Program Files\Guild Wars 2\Gw2-64.exe")
-data = bytearray(path.read_bytes())
+data = path.read_bytes()
 
-pe = pefile.PE(data=bytes(data))
+pe = pefile.PE(data=data)
 
 rdata = next(
     section

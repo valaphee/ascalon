@@ -9,8 +9,12 @@ TYPES = {
     1: "Array",
     2: "ArrayPtr",
     3: "PtrArrayPtr",
+    # 4: "Variant",
     5: "Byte",
     6: "Byte4",
+    # 7: "", 8 bytes
+    # 8: "", 16 bytes
+    # 9: "", 24 bytes
     10: "Dword",
     11: "WcharPtr", # filename
     12: "Float",
@@ -30,7 +34,13 @@ TYPES = {
     26: "Word3",
     27: "WcharPtr", # fileref
     28: "Union",
-    29: "Struct", # type
+    29: "Struct", # newtype
+    # 30: "ArrayPtr", with 16-byte count
+    # 31: "PtrArrayPtr", with 16-byte count
+    # 32: "Variant", with 16-byte tag
+    # 33: "ArrayPtr", with 8-byte count
+    # 34: "PtrArrayPtr", with 8-byte count
+    # 35: "Variant", with 8-byte tag
     36: "Token32",
     37: "Token64",
 }
