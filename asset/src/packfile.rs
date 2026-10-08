@@ -351,6 +351,15 @@ impl WcharPtr {
 
         unsafe { std::slice::from_raw_parts(ptr as *const u8, self.len() * 2) }
     }
+
+    pub unsafe fn as_slice(&self) -> &[U16] {
+        let ptr = self.as_ptr();
+        if ptr.is_null() {
+            return &[];
+        }
+
+        unsafe { std::slice::from_raw_parts(ptr, self.len()) }
+    }
 }
 
 impl std::fmt::Debug for WcharPtr {
@@ -361,13 +370,11 @@ impl std::fmt::Debug for WcharPtr {
 
 impl WcharPtr {
     pub unsafe fn file_id(&self) -> Option<u32> {
-        let bytes = unsafe { self.as_bytes() };
-        let [a0, a1, b0, b1, ..] = bytes else {
+        let [a, b, ..] = (unsafe { self.as_slice() }) else {
             return None;
         };
 
-        let a = u16::from_le_bytes([*a0, *a1]);
-        let b = u16::from_le_bytes([*b0, *b1]);
+        let (a, b) = (a.get(), b.get());
         if a <= 0xFF || b <= 0xFF {
             return None;
         }
@@ -380,14 +387,37 @@ impl WcharPtr {
 #[repr(transparent)]
 pub struct Token32(U32);
 
+impl Token32 {
+    const ALPHABET: &[u8] = b"abcdefghiklmnopvrstuwxy";
+
+    pub const fn from_str(s: &str) -> Self {
+        let bytes = s.as_bytes();
+        let mut i = bytes.len();
+
+        let mut value = 0u32;
+        while i > 0 {
+            i -= 1;
+
+            let mut digit = 0;
+            while digit < Self::ALPHABET.len() && Self::ALPHABET[digit] != bytes[i] {
+                digit += 1;
+            }
+
+            value = value * Self::ALPHABET.len() as u32 + digit as u32;
+        }
+
+        Self(U32::new(value + 0x3000_0000))
+    }
+}
+
 impl std::fmt::Debug for Token32 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut out = String::new();
 
-        let mut value = self.0.get().wrapping_sub(0x3000_0000);
+        let mut value = self.0.get() - 0x3000_0000;
         while value != 0 {
-            out.push(b"abcdefghiklmnopvrstuwxy"[(value % 23) as usize] as char);
-            value /= 23;
+            out.push(Self::ALPHABET[(value % Self::ALPHABET.len() as u32) as usize] as char);
+            value /= Self::ALPHABET.len() as u32;
         }
 
         out.fmt(f)
@@ -397,6 +427,30 @@ impl std::fmt::Debug for Token32 {
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(transparent)]
 pub struct Token64(U64);
+
+impl Token64 {
+    pub const fn from_str(s: &str) -> Self {
+        let bytes = s.as_bytes();
+        let mut i = 0;
+
+        let mut value = 0u64;
+        while i < bytes.len() && i < 12 {
+            value |= match bytes[i] {
+                b'a'..=b'z' => (bytes[i] - b'`') as u64,
+                _ => 0,
+            } << (i * 5);
+            i += 1;
+        }
+
+        let mut suffix = 0u64;
+        while i < bytes.len() {
+            suffix = suffix * 10 + (bytes[i] - b'0') as u64;
+            i += 1;
+        }
+
+        Self(U64::new(value | (suffix << 60)))
+    }
+}
 
 impl std::fmt::Debug for Token64 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

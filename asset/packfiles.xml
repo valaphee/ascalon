@@ -26594,11 +26594,11 @@
         <Ptr Name="materials" TypeName="PackMapTerrainMaterialsV10">
           <WcharPtr Name="pagedImage" />
           <ArrayPtr Name="constArray" TypeName="PackMapTerrainConstV10">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Float4 Name="value" />
           </ArrayPtr>
           <ArrayPtr Name="texFileArray" TypeName="PackMapTerrainTexV10">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
             <Dword2 Name="flags2" />
@@ -26641,11 +26641,11 @@
         <Ptr Name="materials" TypeName="PackMapTerrainMaterialsV11">
           <WcharPtr Name="pagedImage" />
           <ArrayPtr Name="constArray" TypeName="PackMapTerrainConstV11">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Float4 Name="value" />
           </ArrayPtr>
           <ArrayPtr Name="texFileArray" TypeName="PackMapTerrainTexV11">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
             <Dword2 Name="flags2" />
@@ -26688,11 +26688,11 @@
         <Ptr Name="materials" TypeName="PackMapTerrainMaterialsV12">
           <WcharPtr Name="pagedImage" />
           <ArrayPtr Name="constArray" TypeName="PackMapTerrainConstV12">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Float4 Name="value" />
           </ArrayPtr>
           <ArrayPtr Name="texFileArray" TypeName="PackMapTerrainTexV12">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
             <Dword2 Name="flags2" />
@@ -26735,11 +26735,11 @@
         <Ptr Name="materials" TypeName="PackMapTerrainMaterialsV13">
           <WcharPtr Name="pagedImage" />
           <ArrayPtr Name="constArray" TypeName="PackMapTerrainConstV13">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Float4 Name="value" />
           </ArrayPtr>
           <ArrayPtr Name="texFileArray" TypeName="PackMapTerrainTexV13">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
             <Dword2 Name="flags2" />
@@ -26791,11 +26791,11 @@
         <Ptr Name="materials" TypeName="PackMapTerrainMaterialsV14">
           <WcharPtr Name="pagedImage" />
           <ArrayPtr Name="constArray" TypeName="PackMapTerrainConstV14">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Float4 Name="value" />
           </ArrayPtr>
           <ArrayPtr Name="texFileArray" TypeName="PackMapTerrainTexV14">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
             <Dword2 Name="flags2" />
@@ -26846,11 +26846,11 @@
         <Ptr Name="materials" TypeName="PackMapTerrainMaterialsV14">
           <WcharPtr Name="pagedImage" />
           <ArrayPtr Name="constArray" TypeName="PackMapTerrainConstV14">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Float4 Name="value" />
           </ArrayPtr>
           <ArrayPtr Name="texFileArray" TypeName="PackMapTerrainTexV14">
-            <Dword Name="tokenName" />
+            <Token32 Name="tokenName" />
             <Dword Name="flags" />
             <WcharPtr Name="filename" />
             <Dword2 Name="flags2" />
@@ -27861,6 +27861,15 @@
           <Byte Name="projection" />
           <Token Name="surfaceId" />
           <Token Name="id" />
+        </ArrayPtr>
+      </Version>
+    </Chunk>
+    <Chunk Name="exp">
+      <Version Id="0" TypeName="MapExpansionProperties">
+        <ArrayPtr Name="properties" TypeName="MapExpansionProperty">
+          <Dword Name="type" />
+          <Token Name="val" />
+          <WcharPtr Name="strVal" />
         </ArrayPtr>
       </Version>
     </Chunk>
