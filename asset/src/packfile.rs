@@ -17,7 +17,6 @@ type Float = F32;
 type Float2 = [F32; 2];
 type Float3 = [F32; 3];
 type Float4 = [F32; 4];
-type Guid = [u8; 16];
 
 pub struct Packfile(Vec<u8>);
 
@@ -232,6 +231,36 @@ struct PackfileChunkHeader {
     fixups_offset:     Dword,
 }
 
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[repr(C)]
+pub struct Guid(Dword, Word, Word, [u8; 8]);
+
+impl Guid {
+    pub const fn new(a: u32, b: u16, c: u16, d: [u8; 8]) -> Self {
+        Self(Dword::new(a), Word::new(b), Word::new(c), d)
+    }
+}
+
+impl std::fmt::Debug for Guid {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+            self.0,
+            self.1,
+            self.2,
+            self.3[0],
+            self.3[1],
+            self.3[2],
+            self.3[3],
+            self.3[4],
+            self.3[5],
+            self.3[6],
+            self.3[7],
+        )
+    }
+}
+
 #[repr(C)]
 pub struct Ptr<T> {
     ptr:      Usize<NativeEndian>,
@@ -365,6 +394,38 @@ impl WcharPtr {
 impl std::fmt::Debug for WcharPtr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         String::from_utf16le_lossy(unsafe { self.as_bytes() }).fmt(f)
+    }
+}
+
+impl WcharPtr {
+    const HASH_TABLE: [u32; 16] = [
+        0x92B9A528, 0x25D4FC88, 0xEDCBEFB8, 0x51063A80, 0x91341C61, 0x0261229D, 0x726F48ED,
+        0xCE1C088C, 0x76253EB5, 0x31E3A0DE, 0xA2AAD215, 0xCA7D6D27, 0xA5F98970, 0x0541C365,
+        0x3C14FF04, 0x5056AF4F,
+    ];
+
+    pub unsafe fn hash(&self, ignore_dots: bool) -> u32 {
+        if self.as_ptr().is_null() {
+            return 0;
+        }
+
+        let mut a = 0xE2C15C9Du32;
+        let mut b = 0x2170A28Au32;
+        let mut hash = 0x325D1EAEu32;
+
+        for ch in unsafe { self.as_slice() } {
+            let ch = ch.get() as u32;
+
+            if ignore_dots && ch == b'.' as u32 {
+                continue;
+            }
+
+            a = (a << 3) ^ ch;
+            b = b.wrapping_add(Self::HASH_TABLE[(a & 0xF) as usize]);
+            hash ^= b.wrapping_add(a);
+        }
+
+        if hash == 0 { 0x325D1EAE } else { hash }
     }
 }
 

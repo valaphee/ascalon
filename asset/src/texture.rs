@@ -138,7 +138,7 @@ fn decode_white(
     alpha: &mut [bool],
     color: &mut [bool],
 ) -> Result<()> {
-    const WHITE: [u8; 8] = 0xFFFF_FFFF_FFFF_FFFEu64.to_le_bytes();
+    const WHITE: [u8; 8] = 0xFFFFFFFFFFFFFFFEu64.to_le_bytes();
 
     let mut block = 0;
     while let Some(offset) = color[block..].iter().position(|x| !*x) {
@@ -337,7 +337,7 @@ fn encode_color(r: u32, g: u32, b: u32, alpha_deduced: bool) -> u64 {
         }
     };
 
-    color1 as u64 | ((color2 as u64) << 16) | (((index * 0x5555_5555) as u64) << 32)
+    color1 as u64 | ((color2 as u64) << 16) | (((index * 0x55555555) as u64) << 32)
 }
 
 #[inline(always)]

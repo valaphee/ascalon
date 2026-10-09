@@ -155,45 +155,45 @@ fn rc4_hash(input: &[u8]) -> [u8; 20] {
 
     let words = <[U32; 5]>::mut_from_bytes(&mut bytes).unwrap();
 
-    let mut a = 0x6745_2301u32;
-    let mut b = 0xEFCD_AB89u32;
-    let mut c = 0x98BA_DCFEu32;
-    let mut d = 0x1032_5476u32;
-    let mut e = 0xC3D2_E1F0u32;
+    let mut a = 0x67452301u32;
+    let mut b = 0xEFCDAB89u32;
+    let mut c = 0x98BADCFEu32;
+    let mut d = 0x10325476u32;
+    let mut e = 0xC3D2E1F0u32;
 
     e = e
         .wrapping_add(words[0].get())
         .wrapping_add(d ^ (b & (c ^ d)))
         .wrapping_add(a.rotate_left(5))
-        .wrapping_add(0x5A82_7999);
+        .wrapping_add(0x5A827999);
     b = b.rotate_left(30);
 
     d = d
         .wrapping_add(words[1].get())
         .wrapping_add(c ^ (a & (b ^ c)))
         .wrapping_add(e.rotate_left(5))
-        .wrapping_add(0x5A82_7999);
+        .wrapping_add(0x5A827999);
     a = a.rotate_left(30);
 
     c = c
         .wrapping_add(words[2].get())
         .wrapping_add(b ^ (e & (a ^ b)))
         .wrapping_add(d.rotate_left(5))
-        .wrapping_add(0x5A82_7999);
+        .wrapping_add(0x5A827999);
     e = e.rotate_left(30);
 
     b = b
         .wrapping_add(words[3].get())
         .wrapping_add(a ^ (d & (e ^ a)))
         .wrapping_add(c.rotate_left(5))
-        .wrapping_add(0x5A82_7999);
+        .wrapping_add(0x5A827999);
     d = d.rotate_left(30);
 
     a = a
         .wrapping_add(words[4].get())
         .wrapping_add(e ^ (c & (d ^ e)))
         .wrapping_add(b.rotate_left(5))
-        .wrapping_add(0x5A82_7999);
+        .wrapping_add(0x5A827999);
     c = c.rotate_left(30);
 
     words[0].set(words[0].get().wrapping_add(a));
