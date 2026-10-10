@@ -40,12 +40,12 @@ pub struct ColorMaterial {
     pub r#type:     ColorMaterialType,
 }
 
-#[derive(Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(
     feature = "graphql",
     derive(async_graphql::Enum),
     graphql(rename_items = "none")
 )]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[repr(u32)]
 pub enum ColorMaterialType {
     Default = 0,

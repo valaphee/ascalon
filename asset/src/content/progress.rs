@@ -34,12 +34,12 @@ impl ContentType for Progress {
     const ID: u32 = 53;
 }
 
-#[derive(Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(
     feature = "graphql",
     derive(async_graphql::Enum),
     graphql(rename_items = "none")
 )]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[repr(u32)]
 pub enum ProgressType {
     Bit     = 0,

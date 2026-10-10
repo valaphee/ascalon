@@ -46,12 +46,12 @@ impl ContentType for Item {
     const ID: u32 = 35;
 }
 
-#[derive(Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(
     feature = "graphql",
     derive(async_graphql::Enum),
     graphql(rename_items = "none")
 )]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[repr(u32)]
 pub enum ItemType {
     Armor            = 0,
@@ -77,19 +77,18 @@ pub enum ItemType {
 }
 
 bitflags::bitflags! {
-    #[derive(Debug)]
     #[repr(transparent)]
     pub struct ItemFlags: u32 {
         const NO_MOVE = 1 << 28;
     }
 }
 
-#[derive(Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(
     feature = "graphql",
     derive(async_graphql::Enum),
     graphql(rename_items = "none")
 )]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[repr(u32)]
 pub enum ItemRarity {
     Junk       = 0,

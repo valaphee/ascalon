@@ -72,12 +72,12 @@ impl ContentServer {
                 }
 
                 for entry in _content.indexEntries.as_slice() {
-                    let type_id = entry.r#type.get();
-                    let type_info = &content[0].typeInfos.as_slice()[type_id as usize];
+                    let r#type = entry.r#type.get();
+                    let type_info = &content[0].typeInfos.as_slice()[r#type as usize];
 
                     let data = &_content.content.as_slice()[entry.offset.get() as usize..];
 
-                    this.by_type.entry(type_id).or_default().push(data.as_ptr());
+                    this.by_type.entry(r#type).or_default().push(data.as_ptr());
 
                     let guid_offset = type_info.guidOffset.get();
                     if guid_offset != u32::MAX {
@@ -117,7 +117,7 @@ impl ContentServer {
                             .read();
 
                         this.by_data_id
-                            .insert(type_id << 22 | data_id & 0x3FFFFF, data.as_ptr());
+                            .insert(r#type << 22 | data_id & 0x3FFFFF, data.as_ptr());
                     }
                 }
             }

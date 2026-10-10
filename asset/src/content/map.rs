@@ -96,12 +96,12 @@ impl ContentType for Map {
     const ID: u32 = 45;
 }
 
-#[derive(Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(
     feature = "graphql",
     derive(async_graphql::Enum),
     graphql(rename_items = "none")
 )]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[repr(u32)]
 pub enum MapType {
     _0             = 0,
