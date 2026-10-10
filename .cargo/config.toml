@@ -1,0 +1,5 @@
+[unstable]
+build-std = ["std", "core", "alloc", "proc_macro"]
+
+[target.'cfg(target_arch = "x86_64")']
+rustflags = ["-Ctarget-cpu=x86-64-v3"]

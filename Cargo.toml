@@ -1,3 +1,5 @@
+cargo-features = ["panic-immediate-abort"]
+
 [workspace]
 members = ["asset", "packfile-schema", "network", "protocol", "protocol-schema", "research/proxy"]
 resolver = "3"
@@ -5,3 +7,16 @@ resolver = "3"
 [patch.crates-io]
 async-graphql = { git = "https://github.com/valaphee/async-graphql.git", rev = "f18f77ce5d33b684cd97dfe28e85b3cf6cadd25b" }
 async-graphql-derive = { git = "https://github.com/valaphee/async-graphql.git", rev = "f18f77ce5d33b684cd97dfe28e85b3cf6cadd25b" }
+
+[profile.dev]
+opt-level = 1
+debug = false
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "immediate-abort"
+strip = "symbols"
