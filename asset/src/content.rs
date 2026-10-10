@@ -133,9 +133,7 @@ impl ContentServer {
 
     pub fn by_guid<T: ContentType>(&self, guid: Guid) -> Option<&T> {
         let ptr = *self.by_guid.get(&guid)?;
-        unsafe {
-            (ptr.add(0x10).cast::<u32>().read() == T::ID).then(|| ptr.cast::<T>().as_ref().unwrap())
-        }
+        unsafe { (ptr.add(0x10).cast::<u32>().read() == T::ID).then(|| &*ptr.cast::<T>()) }
     }
 
     pub fn by_name<T: ContentType>(&self, name: &str) -> Option<&T> {
@@ -144,14 +142,12 @@ impl ContentServer {
         let ptr = *self
             .by_name
             .get(&(mangle_name(namespace) << 30 | mangle_name(name)))?;
-        unsafe {
-            (ptr.add(0x10).cast::<u32>().read() == T::ID).then(|| ptr.cast::<T>().as_ref().unwrap())
-        }
+        unsafe { (ptr.add(0x10).cast::<u32>().read() == T::ID).then(|| &*ptr.cast::<T>()) }
     }
 
     pub fn by_data_id<T: ContentType>(&self, data_id: u32) -> Option<&T> {
         let ptr = *self.by_data_id.get(&(T::ID << 22 | data_id))?;
-        unsafe { (ptr as *const T).as_ref() }
+        Some(unsafe { &*ptr.cast::<T>() })
     }
 }
 
@@ -330,7 +326,7 @@ impl WcharPtr {
             return &[];
         }
 
-        unsafe { std::slice::from_raw_parts(ptr as *const u8, self.len() * 2) }
+        unsafe { std::slice::from_raw_parts(ptr.cast(), self.len() * 2) }
     }
 
     pub unsafe fn as_slice(&self) -> &[u16] {

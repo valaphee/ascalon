@@ -13,21 +13,20 @@ use axum::routing::get;
 async fn main() {
     let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat").unwrap();
 
-    let content = (1282830..=1282861)
+    let packfiles = (1282830..=1282861)
         .map(|file_id| Packfile::new(archive.read(file_id).unwrap()).unwrap())
         .collect::<Vec<_>>();
 
-    let content = content
+    let content = packfiles
         .iter()
         .map(|packfile| {
             assert_eq!(packfile.r#type(), *b"cntc");
 
-            let chunk = packfile
+            packfile
                 .chunks()
                 .find(|chunk| chunk.name() == *b"Main")
-                .unwrap();
-
-            unsafe { &*chunk.bytes().as_ptr().cast::<PackContent>() }
+                .map(|chunk| unsafe { &*(chunk.bytes().as_ptr().cast::<PackContent>()) })
+                .unwrap()
         })
         .collect::<Vec<_>>();
 

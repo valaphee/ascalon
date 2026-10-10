@@ -27,13 +27,20 @@ impl Packfile {
             return Err(Error::new(ErrorKind::InvalidData, "invalid magic"));
         }
 
-        let src_ptr_width = if header.flags.get() & 4 != 0 { 8 } else { 4 };
+        let ptr_width = if header.flags.get() & 4 != 0 { 8 } else { 4 };
         let dst_ptr_width = size_of::<usize>();
-        let ptr_width_delta = dst_ptr_width as isize - src_ptr_width as isize;
+        let ptr_width_delta = dst_ptr_width as isize - ptr_width as isize;
 
         let header_size = header.header_size.get() as usize;
+        let dst_header_size = 0x10;
 
         let mut dst = bytes[..header_size].to_vec();
+        dst.resize(dst_header_size, 0);
+        PackfileHeader::mut_from_prefix(&mut dst)
+            .unwrap()
+            .0
+            .header_size
+            .set(dst_header_size as u16);
 
         let mut src = &bytes[header_size..];
         while !src.is_empty() {
@@ -67,7 +74,7 @@ impl Packfile {
                 dst.extend_from_slice(&data[pos..fixup]);
                 dst.resize(dst.len() + dst_ptr_width, 0);
 
-                pos = fixup + src_ptr_width;
+                pos = fixup + ptr_width;
             }
 
             dst.extend_from_slice(&data[pos..]);
@@ -84,7 +91,7 @@ impl Packfile {
         }
 
         let dst_ptr = dst.as_ptr() as usize;
-        let mut dst_pos = header_size;
+        let mut dst_pos = dst_header_size;
 
         let mut pos = header_size;
         while pos < bytes.len() {
@@ -122,7 +129,7 @@ impl Packfile {
             for (i, &fixup) in fixups.iter().enumerate() {
                 let dst_fixup = dst_data + (fixup as isize + i as isize * ptr_width_delta) as usize;
 
-                let offset = match src_ptr_width {
+                let offset = match ptr_width {
                     4 => (&data[fixup..]).read_le::<i32>()? as isize,
                     8 => (&data[fixup..]).read_le::<i64>()? as isize,
                     _ => unreachable!(),
@@ -211,7 +218,7 @@ impl<'a> PackfileChunk<'a> {
     }
 }
 
-#[derive(FromBytes, KnownLayout, Immutable)]
+#[derive(IntoBytes, FromBytes, KnownLayout, Immutable)]
 #[repr(C)]
 struct PackfileHeader {
     magic:       [u8; 2],
@@ -378,7 +385,7 @@ impl WcharPtr {
             return &[];
         }
 
-        unsafe { std::slice::from_raw_parts(ptr as *const u8, self.len() * 2) }
+        unsafe { std::slice::from_raw_parts(ptr.cast(), self.len() * 2) }
     }
 
     pub unsafe fn as_slice(&self) -> &[U16] {
