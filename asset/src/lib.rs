@@ -1,6 +1,7 @@
 #![feature(read_le)]
 
 pub mod archive;
+pub mod content;
 pub mod inflate;
 pub mod packfile;
 pub mod texture;

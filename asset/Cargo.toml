@@ -7,11 +7,17 @@ license = "MIT"
 documentation = "https://docs.rs/ascalon-asset"
 repository = "https://github.com/valaphee/ascalon"
 
+[features]
+graphql = ["dep:async-graphql"]
+
 [dependencies]
 bitflags = "2"
 zerocopy = { version = "0.8", features = ["derive"] }
 
 rc4 = "0.2"
+sha2 = "0.11"
+
+async-graphql = { version = "7", optional = true }
 
 [build-dependencies]
 quote = "1"
