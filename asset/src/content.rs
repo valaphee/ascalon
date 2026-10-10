@@ -133,7 +133,9 @@ impl ContentServer {
 
     pub fn by_guid<T: ContentType>(&self, guid: Guid) -> Option<&T> {
         let ptr = *self.by_guid.get(&guid)?;
-        unsafe { (ptr as *const T).as_ref() }
+        unsafe {
+            (ptr.add(0x10).cast::<u32>().read() == T::ID).then(|| ptr.cast::<T>().as_ref().unwrap())
+        }
     }
 
     pub fn by_name<T: ContentType>(&self, name: &str) -> Option<&T> {
@@ -142,7 +144,9 @@ impl ContentServer {
         let ptr = *self
             .by_name
             .get(&(mangle_name(namespace) << 30 | mangle_name(name)))?;
-        unsafe { (ptr as *const T).as_ref() }
+        unsafe {
+            (ptr.add(0x10).cast::<u32>().read() == T::ID).then(|| ptr.cast::<T>().as_ref().unwrap())
+        }
     }
 
     pub fn by_data_id<T: ContentType>(&self, data_id: u32) -> Option<&T> {

@@ -1,0 +1,241 @@
+Gw2
+Gw2.Common
+Gw2.Common.Color
+Gw2.Common.Color.Dye
+Gw2.Common.Color.Dye Abyss
+Gw2.Common.Color.Dye Blue Rose
+Gw2.Common.Color.Dye Ceylon
+Gw2.Common.Color.Dye Clay
+Gw2.Common.Color.Dye Country Teal
+Gw2.Common.Color.Dye Envy
+Gw2.Common.Color.Dye Frost
+Gw2.Common.Color.Dye Hot Pink
+Gw2.Common.Color.Dye Lemonade
+Gw2.Common.Color.Dye Midnight Olive
+Gw2.Common.Color.Dye Peach Tint
+Gw2.Common.Color.Dye Set Accessories
+Gw2.Common.Color.Dye Set Guild Emblem
+Gw2.Common.Color.Dye Set Starter
+Gw2.Common.Color.Dye Set Sylvari HairMask2
+Gw2.Common.Color.Dye Shale
+Gw2.Common.Color.Dye Sky
+Gw2.Common.Color.Dye Truffle
+Gw2.Common.Configuration
+Gw2.Common.Configuration.All Call Enable
+Gw2.Common.Configuration.All Call Home Map
+Gw2.Common.Configuration.All Call Home Position
+Gw2.Common.Configuration.All Call Home Rotation
+Gw2.Common.Configuration.Allow Omega
+Gw2.Common.Configuration.Asura Home Map
+Gw2.Common.Configuration.Asura Home Position
+Gw2.Common.Configuration.Asura Home Rotation
+Gw2.Common.Configuration.Asura Intro Cinema
+Gw2.Common.Configuration.Bag Starter Default
+Gw2.Common.Configuration.Base Damage Multiplier
+Gw2.Common.Configuration.Bonus Experience Max Lifetime Seconds
+Gw2.Common.Configuration.Bonus Experience Min Lifetime Seconds
+Gw2.Common.Configuration.Bonus Experience Multiplier
+Gw2.Common.Configuration.Charr Home Map
+Gw2.Common.Configuration.Charr Home Position
+Gw2.Common.Configuration.Charr Home Rotation
+Gw2.Common.Configuration.Charr Intro Cinema
+Gw2.Common.Configuration.Config Level Mail Table
+Gw2.Common.Configuration.Crafting Critical Success Percentage
+Gw2.Common.Configuration.Demo Asura Home Map
+Gw2.Common.Configuration.Demo Asura Home Position
+Gw2.Common.Configuration.Demo Asura Home Rotation
+Gw2.Common.Configuration.Demo Charr Home Map
+Gw2.Common.Configuration.Demo Charr Home Position
+Gw2.Common.Configuration.Demo Charr Home Rotation
+Gw2.Common.Configuration.Demo Human Home Map
+Gw2.Common.Configuration.Demo Human Home Position
+Gw2.Common.Configuration.Demo Human Home Rotation
+Gw2.Common.Configuration.Demo Norn Home Map
+Gw2.Common.Configuration.Demo Norn Home Position
+Gw2.Common.Configuration.Demo Norn Home Rotation
+Gw2.Common.Configuration.Demo Sylvari Home Map
+Gw2.Common.Configuration.Demo Sylvari Home Position
+Gw2.Common.Configuration.Demo Sylvari Home Rotation
+Gw2.Common.Configuration.Endurance Fraction Of Base Gain Per Second
+Gw2.Common.Configuration.Endurance Fraction Of Base Gain Per Second Out Of Combat
+Gw2.Common.Configuration.Endurance Gain Per Second
+Gw2.Common.Configuration.Endurance Gain Per Second Out Of Combat
+Gw2.Common.Configuration.Experience Multiplier for Crafting Critical Success
+Gw2.Common.Configuration.Experience Multiplier for Crafting Recipe Discovery
+Gw2.Common.Configuration.Experience Percentage for Event
+Gw2.Common.Configuration.Experience Percentage for Gathering Foraging
+Gw2.Common.Configuration.Experience Percentage for Gathering Logging
+Gw2.Common.Configuration.Experience Percentage for Gathering Mining
+Gw2.Common.Configuration.Experience Percentage for Kill
+Gw2.Common.Configuration.Experience Percentage for Quest
+Gw2.Common.Configuration.Experience Percentage for Task
+Gw2.Common.Configuration.Homestead
+Gw2.Common.Configuration.Homestead.Homestead Default Magic Door Skin
+Gw2.Common.Configuration.Human Home Map
+Gw2.Common.Configuration.Human Home Position
+Gw2.Common.Configuration.Human Home Rotation
+Gw2.Common.Configuration.Human Intro Cinema
+Gw2.Common.Configuration.Megaphone Rate Limit Seconds
+Gw2.Common.Configuration.Melee Attack Offset Length
+Gw2.Common.Configuration.Minipet Battle Reserve Gadget
+Gw2.Common.Configuration.Norn Home Map
+Gw2.Common.Configuration.Norn Home Position
+Gw2.Common.Configuration.Norn Home Rotation
+Gw2.Common.Configuration.Norn Intro Cinema
+Gw2.Common.Configuration.Profession
+Gw2.Common.Configuration.Profession.Elemental Attunement Cooldown Time
+Gw2.Common.Configuration.Profession.Elemental Energy Max
+Gw2.Common.Configuration.Profession.Elemental Energy Regen Interval
+Gw2.Common.Configuration.Profession.Engineer Supply Max
+Gw2.Common.Configuration.Profession.Engineer Supply Per Kill
+Gw2.Common.Configuration.Profession.Guardian Resolve Max
+Gw2.Common.Configuration.Profession.Guardian Resolve Rate
+Gw2.Common.Configuration.Profession.Necro Death Shroud Health Multiplier
+Gw2.Common.Configuration.Profession.Necro Life Force Base Percent Per Death
+Gw2.Common.Configuration.Profession.Necro Soul Reaping Max Distance
+Gw2.Common.Configuration.Profession.Necro Souls Per Death
+Gw2.Common.Configuration.Profession.Thief Initiative Max
+Gw2.Common.Configuration.Profession.Thief Initiative Rate
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Per Hit
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Rate Degen
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Rate Degen Wait Time
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 0 Damage Multiplier
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 1
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 1 Damage Multiplier
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 2
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 2 Damage Multiplier
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 2 Required Level
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 3
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 3 Damage Multiplier
+Gw2.Common.Configuration.Profession.Warrior Adrenaline Stage 3 Required Level
+Gw2.Common.Configuration.PvP
+Gw2.Common.Configuration.PvP.Starting Level
+Gw2.Common.Configuration.Skill Abort Recharge Max
+Gw2.Common.Configuration.Skill Trap Trigger Delay
+Gw2.Common.Configuration.Speed Float
+Gw2.Common.Configuration.Speed Sink
+Gw2.Common.Configuration.Sylvari Home Map
+Gw2.Common.Configuration.Sylvari Home Position
+Gw2.Common.Configuration.Sylvari Home Rotation
+Gw2.Common.Configuration.Sylvari Intro Cinema
+Gw2.Common.Configuration.Waypoint Travel Cost Base Map
+Gw2.Common.Configuration.Waypoint Travel Cost Distance Discount
+Gw2.Common.Configuration.Waypoint Travel Cost Distance Multiplier
+Gw2.Common.Configuration.Waypoint Travel Cost Player Level Multiplier
+Gw2.Common.Configuration.Waypoint Travel Cost Player Level Start Level
+Gw2.Common.Configuration.Waypoint Travel Cost Revive Multiplier
+Gw2.Common.Configuration.Waypoint Travel Cost Revive Player Level Discount
+Gw2.Common.Configuration.WvW
+Gw2.Common.Configuration.WvW.World Rank Max Attainable
+Gw2.Common.Effect
+Gw2.Common.Effect.Common Player Mail Received
+Gw2.Common.Effect.Common Waypoint Unlock
+Gw2.Common.Emote
+Gw2.Common.Emote.Player
+Gw2.Common.Emote.Player.Point
+Gw2.Common.Expansion 3
+Gw2.Common.Expansion 3.Sectors
+Gw2.Common.Expansion 3.Sectors.Isles
+Gw2.Common.Expansion 3.Sectors.Isles.Jade Isles Temple
+Gw2.Common.Item
+Gw2.Common.Item.Test
+Gw2.Common.Item.Test.Omega Test Axe lvl 1337
+Gw2.Common.Item.Test.Omega Test Bow Long lvl 1337
+Gw2.Common.Item.Test.Omega Test Bow Short lvl 1337
+Gw2.Common.Item.Test.Omega Test Clothing Boots
+Gw2.Common.Item.Test.Omega Test Clothing Chest
+Gw2.Common.Item.Test.Omega Test Clothing Legs
+Gw2.Common.Item.Test.Omega Test Dagger lvl 1337
+Gw2.Common.Item.Test.Omega Test Focus lvl 1337
+Gw2.Common.Item.Test.Omega Test Greatsword lvl 1337
+Gw2.Common.Item.Test.Omega Test Hammer lvl 1337
+Gw2.Common.Item.Test.Omega Test Harpoon lvl 1337
+Gw2.Common.Item.Test.Omega Test Heavy Aquatic Helm lvl 1337
+Gw2.Common.Item.Test.Omega Test Heavy Boots lvl 1337
+Gw2.Common.Item.Test.Omega Test Heavy Coat lvl 1337
+Gw2.Common.Item.Test.Omega Test Heavy Gloves lvl 1337
+Gw2.Common.Item.Test.Omega Test Heavy Helm lvl 1337
+Gw2.Common.Item.Test.Omega Test Heavy Leggings lvl 1337
+Gw2.Common.Item.Test.Omega Test Heavy Shoulders lvl 1337
+Gw2.Common.Item.Test.Omega Test Light Aquatic Helm lvl 1337
+Gw2.Common.Item.Test.Omega Test Light Boots lvl 1337
+Gw2.Common.Item.Test.Omega Test Light Coat lvl 1337
+Gw2.Common.Item.Test.Omega Test Light Gloves lvl 1337
+Gw2.Common.Item.Test.Omega Test Light Helm lvl 1337
+Gw2.Common.Item.Test.Omega Test Light Leggings lvl 1337
+Gw2.Common.Item.Test.Omega Test Light Shoulders lvl 1337
+Gw2.Common.Item.Test.Omega Test Mace lvl 1337
+Gw2.Common.Item.Test.Omega Test Medium Aquatic Helm lvl 1337
+Gw2.Common.Item.Test.Omega Test Medium Boots lvl 1337
+Gw2.Common.Item.Test.Omega Test Medium Coat lvl 1337
+Gw2.Common.Item.Test.Omega Test Medium Gloves lvl 1337
+Gw2.Common.Item.Test.Omega Test Medium Helm lvl 1337
+Gw2.Common.Item.Test.Omega Test Medium Leggings lvl 1337
+Gw2.Common.Item.Test.Omega Test Medium Shoulders lvl 1337
+Gw2.Common.Item.Test.Omega Test Pistol lvl 1337
+Gw2.Common.Item.Test.Omega Test Rifle lvl 1337
+Gw2.Common.Item.Test.Omega Test Scepter lvl 1337
+Gw2.Common.Item.Test.Omega Test Shield lvl 1337
+Gw2.Common.Item.Test.Omega Test Speargun lvl 1337
+Gw2.Common.Item.Test.Omega Test Staff lvl 1337
+Gw2.Common.Item.Test.Omega Test Sword lvl 1337
+Gw2.Common.Item.Test.Omega Test Torch lvl 1337
+Gw2.Common.Item.Test.Omega Test Trident lvl 1337
+Gw2.Common.Item.Test.Omega Test Warhorn lvl 1337
+Gw2.Common.Item.Tool
+Gw2.Common.Item.Tool.Gathering
+Gw2.Common.Item.Tool.Gathering.Gathering 000 Harvesting Sickle
+Gw2.Common.Item.Tool.Gathering.Gathering 000 Logging Axe
+Gw2.Common.Item.Tool.Gathering.Gathering 000 Mining Pick
+Gw2.Common.Item.Tool.Salvage Kit
+Gw2.Common.Item.Tool.Salvage Kit.Tool Salvage Kit
+Gw2.Common.Mail.Default
+Gw2.Common.Mail.Default.Region Complete Default Mail
+Gw2.Common.Map
+Gw2.Common.Map.Desert
+Gw2.Common.Map.Desert.Desert Oasis
+Gw2.Common.Map.Jade
+Gw2.Common.Map.Jade.Jade Isles
+Gw2.Common.Map.Jungle
+Gw2.Common.Map.Jungle.Jungle Fleet
+Gw2.Common.Map.Valley Arch
+Gw2.Common.Map.Valley Divinity
+Gw2.Common.Marker
+Gw2.Common.Marker.Marker Chest
+Gw2.Common.Marker.Marker Instance Quest Bang
+Gw2.Common.Marker.Monster Called To Help
+Gw2.Common.Marker.Player Cinematic
+Gw2.Common.Marker.Player Controlling Turret
+Gw2.Common.Progress
+Gw2.Common.Progress.CODE REFERENCES
+Gw2.Common.Progress.CODE REFERENCES.CODE Progress HOM points 50
+Gw2.Common.Sector
+Gw2.Common.Sector.Desert Oasis West Amnoon City
+Gw2.Common.Sector.Jungle Fleet Hub None - Entrance to Sandcastle
+Gw2.Common.Sector.Sector Travel Hub
+Gw2.Common.Sector.Valley Divinity Center District
+Gw2.Common.Skill
+Gw2.Common.Skill.Buff
+Gw2.Common.Skill.Buff.Buff Endurance Sprint
+Gw2.Common.Skill.Buff.Buff No Recharge
+Gw2.Common.Skill.Common
+Gw2.Common.Skill.Common.Buff Self Encumbered
+Gw2.Common.Skill.Common.Common Blowout
+Gw2.Common.Skill.Common.Common Level Up
+Gw2.Common.Skill.Common.Common Teleport Home
+Gw2.Common.Skill.Mini Pet
+Gw2.Common.Skill.Mini Pet.Battle
+Gw2.Common.Skill.Mini Pet.Battle.Mini Buff Position Active
+Gw2.Common.Skill.Mini Pet.Battle.Mini Buff Position Hand
+Gw2.Common.Species
+Gw2.Common.Species.Player
+Gw2.Common.Team
+Gw2.Common.Team.Monster Generic Indifferent Player
+Gw2.Common.Team.Player
+Gw2.Common.Team.PvP Blue Team
+Gw2.Common.Team.PvP Red Team
+Gw2.Common.Team.Video Team 1
+Gw2.Common.Team.Video Team 2
+Gw2.Common.Team.Video Team 3
+Gw2.Common.Trait
+Gw2.Common.Trait.Dev All Gear

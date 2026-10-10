@@ -14,7 +14,7 @@ async fn main() {
     let archive = Archive::open("C:\\Program Files\\Guild Wars 2\\Gw2.dat").unwrap();
 
     let content = (1282830..=1282861)
-        .map(|id| Packfile::new(archive.read(id).unwrap()).unwrap())
+        .map(|file_id| Packfile::new(archive.read(file_id).unwrap()).unwrap())
         .collect::<Vec<_>>();
 
     let content = content
@@ -61,13 +61,13 @@ unsafe impl Sync for Query {}
 impl Query {
     fn query<T: ContentType>(
         &self,
-        guid: Option<Guid>,
-        name: Option<&str>,
+        content_guid: Option<Guid>,
+        content_name: Option<&str>,
         data_id: Option<u32>,
     ) -> Vec<&T> {
-        if let Some(guid) = guid {
+        if let Some(guid) = content_guid {
             self.0.by_guid::<T>(guid).into_iter().collect()
-        } else if let Some(name) = name {
+        } else if let Some(name) = content_name {
             self.0.by_name::<T>(name).into_iter().collect()
         } else if let Some(data_id) = data_id {
             self.0.by_data_id::<T>(data_id).into_iter().collect()
@@ -79,30 +79,30 @@ impl Query {
 
 macro_rules! content_queries {
     (
-        $($with_id:ident: $with_ty:ty,)*
+        $($field:ident: $ty:ty,)*
         ;
-        $($without_id:ident: $without_ty:ty,)*
+        $($field_none:ident: $ty_none:ty,)*
     ) => {
         #[async_graphql::Object]
         impl Query {
             $(
-                async fn $with_id(
+                async fn $field(
                     &self,
-                    guid: Option<Guid>,
-                    name: Option<String>,
+                    content_guid: Option<Guid>,
+                    content_name: Option<String>,
                     data_id: Option<u32>,
-                ) -> Vec<&$with_ty> {
-                    self.query::<$with_ty>(guid, name.as_deref(), data_id)
+                ) -> Vec<&$ty> {
+                    self.query(content_guid, content_name.as_deref(), data_id)
                 }
             )*
 
             $(
-                async fn $without_id(
+                async fn $field_none(
                     &self,
-                    guid: Option<Guid>,
-                    name: Option<String>,
-                ) -> Vec<&$without_ty> {
-                    self.query::<$without_ty>(guid, name.as_deref(), None)
+                    content_guid: Option<Guid>,
+                    content_name: Option<String>,
+                ) -> Vec<&$ty_none> {
+                    self.query(content_guid, content_name.as_deref(), None)
                 }
             )*
         }
@@ -110,26 +110,26 @@ macro_rules! content_queries {
 }
 
 content_queries! {
-    achievement: ascalon_asset::content::Achievement,
-    cinematic: ascalon_asset::content::Cinematic,
-    color: ascalon_asset::content::Color,
-    crafting_recipe: ascalon_asset::content::CraftingRecipe,
-    currency: ascalon_asset::content::Currency,
-    emote: ascalon_asset::content::Emote,
-    item: ascalon_asset::content::Item,
-    mail: ascalon_asset::content::Mail,
-    map: ascalon_asset::content::Map,
-    progress: ascalon_asset::content::Progress,
-    sector: ascalon_asset::content::Sector,
-    skill: ascalon_asset::content::Skill,
-    skin: ascalon_asset::content::Skin,
+    achievements: ascalon_asset::content::Achievement,
+    cinematics: ascalon_asset::content::Cinematic,
+    colors: ascalon_asset::content::Color,
+    crafting_recipes: ascalon_asset::content::CraftingRecipe,
+    currencies: ascalon_asset::content::Currency,
+    emotes: ascalon_asset::content::Emote,
+    items: ascalon_asset::content::Item,
+    mails: ascalon_asset::content::Mail,
+    maps: ascalon_asset::content::Map,
+    progresses: ascalon_asset::content::Progress,
+    sectors: ascalon_asset::content::Sector,
+    skills: ascalon_asset::content::Skill,
+    skins: ascalon_asset::content::Skin,
     species: ascalon_asset::content::Species,
-    r#trait: ascalon_asset::content::Trait,
+    traits: ascalon_asset::content::Trait,
     ;
-    color_palette: ascalon_asset::content::ColorPalette,
-    configuration: ascalon_asset::content::Configuration,
-    effect: ascalon_asset::content::Effect,
-    marker: ascalon_asset::content::Marker,
-    table_int: ascalon_asset::content::TableInt,
-    team: ascalon_asset::content::Team,
+    color_palettes: ascalon_asset::content::ColorPalette,
+    configurations: ascalon_asset::content::Configuration,
+    effects: ascalon_asset::content::Effect,
+    markers: ascalon_asset::content::Marker,
+    tables_int: ascalon_asset::content::TableInt,
+    teams: ascalon_asset::content::Team,
 }
