@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Effect {
     pub contentGuid:     Guid,
@@ -10,8 +14,7 @@ pub struct Effect {
     pub contentFullName: Ptr<Name>,
     pub _28:             u32,
     pub _2c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _30:             Ptr<()>,
+    _30:                 Ptr<()>,
     pub _38:             u32,
     pub _40:             u32,
     pub _44:             u32,

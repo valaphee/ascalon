@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Color {
     pub contentGuid:     Guid,
@@ -21,7 +25,11 @@ impl ContentType for Color {
     const ID: u32 = 9;
 }
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct ColorMaterial {
     pub brightness: f32,
@@ -33,7 +41,11 @@ pub struct ColorMaterial {
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-#[cfg_attr(feature = "graphql", derive(async_graphql::Enum))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::Enum),
+    graphql(rename_items = "none")
+)]
 #[repr(u32)]
 pub enum ColorMaterialType {
     Default = 0,
@@ -43,7 +55,11 @@ pub enum ColorMaterialType {
     Fur     = 4,
 }
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct ColorPalette {
     pub contentGuid:     Guid,
@@ -53,8 +69,7 @@ pub struct ColorPalette {
     pub contentFullName: Ptr<Name>,
     pub _28:             u32,
     pub _2c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _30:             Ptr<()>,
+    _30:                 Ptr<()>,
     pub _38:             u32,
     pub _3c:             u32,
 }

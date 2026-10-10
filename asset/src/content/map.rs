@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Mail, Name, Progress, Ptr, String, WcharPtr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Map {
     pub contentGuid:     Guid,
@@ -22,11 +26,9 @@ pub struct Map {
     _070:                u32,
     _074:                u32,
     pub _078:            WcharPtr,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _080:            Ptr<[()]>,
+    _080:                Ptr<[()]>,
     pub _090:            WcharPtr,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _098:            MapFlags,
+    _098:                MapFlags,
     pub _09c:            u32,
     _0a0:                u32,
     _0a4:                u32,
@@ -34,21 +36,16 @@ pub struct Map {
     pub levelMax:        u32,
     pub _0b0:            String,
     pub _0c0:            Ptr<Mail>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _0c8:            Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _0d0:            Ptr<()>,
+    _0c8:                Ptr<()>,
+    _0d0:                Ptr<()>,
     pub _0d8:            String,
     _0e8:                u32,
     _0ec:                u32,
     _0f0:                u32,
     _0f4:                u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _0f8:            Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub pvp:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _108:            Ptr<()>,
+    _0f8:                Ptr<()>,
+    pvp:                 Ptr<()>,
+    _108:                Ptr<()>,
     pub _110:            String,
     _120:                u32,
     _124:                u32,
@@ -72,35 +69,27 @@ pub struct Map {
     pub textDescription: u32,
     pub _170:            u32,
     _174:                u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _178:            Ptr<[()]>,
+    _178:                Ptr<[()]>,
     pub _188:            u32,
     _18c:                u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _190:            Ptr<[()]>,
+    _190:                Ptr<[()]>,
     pub _1a0:            [u8; 16],
     _1b0:                u32,
     _1b4:                u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _1b8:            Ptr<[()]>,
+    _1b8:                Ptr<[()]>,
     _1c8:                u32,
     _1cc:                u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _1d0:            Ptr<()>,
+    _1d0:                Ptr<()>,
     pub _1d8:            Ptr<Progress>,
     _1e0:                u32,
     _1e4:                u32,
     _1e8:                u32,
     _1ec:                u32,
     pub _1f0:            Ptr<Progress>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _1f8:            Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _200:            Ptr<[()]>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _210:            Ptr<[()]>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _220:            Ptr<()>,
+    _1f8:                Ptr<()>,
+    _200:                Ptr<[()]>,
+    _210:                Ptr<[()]>,
+    _220:                Ptr<()>,
 }
 
 impl ContentType for Map {
@@ -108,7 +97,11 @@ impl ContentType for Map {
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-#[cfg_attr(feature = "graphql", derive(async_graphql::Enum))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::Enum),
+    graphql(rename_items = "none")
+)]
 #[repr(u32)]
 pub enum MapType {
     _0             = 0,

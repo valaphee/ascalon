@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Progress, Ptr, WcharPtr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Currency {
     pub contentGuid:     Guid,
@@ -21,12 +25,9 @@ pub struct Currency {
     pub order:           u32,
     _58:                 u32,
     _5c:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _60:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _68:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _70:             Ptr<()>,
+    _60:                 Ptr<()>,
+    _68:                 Ptr<()>,
+    _70:                 Ptr<()>,
     pub _78:             Ptr<Progress>,
 }
 

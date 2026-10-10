@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr, WcharPtr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Cinematic {
     pub contentGuid:     Guid,
@@ -13,14 +17,11 @@ pub struct Cinematic {
     pub _30:             WcharPtr,
     pub _38:             u32,
     pub _3c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _40:             Ptr<()>,
+    _40:                 Ptr<()>,
     pub _48:             u32,
     pub _4c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _50:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _58:             Ptr<()>,
+    _50:                 Ptr<()>,
+    _58:                 Ptr<()>,
     pub _60:             u32,
     pub _64:             u32,
     pub _68:             u32,

@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr, WcharPtr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Skin {
     pub contentGuid:     Guid,
@@ -11,8 +15,7 @@ pub struct Skin {
     pub dataId:          u32,
     _2c:                 u32,
     pub _30:             WcharPtr,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _38:             Ptr<[()]>,
+    _38:                 Ptr<[()]>,
     pub _48:             WcharPtr,
     pub _50:             u32,
     pub _54:             u32,
@@ -23,20 +26,17 @@ pub struct Skin {
     pub textDescription: u32,
     pub _70:             u32,
     _74:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _78:             Ptr<()>,
+    _78:                 Ptr<()>,
     pub _80:             u32,
     _84:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _88:             Ptr<()>,
+    _88:                 Ptr<()>,
     pub _90:             u32,
     _94:                 u32,
     pub _98:             u32,
     _9c:                 u32,
     pub _a0:             u32,
     _a4:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _a8:             Ptr<[()]>,
+    _a8:                 Ptr<[()]>,
     pub _b8:             u32,
     _bc:                 u32,
     _c0:                 u32,

@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct TableInt {
     pub contentGuid:     Guid,
@@ -15,10 +19,13 @@ impl ContentType for TableInt {
     const ID: u32 = 394;
 }
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct TableIntEntry {
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    value: Ptr<()>,
-    key:   u32,
+    value:   Ptr<()>,
+    pub key: u32,
 }

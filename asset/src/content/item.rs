@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Progress, Ptr, WcharPtr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Item {
     pub contentGuid:     Guid,
@@ -10,10 +14,10 @@ pub struct Item {
     pub contentFullName: Ptr<Name>,
     pub dataId:          u32,
     pub r#type:          ItemType,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _30:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub flags:           ItemFlags,
+
+    _30: Ptr<()>,
+
+    flags:               ItemFlags,
     _3c:                 u32,
     pub fileIcon:        WcharPtr,
     pub _48:             u32,
@@ -22,8 +26,7 @@ pub struct Item {
     pub _58:             Ptr<Progress>,
     pub rarity:          ItemRarity,
     _64:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _68:             Ptr<()>,
+    _68:                 Ptr<()>,
     pub _70:             u32,
     pub level:           u32,
     _78:                 u32,
@@ -32,8 +35,7 @@ pub struct Item {
     pub textDescription: u32,
     pub _88:             u32,
     _8c:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _90:             Ptr<[()]>,
+    _90:                 Ptr<[()]>,
     pub _a0:             u32,
     _a4:                 u32,
     _a8:                 u32,
@@ -45,7 +47,11 @@ impl ContentType for Item {
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-#[cfg_attr(feature = "graphql", derive(async_graphql::Enum))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::Enum),
+    graphql(rename_items = "none")
+)]
 #[repr(u32)]
 pub enum ItemType {
     Armor            = 0,
@@ -79,7 +85,11 @@ bitflags::bitflags! {
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-#[cfg_attr(feature = "graphql", derive(async_graphql::Enum))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::Enum),
+    graphql(rename_items = "none")
+)]
 #[repr(u32)]
 pub enum ItemRarity {
     Junk       = 0,

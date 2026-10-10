@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Map, Name, Ptr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Sector {
     pub contentGuid:     Guid,
@@ -15,8 +19,7 @@ pub struct Sector {
     pub _38:             Ptr<Map>,
     pub _40:             u32,
     pub _44:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _48:             Ptr<()>,
+    _48:                 Ptr<()>,
     pub _50:             u32,
     pub _54:             u32,
 }

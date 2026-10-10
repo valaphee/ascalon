@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Configuration {
     pub contentGuid:     Guid,

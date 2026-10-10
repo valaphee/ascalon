@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Progress {
     pub contentGuid:     Guid,
@@ -12,14 +16,12 @@ pub struct Progress {
     pub r#type:          ProgressType,
     pub _30:             u32,
     _34:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _38:             Ptr<()>,
+    _38:                 Ptr<()>,
     pub _40:             u32,
     pub _44:             u32,
     _48:                 u32,
     _4c:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _50:             Ptr<()>,
+    _50:                 Ptr<()>,
     pub _58:             u32,
     _5c:                 u32,
     pub _60:             u32,
@@ -33,7 +35,11 @@ impl ContentType for Progress {
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-#[cfg_attr(feature = "graphql", derive(async_graphql::Enum))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::Enum),
+    graphql(rename_items = "none")
+)]
 #[repr(u32)]
 pub enum ProgressType {
     Bit     = 0,

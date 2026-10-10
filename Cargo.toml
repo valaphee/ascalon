@@ -1,3 +1,7 @@
 [workspace]
-members = ["asset", "packfile-schema", "network", "protocol", "protocol-schema"]
+members = ["asset", "packfile-schema", "network", "protocol", "protocol-schema", "research/proxy"]
 resolver = "3"
+
+[patch.crates-io]
+async-graphql = { git = "https://github.com/valaphee/async-graphql.git", rev = "f18f77ce5d33b684cd97dfe28e85b3cf6cadd25b" }
+async-graphql-derive = { git = "https://github.com/valaphee/async-graphql.git", rev = "f18f77ce5d33b684cd97dfe28e85b3cf6cadd25b" }

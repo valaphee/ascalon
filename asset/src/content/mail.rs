@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr, String};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Mail {
     pub contentGuid:     Guid,
@@ -14,10 +18,8 @@ pub struct Mail {
     pub _34:             u32,
     pub _38:             u32,
     pub _3c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _40:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _48:             Ptr<()>,
+    _40:                 Ptr<()>,
+    _48:                 Ptr<()>,
     pub _50:             Guid,
     _60:                 u32,
     _64:                 u32,

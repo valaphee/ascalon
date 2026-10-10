@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Progress, Ptr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Emote {
     pub contentGuid:     Guid,
@@ -14,8 +18,7 @@ pub struct Emote {
     pub _34:             u32,
     pub _38:             u32,
     pub _3c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _40:             Ptr<()>,
+    _40:                 Ptr<()>,
     pub _48:             u32,
     pub _4c:             u32,
     pub _50:             u32,

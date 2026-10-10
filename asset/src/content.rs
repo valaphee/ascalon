@@ -126,12 +126,9 @@ impl ContentServer {
         this
     }
 
-    pub fn by_type<'a, T: ContentType + 'a>(&'a self) -> impl Iterator<Item = &'a T> {
-        self.by_type
-            .get(&T::ID)
-            .into_iter()
-            .flatten()
-            .map(|&ptr| unsafe { (ptr as *const T).as_ref() }.unwrap())
+    pub fn by_type<T: ContentType>(&self) -> &[&T] {
+        let ptrs = self.by_type.get(&T::ID).map_or(&[][..], Vec::as_slice);
+        unsafe { std::slice::from_raw_parts(ptrs.as_ptr().cast::<&T>(), ptrs.len()) }
     }
 
     pub fn by_guid<T: ContentType>(&self, guid: Guid) -> Option<&T> {
@@ -198,7 +195,7 @@ impl async_graphql::ScalarType for Guid {
             .map_err(async_graphql::InputValueError::custom)?
             .to_be_bytes();
 
-        Ok(Self::new(
+        Ok(Self(
             u32::from_be_bytes(bytes[0..4].try_into().unwrap()),
             u16::from_be_bytes(bytes[4..6].try_into().unwrap()),
             u16::from_be_bytes(bytes[6..8].try_into().unwrap()),
@@ -227,6 +224,9 @@ impl async_graphql::ScalarType for Guid {
 #[repr(transparent)]
 pub struct Ptr<T: ?Sized>(*const T);
 
+unsafe impl<T: ?Sized> Send for Ptr<T> {}
+unsafe impl<T: ?Sized> Sync for Ptr<T> {}
+
 impl<T: ?Sized> Ptr<T> {
     pub fn as_ptr(&self) -> *const T {
         self.0
@@ -240,7 +240,7 @@ impl<T: ?Sized> Ptr<T> {
 #[cfg(feature = "graphql")]
 #[async_graphql::async_trait::async_trait]
 impl<T: async_graphql::OutputType> async_graphql::OutputType for Ptr<T> {
-    fn type_name() -> Cow<'static, str> {
+    fn type_name() -> std::borrow::Cow<'static, str> {
         T::type_name()
     }
 
@@ -269,7 +269,7 @@ impl<T: async_graphql::OutputType> async_graphql::OutputType for Ptr<T> {
 
 #[cfg(feature = "graphql")]
 impl<T: async_graphql::OutputType> async_graphql::OutputType for Ptr<[T]> {
-    fn type_name() -> Cow<'static, str> {
+    fn type_name() -> std::borrow::Cow<'static, str> {
         <&[T] as async_graphql::OutputType>::type_name()
     }
 
@@ -296,6 +296,9 @@ impl<T: async_graphql::OutputType> async_graphql::OutputType for Ptr<[T]> {
 
 #[repr(transparent)]
 pub struct WcharPtr(*const u16);
+
+unsafe impl Send for WcharPtr {}
+unsafe impl Sync for WcharPtr {}
 
 impl WcharPtr {
     pub fn as_ptr(&self) -> *const u16 {
@@ -353,7 +356,7 @@ impl WcharPtr {
 
 #[cfg(feature = "graphql")]
 impl async_graphql::OutputType for WcharPtr {
-    fn type_name() -> Cow<'static, str> {
+    fn type_name() -> std::borrow::Cow<'static, str> {
         std::string::String::type_name()
     }
 
@@ -386,7 +389,7 @@ pub struct String(WcharPtr, u32);
 
 #[cfg(feature = "graphql")]
 impl async_graphql::OutputType for String {
-    fn type_name() -> Cow<'static, str> {
+    fn type_name() -> std::borrow::Cow<'static, str> {
         std::string::String::type_name()
     }
 
@@ -413,7 +416,7 @@ pub struct Name(String, String);
 
 #[cfg(feature = "graphql")]
 impl async_graphql::OutputType for Name {
-    fn type_name() -> Cow<'static, str> {
+    fn type_name() -> std::borrow::Cow<'static, str> {
         std::string::String::type_name()
     }
 

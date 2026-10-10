@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Name, Ptr, WcharPtr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Skill {
     pub contentGuid:     Guid,
@@ -12,28 +16,21 @@ pub struct Skill {
     pub _2c:             u32,
     pub _30:             u32,
     pub textName:        u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub flags:           SkillFlags,
+    flags:               SkillFlags,
     _3c:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _40:             Ptr<[()]>,
+    _40:                 Ptr<[()]>,
     pub fileIcon:        WcharPtr,
     pub _58:             u32,
     pub _5c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _60:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _68:             Ptr<[()]>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _78:             Ptr<()>,
+    _60:                 Ptr<()>,
+    _68:                 Ptr<[()]>,
+    _78:                 Ptr<()>,
     _80:                 u32,
     _84:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _88:             Ptr<[()]>,
+    _88:                 Ptr<[()]>,
     pub _98:             u32,
     _9c:                 u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _a0:             Ptr<[()]>,
+    _a0:                 Ptr<[()]>,
     pub _b0:             Ptr<Skill>,
 }
 

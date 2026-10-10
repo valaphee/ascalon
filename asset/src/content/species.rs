@@ -1,6 +1,10 @@
 use super::{ContentType, Guid, Item, Name, Ptr, Skill, WcharPtr};
 
-#[cfg_attr(feature = "graphql", derive(async_graphql::SimpleObject))]
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
 #[repr(C)]
 pub struct Species {
     pub contentGuid:     Guid,
@@ -10,15 +14,12 @@ pub struct Species {
     pub contentFullName: Ptr<Name>,
     pub dataId:          u32,
     pub _2c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _30:             Ptr<()>,
+    _30:                 Ptr<()>,
     pub _38:             u32,
     pub _40:             u32,
     pub _44:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _48:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _50:             Ptr<()>,
+    _48:                 Ptr<()>,
+    _50:                 Ptr<()>,
     pub _58:             u32,
     pub _5c:             u32,
     pub _60:             u32,
@@ -28,26 +29,21 @@ pub struct Species {
     pub _70:             u32,
     pub _74:             u32,
     pub _78:             Ptr<Skill>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _80:             Ptr<()>,
+    _80:                 Ptr<()>,
     pub _88:             u32,
     pub _8c:             u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _90:             Ptr<()>,
+    _90:                 Ptr<()>,
     pub _98:             u32,
     pub _9c:             u32,
     pub _a0:             u32,
     pub _a4:             u32,
     pub _a8:             Ptr<Skill>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _b0:             Ptr<()>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _b8:             Ptr<()>,
+    _b0:                 Ptr<()>,
+    _b8:                 Ptr<()>,
     pub _c0:             Ptr<Item>,
     pub _c8:             Ptr<Item>,
     pub _d0:             Ptr<Item>,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _d8:             Ptr<()>,
+    _d8:                 Ptr<()>,
     pub _e0:             WcharPtr,
     pub _e8:             u32,
     pub _ec:             u32,
@@ -85,23 +81,19 @@ pub struct Species {
     pub _174:            u32,
     pub _178:            u32,
     pub _17c:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _180:            Ptr<()>,
+    _180:                Ptr<()>,
     pub _188:            u32,
     pub _18c:            u32,
     pub _190:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _198:            Ptr<()>,
+    _198:                Ptr<()>,
     pub _1a0:            u32,
     pub _1a4:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _1a8:            Ptr<()>,
+    _1a8:                Ptr<()>,
     pub _1b0:            u32,
     pub _1b4:            u32,
     pub _1b8:            u32,
     pub _1bc:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _1c0:            Ptr<()>,
+    _1c0:                Ptr<()>,
     pub _1c8:            u32,
     pub _1cc:            u32,
     pub _1d0:            u32,
@@ -111,22 +103,18 @@ pub struct Species {
     pub _1e0:            WcharPtr,
     pub _1e8:            u32,
     pub _1ec:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _1f0:            Ptr<()>,
+    _1f0:                Ptr<()>,
     pub _1f8:            u32,
     pub _1fc:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _200:            Ptr<()>,
+    _200:                Ptr<()>,
     pub _208:            u32,
     pub _20c:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _210:            Ptr<()>,
+    _210:                Ptr<()>,
     pub _218:            u32,
     pub _21c:            u32,
     pub _220:            u32,
     pub _224:            u32,
-    #[cfg_attr(feature = "graphql", graphql(skip))]
-    pub _228:            Ptr<()>,
+    _228:                Ptr<()>,
     pub _230:            u32,
     pub _234:            u32,
     pub _238:            u32,
