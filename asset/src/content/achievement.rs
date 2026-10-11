@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Item, Name, Progress, Ptr, WcharPtr};
+use super::{ContentType, FileRef, Guid, Item, Name, Progress, Ptr};
 
 #[cfg_attr(
     feature = "graphql",
@@ -16,7 +16,7 @@ pub struct Achievement {
     pub contentFullName: Ptr<Name>,
     pub dataId:          u32,
     _2c:                 u32,
-    pub fileIcon:        WcharPtr,
+    pub fileIcon:        FileRef,
     pub _38:             u32,
     pub _3c:             u32,
     pub prerequisite:    Ptr<Achievement>,

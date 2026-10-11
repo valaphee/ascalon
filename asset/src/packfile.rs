@@ -17,6 +17,7 @@ pub type Float = F32;
 pub type Float2 = [F32; 2];
 pub type Float3 = [F32; 3];
 pub type Float4 = [F32; 4];
+pub type FileName = FileRef;
 
 pub struct Packfile(Vec<u8>);
 
@@ -404,9 +405,12 @@ impl std::fmt::Debug for WcharPtr {
     }
 }
 
-impl WcharPtr {
+#[repr(transparent)]
+pub struct FileRef(pub WcharPtr);
+
+impl FileRef {
     pub unsafe fn file_id(&self) -> Option<u32> {
-        let [a, b, ..] = (unsafe { self.as_slice() }) else {
+        let [a, b, ..] = (unsafe { self.0.as_slice() }) else {
             return None;
         };
 
@@ -416,6 +420,12 @@ impl WcharPtr {
         }
 
         Some((u32::from(a) - 0xFF) + (u32::from(b) - 0x100) * 0xFF00)
+    }
+}
+
+impl std::fmt::Debug for FileRef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        unsafe { self.file_id() }.unwrap().fmt(f)
     }
 }
 

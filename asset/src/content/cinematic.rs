@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Name, Ptr, WcharPtr};
+use super::{ContentType, FileRef, Guid, Name, Ptr};
 
 #[cfg_attr(
     feature = "graphql",
@@ -16,7 +16,7 @@ pub struct Cinematic {
     pub contentFullName: Ptr<Name>,
     pub dataId:          u32,
     _2c:                 u32,
-    pub _30:             WcharPtr,
+    pub _30:             FileRef,
     pub _38:             u32,
     _3c:                 u32,
     pub _40:             Ptr<u32>,

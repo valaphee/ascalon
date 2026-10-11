@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Name, Ptr, WcharPtr};
+use super::{ContentType, FileRef, Guid, Name, Ptr};
 
 #[cfg_attr(
     feature = "graphql",
@@ -20,7 +20,7 @@ pub struct GuildUpgrade {
     pub _34:             u32,
     pub _38:             u32,
     _3c:                 u32,
-    pub _40:             WcharPtr,
+    pub _40:             FileRef,
     pub _48:             u32,
     _4c:                 u32,
     pub _50:             Ptr<u32>,

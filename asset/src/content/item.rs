@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Name, Progress, Ptr, WcharPtr};
+use super::{ContentType, FileRef, Guid, Name, Progress, Ptr};
 
 #[cfg_attr(
     feature = "graphql",
@@ -19,9 +19,9 @@ pub struct Item {
     pub _30:             Ptr<u32>,
     flags:               ItemFlags,
     _3c:                 u32,
-    pub fileIcon:        WcharPtr,
+    pub fileIcon:        FileRef,
     pub _48:             u32,
-    pub _level:          u32,
+    pub _4c:             u32,
     pub _50:             Ptr<Progress>,
     pub _58:             Ptr<Progress>,
     pub rarity:          ItemRarity,

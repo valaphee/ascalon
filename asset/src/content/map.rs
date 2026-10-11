@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Mail, Name, Progress, Ptr, String, WcharPtr};
+use super::{ContentType, FileRef, Guid, Mail, Name, Progress, Ptr, String};
 
 #[cfg_attr(
     feature = "graphql",
@@ -18,18 +18,18 @@ pub struct Map {
     pub r#type:          MapType,
     pub _030:            u32,
     _034:                u32,
-    pub _038:            WcharPtr,
-    pub _040:            WcharPtr,
-    pub _048:            WcharPtr,
-    pub _050:            WcharPtr,
-    pub _058:            WcharPtr,
-    pub _060:            WcharPtr,
-    pub fileMap:         WcharPtr,
+    pub _038:            FileRef,
+    pub _040:            FileRef,
+    pub _048:            FileRef,
+    pub _050:            FileRef,
+    pub _058:            FileRef,
+    pub _060:            FileRef,
+    pub fileMap:         FileRef,
     _070:                u32,
     _074:                u32,
-    pub _078:            WcharPtr,
+    pub _078:            FileRef,
     pub _080:            Ptr<[u32]>,
-    pub _090:            WcharPtr,
+    pub _090:            FileRef,
     _098:                MapFlags,
     pub _09c:            u32,
     _0a0:                u32,

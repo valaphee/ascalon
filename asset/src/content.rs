@@ -56,7 +56,7 @@ impl ContentServer {
                         .cast::<usize>();
                     let file_index = usize::from_le(value.read_unaligned());
                     value.write_unaligned(
-                        content[0].fileRefs.as_slice()[file_index].as_ptr() as usize
+                        content[0].fileRefs.as_slice()[file_index].0.as_ptr() as usize
                     );
                 }
 
@@ -339,21 +339,6 @@ impl WcharPtr {
     }
 }
 
-impl WcharPtr {
-    pub unsafe fn file_id(&self) -> Option<u32> {
-        let [a, b, ..] = (unsafe { self.as_slice() }) else {
-            return None;
-        };
-
-        let (a, b) = (*a, *b);
-        if a <= 0xFF || b <= 0xFF {
-            return None;
-        }
-
-        Some((u32::from(a) - 0xFF) + (u32::from(b) - 0x100) * 0xFF00)
-    }
-}
-
 #[cfg(feature = "graphql")]
 impl async_graphql::OutputType for WcharPtr {
     fn type_name() -> std::borrow::Cow<'static, str> {
@@ -408,6 +393,51 @@ impl async_graphql::OutputType for String {
         field: &async_graphql::Positioned<async_graphql::parser::types::Field>,
     ) -> impl Future<Output = async_graphql::ServerResult<async_graphql::Value>> + Send {
         self.0.resolve(ctx, field)
+    }
+}
+
+#[repr(transparent)]
+pub struct FileRef(pub WcharPtr);
+
+unsafe impl Send for FileRef {}
+unsafe impl Sync for FileRef {}
+
+impl FileRef {
+    pub unsafe fn file_id(&self) -> Option<u32> {
+        let [a, b, ..] = (unsafe { self.0.as_slice() }) else {
+            return None;
+        };
+
+        let (a, b) = (*a, *b);
+        if a <= 0xFF || b <= 0xFF {
+            return None;
+        }
+
+        Some((u32::from(a) - 0xFF) + (u32::from(b) - 0x100) * 0xFF00)
+    }
+}
+
+#[cfg(feature = "graphql")]
+impl async_graphql::OutputType for FileRef {
+    fn type_name() -> std::borrow::Cow<'static, str> {
+        std::string::String::type_name()
+    }
+
+    fn qualified_type_name() -> std::string::String {
+        Self::type_name().into_owned()
+    }
+
+    fn create_type_info(registry: &mut async_graphql::registry::Registry) -> std::string::String {
+        std::string::String::create_type_info(registry);
+        Self::qualified_type_name()
+    }
+
+    fn resolve(
+        &self,
+        ctx: &async_graphql::ContextSelectionSet<'_>,
+        field: &async_graphql::Positioned<async_graphql::parser::types::Field>,
+    ) -> impl Future<Output = async_graphql::ServerResult<async_graphql::Value>> + Send {
+        async move { unsafe { self.file_id() }.resolve(ctx, field).await }
     }
 }
 

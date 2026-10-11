@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Effect, Guid, Name, Ptr, Team, WcharPtr};
+use super::{ContentType, Effect, FileRef, Guid, Name, Ptr, Team};
 
 #[cfg_attr(
     feature = "graphql",
@@ -22,18 +22,18 @@ pub struct Marker {
     pub _40:             f32,
     pub _44:             f32,
     pub _48:             Ptr<Effect>,
-    pub _50:             WcharPtr,
-    pub _58:             WcharPtr,
+    pub _50:             FileRef,
+    pub _58:             FileRef,
     pub _60:             u32,
     pub _64:             u32,
     pub _68:             Ptr<Team>,
     pub _70:             u32,
     pub _74:             u32,
-    pub _78:             WcharPtr,
-    pub _80:             WcharPtr,
+    pub _78:             FileRef,
+    pub _80:             FileRef,
     pub _88:             f32,
     _8c:                 u32,
-    pub _90:             WcharPtr,
+    pub _90:             FileRef,
     pub _98:             u32,
     _9c:                 u32,
 }

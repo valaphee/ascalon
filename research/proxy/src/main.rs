@@ -18,14 +18,12 @@ async fn main() {
     let client = reqwest::Client::new();
 
     let manifest: HashMap<u32, (u32, u32)> = {
-        let latest = reqwest::get(
-            "http://assetcdn.101.arenanetworks.com/latest64/101"
-        )
-        .await
-        .unwrap()
-        .text()
-        .await
-        .unwrap();
+        let latest = reqwest::get("http://assetcdn.101.arenanetworks.com/latest64/101")
+            .await
+            .unwrap()
+            .text()
+            .await
+            .unwrap();
         let mut latest = latest.split_whitespace();
 
         let packfile = Packfile::new(

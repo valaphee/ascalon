@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Name, Ptr, WcharPtr};
+use super::{ContentType, FileRef, Guid, Name, Ptr};
 
 #[cfg_attr(
     feature = "graphql",
@@ -22,7 +22,7 @@ pub struct Trait {
     pub _40:             Ptr<u32>,
     pub _48:             u32,
     pub _4c:             u32,
-    pub _50:             WcharPtr,
+    pub _50:             FileRef,
     pub _58:             u32,
     pub _5c:             u32,
     pub _60:             u32,

@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Item, Name, Ptr, Skill, WcharPtr};
+use super::{ContentType, FileRef, Guid, Item, Name, Ptr, Skill};
 
 #[cfg_attr(
     feature = "graphql",
@@ -46,11 +46,11 @@ pub struct Species {
     pub _c8:             Ptr<Item>,
     pub _d0:             Ptr<Item>,
     pub _d8:             Ptr<u32>,
-    pub _e0:             WcharPtr,
+    pub _e0:             FileRef,
     pub _e8:             u32,
     _ec:                 u32,
-    pub _f0:             WcharPtr,
-    pub _f8:             WcharPtr,
+    pub _f0:             FileRef,
+    pub _f8:             FileRef,
     pub _100:            u32,
     pub _104:            u32,
     pub _108:            f32,
@@ -102,7 +102,7 @@ pub struct Species {
     pub _1d4:            f32,
     pub _1d8:            u32,
     _1dc:                u32,
-    pub _1e0:            WcharPtr,
+    pub _1e0:            FileRef,
     pub _1e8:            f32,
     _1ec:                u32,
     pub _1f0:            Ptr<u32>,

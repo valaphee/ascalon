@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Name, Progress, Ptr, WcharPtr};
+use super::{ContentType, FileRef, Guid, Name, Progress, Ptr};
 
 #[cfg_attr(
     feature = "graphql",
@@ -22,7 +22,7 @@ pub struct Currency {
     pub _3c:             u32,
     pub textName:        u32,
     pub textDescription: u32,
-    pub fileIcon:        WcharPtr,
+    pub fileIcon:        FileRef,
     pub _50:             u32,
     pub order:           u32,
     _58:                 u32,

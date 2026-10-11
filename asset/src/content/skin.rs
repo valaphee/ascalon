@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::{ContentType, Guid, Name, Ptr, WcharPtr};
+use super::{ContentType, FileRef, Guid, Name, Ptr};
 
 #[cfg_attr(
     feature = "graphql",
@@ -16,12 +16,12 @@ pub struct Skin {
     pub contentFullName: Ptr<Name>,
     pub dataId:          u32,
     _2c:                 u32,
-    pub _30:             WcharPtr,
+    pub _30:             FileRef,
     pub _38:             Ptr<[u32]>,
-    pub _48:             WcharPtr,
+    pub _48:             FileRef,
     pub _50:             u32,
     pub _54:             u32,
-    pub fileIcon:        WcharPtr,
+    pub fileIcon:        FileRef,
     _60:                 u32,
     _64:                 u32,
     pub textName:        u32,
@@ -67,8 +67,8 @@ pub struct MagicDoorSkin {
     pub _2c:             u32,
     pub _30:             u32,
     _34:                 u32,
-    pub _38:             WcharPtr,
-    pub _40:             WcharPtr,
+    pub _38:             FileRef,
+    pub _40:             FileRef,
     pub _48:             u32,
     pub _4c:             u32,
     pub _50:             Ptr<u32>,
@@ -84,7 +84,7 @@ pub struct MagicDoorSkin {
     _8c:                 u32,
     pub _90:             u32,
     _94:                 u32,
-    pub _98:             WcharPtr,
+    pub _98:             FileRef,
 }
 
 impl ContentType for MagicDoorSkin {
