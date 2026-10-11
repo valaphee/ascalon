@@ -14,7 +14,7 @@ pub struct Effect {
     pub contentFullName: Ptr<Name>,
     pub _28:             u32,
     _2c:                 u32,
-    _30:                 Ptr<()>,
+    pub _30:             Ptr<u32>,
     pub _38:             u32,
     pub _40:             u32,
     pub _44:             f32,

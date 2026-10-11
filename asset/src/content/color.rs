@@ -69,7 +69,7 @@ pub struct ColorPalette {
     pub contentFullName: Ptr<Name>,
     pub _28:             u32,
     pub _2c:             u32,
-    _30:                 Ptr<()>,
+    pub _30:             Ptr<u32>,
     pub _38:             u32,
     pub _3c:             u32,
 }

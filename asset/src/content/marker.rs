@@ -14,7 +14,7 @@ pub struct Marker {
     pub contentFullName: Ptr<Name>,
     pub _28:             u32,
     pub _2c:             f32,
-    _30:                 Ptr<()>,
+    pub _30:             Ptr<u32>,
     pub _38:             u32,
     _3c:                 u32,
     pub _40:             f32,

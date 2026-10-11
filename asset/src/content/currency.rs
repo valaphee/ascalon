@@ -25,9 +25,9 @@ pub struct Currency {
     pub order:           u32,
     _58:                 u32,
     _5c:                 u32,
-    _60:                 Ptr<()>,
-    _68:                 Ptr<()>,
-    _70:                 Ptr<()>,
+    pub _60:             Ptr<u32>,
+    pub _68:             Ptr<u32>,
+    pub _70:             Ptr<u32>,
     pub _78:             Ptr<Progress>,
 }
 

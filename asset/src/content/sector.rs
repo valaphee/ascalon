@@ -19,7 +19,7 @@ pub struct Sector {
     pub _38:             Ptr<Map>,
     pub _40:             u32,
     _44:                 u32,
-    _48:                 Ptr<()>,
+    pub _48:             Ptr<u32>,
     pub _50:             u32,
     _54:                 u32,
 }

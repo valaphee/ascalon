@@ -18,7 +18,7 @@ pub struct Emote {
     pub _34:             u32,
     pub _38:             u32,
     pub _3c:             u32,
-    _40:                 Ptr<()>,
+    pub _40:             Ptr<u32>,
     pub _48:             u32,
     _4c:                 u32,
     pub _50:             u32,

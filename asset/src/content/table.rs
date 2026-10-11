@@ -26,6 +26,6 @@ impl ContentType for TableInt {
 )]
 #[repr(C)]
 pub struct TableIntEntry {
-    value:   Ptr<()>,
-    pub key: u32,
+    pub value: Ptr<u32>,
+    pub key:   u32,
 }

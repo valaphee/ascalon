@@ -14,7 +14,7 @@ pub struct Team {
     pub contentFullName: Ptr<Name>,
     pub textName:        u32,
     _2c:                 u32,
-    _30:                 Ptr<()>,
+    pub _30:             Ptr<u32>,
     pub _38:             Ptr<Color>,
     pub _40:             Ptr<Color>,
     pub _48:             Ptr<Color>,
