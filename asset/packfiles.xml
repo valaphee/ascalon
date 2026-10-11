@@ -50121,6 +50121,162 @@
       </Version>
     </Chunk>
   </Packfile>
+  <Packfile Name="MFST">
+    <Chunk Name="MFST">
+      <Version Id="0" TypeName="PackAssetManifestV0">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="records" TypeName="PackAssetManifestRecordV0">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+        </ArrayPtr>
+      </Version>
+      <Version Id="1" TypeName="PackAssetManifestV1">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="records" TypeName="PackAssetManifestRecordV1">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+        </ArrayPtr>
+        <ArrayPtr Name="streams" TypeName="PackAssetManifestStreamV1">
+          <Dword Name="parentBaseId" />
+          <Dword Name="streamBaseId" />
+        </ArrayPtr>
+      </Version>
+      <Version Id="2" TypeName="PackAssetManifestV2">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="records" TypeName="PackAssetManifestRecordV2">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+        </ArrayPtr>
+        <ArrayPtr Name="streams" TypeName="PackAssetManifestStreamV2">
+          <Dword Name="parentBaseId" />
+          <Dword Name="streamBaseId" />
+        </ArrayPtr>
+        <ArrayPtr Name="noDeltaRecords" TypeName="PackAssetManifestRecordV2">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+        </ArrayPtr>
+      </Version>
+      <Version Id="3" TypeName="PackAssetManifestV3">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="records" TypeName="PackAssetManifestRecordV3">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+        </ArrayPtr>
+        <ArrayPtr Name="streams" TypeName="PackAssetManifestStreamV3">
+          <Dword Name="parentBaseId" />
+          <Dword Name="streamBaseId" />
+        </ArrayPtr>
+        <ArrayPtr Name="options" TypeName="PackAssetManifestOptionsV3">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="flags" />
+        </ArrayPtr>
+      </Version>
+      <Version Id="4" TypeName="PackAssetManifestV4">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="records" TypeName="PackAssetManifestRecordV4">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+          <Dword Name="flags" />
+        </ArrayPtr>
+        <ArrayPtr Name="streams" TypeName="PackAssetManifestStreamV4">
+          <Dword Name="parentBaseId" />
+          <Dword Name="streamBaseId" />
+        </ArrayPtr>
+        <ArrayPtr Name="options" TypeName="PackAssetManifestOptionsV4">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="flags" />
+        </ArrayPtr>
+        <ArrayPtr Name="properties" TypeName="PackAssetManifestPropertyV4">
+          <Byte Name="type" />
+          <ArrayPtr Name="data" TypeName="Byte" />
+        </ArrayPtr>
+        <ArrayPtr Name="propertyTable" TypeName="PackAssetManifestPropertyIndexV4">
+          <Dword Name="baseId" />
+          <Dword Name="properyIndex" />
+        </ArrayPtr>
+      </Version>
+      <Version Id="5" TypeName="PackAssetManifestV5">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="records" TypeName="PackAssetManifestRecordV5">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+          <Dword Name="flags" />
+        </ArrayPtr>
+        <ArrayPtr Name="streams" TypeName="PackAssetManifestStreamV5">
+          <Dword Name="parentBaseId" />
+          <Dword Name="streamBaseId" />
+        </ArrayPtr>
+        <ArrayPtr Name="properties" TypeName="PackAssetManifestPropertyV5">
+          <Byte Name="type" />
+          <ArrayPtr Name="data" TypeName="Byte" />
+        </ArrayPtr>
+        <ArrayPtr Name="propertyTable" TypeName="PackAssetManifestPropertyIndexV5">
+          <Dword Name="baseId" />
+          <Dword Name="properyIndex" />
+        </ArrayPtr>
+      </Version>
+      <Version Id="6" TypeName="PackAssetManifest">
+        <Dword Name="buildId" />
+        <Token Name="totalRecordSize" />
+        <ArrayPtr Name="records" TypeName="PackAssetManifestRecord">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+          <Dword Name="flags" />
+        </ArrayPtr>
+        <ArrayPtr Name="streams" TypeName="PackAssetManifestStream">
+          <Dword Name="parentBaseId" />
+          <Dword Name="streamBaseId" />
+        </ArrayPtr>
+        <ArrayPtr Name="properties" TypeName="PackAssetManifestProperty">
+          <Byte Name="type" />
+          <ArrayPtr Name="data" TypeName="Byte" />
+        </ArrayPtr>
+        <ArrayPtr Name="propertyTable" TypeName="PackAssetManifestPropertyIndex">
+          <Dword Name="baseId" />
+          <Dword Name="properyIndex" />
+        </ArrayPtr>
+      </Version>
+    </Chunk>
+  </Packfile>
+  <Packfile Name="ARMF">
+    <Chunk Name="ARMF">
+      <Version Id="0" TypeName="PackAssetRootManifestV0">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="extraFiles" TypeName="PackAssetExtraFile">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+          <Dword Name="fileType" />
+        </ArrayPtr>
+      </Version>
+      <Version Id="1" TypeName="PackAssetRootManifest">
+        <Dword Name="buildId" />
+        <ArrayPtr Name="manifests" TypeName="PackAssetManifestFile">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+          <Dword Name="flags" />
+          <WcharPtr Name="name" />
+        </ArrayPtr>
+        <ArrayPtr Name="extraFiles" TypeName="PackAssetExtraFile">
+          <Dword Name="baseId" />
+          <Dword Name="fileId" />
+          <Dword Name="size" />
+          <Dword Name="fileType" />
+        </ArrayPtr>
+      </Version>
+    </Chunk>
+  </Packfile>
   <Packfile Name="cntc">
     <Chunk Name="Main">
       <Version Id="0" TypeName="PackContent">

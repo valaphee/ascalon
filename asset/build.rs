@@ -7,7 +7,7 @@ use quote::{format_ident, quote};
 use syn::Type;
 
 fn ident(name: &str) -> Ident {
-    let name = name
+    let name: String = name
         .chars()
         .map(|c| {
             if c.is_ascii_alphanumeric() || c == '_' {
@@ -16,7 +16,7 @@ fn ident(name: &str) -> Ident {
                 '_'
             }
         })
-        .collect::<String>();
+        .collect();
 
     syn::parse_str(&name).unwrap_or_else(|_| Ident::new_raw(&name, Span::call_site()))
 }
