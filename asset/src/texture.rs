@@ -187,7 +187,7 @@ fn decode_alpha(
         let count = read_run(bits)?;
         let set = bits.read(1)? != 0;
 
-        let nonzero = bits.peek(1)? != 0;
+        let nonzero = bits.peek(1) != 0;
 
         if set {
             bits.read(1)?;

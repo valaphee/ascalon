@@ -80,15 +80,15 @@ impl Archive {
             let mut block = [0; 0x10000];
 
             let mut remaining = mft_entry.size.get() as usize;
-            while remaining > block.len() - 4 {
-                file.read_exact(&mut block)?;
-                bytes.extend_from_slice(&block[..block.len() - 4]);
-                remaining -= block.len();
-            }
+            while remaining > 0 {
+                let len = remaining.min(block.len());
+                file.read_exact(&mut block[..len])?;
 
-            let len = bytes.len();
-            bytes.resize(len + remaining, 0);
-            file.read_exact(&mut bytes[len..])?;
+                let data_len = len.saturating_sub(4);
+                bytes.extend_from_slice(&block[..data_len]);
+
+                remaining -= len;
+            }
         }
 
         Ok(match mft_entry.extra_bytes.get() {

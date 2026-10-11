@@ -277,14 +277,14 @@ impl HuffmanTree {
                 long_len,
                 symbols,
             } => {
-                let prefix = bits.peek(HASH_BITS as u32)? as usize;
+                let prefix = bits.peek(HASH_BITS as u32) as usize;
                 let width = hash_bits[prefix];
                 if width != 0 {
                     bits.read(width as u32)?;
                     return Ok(hash_symbol[prefix]);
                 }
 
-                let value = bits.peek(32)?;
+                let value = bits.peek(32);
                 for entry in &long[..*long_len] {
                     if value < entry.comparison {
                         continue;
