@@ -20,14 +20,14 @@ pub struct Emote {
     pub _3c:             u32,
     _40:                 Ptr<()>,
     pub _48:             u32,
-    pub _4c:             u32,
+    _4c:                 u32,
     pub _50:             u32,
-    pub _54:             u32,
+    _54:                 u32,
     pub _58:             u32,
     pub _5c:             u32,
     pub _60:             Ptr<Progress>,
     pub _68:             u32,
-    pub _6c:             u32,
+    _6c:                 u32,
 }
 
 impl ContentType for Emote {

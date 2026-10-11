@@ -15,13 +15,13 @@ pub struct Sector {
     pub dataId:          u32,
     pub _2c:             u32,
     pub _30:             u32,
-    pub _34:             u32,
+    _34:                 u32,
     pub _38:             Ptr<Map>,
     pub _40:             u32,
-    pub _44:             u32,
+    _44:                 u32,
     _48:                 Ptr<()>,
     pub _50:             u32,
-    pub _54:             u32,
+    _54:                 u32,
 }
 
 impl ContentType for Sector {

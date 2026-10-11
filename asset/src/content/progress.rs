@@ -24,10 +24,10 @@ pub struct Progress {
     _50:                 Ptr<()>,
     pub _58:             u32,
     _5c:                 u32,
-    pub _60:             u32,
-    pub _64:             u32,
-    pub _68:             u32,
-    pub _6c:             u32,
+    _60:                 u32,
+    _64:                 u32,
+    _68:                 u32,
+    _6c:                 u32,
 }
 
 impl ContentType for Progress {

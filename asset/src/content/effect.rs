@@ -13,16 +13,16 @@ pub struct Effect {
     pub contentName:     Ptr<Name>,
     pub contentFullName: Ptr<Name>,
     pub _28:             u32,
-    pub _2c:             u32,
+    _2c:                 u32,
     _30:                 Ptr<()>,
     pub _38:             u32,
     pub _40:             u32,
-    pub _44:             u32,
+    pub _44:             f32,
     pub _48:             Ptr<Effect>,
     pub _50:             u32,
     pub _54:             u32,
     pub _58:             u32,
-    pub _5c:             u32,
+    _5c:                 u32,
 }
 
 impl ContentType for Effect {

@@ -13,10 +13,10 @@ pub struct Trait {
     pub contentName:     Ptr<Name>,
     pub contentFullName: Ptr<Name>,
     pub dataId:          u32,
-    pub _2c:             u32,
+    _2c:                 u32,
     _30:                 Ptr<()>,
     pub _38:             u32,
-    pub _3c:             u32,
+    _3c:                 u32,
     _40:                 Ptr<()>,
     pub _48:             u32,
     pub _4c:             u32,
@@ -28,10 +28,10 @@ pub struct Trait {
     pub _68:             u32,
     pub _6c:             u32,
     pub _70:             u32,
-    pub _74:             u32,
+    _74:                 u32,
     _78:                 Ptr<()>,
     pub _80:             u32,
-    pub _84:             u32,
+    _84:                 u32,
 }
 
 impl ContentType for Trait {

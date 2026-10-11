@@ -6,8 +6,9 @@ publish = false
 
 [dependencies]
 axum = "0.8"
-async-graphql = "8.0.0-rc.5"
+async-graphql = { version =  "8.0.0-rc.5", default-features = false }
 async-graphql-axum = "8.0.0-rc.5"
 tokio = { version = "1", features = ["rt-multi-thread", "net"] }
+tower-http = { version = "0.7", features = ["cors"] }
 
 ascalon-asset = { path = "../../asset", features = ["graphql"] }

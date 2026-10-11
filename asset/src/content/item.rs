@@ -14,9 +14,7 @@ pub struct Item {
     pub contentFullName: Ptr<Name>,
     pub dataId:          u32,
     pub r#type:          ItemType,
-
-    _30: Ptr<()>,
-
+    _30:                 Ptr<()>,
     flags:               ItemFlags,
     _3c:                 u32,
     pub fileIcon:        WcharPtr,

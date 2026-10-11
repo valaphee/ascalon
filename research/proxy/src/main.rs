@@ -2,12 +2,11 @@ use ascalon_asset::archive::Archive;
 use ascalon_asset::content::{ContentServer, ContentType, Guid};
 use ascalon_asset::packfile::Packfile;
 use ascalon_asset::packfile::cntc::PackContent;
-use async_graphql::http::GraphiQLSource;
 use async_graphql::{EmptyMutation, EmptySubscription, Schema};
 use async_graphql_axum::GraphQL;
 use axum::Router;
-use axum::response::Html;
-use axum::routing::get;
+use axum::routing::post_service;
+use tower_http::cors::CorsLayer;
 
 #[tokio::main]
 async fn main() {
@@ -36,11 +35,9 @@ async fn main() {
         EmptySubscription,
     );
 
-    let router = Router::new().route(
-        "/",
-        get(|| async { Html(GraphiQLSource::build().endpoint("/").finish()) })
-            .post_service(GraphQL::new(schema)),
-    );
+    let router = Router::new()
+        .route("/", post_service(GraphQL::new(schema)))
+        .layer(CorsLayer::permissive());
 
     axum::serve(
         tokio::net::TcpListener::bind("127.0.0.1:8000")
