@@ -48,3 +48,43 @@ pub struct Skin {
 impl ContentType for Skin {
     const ID: u32 = 66;
 }
+
+#[cfg_attr(
+    feature = "graphql",
+    derive(async_graphql::SimpleObject),
+    graphql(rename_fields = "none")
+)]
+#[repr(C)]
+pub struct MagicDoorSkin {
+    pub contentGuid:     Guid,
+    pub contentType:     u32,
+    pub contentUid:      u32,
+    pub contentName:     Ptr<Name>,
+    pub contentFullName: Ptr<Name>,
+    pub dataId:          u32,
+    pub _2c:             u32,
+    pub _30:             u32,
+    _34:                 u32,
+    pub _38:             WcharPtr,
+    pub _40:             WcharPtr,
+    pub _48:             u32,
+    pub _4c:             u32,
+    pub _50:             Ptr<u32>,
+    pub _58:             Ptr<u32>,
+    pub _60:             Ptr<u32>,
+    pub _68:             Ptr<u32>,
+    pub _70:             u32,
+    pub _74:             u32,
+    pub _78:             u32,
+    pub _7c:             u32,
+    pub _80:             Ptr<u32>,
+    pub _88:             u32,
+    _8c:                 u32,
+    pub _90:             u32,
+    _94:                 u32,
+    pub _98:             WcharPtr,
+}
+
+impl ContentType for MagicDoorSkin {
+    const ID: u32 = 42;
+}
