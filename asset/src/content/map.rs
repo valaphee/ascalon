@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use super::{ContentType, Guid, Mail, Name, Progress, Ptr, String, WcharPtr};
 
 #[cfg_attr(

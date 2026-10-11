@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use super::{ContentType, Guid, Name, Progress, Ptr};
 
 #[cfg_attr(

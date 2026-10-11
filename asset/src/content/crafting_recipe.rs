@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use super::{ContentType, Currency, Guid, GuildUpgrade, Item, Name, Progress, Ptr};
 
 #[cfg_attr(

@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use super::{ContentType, Effect, Guid, Name, Ptr, Team, WcharPtr};
 
 #[cfg_attr(

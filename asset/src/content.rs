@@ -167,8 +167,8 @@ fn mangle_name(name: &str) -> u64 {
     }
 
     let mut hash = 0xCBF29CE484222325u64;
-    for chunk in digest.finalize().chunks_exact(4) {
-        let mut value = u32::from_le_bytes(chunk.try_into().unwrap());
+    for &chunk in digest.finalize().as_chunks::<4>().0 {
+        let mut value = u32::from_le_bytes(chunk);
 
         for _ in 0..4 {
             hash = (hash ^ value as u64).wrapping_mul(0x100000001B3);

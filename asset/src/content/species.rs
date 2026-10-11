@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use super::{ContentType, Guid, Item, Name, Ptr, Skill, WcharPtr};
 
 #[cfg_attr(

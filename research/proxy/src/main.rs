@@ -18,9 +18,9 @@ async fn main() {
     let client = reqwest::Client::new();
 
     let manifest: HashMap<u32, (u32, u32)> = {
-        let latest = reqwest::get(format!(
+        let latest = reqwest::get(
             "http://assetcdn.101.arenanetworks.com/latest64/101"
-        ))
+        )
         .await
         .unwrap()
         .text()
