@@ -425,7 +425,7 @@ impl FileRef {
 
 impl std::fmt::Debug for FileRef {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        unsafe { self.file_id() }.unwrap().fmt(f)
+        unsafe { self.file_id() }.fmt(f)
     }
 }
 

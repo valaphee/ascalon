@@ -24,12 +24,12 @@ async fn main() {
             .text()
             .await
             .unwrap();
-        let mut latest = latest.split_whitespace();
+        let mut latest = latest.split_whitespace().skip(3);
 
         let packfile = Packfile::new(
             fetch_compressed(
                 &client,
-                latest.nth(3).unwrap().parse().unwrap(),
+                latest.next().unwrap().parse().unwrap(),
                 latest.next().unwrap().parse().unwrap(),
             )
             .await,

@@ -57,7 +57,7 @@ impl Archive {
             file:  Mutex::new(file),
             index: index
                 .iter()
-                .filter(|entry| entry.file_id != 0 && entry.mft_index != 0)
+                .filter(|entry| entry.file_id != 0)
                 .map(|entry| {
                     (
                         entry.file_id.get(),

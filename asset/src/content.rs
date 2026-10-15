@@ -7,8 +7,8 @@ use crate::packfile::cntc::PackContent;
 pub struct ContentServer {
     by_type:    HashMap<u32, Vec<*const u8>>,
     by_guid:    HashMap<Guid, *const u8>,
-    by_data_id: HashMap<u32, *const u8>,
     by_name:    HashMap<u64, *const u8>,
+    by_data_id: HashMap<u32, *const u8>,
 }
 
 impl ContentServer {
@@ -16,15 +16,15 @@ impl ContentServer {
         let mut this = Self {
             by_type:    HashMap::new(),
             by_guid:    HashMap::new(),
-            by_data_id: HashMap::new(),
             by_name:    HashMap::new(),
+            by_data_id: HashMap::new(),
         };
 
         unsafe {
             for _content in content {
                 assert_eq!(
                     ContentFlags::from_bits_retain(_content.flags.get()),
-                    ContentFlags::MANGLED
+                    ContentFlags::NAME_MANGLED
                 );
 
                 let data = _content.content.as_ptr();
@@ -155,8 +155,8 @@ bitflags::bitflags! {
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ContentFlags: u32 {
-        const ENCRYPTED = 1 << 0;
-        const MANGLED   = 1 << 1;
+        const ENCRYPTED    = 1 << 0;
+        const NAME_MANGLED = 1 << 1;
     }
 }
 
@@ -398,9 +398,6 @@ impl async_graphql::OutputType for String {
 
 #[repr(transparent)]
 pub struct FileRef(pub WcharPtr);
-
-unsafe impl Send for FileRef {}
-unsafe impl Sync for FileRef {}
 
 impl FileRef {
     pub unsafe fn file_id(&self) -> Option<u32> {
