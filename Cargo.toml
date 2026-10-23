@@ -1,7 +1,6 @@
 [workspace]
 members = [
-    "asset",
-    "content",
+    "asset", # packfile
     "packfile-schema",
     "network",
     "protocol",

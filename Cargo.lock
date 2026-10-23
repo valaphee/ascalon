@@ -15,10 +15,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ascalon-content"
-version = "0.1.0"
-
-[[package]]
 name = "ascalon-network"
 version = "0.1.0"
 dependencies = [

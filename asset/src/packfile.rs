@@ -22,7 +22,7 @@ pub type FileName = FileRef;
 pub struct Packfile(Vec<u8>);
 
 impl Packfile {
-    pub fn new(bytes: Vec<u8>) -> Result<Self> {
+    pub fn from_bytes(bytes: Vec<u8>) -> Result<Self> {
         let header = PackfileHeader::ref_from_prefix(&bytes).unwrap().0;
         if header.magic != *b"PF" {
             return Err(Error::new(ErrorKind::InvalidData, "invalid magic"));
@@ -226,12 +226,6 @@ struct PackfileChunkHeader {
 #[repr(C)]
 pub struct Guid(Dword, Word, Word, [u8; 8]);
 
-impl Guid {
-    pub const fn new(a: u32, b: u16, c: u16, d: [u8; 8]) -> Self {
-        Self(Dword::new(a), Word::new(b), Word::new(c), d)
-    }
-}
-
 impl std::fmt::Debug for Guid {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
@@ -270,7 +264,10 @@ impl<T> Ptr<T> {
 
 impl<T: std::fmt::Debug> std::fmt::Debug for Ptr<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        unsafe { self.as_ref() }.fmt(f)
+        match unsafe { self.as_ref() } {
+            Some(value) => value.fmt(f),
+            None => f.write_str("null"),
+        }
     }
 }
 

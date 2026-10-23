@@ -7,6 +7,8 @@ pub mod packfile;
 pub mod atex;
 pub mod strs;
 
+pub mod content;
+
 fn rc4_hash(input: &[u8]) -> [u8; 20] {
     use zerocopy::FromBytes as _;
     use zerocopy::little_endian::U32;
