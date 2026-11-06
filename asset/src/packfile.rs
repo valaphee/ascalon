@@ -38,8 +38,20 @@ impl Packfile {
         self.header().r#type
     }
 
-    pub fn chunks(&self) -> PackfileChunks<'_> {
-        PackfileChunks(&self.0[self.header().header_size.get() as usize..])
+    pub fn chunks(&self) -> impl Iterator<Item = PackfileChunk<'_>> {
+        let mut data = &self.0[self.header().header_size.get() as usize..];
+
+        std::iter::from_fn(move || {
+            if data.is_empty() {
+                return None;
+            }
+
+            let header = PackfileChunkHeader::ref_from_prefix(data).unwrap().0;
+            let bytes = data.split_at(header.size.get() as usize + 8);
+            data = bytes.1;
+
+            Some(PackfileChunk(bytes.0))
+        })
     }
 }
 
@@ -68,11 +80,9 @@ impl Packfile {
         let mut bytes = Vec::with_capacity(size);
         bytes.extend_from_slice(&self.0[..self.header().header_size.get() as usize]);
         bytes.resize(0x10, 0);
-        PackfileHeader::mut_from_prefix(&mut bytes)
-            .unwrap()
-            .0
-            .header_size
-            .set(0x10);
+
+        let header = PackfileHeader::mut_from_prefix(&mut bytes).unwrap().0;
+        header.header_size.set(0x10);
 
         for chunk in self.chunks() {
             let chunk_bytes = chunk.bytes();
@@ -140,33 +150,15 @@ impl Packfile {
             bytes.extend_from_slice(&chunk_bytes[pos..]);
 
             let chunk_size = bytes.len() - chunk_start;
-            let header = PackfileChunkHeader::mut_from_prefix(&mut bytes[chunk_start..])
+
+            let chunk_header = PackfileChunkHeader::mut_from_prefix(&mut bytes[chunk_start..])
                 .unwrap()
                 .0;
-
-            header.data_size.set(0);
-            header.size.set((chunk_size - 8) as _);
+            chunk_header.data_size.set(0);
+            chunk_header.size.set((chunk_size - 8) as _);
         }
 
         Ok(Self(bytes))
-    }
-}
-
-pub struct PackfileChunks<'a>(&'a [u8]);
-
-impl<'a> Iterator for PackfileChunks<'a> {
-    type Item = PackfileChunk<'a>;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        if self.0.is_empty() {
-            return None;
-        }
-
-        let header = PackfileChunkHeader::ref_from_prefix(self.0).unwrap().0;
-        let bytes = self.0.split_at(header.size.get() as usize + 8);
-        self.0 = bytes.1;
-
-        Some(PackfileChunk(bytes.0))
     }
 }
 
