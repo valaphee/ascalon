@@ -3,37 +3,6 @@ import xml.etree.ElementTree as ET
 import frida
 
 
-def export_protocols(protocols):
-    root = ET.Element("Protocols")
-
-    protocols.sort(key=lambda protocol: protocol["id"])
-    for protocol in protocols:
-        protocol_elem = ET.SubElement(root, "Protocol")
-        protocol_elem.set("Name", f"{protocol['id']}")
-
-        protocol["msgs"].sort(key=lambda messages: messages["id"])
-        for messages in protocol["msgs"]:
-            messages_elem = ET.SubElement(protocol_elem, "Messages")
-            messages_elem.set("Name", f"{messages['id']}")
-
-            client_elem = ET.SubElement(messages_elem, "Client")
-            server_elem = ET.SubElement(messages_elem, "Server")
-
-            for message in messages["client"]:
-                add_message(client_elem, message)
-
-            for message in messages["server"]:
-                add_message(server_elem, message)
-
-    ET.indent(root, space="  ")
-
-    ET.ElementTree(root).write(
-        "protocols.xml",
-        encoding="utf-8",
-        xml_declaration=True,
-    )
-
-
 def add_message(parent, message):
     elem = ET.SubElement(parent, "Message")
 
@@ -87,7 +56,34 @@ frida.resume(pid)
 
 input()
 
+root = ET.Element("Protocols")
+
 protocols = script.exports_sync.get_protocols()
-export_protocols(protocols)
+protocols.sort(key=lambda protocol: protocol["id"])
+for protocol in protocols:
+    protocol_elem = ET.SubElement(root, "Protocol")
+    protocol_elem.set("Name", f"{protocol['id']}")
+
+    protocol["msgs"].sort(key=lambda messages: messages["id"])
+    for messages in protocol["msgs"]:
+        messages_elem = ET.SubElement(protocol_elem, "Messages")
+        messages_elem.set("Name", f"{messages['id']}")
+
+        client_elem = ET.SubElement(messages_elem, "Client")
+        server_elem = ET.SubElement(messages_elem, "Server")
+
+        for message in messages["client"]:
+            add_message(client_elem, message)
+
+        for message in messages["server"]:
+            add_message(server_elem, message)
+
+ET.indent(root, space="  ")
+
+ET.ElementTree(root).write(
+    "protocols.xml",
+    encoding="utf-8",
+    xml_declaration=True,
+)
 
 session.detach()

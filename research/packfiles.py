@@ -4,7 +4,6 @@ import xml.etree.ElementTree as ET
 
 import pefile
 
-
 TYPES = {
     1: "Array",
     2: "ArrayPtr",
@@ -99,11 +98,7 @@ def add_struct(parent, address):
             if not add_struct(elem, reference_type):
                 return False
 
-            if (
-                len(elem) == 1
-                and (item := elem[0]).get("Name") == ""
-                and not len(item)
-            ):
+            if len(elem) == 1 and (item := elem[0]).get("Name") == "" and not len(item):
                 elem.set("TypeName", item.tag)
                 elem.remove(item)
 
@@ -132,17 +127,15 @@ def add_struct(parent, address):
 
 root = ET.Element("Chunks")
 
-rdata = next(
-    section
-    for section in pe.sections
-    if section.Name.rstrip(b"\0") == b".rdata"
+section = next(
+    section for section in pe.sections if section.Name.rstrip(b"\0") == b".rdata"
 )
 
 seen_chunks = set()
 
 for chunk_pos in range(
-    rdata.PointerToRawData,
-    rdata.PointerToRawData + rdata.SizeOfRawData - 16,
+    section.PointerToRawData,
+    section.PointerToRawData + section.SizeOfRawData - 16,
     4,
 ):
     name, version_count, versions = struct.unpack_from(

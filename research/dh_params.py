@@ -8,10 +8,9 @@ data = path.read_bytes()
 
 pe = pefile.PE(data=data)
 
-rdata = next(
-    section
-    for section in pe.sections
-    if section.Name.rstrip(b"\0") == b".rdata")
+section = next(
+    section for section in pe.sections if section.Name.rstrip(b"\0") == b".rdata"
+)
 
 DH_PARAMS_SIZE = 136
 
@@ -21,8 +20,8 @@ g = 4
 pos = next(
     pos
     for pos in range(
-        rdata.PointerToRawData,
-        rdata.PointerToRawData + rdata.SizeOfRawData - DH_PARAMS_SIZE + 1,
+        section.PointerToRawData,
+        section.PointerToRawData + section.SizeOfRawData - DH_PARAMS_SIZE + 1,
     )
     if struct.unpack_from("<II", data, pos) == (v, g)
     and data[pos + 8 : pos + DH_PARAMS_SIZE].count(0) <= 3
